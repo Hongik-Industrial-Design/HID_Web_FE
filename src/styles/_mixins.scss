@@ -1,0 +1,6 @@
+// Functions
+@function get-color($palette, $shade) {
+  @return map-get($palette, $shade);
+}
+
+// Mixins
