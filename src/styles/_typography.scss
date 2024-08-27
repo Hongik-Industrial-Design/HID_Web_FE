@@ -1,6 +1,3 @@
-@import "variables";
-@import "mixins";
-
 .display {
   @include font-style(
     map-get($font-size, "display"),
