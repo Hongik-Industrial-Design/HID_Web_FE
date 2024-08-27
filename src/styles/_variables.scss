@@ -1,3 +1,4 @@
+// 📌 Color Palette
 // Navy Color Palette
 $Hiid_Navy: (
   900: #09287a,
@@ -26,7 +27,7 @@ $Hiid_Monochrome: (
   50: #f5f5f5,
 );
 
-// Buttons (w/ status)
+// 📌 Buttons(w/status)
 $Hiid_Buttons: (
   // Text Button
   text:
@@ -78,11 +79,26 @@ $Hiid_Buttons: (
     )
 );
 
-// Exhibition Work
+// 📌 Exhibition Work
 $Hiid_Work: (
   active: #09287acc,
   hover: #09287a80,
 );
 
-// focus-visible (on interaction element)
+// 📌 focus-visible (on interaction element)
 $focus-visible-color: #09287a;
+
+// 📌 Global Spacing (4px multuiple spacing)
+$spacing: (
+  xxs: 4px,
+  xs: 8px,
+  sm: 16px,
+  md: 24px,
+  lg: 32px,
+  xl: 48px,
+  xxl: 64px,
+);
+
+// Grid config variables
+$gallery-grid-columns: 3;
+$gallery-grid-gap: map-get($spacing, md);

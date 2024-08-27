@@ -50,3 +50,50 @@
     @include button-style(block, disabled);
   }
 }
+
+// Go To List button
+.go-to-list {
+  @include center-align-inline(auto, 40px, 100px);
+  padding: 8px 16px;
+
+  .arrow-icon {
+    @include icon-size(24px, 24px);
+  }
+}
+
+// Play button
+.play-button {
+  @include center-align-inline(auto, 72px, 2px);
+  padding: 8px 16px;
+
+  .play-icon {
+    @include icon-size(56px, 56px);
+  }
+}
+
+// Full screen button
+.full-screen-button {
+  @include center-align-inline(auto, 48px, 2px);
+  padding: 8px;
+
+  .full-screen-icon {
+    @include icon-size(32px, 32px);
+  }
+}
+
+// Scroll-To button (Entirely SVG file)
+.scroll-to-button {
+  @include center-align-inline(40px, 40px, 36px);
+}
+
+// Tags Button
+.tags-button {
+  @include center-align-inline(auto, 46px, 2px);
+  padding: 8px;
+}
+
+// Author button
+.author-button {
+  @include center-align-inline(auto, 32px, 2px);
+  padding: 4px 16px;
+}

@@ -9,7 +9,13 @@
   @return map-get(map-get($Hiid_Buttons, $type), $state);
 }
 
+// Apply Spacing
+@function spacing($size) {
+  @return $size;
+}
+
 // 📌 Mixins
+// Applying Button styles
 @mixin button-style($type, $state) {
   $styles: get-button-style($type, $state);
 
@@ -31,4 +37,36 @@
   &:focus {
     outline: 4px solid $focus-visible-color;
   }
+}
+
+// Spacing
+@mixin flex-gap($gap-size) {
+  display: flex;
+  gap: $gap-size;
+}
+
+// Grid & Flexbox
+@mixin gallery-grid($columns, $gap) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+  overflow-x: auto;
+  white-space: nowrap;
+  scroll-snap-type: x mandatory;
+}
+
+@mixin center-align-inline($width, $height, $border-radius) {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  width: $width;
+  height: $height;
+  border-radius: $border-radius;
+}
+
+// icon-size
+@mixin icon-size($width, $height) {
+  width: $width;
+  height: $height;
 }

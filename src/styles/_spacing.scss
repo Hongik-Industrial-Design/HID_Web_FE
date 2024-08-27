@@ -1,0 +1,24 @@
+.global-navbar {
+  @include flex-gap(map-get($spacing, xl));
+}
+
+.side-navbar {
+  @include flex-gap(map-get($spacing, lg));
+  flex-direction: column;
+}
+
+.breadcrumb {
+  @include flex-gap(map-get($spacing, xs));
+}
+
+.scroll-icon {
+  @include flex-gap(map-get($spacing, md));
+}
+
+.hid_social-icons {
+  @include flex-gap(map-get($spacing, sm));
+}
+
+.personal_contact-icons {
+  @include flex-gap(map-get($spacing, xs));
+}
