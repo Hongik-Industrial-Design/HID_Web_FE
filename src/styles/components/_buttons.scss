@@ -1,0 +1,52 @@
+@import "mixins";
+
+// Text Button
+.text {
+  @include button-style(text, default);
+
+  &:hover {
+    @include button-style(text, hover);
+  }
+
+  &:active {
+    @include button-style(text, active);
+  }
+
+  &:disabled {
+    @include button-style(text, disabled);
+  }
+}
+
+// Round Button
+.round {
+  @include button-style(round, default);
+
+  &:hover {
+    @include button-style(round, hover);
+  }
+
+  &:active {
+    @include button-style(round, active);
+  }
+
+  &:disabled {
+    @include button-style(round, disabled);
+  }
+}
+
+// Block Button
+.block {
+  @include button-style(block, default);
+
+  &:hover {
+    @include button-style(block, hover);
+  }
+
+  &:active {
+    @include button-style(block, active);
+  }
+
+  &:disabled {
+    @include button-style(block, disabled);
+  }
+}

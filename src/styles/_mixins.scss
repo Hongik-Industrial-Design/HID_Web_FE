@@ -1,6 +1,34 @@
-// Functions
+// 📌 Functions
+// Applying Color Palette
 @function get-color($palette, $shade) {
   @return map-get($palette, $shade);
 }
 
-// Mixins
+// Applying Button type (w/ status)
+@function get-button-style($type, $state) {
+  @return map-get(map-get($Hiid_Buttons, $type), $state);
+}
+
+// 📌 Mixins
+@mixin button-style($type, $state) {
+  $styles: get-button-style($type, $state);
+
+  // Text Button
+  @if $type == text {
+    color: map-get($styles, text);
+  }
+
+  // Round or Block button
+  @else {
+    background-color: map-get($styles, background);
+    color: map-get($styles, text);
+    @if map-has-key($styles, icon) {
+      fill: map-get($styles, icon);
+    }
+  }
+
+  // focus-visible
+  &:focus {
+    outline: 4px solid $focus-visible-color;
+  }
+}

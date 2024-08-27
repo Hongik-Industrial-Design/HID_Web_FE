@@ -25,3 +25,64 @@ $Hiid_Monochrome: (
   100: #ebebeb,
   50: #f5f5f5,
 );
+
+// Buttons (w/ status)
+$Hiid_Buttons: (
+  // Text Button
+  text:
+    (
+      default: #7b7b7b,
+      active: #09287a,
+      disabled: #dfdfdf,
+      hover: #7488c8,
+    ),
+  // Round Button
+  round:
+    (
+      default: (
+        background: #d2d2d7a3,
+        text: #0000008f,
+      ),
+      active: (
+        background: #09287a,
+        text: #ffffff,
+      ),
+      disabled: (
+        background: #dfdfdf6b,
+        text: #0000008f,
+      ),
+      hover: (
+        background: #7488c8,
+        text: #ffffff,
+      ),
+    ),
+  // Block Button
+  block:
+    (
+      default: (
+        background: #000000,
+        icon: #ffffff,
+      ),
+      active: (
+        background: #09287a,
+        icon: #ffffff,
+      ),
+      disabled: (
+        background: #dfdfdf6b,
+        icon: #0000008f,
+      ),
+      hover: (
+        background: #7488c8,
+        icon: #ffffff,
+      ),
+    )
+);
+
+// Exhibition Work
+$Hiid_Work: (
+  active: #09287acc,
+  hover: #09287a80,
+);
+
+// focus-visible (on interaction element)
+$focus-visible-color: #09287a;
