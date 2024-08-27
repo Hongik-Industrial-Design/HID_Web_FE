@@ -1,3 +1,6 @@
+@import "variables";
+@import "mixins";
+
 .global-navbar {
   @include flex-gap(map-get($spacing, xl));
 }

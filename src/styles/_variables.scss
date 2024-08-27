@@ -1,3 +1,39 @@
+// 📌 Font
+// Font Family
+$font-primary: greycliff-cf, sans-serif;
+
+// Font Sizes
+$font-size: (
+  "display": 32px,
+  "header1": 48px,
+  "header2": 32px,
+  "title1": 28px,
+  "title2": 22px,
+  "headline": 20px,
+  "body": 14px,
+  "caption": 14px,
+);
+
+// Font weight
+$font-weight: (
+  "light": 300,
+  "regular": 400,
+  "medium": 500,
+  "bold": 700,
+);
+
+// Line height
+$line-height: (
+  "display": 40px,
+  "header-1": 56px,
+  "header-2": 40px,
+  "title-1": 32px,
+  "title-2": 28px,
+  "headline": 24px,
+  "body": 22px,
+  "caption": 18px,
+);
+
 // 📌 Color Palette
 // Navy Color Palette
 $Hiid_Navy: (

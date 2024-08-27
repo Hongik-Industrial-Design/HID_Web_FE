@@ -1,3 +1,5 @@
+@import "variables";
+
 // 📌 Functions
 // Applying Color Palette
 @function get-color($palette, $shade) {
@@ -15,6 +17,14 @@
 }
 
 // 📌 Mixins
+// Font styles Mixin
+@mixin font-style($size, $line-height, $weight) {
+  font-family: $font-primary;
+  font-size: $size;
+  line-height: $line-height;
+  font-weight: $weight;
+}
+
 // Applying Button styles
 @mixin button-style($type, $state) {
   $styles: get-button-style($type, $state);

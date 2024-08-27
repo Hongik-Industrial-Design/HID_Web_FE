@@ -1,3 +1,6 @@
+@import "../variables";
+@import "../mixins";
+
 .gallery {
   @include gallery-grid($gallery-grid-columns, $gallery-grid-gap);
 }
