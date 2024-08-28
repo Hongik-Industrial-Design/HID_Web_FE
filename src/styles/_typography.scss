@@ -1,0 +1,63 @@
+.display {
+  @include font-style(
+    map-get($font-size, "display"),
+    map-get($line-height, "display"),
+    map-get($font-weight, "light")
+  );
+}
+
+.header1 {
+  @include font-style(
+    map-get($font-size, "header1"),
+    map-get($line-height, "header1"),
+    map-get($font-weight, "bold")
+  );
+}
+
+.header2 {
+  @include font-style(
+    map-get($font-size, "header2"),
+    map-get($line-height, "header2"),
+    map-get($font-weight, "bold")
+  );
+}
+
+.title1 {
+  @include font-style(
+    map-get($font-size, "title1"),
+    map-get($line-height, "title1"),
+    map-get($font-weight, "medium")
+  );
+}
+
+.title2 {
+  @include font-style(
+    map-get($font-size, "title2"),
+    map-get($line-height, "title2"),
+    map-get($font-weight, "medium")
+  );
+}
+
+.headline {
+  @include font-style(
+    map-get($font-size, "headline"),
+    map-get($line-height, "headline"),
+    map-get($font-weight, "regular")
+  );
+}
+
+.body {
+  @include font-style(
+    map-get($font-size, "body"),
+    map-get($line-height, "body"),
+    map-get($font-weight, "regular")
+  );
+}
+
+.caption {
+  @include font-style(
+    map-get($font-size, "caption"),
+    map-get($line-height, "caption"),
+    map-get($font-weight, "regular")
+  );
+}

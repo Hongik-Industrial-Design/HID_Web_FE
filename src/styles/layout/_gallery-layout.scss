@@ -1,0 +1,8 @@
+.gallery {
+  @include gallery-grid($gallery-grid-columns, $gallery-grid-gap);
+}
+
+.gallery-item {
+  width: 517px;
+  height: 507px;
+}
