@@ -29,7 +29,7 @@
 
   // Text Button
   @if $type == text {
-    color: map-get($styles, text);
+    color: $styles;
   }
 
   // Round or Block button
