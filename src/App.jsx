@@ -1,4 +1,4 @@
-import MainBanner from "@components/MainBanner";
+import MainBanner from "@components/MainBanner/MainBanner";
 
 function App() {
   return (
