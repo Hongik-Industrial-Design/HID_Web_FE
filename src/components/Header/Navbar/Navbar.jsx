@@ -1,15 +1,49 @@
+import { useState } from "react";
+
 import { NavItem, NavItemsContainer } from "./Navbar.styled";
 
 const Navbar = () => {
+  const [activeMenu, setActiveMenu] = useState("Graduation Exhibition");
+
   return (
     <>
       <NavItemsContainer>
-        <NavItem>Faculty</NavItem>
-        <NavItem>Graduation Exhibition</NavItem>
-        <NavItem>Student Exhibition</NavItem>
-        <NavItem>CourseTrack</NavItem>
-        <NavItem>Community</NavItem>
-        <NavItem>Contact</NavItem>
+        <NavItem
+          $isActive={activeMenu === "Faculty"}
+          onClick={() => setActiveMenu("Faculty")}
+        >
+          Faculty
+        </NavItem>
+        <NavItem
+          $isActive={activeMenu === "Graduation Exhibition"}
+          onClick={() => setActiveMenu("Graduation Exhibition")}
+        >
+          Graduation Exhibition
+        </NavItem>
+        <NavItem
+          $isActive={activeMenu === "Student Exhibition"}
+          onClick={() => setActiveMenu("Student Exhibition")}
+        >
+          Student Exhibition
+        </NavItem>
+        <NavItem
+          $isActive={activeMenu === "CourseTrack"}
+          onClick={() => setActiveMenu("CourseTrack")}
+        >
+          CourseTrack
+        </NavItem>
+        <NavItem
+          $isActive={activeMenu === "Community"}
+          onClick={() => setActiveMenu("Community")}
+        >
+          Community
+        </NavItem>
+        <NavItem
+          $isActive={activeMenu === "Contact"}
+          onClick={() => setActiveMenu("Contact")}
+        >
+          Contact
+        </NavItem>
       </NavItemsContainer>
     </>
   );
