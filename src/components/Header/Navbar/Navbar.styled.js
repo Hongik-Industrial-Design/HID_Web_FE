@@ -10,7 +10,7 @@ export const NavItem = styled.p`
   font-weight: ${({ $isActive }) => ($isActive ? 600 : 300)};
   color: ${({ $isActive }) => ($isActive ? "#09287A" : "#262626")};
   cursor: pointer;
-
+  
   position: relative;
 
   &::after {

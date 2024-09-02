@@ -2,7 +2,8 @@ import { useState } from "react";
 
 import { NavItem, NavItemsContainer } from "./Navbar.styled";
 
-const Navbar = () => {
+// eslint-disable-next-line react/prop-types
+const Navbar = ({ setIsHovered }) => {
   const [activeMenu, setActiveMenu] = useState("Graduation Exhibition");
 
   return (
@@ -16,6 +17,8 @@ const Navbar = () => {
         </NavItem>
         <NavItem
           $isActive={activeMenu === "Graduation Exhibition"}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
           onClick={() => setActiveMenu("Graduation Exhibition")}
         >
           Graduation Exhibition
