@@ -15,6 +15,10 @@ export const DetailedMajor = styled.p`
   font-size: 22px;
   font-weight: 400;
   line-height: 28px;
-  
+
   cursor: pointer;
+
+  color: ${({ $isSelected }) => ($isSelected ? "#09287A" : "#7B7B7B")};
+  font-weight: ${({ $isSelected }) => ($isSelected ? 600 : 400)};
+  transition: font-weight 0.15s ease, color 0.3s ease;
 `;
