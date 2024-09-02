@@ -1,9 +1,5 @@
 import styled from "styled-components";
 
-export const HoverHeaderContainer = styled.div`
-  
-`
-
 export const HeaderContainer = styled.div`
   position: fixed;
   top: 0;
@@ -17,8 +13,8 @@ export const HeaderContainer = styled.div`
 
   background-color: ${({ $isHovered }) =>
     $isHovered ? "#FFFFFF" : "#ebebeb4d"};
-  // gap: 120px; (디자인과 다르게 justify-content로 구현하는게 맞는 것 같음 (cause, 부모 컴포넌트 초과))
   transition: background-color 0.3s ease;
+  // gap: 120px; (디자인과 다르게 justify-content로 구현하는게 맞는 것 같음 (cause, 부모 컴포넌트 초과))
 `;
 
 export const MainLogo = styled.img`
