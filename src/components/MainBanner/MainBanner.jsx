@@ -4,9 +4,7 @@ import { BannerImg } from "./MainBanner.styled";
 const MainBanner = () => {
   return (
     <>
-      <div className="container">
-        <BannerImg src={mainBanner} alt="main-banner-img" />
-      </div>
+      <BannerImg src={mainBanner} alt="main-banner-img" />
     </>
   );
 };
