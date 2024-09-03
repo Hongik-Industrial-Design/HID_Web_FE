@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import { Gallery, Piece } from "./Portfolio.styled";
+import { GalleryContainer } from "./Gallery.styled";
+import Piece from "./Piece/Piece";
 
-const Portfolio = () => {
+const Gallery = () => {
   const [pieces, setPieces] = useState([]);
+  // const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     fetch("/gallery.json")
@@ -17,16 +19,16 @@ const Portfolio = () => {
   }, []);
 
   return (
-    <Gallery>
+    <GalleryContainer>
       {pieces.map((piece) => (
         <Piece
           key={piece.id}
-          src={`src/assets/DummyGallery/${piece.name}`}
-          alt={piece.name}
+          pieceName={piece.name}
+          pieceInfos={piece.credit}
         />
       ))}
-    </Gallery>
+    </GalleryContainer>
   );
 };
 
-export default Portfolio;
+export default Gallery;

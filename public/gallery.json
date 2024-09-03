@@ -1,38 +1,74 @@
 [
   {
     "id": "1",
-    "name": "piece-1.jpg"
+    "name": "piece-1.jpg",
+    "credit": {
+      "title": "Invisible",
+      "author": "dohan kim"
+    }
   },
   {
     "id": "2",
-    "name": "piece-2.jpg"
+    "name": "piece-2.jpg",
+    "credit": {
+      "title": "Beyond the Horizon",
+      "author": "eunji park"
+    }
   },
   {
     "id": "3",
-    "name": "piece-3.jpg"
+    "name": "piece-3.jpg",
+    "credit": {
+      "title": "Silent Echo",
+      "author": "minho lee"
+    }
   },
   {
     "id": "4",
-    "name": "piece-4.jpg"
+    "name": "piece-4.jpg",
+    "credit": {
+      "title": "Fading Light",
+      "author": "jinwoo kim"
+    }
   },
   {
     "id": "5",
-    "name": "piece-5.jpg"
+    "name": "piece-5.jpg",
+    "credit": {
+      "title": "Whispers of Time",
+      "author": "soomin choi"
+    }
   },
   {
     "id": "6",
-    "name": "piece-6.jpg"
+    "name": "piece-6.jpg",
+    "credit": {
+      "title": "Echoes of Silence",
+      "author": "yeonseo lim"
+    }
   },
   {
     "id": "7",
-    "name": "piece-7.jpg"
+    "name": "piece-7.jpg",
+    "credit": {
+      "title": "Shadows of Memory",
+      "author": "jihyun kim"
+    }
   },
   {
     "id": "8",
-    "name": "piece-8.jpg"
+    "name": "piece-8.jpg",
+    "credit": {
+      "title": "Lost in Reflection",
+      "author": "haewon cho"
+    }
   },
   {
     "id": "9",
-    "name": "piece-9.jpg"
+    "name": "piece-9.jpg",
+    "credit": {
+      "title": "Fragments of Reality",
+      "author": "youngjae park"
+    }
   }
 ]

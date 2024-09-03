@@ -1,12 +1,12 @@
 import Category from "./Category/Category";
 import { ExhibitionContainer } from "./Exhibition.styled";
-import Portfolio from "./Portfolio/Portfolio";
+import Gallery from "./Gallery/Gallery";
 
 const Exhibition = () => {
   return (
     <ExhibitionContainer>
       <Category />
-      <Portfolio />
+      <Gallery />
     </ExhibitionContainer>
   );
 };
