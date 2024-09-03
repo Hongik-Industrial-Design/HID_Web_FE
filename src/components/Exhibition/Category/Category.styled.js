@@ -6,8 +6,9 @@ export const CategoryContainer = styled.div`
   justify-content: space-evenly;
   gap: 24px;
 
-  margin-top: 200px;
-  margin-left: 158px;
+  position: absolute;
+  top: 200px;
+  left: 158px;
 `;
 
 export const DetailedMajor = styled.p`
