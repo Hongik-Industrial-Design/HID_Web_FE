@@ -1,10 +1,11 @@
+import { colors } from "@styles/theme/colors";
 import styled from "styled-components";
 
 export const OverlayContainer = styled.div`
   width: 100%;
   height: 100%;
 
-  background: #09287a;
+  background: ${colors.HID_Navy[900]};
   opacity: ${({ $isHovered }) => ($isHovered ? 0.5 : 0)};
   border-radius: 2px;
 
@@ -31,7 +32,7 @@ export const OverlayContainer = styled.div`
   }
 
   .title {
-    color: #fff;
+    color: ${colors.HID_Grayscale[0]};
     font-size: 32px;
     font-weight: 600;
     line-height: 40px;
@@ -39,7 +40,7 @@ export const OverlayContainer = styled.div`
   }
 
   .author {
-    color: #ebebeb;
+    color: ${colors.HID_Grayscale[100]};
     font-size: 24px;
     font-weight: 400;
     line-height: 32px;
