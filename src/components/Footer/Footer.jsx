@@ -11,6 +11,10 @@ import InstagramLogo from "@assets/Social-Icons/Instagram.svg";
 import MailLogo from "@assets/Social-Icons/Mail.svg";
 
 const Footer = () => {
+  const openNewTab = (url) => {
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <>
       <FooterContainer>
@@ -27,9 +31,27 @@ const Footer = () => {
           </div>
         </Infos>
         <SocialIconContainer>
-          <SocialIcon src={FacebookLogo} alt="Facebook-logo" />
-          <SocialIcon src={InstagramLogo} alt="Instagram-logo" />
-          <SocialIcon src={MailLogo} alt="Mail-logo" />
+          <SocialIcon
+            src={FacebookLogo}
+            alt="Facebook-logo"
+            onClick={() =>
+              openNewTab(
+                "https://www.facebook.com/groups/hiid2012/?locale=ko_KR"
+              )
+            }
+          />
+          <SocialIcon
+            src={InstagramLogo}
+            alt="Instagram-logo"
+            onClick={() =>
+              openNewTab("https://www.instagram.com/sandidandi_hid/")
+            }
+          />
+          <SocialIcon
+            src={MailLogo}
+            alt="Mail-logo"
+            onClick={() => openNewTab("mailto: webmaster@hongik.ac.kr")}
+          />
         </SocialIconContainer>
       </FooterContainer>
     </>
