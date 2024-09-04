@@ -3,12 +3,11 @@ import styled from "styled-components";
 export const CategoryContainer = styled.div`
   display: inline-flex;
   flex-direction: column;
-  justify-content: space-evenly;
   gap: 24px;
-
-  position: absolute;
-  top: 200px;
-  left: 158px;
+  
+  margin-left: 158px;
+  
+  white-space: nowrap;
 `;
 
 export const DetailedMajor = styled.p`

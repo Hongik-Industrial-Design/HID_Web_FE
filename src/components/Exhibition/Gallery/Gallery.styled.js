@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
-export const GallerWrapper = styled.div`
-  width: 70vw;
+export const GalleryWrapper = styled.div`
+  width: 100%;
   height: ${({ $height }) => $height + 238}px;
+  
+  padding-right: 64px;
 
   position: relative;
-  top: 200px;
-  left: 498px;
+
+  flex-grow: 1;
 `;
 
 export const GalleryContainer = styled.div`
@@ -16,10 +18,6 @@ export const GalleryContainer = styled.div`
   gap: 24px;
 
   width: 100%;
-
-  position: relative;
-  top: 0;
-  left: 0;
 
   overflow-x: scroll;
   /* scroll-snap-type: x mandatory; // 가로 스냅 스크롤 기능 */

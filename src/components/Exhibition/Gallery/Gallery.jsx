@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { GallerWrapper, GalleryContainer } from "./Gallery.styled";
+import { GalleryWrapper, GalleryContainer } from "./Gallery.styled";
 import Piece from "./Piece/Piece";
 import ScrollButton from "@components/ScrollButton/ScrollButton";
 import Indicator from "./Indicator/Indicator";
@@ -76,7 +76,7 @@ const Gallery = () => {
   };
 
   return (
-    <GallerWrapper $height={galleryHeight}>
+    <GalleryWrapper $height={galleryHeight}>
       <ScrollButton
         arrowType="left"
         onClick={scrollLeft}
@@ -100,7 +100,7 @@ const Gallery = () => {
         handleScroll={handleScrollIndicator}
         width={`${scrollProgress}%`}
       />
-    </GallerWrapper>
+    </GalleryWrapper>
   );
 };
 
