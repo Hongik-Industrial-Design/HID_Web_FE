@@ -70,5 +70,93 @@
       "title": "Fragments of Reality",
       "author": "youngjae park"
     }
+  },
+  {
+    "id": "10",
+    "name": "piece-10.jpg",
+    "credit": {
+      "title": "Illusion of Time",
+      "author": "hyunseok kang"
+    }
+  },
+  {
+    "id": "11",
+    "name": "piece-11.jpg",
+    "credit": {
+      "title": "Dreamscape",
+      "author": "jisoo lee"
+    }
+  },
+  {
+    "id": "12",
+    "name": "piece-12.jpg",
+    "credit": {
+      "title": "Dreamscape",
+      "author": "jisoo lee"
+    }
+  },
+  {
+    "id": "13",
+    "name": "piece-13.jpg",
+    "credit": {
+      "title": "Ethereal Moments",
+      "author": "haneul kim"
+    }
+  },
+  {
+    "id": "14",
+    "name": "piece-14.jpg",
+    "credit": {
+      "title": "Mirage",
+      "author": "seongmin choi"
+    }
+  },
+  {
+    "id": "15",
+    "name": "piece-15.jpg",
+    "credit": {
+      "title": "Nebula",
+      "author": "jaemin park"
+    }
+  },
+  {
+    "id": "16",
+    "name": "piece-16.jpg",
+    "credit": {
+      "title": "Temporal Drift",
+      "author": "yoonseo kim"
+    }
+  },
+  {
+    "id": "17",
+    "name": "piece-17.jpg",
+    "credit": {
+      "title": "Veil of Illusion",
+      "author": "jieun lee"
+    }
+  },
+  {
+    "id": "18",
+    "name": "piece-18.jpg",
+    "credit": {
+      "title": "Paradox",
+      "author": "sunwoo choi"
+    }
+  },
+  {
+    "id": "19",
+    "name": "piece-19.jpg",
+    "credit": {
+      "title": "Quantum Dreams",
+      "author": "minji kim"
+    }
+  },
+  {
+    "id": "20",
+    "name": "piece-20.jpg",
+    "credit": {
+      "title": "Echo of Eternity",
+      "author": "yeonwoo park"
+    }
   }
 ]

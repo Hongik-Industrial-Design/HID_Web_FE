@@ -6,7 +6,7 @@ const Category = () => {
 
   return (
     <>
-      <CategoryContainer>
+      <CategoryContainer id="category-navbar">
         <DetailedMajor
           $isSelected={isSelected === "All"}
           onClick={() => setIsSelected("All")}

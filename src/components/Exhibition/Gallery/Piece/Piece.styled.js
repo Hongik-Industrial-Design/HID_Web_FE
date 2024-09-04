@@ -8,6 +8,7 @@ export const PieceContainer = styled.div`
   position: relative;
 
   cursor: pointer;
+  scroll-snap-align: start; // 각 작품의 시작 부분이 스냅됨
 `;
 
 export const PieceImage = styled.img`
