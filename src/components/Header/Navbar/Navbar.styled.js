@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { colors } from "@styles/theme/colors";
 
 export const NavItemsContainer = styled.div`
   display: flex;
@@ -8,9 +9,11 @@ export const NavItemsContainer = styled.div`
 
 export const NavItem = styled.p`
   font-weight: ${({ $isActive }) => ($isActive ? 600 : 300)};
-  color: ${({ $isActive }) => ($isActive ? "#09287A" : "#262626")};
+  color: ${({ $isActive }) =>
+    $isActive ? `${colors.HID_Navy[900]}` : `${colors.HID_Grayscale[800]}`};
+
   cursor: pointer;
-  
+
   position: relative;
 
   &::after {
@@ -22,7 +25,7 @@ export const NavItem = styled.p`
     width: ${({ $isActive }) => ($isActive ? "40px" : "0")};
     height: 4px;
     border-radius: 10px;
-    background-color: #09287a;
+    background-color: ${colors.HID_Navy[900]};
     transition: width 0.3s ease;
   }
 `;
