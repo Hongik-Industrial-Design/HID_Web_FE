@@ -62,17 +62,29 @@ const Gallery = () => {
   };
 
   const scrollLeft = () => {
+    galleryRef.current.style.scrollSnapType = "x mandatory";
+
     galleryRef.current.scrollBy({
       left: -200,
       behavior: "smooth",
     });
+
+    setTimeout(() => {
+      galleryRef.current.style.scrollSnapType = "none";
+    }, 1000);
   };
 
   const scrollRight = () => {
+    galleryRef.current.style.scrollSnapType = "x mandatory";
+
     galleryRef.current.scrollBy({
       left: 200,
       behavior: "smooth",
     });
+
+    setTimeout(() => {
+      galleryRef.current.style.scrollSnapType = "none";
+    }, 1000);
   };
 
   return (
