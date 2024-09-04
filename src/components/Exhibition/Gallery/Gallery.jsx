@@ -2,11 +2,13 @@ import { useEffect, useRef, useState } from "react";
 import { GallerWrapper, GalleryContainer } from "./Gallery.styled";
 import Piece from "./Piece/Piece";
 import ScrollButton from "@components/ScrollButton/ScrollButton";
+import Indicator from "./Indicator/Indicator";
 
 const Gallery = () => {
   const [pieces, setPieces] = useState([]);
   const [isScrolled, setIsScrolled] = useState(false);
   const [galleryHeight, setGalleryHeight] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   const galleryRef = useRef(null);
 
@@ -29,7 +31,7 @@ const Gallery = () => {
       const gridHeight = galleryRef.current.offsetHeight;
       setGalleryHeight(gridHeight);
     }
-    console.log(galleryHeight);
+    // console.log(galleryHeight);
   }, [pieces, galleryHeight]);
 
   const handleScroll = () => {
@@ -38,6 +40,25 @@ const Gallery = () => {
     } else {
       setIsScrolled(false);
     }
+
+    // Indicator Bar width 계산
+    const scrollLeft = galleryRef.current.scrollLeft;
+    const scrollWidth = galleryRef.current.scrollWidth;
+    const clientWidth = galleryRef.current.clientWidth;
+
+    // 가로 스크롤 진행률 계산 (%)
+    const progress = (scrollLeft / (scrollWidth - clientWidth)) * 100;
+    setScrollProgress(progress);
+  };
+
+  const handleScrollIndicator = () => {
+    const scrollLeft = galleryRef.current.scrollLeft;
+    const scrollWidth = galleryRef.current.scrollWidth;
+    const clientWidth = galleryRef.current.clientWidth;
+
+    // 가로 스크롤 진행률 계산 (%)
+    const progress = (scrollLeft / (scrollWidth - clientWidth)) * 100;
+    setScrollProgress(progress);
   };
 
   const scrollLeft = () => {
@@ -74,6 +95,10 @@ const Gallery = () => {
         arrowType="right"
         onClick={scrollRight}
         isScrolled={isScrolled}
+      />
+      <Indicator
+        handleScroll={handleScrollIndicator}
+        width={`${scrollProgress}%`}
       />
     </GallerWrapper>
   );

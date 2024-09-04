@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const GallerWrapper = styled.div`
   width: 70vw;
-  height: ${({ $height }) => $height}px;
+  height: ${({ $height }) => $height + 238}px;
 
-  position: absolute;
+  position: relative;
   top: 200px;
   left: 498px;
 `;
@@ -17,10 +17,15 @@ export const GalleryContainer = styled.div`
 
   width: 100%;
 
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
 
   overflow-x: scroll;
-  scroll-snap-type: x mandatory; // 가로 스냅 스크롤 기능
+  /* scroll-snap-type: x mandatory; // 가로 스냅 스크롤 기능 */
+
+  /* // Safari, Chorme 에서 스크롤 바 숨기기
+  &::-webkit-scrollbar {
+    display: none;
+  } */
 `;
