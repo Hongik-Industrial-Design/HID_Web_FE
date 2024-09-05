@@ -20,4 +20,6 @@ export const HeaderContainer = styled.div`
 export const MainLogo = styled.img`
   width: 90px;
   height: 17.4px;
+
+  cursor: pointer;
 `;
