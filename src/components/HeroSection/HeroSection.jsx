@@ -10,10 +10,10 @@ import {
   TinyThumbnailContainer,
 } from "./HeroSection.styled";
 
-import tinyImage1 from "@assets/DummyDetail-Image/tiny-1.jpg";
-import tinyImage2 from "@assets/DummyDetail-Image/tiny-2.jpg";
-import tinyImage3 from "@assets/DummyDetail-Image/tiny-3.jpg";
-import primaryImage from "@assets/DummyDetail-Image/primary.jpg";
+import tinyImage1 from "@assets/detail-images/tiny-1.jpg";
+import tinyImage2 from "@assets/detail-images/tiny-2.jpg";
+import tinyImage3 from "@assets/detail-images/tiny-3.jpg";
+import primaryImage from "@assets/detail-images/primary.jpg";
 
 import Mail from "@assets/Social-Icons/Mail_transparent.svg";
 import Instagram from "@assets/Social-Icons/instagram_transparent.svg";
