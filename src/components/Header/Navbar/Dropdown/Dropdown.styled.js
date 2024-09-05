@@ -1,13 +1,29 @@
 import { colors } from "@styles/theme/colors";
 import styled from "styled-components";
 
+export const DropdownBackground = styled.div`
+  opacity: ${({ $isHovered }) => ($isHovered ? 1 : 0)};
+  transition: opacity 0.3s ease;
+
+  width: 100%;
+  height: 100vh;
+
+  background: rgba(217, 217, 217, 0.3);
+  backdrop-filter: blur(8px);
+
+  position: absolute;
+  top: 0;
+  z-index: 10;
+`;
+
 export const DropdownContainer = styled.div`
   opacity: ${({ $isHovered }) => ($isHovered ? 1 : 0)};
   transition: opacity 0.3s ease;
-  width: 1920px;
+  width: 100%;
   height: 392px;
   position: absolute;
   top: 49px;
+  z-index: 99;
   background-color: ${colors.HID_Grayscale[0]};
 `;
 
@@ -38,7 +54,10 @@ export const Timeline = styled.div`
 `;
 
 export const Year = styled.p`
-  color: ${colors.HID_Grayscale[800]};
+  font-style: normal;
   font-size: 24px;
   font-weight: 300;
+  line-height: normal;
+
+  color: ${colors.HID_Grayscale[800]};
 `;
