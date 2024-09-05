@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { NavItem, NavItemsContainer } from "./Navbar.styled";
+import { Link } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 const Navbar = ({ setIsHovered }) => {
@@ -15,14 +16,16 @@ const Navbar = ({ setIsHovered }) => {
         >
           Faculty
         </NavItem>
-        <NavItem
-          $isActive={activeMenu === "Graduation Exhibition"}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-          onClick={() => setActiveMenu("Graduation Exhibition")}
-        >
-          Graduation Exhibition
-        </NavItem>
+        <Link to="/graduation">
+          <NavItem
+            $isActive={activeMenu === "Graduation Exhibition"}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            onClick={() => setActiveMenu("Graduation Exhibition")}
+          >
+            Graduation Exhibition
+          </NavItem>
+        </Link>
         <NavItem
           $isActive={activeMenu === "Student Exhibition"}
           onClick={() => setActiveMenu("Student Exhibition")}

@@ -1,7 +1,7 @@
 [
   {
     "id": "1",
-    "name": "piece-1.jpg",
+    "thumbnail": "piece-1.jpg",
     "credit": {
       "title": "Invisible",
       "author": "dohan kim"
@@ -9,7 +9,7 @@
   },
   {
     "id": "2",
-    "name": "piece-2.jpg",
+    "thumbnail": "piece-2.jpg",
     "credit": {
       "title": "Beyond the Horizon",
       "author": "eunji park"
@@ -17,7 +17,7 @@
   },
   {
     "id": "3",
-    "name": "piece-3.jpg",
+    "thumbnail": "piece-3.jpg",
     "credit": {
       "title": "Silent Echo",
       "author": "minho lee"
@@ -25,7 +25,7 @@
   },
   {
     "id": "4",
-    "name": "piece-4.jpg",
+    "thumbnail": "piece-4.jpg",
     "credit": {
       "title": "Fading Light",
       "author": "jinwoo kim"
@@ -33,7 +33,7 @@
   },
   {
     "id": "5",
-    "name": "piece-5.jpg",
+    "thumbnail": "piece-5.jpg",
     "credit": {
       "title": "Whispers of Time",
       "author": "soomin choi"
@@ -41,7 +41,7 @@
   },
   {
     "id": "6",
-    "name": "piece-6.jpg",
+    "thumbnail": "piece-6.jpg",
     "credit": {
       "title": "Echoes of Silence",
       "author": "yeonseo lim"
@@ -49,7 +49,7 @@
   },
   {
     "id": "7",
-    "name": "piece-7.jpg",
+    "thumbnail": "piece-7.jpg",
     "credit": {
       "title": "Shadows of Memory",
       "author": "jihyun kim"
@@ -57,7 +57,7 @@
   },
   {
     "id": "8",
-    "name": "piece-8.jpg",
+    "thumbnail": "piece-8.jpg",
     "credit": {
       "title": "Lost in Reflection",
       "author": "haewon cho"
@@ -65,7 +65,7 @@
   },
   {
     "id": "9",
-    "name": "piece-9.jpg",
+    "thumbnail": "piece-9.jpg",
     "credit": {
       "title": "Fragments of Reality",
       "author": "youngjae park"
@@ -73,7 +73,7 @@
   },
   {
     "id": "10",
-    "name": "piece-10.jpg",
+    "thumbnail": "piece-10.jpg",
     "credit": {
       "title": "Illusion of Time",
       "author": "hyunseok kang"
@@ -81,7 +81,7 @@
   },
   {
     "id": "11",
-    "name": "piece-11.jpg",
+    "thumbnail": "piece-11.jpg",
     "credit": {
       "title": "Dreamscape",
       "author": "jisoo lee"
@@ -89,7 +89,7 @@
   },
   {
     "id": "12",
-    "name": "piece-12.jpg",
+    "thumbnail": "piece-12.jpg",
     "credit": {
       "title": "Dreamscape",
       "author": "jisoo lee"
@@ -97,7 +97,7 @@
   },
   {
     "id": "13",
-    "name": "piece-13.jpg",
+    "thumbnail": "piece-13.jpg",
     "credit": {
       "title": "Ethereal Moments",
       "author": "haneul kim"
@@ -105,7 +105,7 @@
   },
   {
     "id": "14",
-    "name": "piece-14.jpg",
+    "thumbnail": "piece-14.jpg",
     "credit": {
       "title": "Mirage",
       "author": "seongmin choi"
@@ -113,7 +113,7 @@
   },
   {
     "id": "15",
-    "name": "piece-15.jpg",
+    "thumbnail": "piece-15.jpg",
     "credit": {
       "title": "Nebula",
       "author": "jaemin park"
@@ -121,7 +121,7 @@
   },
   {
     "id": "16",
-    "name": "piece-16.jpg",
+    "thumbnail": "piece-16.jpg",
     "credit": {
       "title": "Temporal Drift",
       "author": "yoonseo kim"
@@ -129,7 +129,7 @@
   },
   {
     "id": "17",
-    "name": "piece-17.jpg",
+    "thumbnail": "piece-17.jpg",
     "credit": {
       "title": "Veil of Illusion",
       "author": "jieun lee"
@@ -137,7 +137,7 @@
   },
   {
     "id": "18",
-    "name": "piece-18.jpg",
+    "thumbnail": "piece-18.jpg",
     "credit": {
       "title": "Paradox",
       "author": "sunwoo choi"
@@ -145,7 +145,7 @@
   },
   {
     "id": "19",
-    "name": "piece-19.jpg",
+    "thumbnail": "piece-19.jpg",
     "credit": {
       "title": "Quantum Dreams",
       "author": "minji kim"
@@ -153,7 +153,7 @@
   },
   {
     "id": "20",
-    "name": "piece-20.jpg",
+    "thumbnail": "piece-20.jpg",
     "credit": {
       "title": "Echo of Eternity",
       "author": "yeonwoo park"

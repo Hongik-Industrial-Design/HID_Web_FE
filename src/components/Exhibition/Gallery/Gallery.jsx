@@ -3,8 +3,11 @@ import { GalleryWrapper, GalleryContainer } from "./Gallery.styled";
 import Piece from "./Piece/Piece";
 import ScrollButton from "@components/ScrollButton/ScrollButton";
 import Indicator from "./Indicator/Indicator";
+import { useNavigate } from "react-router-dom";
 
 const Gallery = () => {
+  const navigate = useNavigate();
+
   const [pieces, setPieces] = useState([]);
   const [isScrolled, setIsScrolled] = useState(false);
   const [galleryHeight, setGalleryHeight] = useState(0);
@@ -33,6 +36,11 @@ const Gallery = () => {
     }
     // console.log(galleryHeight);
   }, [pieces, galleryHeight]);
+
+  // Routing to individual pieces
+  const goToDetailPage = (id) => {
+    navigate(`/graduation/work/${id}`);
+  };
 
   const handleScroll = () => {
     if (galleryRef.current.scrollLeft > 100) {
@@ -98,8 +106,9 @@ const Gallery = () => {
         {pieces.map((piece) => (
           <Piece
             key={piece.id}
-            pieceName={piece.name}
+            pieceName={piece.thumbnail}
             pieceInfos={piece.credit}
+            goToDetailPage={() => goToDetailPage(piece.id)}
           />
         ))}
       </GalleryContainer>
