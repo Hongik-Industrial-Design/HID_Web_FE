@@ -1,8 +1,10 @@
-import HIDLogo from "@assets/HID-logo.svg";
+import { Link } from "react-router-dom";
+
 import { HeaderContainer, MainLogo } from "./Header.styled";
+
+import HIDLogo from "@assets/HID-logo.svg";
 import Navbar from "./Navbar/Navbar";
 import Dropdown from "./Navbar/Dropdown/Dropdown";
-import { Link } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 const Header = ({ isHovered, setIsHovered }) => {

@@ -1,5 +1,6 @@
-import mainBanner from "@assets/main-banner.jpg";
 import { BannerImg } from "./MainBanner.styled";
+
+import mainBanner from "@assets/main-banner.jpg";
 
 const MainBanner = () => {
   return (

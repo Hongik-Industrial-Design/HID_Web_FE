@@ -1,5 +1,5 @@
-import { colors } from "@styles/theme/colors";
 import styled from "styled-components";
+import { colors } from "@styles/theme/colors";
 
 export const DropdownBackground = styled.div`
   opacity: ${({ $isHovered }) => ($isHovered ? 1 : 0)};
@@ -13,7 +13,7 @@ export const DropdownBackground = styled.div`
 
   position: absolute;
   top: 0;
-  z-index: 10;
+  z-index: ${({ $isHovered }) => ($isHovered ? 10 : -1)};
 `;
 
 export const DropdownContainer = styled.div`
@@ -23,7 +23,7 @@ export const DropdownContainer = styled.div`
   height: 392px;
   position: absolute;
   top: 49px;
-  z-index: 99;
+  z-index: ${({ $isHovered }) => ($isHovered ? 99 : -1)};
   background-color: ${colors.HID_Grayscale[0]};
 `;
 

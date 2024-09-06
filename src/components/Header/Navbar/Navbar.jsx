@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import { NavItem, NavItemsContainer } from "./Navbar.styled";
-import { Link } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 const Navbar = ({ setIsHovered }) => {
