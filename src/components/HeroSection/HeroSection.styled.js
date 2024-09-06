@@ -3,6 +3,7 @@ import { colors } from "@styles/theme/colors";
 
 export const HeroSectionContainer = styled.div`
   display: flex;
+  justify-content: center;
   gap: 160px;
 
   position: relative;

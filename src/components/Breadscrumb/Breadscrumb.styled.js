@@ -8,7 +8,7 @@ export const BreadscrumbContainer = styled.div`
 
   position: absolute;
   top: 98px;
-  right: 0;
+  right: 10%; // HeroSection content 오른쪽 끝이랑 일치하게끔!
 
   span {
     font-style: normal;
