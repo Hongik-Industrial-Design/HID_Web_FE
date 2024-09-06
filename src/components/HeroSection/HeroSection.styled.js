@@ -14,11 +14,13 @@ export const HeroSectionContainer = styled.div`
 `;
 
 export const ThumbnailContainer = styled.div`
-  display: inline-flex;
+  display: flex;
   gap: 27px;
 
+  flex-shrink: 0;
+
   .secondary {
-    width: 179px;
+    width: 100%;
     height: 179px;
 
     border: 1px solid ${colors.HID_Grayscale[200]};
@@ -34,9 +36,11 @@ export const ThumbnailContainer = styled.div`
 `;
 
 export const TinyThumbnailContainer = styled.div`
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   gap: 24px;
+
+  width: 179px;
 `;
 
 export const ContentArea = styled.div`
