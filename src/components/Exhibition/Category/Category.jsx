@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import { CategoryContainer, DetailedMajor } from "./Category.styled";
 
 const Category = () => {

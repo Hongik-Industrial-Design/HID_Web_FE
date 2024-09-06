@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { GalleryWrapper, GalleryContainer } from "./Gallery.styled";
+
 import Piece from "./Piece/Piece";
 import ScrollButton from "@components/ScrollButton/ScrollButton";
 import Indicator from "./Indicator/Indicator";
-import { useNavigate } from "react-router-dom";
 
 const Gallery = () => {
   const navigate = useNavigate();
