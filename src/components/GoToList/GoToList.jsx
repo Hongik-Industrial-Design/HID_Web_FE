@@ -1,15 +1,31 @@
+/* eslint-disable react/prop-types */
+import { useState } from "react";
+
 import { ButtonContainer } from "./GoToList.styled";
 
 import leftArrow from "@assets/arrows/left-arrow_full.svg";
+import { Link } from "react-router-dom";
 
-const GoToList = () => {
+const GoToList = ({ isHovered, setIsHovered }) => {
+  const [isActive, setIsActive] = useState(false);
+
+  const handleClick = () => {
+    setIsActive(true);
+  };
+
   return (
-    <>
-      <ButtonContainer>
+    <Link to="/graduation">
+      <ButtonContainer
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onClick={handleClick}
+        $isHovered={isHovered}
+        $isActive={isActive === true}
+      >
         <img src={leftArrow} alt="left-arrow" className="left-arrow" />
         <div className="text">Go To List</div>
       </ButtonContainer>
-    </>
+    </Link>
   );
 };
 

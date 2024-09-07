@@ -1,0 +1,36 @@
+{
+  "title": "Retro Gaming Legends",
+  "author": [
+    { "id": 1, "name": "Alex Kim", "specialty": "Interaction/UI Design" },
+    {
+      "id": 2,
+      "name": "Jordan Park",
+      "specialty": "UX/UI Designer, Product Designer"
+    }
+  ],
+  "description_en": "This collection of iconic handheld gaming consoles is designed for retro gaming enthusiasts and collectors. The devices, including the Game Boy Color and other vintage consoles, are perfect for those looking to relive the golden age of portable gaming. They serve not only as functional devices for playing classic games but also as decorative pieces that embody the charm and creativity of early gaming technology.",
+  "description_ko": "이 레트로 게임 콘솔 컬렉션은 과거 휴대용 게임기의 황금기를 다시 경험하고 싶은 게이머와 수집가들을 위해 설계되었습니다. Game Boy Color를 비롯한 여러 빈티지 콘솔은 그 자체로 클래식 게임을 즐길 수 있을 뿐만 아니라, 독창적이고 매력적인 디자인으로 인테리어 장식용으로도 손색이 없습니다.",
+  "videos": [
+    {
+      "id": 1,
+      "url": "src/assets/videos/console-game.mp4"
+    }
+  ],
+  "images": [
+    {
+      "id": 1,
+      "url": "/detail-images/detail-1.jpg",
+      "caption": "Nintendo"
+    },
+    {
+      "id": 2,
+      "url": "/detail-images/detail-2.jpg",
+      "caption": "Console 1"
+    },
+    {
+      "id": 3,
+      "url": "/detail-images/detail-3.jpg",
+      "caption": "Console 2"
+    }
+  ]
+}
