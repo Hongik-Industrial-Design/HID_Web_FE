@@ -2,8 +2,7 @@ import { DetailPageContainer } from "./DetailPage.styled";
 
 import Header from "@components/Header/Header";
 import HeroSection from "@components/HeroSection/HeroSection";
-import VideoPlayer from "@components/VideoPlayer/VideoPlayer";
-
+import ArtworkSection from "@components/ArtworkSection/ArtworkSection";
 
 const DetailPage = () => {
   return (
@@ -11,7 +10,7 @@ const DetailPage = () => {
       <Header />
       <DetailPageContainer>
         <HeroSection />
-        <VideoPlayer />
+        <ArtworkSection />
       </DetailPageContainer>
     </>
   );
