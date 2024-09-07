@@ -1,7 +1,7 @@
 import { ArtworkSectionContainer } from "./ArtworkSection.styled";
 
-import ArtworkImages from "@components/ArtworkImages/ArtworkImages";
-import VideoPlayer from "@components/VideoPlayer/VideoPlayer";
+import ArtworkImages from "@pages/Exhibition/Detail/ArtworkSection/ArtworkImages/ArtworkImages";
+import VideoPlayer from "@pages/Exhibition/Detail/ArtworkSection/VideoPlayer/VideoPlayer";
 
 const ArtworkSection = () => {
   return (
