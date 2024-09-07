@@ -3,8 +3,8 @@ import { colors } from "@styles/theme/colors";
 
 export const FooterContainer = styled.div`
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 80px;
 
   width: 100%;
   padding: 96px 158px;
@@ -12,6 +12,13 @@ export const FooterContainer = styled.div`
   background: ${colors.HID_Grayscale[0]};
   border-top: 2px solid ${colors.HID_Grayscale[50]};
 `;
+
+export const ContactInfos = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 80px;
+`
+
 export const Infos = styled.div`
   display: inline-flex;
   flex-direction: column;
