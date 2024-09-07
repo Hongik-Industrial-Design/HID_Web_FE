@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import {
   ContentArea,
   ContentDescription,
@@ -24,9 +26,19 @@ import NextPrevious from "@components/NextPrevious/NextPrevious";
 import Breadscrumb from "@components/Breadscrumb/Breadscrumb";
 
 const HeroSection = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
   const openNewTab = (url) => {
     window.open(url, "_blank", "noopener,noreferrer");
   };
+
+  // const enterButton = () => {
+  //   setIsHovered(true);
+  // };
+
+  // const leaveButton = () => {
+  //   setIsHovered(false);
+  // };
 
   return (
     <>
@@ -98,7 +110,7 @@ const HeroSection = () => {
               />
             </SocialIcons>
             <RoutingArea>
-              <GoToList />
+              <GoToList isHovered={isHovered} setIsHovered={setIsHovered} />
               <NextPrevious />
             </RoutingArea>
           </ContentFooter>
