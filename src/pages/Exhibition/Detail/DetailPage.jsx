@@ -1,22 +1,19 @@
 import { DetailPageContainer } from "./DetailPage.styled";
 
-import Header from "@layout/Header/Header";
+import Layout from "@layout/Layout";
 import HeroSection from "@pages/Exhibition/Detail/HeroSection/HeroSection";
 import ArtworkSection from "@pages/Exhibition/Detail/ArtworkSection/ArtworkSection";
 import TeamMembersSection from "./TeamMemberSection/TeamMembersSection";
-import Footer from "@layout/Footer/Footer";
 
 const DetailPage = () => {
   return (
-    <>
-      <Header />
+    <Layout>
       <DetailPageContainer>
         <HeroSection />
         <ArtworkSection />
         <TeamMembersSection />
       </DetailPageContainer>
-      <Footer />
-    </>
+    </Layout>
   );
 };
 

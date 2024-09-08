@@ -1,20 +1,17 @@
 import { useState } from "react";
 
-import Header from "@layout/Header/Header";
+import Layout from "@layout/Layout";
 import MainBanner from "@components/MainBanner/MainBanner";
 import Exhibition from "@components/Exhibition/Exhibition";
-import Footer from "@layout/Footer/Footer";
 
 export const GraduationPage = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <>
-      <Header setIsHovered={setIsHovered} isHovered={isHovered} />
+    <Layout isHovered={isHovered} setIsHovered={setIsHovered}>
       <MainBanner />
       <Exhibition />
-      <Footer />
-    </>
+    </Layout>
   );
 };
 
