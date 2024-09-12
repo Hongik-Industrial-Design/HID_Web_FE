@@ -6,9 +6,6 @@ $font-primary: greycliff-cf, sans-serif;
 body {
   font-family: $font-primary;
   background-color: $background-color;
-}
 
-// 3. 페이지를 감싸는 최상위 클래스 스타일 설정 (max-width, columns, margin & gutter...)
-.container {
-  max-width: 1920px;
+  overflow-x: hidden;
 }
