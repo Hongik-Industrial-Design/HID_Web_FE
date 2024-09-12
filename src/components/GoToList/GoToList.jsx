@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import { ButtonContainer } from "./GoToList.styled";
-
 import leftArrow from "@assets/arrows/left-arrow_full.svg";
-import { Link } from "react-router-dom";
+
 
 const GoToList = ({ isHovered, setIsHovered }) => {
   const [isActive, setIsActive] = useState(false);
