@@ -9,5 +9,5 @@ export const ExhibitionContainer = styled.div`
 
   padding-top: 200px;
 
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
 `;
