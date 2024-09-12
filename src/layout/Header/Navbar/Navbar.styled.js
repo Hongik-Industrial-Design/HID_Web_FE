@@ -5,12 +5,15 @@ export const NavItemsContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 48px;
+
+  color: ${({ $isHomePage }) =>
+    $isHomePage ? "#FFFFFF" : `${colors.HID_Grayscale[800]}`};
 `;
 
 export const NavItem = styled.p`
   font-weight: ${({ $isActive }) => ($isActive ? 600 : 300)};
-  color: ${({ $isActive }) =>
-    $isActive ? `${colors.HID_Navy[900]}` : `${colors.HID_Grayscale[800]}`};
+
+  color: ${({ $isActive }) => $isActive && `${colors.HID_Navy[900]}`};
 
   cursor: pointer;
 

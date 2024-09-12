@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 import { NavItem, NavItemsContainer } from "./Navbar.styled";
 
 // eslint-disable-next-line react/prop-types
-const Navbar = ({ setIsHovered }) => {
+const Navbar = ({ setIsHovered, isHomePage }) => {
   const [activeMenu, setActiveMenu] = useState("Graduation Exhibition");
 
   return (
     <>
-      <NavItemsContainer>
+      <NavItemsContainer $isHomePage={isHomePage}>
         <NavItem
           $isActive={activeMenu === "Faculty"}
           onClick={() => setActiveMenu("Faculty")}
