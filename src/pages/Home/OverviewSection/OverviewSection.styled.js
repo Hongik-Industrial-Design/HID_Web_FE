@@ -1,0 +1,22 @@
+import styled from "styled-components";
+
+export const OverviewContainer = styled.div`
+  width: 100%;
+  padding-left: 158px;
+  padding-bottom: 254px;
+  margin-top: 240px;
+
+  display: flex;
+  flex-direction: column;
+`;
+
+export const IntroductionText = styled.div`
+  width: 595px;
+
+  ${({ theme }) => theme.fontStyles.Header1};
+  letter-spacing: -0.28px;
+
+  span {
+    color: #ffc700;
+  }
+`;
