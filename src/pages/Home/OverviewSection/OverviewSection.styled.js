@@ -10,9 +10,15 @@ export const OverviewContainer = styled.div`
   padding-left: 158px;
   padding-bottom: 254px;
   margin-top: 240px;
-
-
 `;
+
+export const OverviewHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  padding-right: 158px;
+`
 
 export const IntroductionText = styled.div`
   width: 595px;
