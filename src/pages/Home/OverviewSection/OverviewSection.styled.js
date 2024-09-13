@@ -2,12 +2,16 @@ import styled from "styled-components";
 
 export const OverviewContainer = styled.div`
   width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+
   padding-left: 158px;
   padding-bottom: 254px;
   margin-top: 240px;
 
-  display: flex;
-  flex-direction: column;
+
 `;
 
 export const IntroductionText = styled.div`

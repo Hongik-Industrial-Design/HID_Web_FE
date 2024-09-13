@@ -1,3 +1,5 @@
+import HighlightSection from "../HighlightSection/HighlightSection";
+
 import { IntroductionText, OverviewContainer } from "./OverviewSection.styled";
 
 const OverviewSection = () => {
@@ -8,6 +10,7 @@ const OverviewSection = () => {
         <br />
         Hongik Industrial Design<span>.</span>
       </IntroductionText>
+      <HighlightSection />
     </OverviewContainer>
   );
 };

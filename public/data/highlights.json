@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "2024 Exhibition",
+    "date": "2024.04.06",
+    "description": "Lorem ipsum dolor sit amet consectetur. Amet eget a hendrerit molestie urna.",
+    "imageUrl": "exhibition.jpg"
+  },
+  {
+    "id": 2,
+    "title": "2024 Plan",
+    "date": "2024.04.05",
+    "description": "Lorem ipsum dolor sit amet consectetur. Amet eget a hendrerit molestie urna.",
+    "imageUrl": "plan.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Event",
+    "date": "2024.04.01",
+    "description": "Lorem ipsum dolor sit amet consectetur. Amet eget a hendrerit molestie urna.",
+    "imageUrl": "event.jpg"
+  }
+]
