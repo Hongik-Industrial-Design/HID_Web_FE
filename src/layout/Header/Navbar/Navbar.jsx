@@ -1,15 +1,18 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { NavItem, NavItemsContainer } from "./Navbar.styled";
 
 // eslint-disable-next-line react/prop-types
-const Navbar = ({ setIsHovered, isHomePage }) => {
-  const [activeMenu, setActiveMenu] = useState("Graduation Exhibition");
+const Navbar = ({ setIsHovered, isHomePage, scrolled }) => {
+  const [activeMenu, setActiveMenu] = useState(null);
+
+  const location = useLocation();
+  const currentPath = location.pathname;
 
   return (
     <>
-      <NavItemsContainer $isHomePage={isHomePage}>
+      <NavItemsContainer $isHomePage={isHomePage} $scrolled={scrolled}>
         <NavItem
           $isActive={activeMenu === "Faculty"}
           onClick={() => setActiveMenu("Faculty")}
@@ -18,7 +21,8 @@ const Navbar = ({ setIsHovered, isHomePage }) => {
         </NavItem>
         <Link to="/graduation">
           <NavItem
-            $isActive={activeMenu === "Graduation Exhibition"}
+            // $isActive={activeMenu === "Graduation Exhibition"}
+            $currentPage={currentPath === "/graduation"}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             onClick={() => setActiveMenu("Graduation Exhibition")}
