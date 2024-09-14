@@ -11,8 +11,8 @@ export const NavItemsContainer = styled.div`
       ? `${colors.HID_Grayscale[0]}`
       : `${colors.HID_Grayscale[800]}`};
 
-  color: ${({ $scrolled }) =>
-    $scrolled ? `${colors.HID_Grayscale[800]}` : `${colors.HID_Grayscale[0]}`};
+  color: ${({ $isHomePage, $scrolled }) =>
+    $isHomePage && $scrolled && `${colors.HID_Grayscale[800]}`};
 
   transition: color 0.3s ease;
 `;

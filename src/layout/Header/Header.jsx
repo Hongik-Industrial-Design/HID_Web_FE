@@ -55,7 +55,7 @@ const Header = ({ isHovered, setIsHovered }) => {
       <HeaderContainer
         $isHovered={isHovered}
         $isHomePage={isHomePage}
-        $scrolled={scrollPosition > 1080}
+        $scrolled={scrollPosition > 1056}
       >
         <Link to="/">
           {isHomePage ? (

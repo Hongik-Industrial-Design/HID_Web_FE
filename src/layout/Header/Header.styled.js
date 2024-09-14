@@ -16,7 +16,8 @@ export const HeaderContainer = styled.header`
   background-color: ${({ $isHomePage }) =>
     $isHomePage ? "#1A1A1A4D" : "#ebebeb4d"};
 
-  background-color: ${({ $scrolled }) => $scrolled && "#ebebeb4d"};
+  background-color: ${({ $isHomePage, $scrolled }) =>
+    $isHomePage && $scrolled && "#ebebeb4d"};
 
   background-color: ${({ $isHovered }) =>
     $isHovered && `${colors.HID_Grayscale[0]}`};
