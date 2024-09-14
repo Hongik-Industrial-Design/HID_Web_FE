@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import { NavItem, NavItemsContainer } from "./Navbar.styled";
+import SearchButton from "./SearchButton/SearchButton";
 
 // eslint-disable-next-line react/prop-types
 const Navbar = ({ setIsHovered, isHomePage, scrolled }) => {
@@ -54,6 +55,7 @@ const Navbar = ({ setIsHovered, isHomePage, scrolled }) => {
         >
           Contact
         </NavItem>
+        <SearchButton />
       </NavItemsContainer>
     </>
   );
