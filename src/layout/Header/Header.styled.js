@@ -19,8 +19,8 @@ export const HeaderContainer = styled.header`
   background-color: ${({ $isHomePage, $scrolled }) =>
     $isHomePage && $scrolled && "#ebebeb4d"};
 
-  background-color: ${({ $isHovered }) =>
-    $isHovered && `${colors.HID_Grayscale[0]}`};
+  background-color: ${({ $isHovered, $dropdownOpen }) =>
+    ($isHovered || $dropdownOpen) && `${colors.HID_Grayscale[0]}`};
 
   transition: background-color 0.3s ease;
 `;

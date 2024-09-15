@@ -14,7 +14,9 @@ const Header = ({ isHovered, setIsHovered }) => {
   const isHomePage = location.pathname === "/";
 
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
 
+  // HomePage 배너 이후 dynamic styling
   useEffect(() => {
     const handleScroll = () => {
       setScrollPosition(window.scrollY);
@@ -26,6 +28,27 @@ const Header = ({ isHovered, setIsHovered }) => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  // Dropdown 렌더링 시 Scroll 제어
+  useEffect(() => {
+    if (isHovered || isDropdownOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isHovered, isDropdownOpen]);
+
+  const handleMouseEnter = () => {
+    setDropdownOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    setDropdownOpen(false);
+  };
 
   // IntersectionObserver를 사용한 방식
   // const targetRef = useRef(null);
@@ -56,6 +79,7 @@ const Header = ({ isHovered, setIsHovered }) => {
         $isHovered={isHovered}
         $isHomePage={isHomePage}
         $scrolled={scrollPosition > 1056}
+        $dropdownOpen={isDropdownOpen}
       >
         <Link to="/">
           {isHomePage ? (
@@ -73,7 +97,12 @@ const Header = ({ isHovered, setIsHovered }) => {
           scrolled={scrollPosition > 1056}
         />
       </HeaderContainer>
-      <Dropdown isHovered={isHovered} />
+      <Dropdown
+        isHovered={isHovered}
+        isDropdownOpen={isDropdownOpen}
+        handleMouseEnter={handleMouseEnter}
+        handleMouseLeave={handleMouseLeave}
+      />
     </>
   );
 };
