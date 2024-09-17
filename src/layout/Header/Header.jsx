@@ -92,7 +92,9 @@ const Header = ({ isHovered, setIsHovered }) => {
           )}
         </Link>
         <Navbar
+          isHovered={isHovered}
           setIsHovered={setIsHovered}
+          isDropdownOpen={isDropdownOpen}
           isHomePage={isHomePage}
           scrolled={scrollPosition > 1056}
         />

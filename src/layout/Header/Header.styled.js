@@ -11,7 +11,9 @@ export const HeaderContainer = styled.header`
   align-items: center;
 
   width: 100%;
-  padding: 12px 158px;
+  height: 50px;
+
+  padding: 0 158px;
 
   background-color: ${({ $isHomePage }) =>
     $isHomePage ? "#1A1A1A4D" : "#ebebeb4d"};
@@ -21,7 +23,7 @@ export const HeaderContainer = styled.header`
 
   background-color: ${({ $isHovered, $dropdownOpen }) =>
     ($isHovered || $dropdownOpen) && `${colors.HID_Grayscale[0]}`};
-
+    
   transition: background-color 0.3s ease;
 `;
 

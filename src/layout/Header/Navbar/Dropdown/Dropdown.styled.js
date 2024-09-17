@@ -30,7 +30,7 @@ export const DropdownContainer = styled.div`
   background-color: ${colors.HID_Grayscale[0]};
 
   position: fixed;
-  top: 49px;
+  top: 50px;
 `;
 
 export const Title = styled.h2`
