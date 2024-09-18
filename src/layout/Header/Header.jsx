@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import { HeaderContainer, MainLogo } from "./Header.styled";
+import { HeaderContainer, StyledHIDHomeLogo } from "./Header.styled";
 
-import HIDLogo from "@assets/HID-logo.svg";
-import HIDHomeLogo from "@assets/HID-home-logo.svg";
 import Navbar from "./Navbar/Navbar";
 import Dropdown from "./Navbar/Dropdown/Dropdown";
 
@@ -13,8 +11,10 @@ const Header = ({ isHovered, setIsHovered }) => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
 
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
 
+  // HomePage의 배너 이미지 이후부터 dynamic styling 가능하게끔 scrollPosition 계산
   useEffect(() => {
     const handleScroll = () => {
       setScrollPosition(window.scrollY);
@@ -26,6 +26,28 @@ const Header = ({ isHovered, setIsHovered }) => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  // Dropdown 렌더링 시 Scroll 제어
+  useEffect(() => {
+    if (isHovered || isDropdownOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isHovered, isDropdownOpen]);
+
+  // Dropdown 컨테이너 hover시 Dropdown 컴포넌트 유지 (for better UX)
+  const enterDropdown = () => {
+    setDropdownOpen(true);
+  };
+
+  const leaveDropdown = () => {
+    setDropdownOpen(false);
+  };
 
   // IntersectionObserver를 사용한 방식
   // const targetRef = useRef(null);
@@ -54,26 +76,32 @@ const Header = ({ isHovered, setIsHovered }) => {
     <>
       <HeaderContainer
         $isHovered={isHovered}
+        $dropdownOpen={isDropdownOpen}
         $isHomePage={isHomePage}
-        $scrolled={scrollPosition > 1080}
+        $scrolled={scrollPosition > 1056}
       >
         <Link to="/">
-          {isHomePage ? (
-            <MainLogo
-              src={HIDHomeLogo}
-              alt="Hongik Industrial Design Home Logo"
-            />
-          ) : (
-            <MainLogo src={HIDLogo} alt="Hongik Industrial Design Logo" />
-          )}
+          <StyledHIDHomeLogo
+            $isHomePage={isHomePage}
+            $scrolled={scrollPosition > 1056}
+            $isHovered={isHovered}
+            $dropdownOpen={isDropdownOpen}
+          />
         </Link>
         <Navbar
+          isHovered={isHovered}
           setIsHovered={setIsHovered}
+          isDropdownOpen={isDropdownOpen}
           isHomePage={isHomePage}
           scrolled={scrollPosition > 1056}
         />
       </HeaderContainer>
-      <Dropdown isHovered={isHovered} />
+      <Dropdown
+        isHovered={isHovered}
+        isDropdownOpen={isDropdownOpen}
+        enterDropdown={enterDropdown}
+        leaveDropdown={leaveDropdown}
+      />
     </>
   );
 };

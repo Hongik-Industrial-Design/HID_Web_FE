@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import { colors } from "@styles/theme/colors";
 
-export const NavItemsContainer = styled.div`
+export const NavItemsContainer = styled.ul`
+  height: 100%;
+
   display: flex;
   align-items: center;
   gap: 48px;
@@ -11,15 +13,27 @@ export const NavItemsContainer = styled.div`
       ? `${colors.HID_Grayscale[0]}`
       : `${colors.HID_Grayscale[800]}`};
 
-  color: ${({ $scrolled }) =>
-    $scrolled ? `${colors.HID_Grayscale[800]}` : `${colors.HID_Grayscale[0]}`};
+  color: ${({ $isHomePage, $scrolled }) =>
+    $isHomePage && $scrolled && `${colors.HID_Grayscale[800]}`};
+
+  color: ${({ $isHomePage, $isHovered, $dropdownOpen }) =>
+    $isHomePage &&
+    ($isHovered || $dropdownOpen) &&
+    `${colors.HID_Grayscale[800]}`};
 
   transition: color 0.3s ease;
+
+  a {
+    height: 100%;
+  }
 `;
 
-export const NavItem = styled.p`
-  /* font-weight: ${({ $isActive }) => ($isActive ? 600 : 300)};
-  color: ${({ $isActive }) => $isActive && `${colors.HID_Navy[900]}`}; */
+export const NavItem = styled.li`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
 
   font-weight: ${({ $currentPage }) => ($currentPage ? 600 : 300)};
   color: ${({ $currentPage }) => $currentPage && `${colors.HID_Navy[900]}`};
@@ -32,7 +46,7 @@ export const NavItem = styled.p`
     content: "";
     position: absolute;
     left: 50%;
-    bottom: -16px;
+    bottom: -4px;
     transform: translateX(-50%);
     width: ${({ $currentPage }) => ($currentPage ? "40px" : "0")};
     height: 4px;

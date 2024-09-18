@@ -9,14 +9,7 @@ const __dirname = path.dirname(__filename);
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    react(),
-    svgr({
-      svgrOptions: {
-        icon: true, // 필요 시 아이콘 옵션 설정
-      },
-    }),
-  ],
+  plugins: [react(), svgr()],
   resolve: {
     alias: {
       "@components": path.resolve(__dirname, "./src/components"),

@@ -1,33 +1,57 @@
-import {
-  DropdownBackground,
-  DropdownContainer,
-  Timeline,
-  Title,
-  Year,
-} from "./Dropdown.styled";
+/* eslint-disable react/prop-types */
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-// eslint-disable-next-line react/prop-types
-const Dropdown = ({ isHovered }) => {
+import { DropdownBackground, DropdownContainer } from "./Dropdown.styled";
+import ExhibitionTab from "./ExhibitionTab/ExhibitionTab";
+
+const Dropdown = ({
+  isHovered,
+  isDropdownOpen,
+  enterDropdown,
+  leaveDropdown,
+}) => {
+  const [timeline, setTimeline] = useState([]);
+
+  useEffect(() => {
+    const fetchTimelineData = async () => {
+      try {
+        const response = await axios.get("/data/timeline.json");
+        const timelineData = response.data;
+
+        console.log(timelineData);
+
+        const reorderedData = reverseArray(timelineData);
+        console.log(reorderedData);
+
+        setTimeline(reorderedData);
+      } catch (error) {
+        console.error("Error occured: ", error);
+      }
+    };
+
+    fetchTimelineData();
+  }, []);
+
+  const reverseArray = (arr) => {
+    return [...arr].reverse();
+  };
+
   return (
     <>
-      <DropdownBackground $isHovered={isHovered} />
-      <DropdownContainer $isHovered={isHovered}>
-        <Title>
-          All Graduation Exhibition<span>.</span>
-        </Title>
-        <Timeline>
-          <Year>2014</Year>
-          <Year>2015</Year>
-          <Year>2016</Year>
-          <Year>2017</Year>
-          <Year>2018</Year>
-          <Year>2019</Year>
-          <Year>2020</Year>
-          <Year>2021</Year>
-          <Year>2022</Year>
-          <Year>2023</Year>
-          <Year>2024</Year>
-        </Timeline>
+      <DropdownBackground $isHovered={isHovered} $isOpened={isDropdownOpen} />
+      <DropdownContainer
+        $isHovered={isHovered}
+        $isOpened={isDropdownOpen}
+        onMouseEnter={enterDropdown}
+        onMouseLeave={leaveDropdown}
+      >
+        <ExhibitionTab
+          exhibitonType={"Graduation"}
+          timeline={timeline}
+          isHovered={isHovered}
+          isOpened={isDropdownOpen}
+        />
       </DropdownContainer>
     </>
   );

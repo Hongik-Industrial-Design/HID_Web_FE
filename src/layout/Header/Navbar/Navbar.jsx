@@ -1,59 +1,69 @@
-import { useState } from "react";
+/* eslint-disable react/prop-types */
+// import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import { NavItem, NavItemsContainer } from "./Navbar.styled";
+import SearchButton from "./SearchButton/SearchButton";
 
-// eslint-disable-next-line react/prop-types
-const Navbar = ({ setIsHovered, isHomePage, scrolled }) => {
-  const [activeMenu, setActiveMenu] = useState(null);
-
+const Navbar = ({
+  isHovered,
+  setIsHovered,
+  isDropdownOpen,
+  isHomePage,
+  scrolled,
+}) => {
   const location = useLocation();
   const currentPath = location.pathname;
 
   return (
     <>
-      <NavItemsContainer $isHomePage={isHomePage} $scrolled={scrolled}>
+      <NavItemsContainer
+        $isHovered={isHovered}
+        $dropdownOpen={isDropdownOpen}
+        $isHomePage={isHomePage}
+        $scrolled={scrolled}
+      >
         <NavItem
-          $isActive={activeMenu === "Faculty"}
-          onClick={() => setActiveMenu("Faculty")}
+        // $isActive={activeMenu === "Faculty"}
+        // onClick={() => setActiveMenu("Faculty")}
         >
           Faculty
         </NavItem>
         <Link to="/graduation">
           <NavItem
-            // $isActive={activeMenu === "Graduation Exhibition"}
-            $currentPage={currentPath === "/graduation"}
+            $currentPage={currentPath.startsWith("/graduation")}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            onClick={() => setActiveMenu("Graduation Exhibition")}
           >
             Graduation Exhibition
           </NavItem>
         </Link>
         <NavItem
-          $isActive={activeMenu === "Student Exhibition"}
-          onClick={() => setActiveMenu("Student Exhibition")}
+          $currentPage={currentPath.startsWith("/student")}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
         >
           Student Exhibition
         </NavItem>
         <NavItem
-          $isActive={activeMenu === "CourseTrack"}
-          onClick={() => setActiveMenu("CourseTrack")}
+        // $isActive={activeTab === "CourseTrack"}
+        // onClick={() => setActiveTab("CourseTrack")}
         >
           CourseTrack
         </NavItem>
         <NavItem
-          $isActive={activeMenu === "Community"}
-          onClick={() => setActiveMenu("Community")}
+        // $isActive={activeTab === "Community"}
+        // onClick={() => setActiveTab("Community")}
         >
           Community
         </NavItem>
         <NavItem
-          $isActive={activeMenu === "Contact"}
-          onClick={() => setActiveMenu("Contact")}
+        // $isActive={activeTab === "Contact"}
+        // onClick={() => setActiveTab("Contact")}
         >
           Contact
         </NavItem>
+        <SearchButton isHomePage={isHomePage} scrolled={scrolled} />
       </NavItemsContainer>
     </>
   );
