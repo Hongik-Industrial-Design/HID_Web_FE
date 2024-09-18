@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { DetailPageContainer } from "./DetailPage.styled";
 
 import Layout from "@layout/Layout";
@@ -6,8 +7,10 @@ import ArtworkSection from "@pages/Exhibition/Detail/ArtworkSection/ArtworkSecti
 import TeamMembersSection from "./TeamMemberSection/TeamMembersSection";
 
 const DetailPage = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <Layout>
+    <Layout isHovered={isHovered} setIsHovered={setIsHovered}>
       <DetailPageContainer>
         <HeroSection />
         <ArtworkSection />
