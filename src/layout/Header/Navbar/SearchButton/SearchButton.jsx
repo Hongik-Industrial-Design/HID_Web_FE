@@ -1,12 +1,15 @@
-import { IconContainer, MagnifyHandle } from "./SearchButton.styled";
+/* eslint-disable react/prop-types */
+import {
+  IconContainer,
+  MagnifyHandle,
+  StyledMagnifyLens,
+} from "./SearchButton.styled";
 
-import MagnifyLens from "@assets/circle.svg?react";
-
-const SearchButton = () => {
+const SearchButton = ({ isHomePage, scrolled }) => {
   return (
     <IconContainer>
-      <MagnifyLens />
-      <MagnifyHandle />
+      <StyledMagnifyLens $isHomePage={isHomePage} $scrolled={scrolled} />
+      <MagnifyHandle $isHomePage={isHomePage} $scrolled={scrolled} />
     </IconContainer>
   );
 };
