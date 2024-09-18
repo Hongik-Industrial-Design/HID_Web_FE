@@ -57,12 +57,15 @@ const Navbar = ({
         >
           Community
         </NavItem>
-        <NavItem
-        // $isActive={activeTab === "Contact"}
-        // onClick={() => setActiveTab("Contact")}
-        >
-          Contact
-        </NavItem>
+        <Link to="/contact">
+          <NavItem
+            $currentPage={currentPath.startsWith("/contact")}
+            // $isActive={activeTab === "Contact"}
+            // onClick={() => setActiveTab("Contact")}
+          >
+            Contact
+          </NavItem>
+        </Link>
         <SearchButton isHomePage={isHomePage} scrolled={scrolled} />
       </NavItemsContainer>
     </>

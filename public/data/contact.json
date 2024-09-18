@@ -1,0 +1,115 @@
+{
+  "officeInfo": {
+    "category": "Office Info",
+    "contactDetails": [
+      {
+        "title": "Address",
+        "content": "Design & Arts Hall 904, 94, Wausan-ro, Mapo-gu, Seoul, Republic of Korea"
+      },
+      { "title": "Email", "content": "hiid@hongik.ac.kr" },
+      { "title": "Tel", "content": "+82(0)2-320-4265" },
+      { "title": "Fax", "content": "+82(0)2-324-4265" },
+      { "title": "Opening Hour", "content": "Mon - Fri 9:00 - 17:00" }
+    ]
+  },
+  "admission": {
+    "category": "Admission",
+    "contactDetails": [
+      {
+        "title": "Address",
+        "content": "Wa-U Hall F1 Admission Center, 94, Wausan-ro, Mapo-gu, Seoul, Republic of Korea"
+      },
+      { "title": "Tel", "content": "+82(0)2-320-1056" },
+      { "title": "Fax", "content": "+82(0)2-320-1059" },
+      { "type": "Admission", "title": "Admission Page ⇱", "url": "/" }
+    ]
+  },
+  "onlineCommunity": {
+    "category": "Online Community",
+    "contactDetails": [
+      {
+        "title": "Facebook",
+        "content": [
+          {
+            "name": "Facebook Group",
+            "url": "https://www.facebook.com/groups/hiid2012/?locale=ko_KR"
+          },
+          {
+            "name": "Community Group",
+            "url": "https://www.facebook.com/groups/668466069966951"
+          },
+          {
+            "name": "Alumni Group",
+            "url": "https://www.facebook.com/groups/hiid2012/?locale=ko_KR"
+          },
+          {
+            "name": "Graduate Exhibition",
+            "url": "https://www.facebook.com/2021hid/"
+          }
+        ]
+      },
+      {
+        "title": "Instagram",
+        "content": [
+          {
+            "name": "Student Council",
+            "url": "https://www.instagram.com/sandidandi_hid/?__pwa=1"
+          },
+          {
+            "name": "Graduate Exhibition",
+            "url": "https://www.instagram.com/hongik.id.degreeshow/?__pwa=1"
+          }
+        ]
+      },
+      {
+        "title": "Cafe",
+        "content": [
+          { "name": "Freshman Cafe", "url": "https://cafe.naver.com/hid2019#" }
+        ]
+      }
+    ]
+  },
+  "updateInfo": {
+    "category": "Update Your Info",
+    "contactDetails": [
+      {
+        "title": "Alumni",
+        "content": "홍익대학교 산업디자인전공 동문회 연락처 입력"
+      }
+    ]
+  },
+  "designer": {
+    "category": "Designer",
+    "contributors": [
+      {
+        "name": "Yun Yeong Jun",
+        "email": "yjcj0607@mail.hongik.ac.kr"
+      },
+      {
+        "name": "Shin Seung ho",
+        "email": "lorem@gmail.com"
+      },
+      {
+        "name": "Jo so hyeon",
+        "email": "lorem@gmail.com"
+      }
+    ]
+  },
+  "developer": {
+    "category": "Developer",
+    "contributors": [
+      {
+        "name": "Kim Chul Heung",
+        "email": "keaikim77@gmail.com"
+      },
+      {
+        "name": "Kim Hwi So",
+        "email": "hwisokim@gmail.com"
+      },
+      {
+        "name": "Bang Joon Bo",
+        "email": "joonbobang@gmail.com"
+      }
+    ]
+  }
+}
