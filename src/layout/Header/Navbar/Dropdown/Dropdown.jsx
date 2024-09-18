@@ -2,19 +2,14 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-import {
-  DropdownBackground,
-  DropdownContainer,
-  Timeline,
-  Title,
-  Year,
-} from "./Dropdown.styled";
+import { DropdownBackground, DropdownContainer } from "./Dropdown.styled";
+import ExhibitionTab from "./ExhibitionTab/ExhibitionTab";
 
 const Dropdown = ({
   isHovered,
   isDropdownOpen,
-  handleMouseEnter,
-  handleMouseLeave,
+  enterDropdown,
+  leaveDropdown,
 }) => {
   const [timeline, setTimeline] = useState([]);
 
@@ -48,17 +43,15 @@ const Dropdown = ({
       <DropdownContainer
         $isHovered={isHovered}
         $isOpened={isDropdownOpen}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+        onMouseEnter={enterDropdown}
+        onMouseLeave={leaveDropdown}
       >
-        <Title>
-          All Graduation Exhibition<span>.</span>
-        </Title>
-        <Timeline>
-          {timeline.map((time, index) => (
-            <Year key={index}>{time}</Year>
-          ))}
-        </Timeline>
+        <ExhibitionTab
+          exhibitonType={"Graduation"}
+          timeline={timeline}
+          isHovered={isHovered}
+          isOpened={isDropdownOpen}
+        />
       </DropdownContainer>
     </>
   );
