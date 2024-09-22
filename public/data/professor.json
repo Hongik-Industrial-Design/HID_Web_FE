@@ -1,0 +1,134 @@
+[
+  {
+    "id": 10,
+    "image": "kim-jae-yeop.jpg",
+    "name": "KIM, JAE YEOP",
+    "title": "Assistant Professor",
+    "specialization": "Interaction/UI Design",
+    "contact": {
+      "email": "jaeyeop.kim@hongik.ac.kr"
+    },
+    "description": "Prof. Jae Kim is interested in social, cultural, and ethical consequences of emerging technologies. His research focuses on Human Centered Interaction and Intelligent (AI) products and services which includes voice and natural interface. He led various UX design projects such as Microsoft AI Assistant, AI Speaker, AI powered IoT devices and Smart TV at Microsoft Ai, Nokia and Samsung. He majored in communication design at Parsons School of Design in New York and received a master degree in design interactions from Royal College of Arts in London. He also participated in global exhibitions and conferences including Microsoft Ai & Data science Conference, MoMA, London Design Festival, and Helsinki Design Week",
+    "major": [
+      "Interaction Design",
+      "UI & UX Design",
+      "Service Design and Prototype"
+    ],
+    "biography": [
+      {
+        "year": "2019",
+        "description": "Ph.D. candidate in Creative Convergence Design, Korea University"
+      },
+      {
+        "year": "2012",
+        "description": "MA in Design Interactions, Royal College of Art"
+      },
+      {
+        "year": "2006",
+        "description": "BFA in Communication Design, Parsons School of Design"
+      },
+      {
+        "yearRange": "2015 - 19",
+        "description": "Microsoft AI & Research Team, Redmond"
+      },
+      {
+        "yearRange": "2013 - 15",
+        "description": "Nokia, IoT Core UX Team, Helsinki"
+      },
+      {
+        "yearRange": "2011 - 13",
+        "description": "Samsung Electronics, Smart TV UX Team, Seoul"
+      },
+      {
+        "yearRange": "2006 - 08",
+        "description": "Marc Echo Enterprise, Design Team, New York"
+      },
+      {
+        "currentRole": "Director of Research Institute of Art & Design Technology, Hongik University"
+      },
+      {
+        "currentRole": "Speculative Futures Korea Chapter Leader"
+      }
+    ],
+    "awards": [
+      {
+        "year": "2020",
+        "award": "Global HR Forum: AI & Human, How can we coexist?"
+      },
+      {
+        "year": "2020",
+        "award": "Korea HCI & UX/UI Summit, Designs: New Role in AI era"
+      },
+      {
+        "year": "2019",
+        "award": "DDP Seoul-Light Forum, Intelligent Interaction Design"
+      },
+      {
+        "year": "2018",
+        "award": "Microsoft Machine Learning, AI & Data Science Conference - AI Facial Sculpture"
+      },
+      {
+        "year": "2015",
+        "award": "Helsinki Design Week - Forced Landing: Into the Unknown"
+      },
+      {
+        "year": "2011",
+        "award": "MoMA Talk to Me: Design and the Communication between People and Objects – The Messenger"
+      },
+      {
+        "year": "2010",
+        "award": "Adobe Design Achievement Awards – The Page"
+      }
+    ],
+    "works": [
+      {
+        "year": "2021",
+        "project": "Samsung TV Multi-View UX Project"
+      },
+      {
+        "year": "2021",
+        "project": "Naver Search & AI, Intent based UX Design"
+      },
+      {
+        "year": "2020",
+        "project": "Naver Search & AI, UX Research Project"
+      },
+      {
+        "year": "2020",
+        "project": "LG OLED TV, UX Design Project"
+      },
+      {
+        "year": "2019",
+        "project": "Samsung Mobile, Design Research for Next Generation"
+      },
+      {
+        "year": "2019",
+        "project": "Microsoft AI Assistant, AI powered IoT device"
+      },
+      {
+        "yearRange": "2017 - 18",
+        "project": "Microsoft AI Assistant, Voice and Natural User Interface"
+      },
+      {
+        "yearRange": "2016 - 17",
+        "project": "Microsoft AI Speaker, Cortana Cooking Assistant Skill"
+      },
+      {
+        "yearRange": "2015 - 16",
+        "project": "Microsoft AI Assistant, Cortana Notebook"
+      },
+      {
+        "year": "2015",
+        "project": "Nokia, Smart Meeting Speaker"
+      },
+      {
+        "year": "2014",
+        "project": "Nokia, Smart Headset and Wireless Charger"
+      },
+      {
+        "yearRange": "2012 - 14",
+        "project": "Samsung Smart TV, Gesture and Voice Interaction"
+      }
+    ]
+  }
+]
