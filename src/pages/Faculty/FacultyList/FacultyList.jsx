@@ -5,6 +5,7 @@ import Category from "@components/Exhibition/Category/Category";
 import FacultyGallery from "./FacultyGallery/FacultyGallery";
 
 import {
+  CategoryStickyContainer,
   FacultyListContainer,
   FacultyListPageWrapper,
   FacultyPageTitle,
@@ -16,13 +17,15 @@ const FacultyList = () => {
   return (
     <Layout isHovered={isHovered} setIsHovered={setIsHovered}>
       <FacultyListPageWrapper>
-        <div className="category-margin">
+        <CategoryStickyContainer>
           <Category />
-        </div>
+        </CategoryStickyContainer>
+
         <FacultyListContainer>
           <FacultyPageTitle>
             Faculty<span>.</span>
           </FacultyPageTitle>
+          
           <FacultyGallery />
         </FacultyListContainer>
       </FacultyListPageWrapper>

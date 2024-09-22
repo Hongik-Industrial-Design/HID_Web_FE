@@ -10,12 +10,12 @@ export const FacultyListPageWrapper = styled.div`
   display: flex;
   justify-content: center;
   gap: 194px;
+`;
 
-  .category-margin {
-    padding-top: 120px;
+export const CategoryStickyContainer = styled.div`
+  padding-top: 120px;
 
-    position: relative;
-  }
+  position: relative;
 `;
 
 export const FacultyListContainer = styled.div`
