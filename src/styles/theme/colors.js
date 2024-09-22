@@ -25,4 +25,6 @@ export const colors = {
     50: "#f5f5f5",
     0: "#ffffff",
   },
+
+  HID_YellowDot: "#FFC700",
 };
