@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-// import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import { NavItem, NavItemsContainer } from "./Navbar.styled";
@@ -23,12 +22,15 @@ const Navbar = ({
         $isHomePage={isHomePage}
         $scrolled={scrolled}
       >
-        <NavItem
-        // $isActive={activeMenu === "Faculty"}
-        // onClick={() => setActiveMenu("Faculty")}
-        >
-          Faculty
-        </NavItem>
+        <Link to="/faculty">
+          <NavItem
+          $currentPage={currentPath.startsWith("/faculty")}
+          // $isActive={activeMenu === "Faculty"}
+          // onClick={() => setActiveMenu("Faculty")}
+          >
+            Faculty
+          </NavItem>
+        </Link>
         <Link to="/graduation">
           <NavItem
             $currentPage={currentPath.startsWith("/graduation")}
