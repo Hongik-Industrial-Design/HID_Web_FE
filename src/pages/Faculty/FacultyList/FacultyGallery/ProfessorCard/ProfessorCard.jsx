@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import {
   ProfessorContainer,
@@ -10,8 +11,15 @@ import {
 const ProfessorCard = ({ professorInfo }) => {
   const [thumbnailHovered, setThumbnailHovered] = useState(false);
 
+  const navigate = useNavigate();
+
+  const goToProfessorProfile = (id) => {
+    navigate(`/faculty/${id}`);
+  };
+
   return (
     <ProfessorContainer
+      onClick={() => goToProfessorProfile(professorInfo.id)}
       onMouseEnter={() => setThumbnailHovered(true)}
       onMouseLeave={() => setThumbnailHovered(false)}
     >
