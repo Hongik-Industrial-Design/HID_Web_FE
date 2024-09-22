@@ -1,0 +1,114 @@
+[
+  {
+    "id": "1",
+    "thumbnail": "lee-geun.jpg",
+    "info": {
+      "name": "Lee Geun",
+      "major": "Smart Mobility Design"
+    }
+  },
+  {
+    "id": "2",
+    "thumbnail": "goo-sang.jpg",
+    "info": {
+      "name": "Goo Sang",
+      "major": "Smart Mobility Design"
+    }
+  },
+  {
+    "id": "3",
+    "thumbnail": "kim-ju-yeon.jpg",
+    "info": {
+      "name": "Kim Ju Yeon",
+      "major": "Spatial Design"
+    }
+  },
+  {
+    "id": "4",
+    "thumbnail": "lee-jung-gyo.jpg",
+    "info": {
+      "name": "Lee Jung Gyo",
+      "major": "Spatial Marketing Design"
+    }
+  },
+  {
+    "id": "5",
+    "thumbnail": "cho-taek-yeon.jpg",
+    "info": {
+      "name": "Cho Taek Yeon",
+      "major": "Spatial Design"
+    }
+  },
+  {
+    "id": "6",
+    "thumbnail": "choi-ik-seo.jpg",
+    "info": {
+      "name": "Choi Ik Seo",
+      "major": "Spatial Design"
+    }
+  },
+  {
+    "id": "7",
+    "thumbnail": "hwang-seong-geol.jpg",
+    "info": {
+      "name": "Hwang Seong Geol",
+      "major": "Industrial Design"
+    }
+  },
+  {
+    "id": "8",
+    "thumbnail": "kim-sook-yeon.jpg",
+    "info": {
+      "name": "Kim Sook Yeon",
+      "major": "Interaction/Service Design"
+    }
+  },
+  {
+    "id": "9",
+    "thumbnail": "kim-eun-young.jpg",
+    "info": {
+      "name": "Kim Eun Young",
+      "major": "Industrial Design"
+    }
+  },
+  {
+    "id": "10",
+    "thumbnail": "kim-jae-yeop.jpg",
+    "info": {
+      "name": "Kim Jae Yeop",
+      "major": "Inetraction/Industrial Design"
+    }
+  },
+  {
+    "id": "11",
+    "thumbnail": "eo-joon-hyuk.jpg",
+    "info": {
+      "name": "Eo Joon Hyuk",
+      "major": "Smart Mobility Design"
+    }
+  },
+  {
+    "id": "12",
+    "thumbnail": "lee-gil-ok.jpg",
+    "info": {
+      "name": "Lee Gil Ok",
+      "major": "Industrial Design"
+    }
+  },
+  {
+    "id": "13",
+    "thumbnail": "lee-hee-jin.jpg",
+    "info": {
+      "name": "Lee Hee Jin",
+      "major": "Exhibition Design"
+    }
+  },
+  {
+    "id": "14",
+    "thumbnail": "lo-seung-il.jpg",
+    "info": {
+      "name": "Lo Seung Il",
+      "major": "Smart Mobility Design"
+    }
+  }
+]

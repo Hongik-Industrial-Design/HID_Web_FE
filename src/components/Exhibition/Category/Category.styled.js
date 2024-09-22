@@ -1,12 +1,15 @@
 import styled from "styled-components";
 
 export const CategoryContainer = styled.div`
+  position: sticky;
+  top: ${({ $currentPath }) => $currentPath === "/faculty" && "253px"};
+
   display: inline-flex;
   flex-direction: column;
   gap: 24px;
-  
+
   margin-left: 158px;
-  
+
   white-space: nowrap;
 `;
 

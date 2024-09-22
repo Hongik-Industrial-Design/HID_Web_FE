@@ -1,13 +1,17 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 import { CategoryContainer, DetailedMajor } from "./Category.styled";
 
 const Category = () => {
   const [isSelected, setIsSelected] = useState("All");
 
+  const location = useLocation();
+  const currentPath = location.pathname;
+
   return (
     <>
-      <CategoryContainer>
+      <CategoryContainer $currentPath={currentPath}>
         <DetailedMajor
           $isSelected={isSelected === "All"}
           onClick={() => setIsSelected("All")}
