@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 import { CategoryContainer, DetailedMajor } from "./Category.styled";
-import { useLocation } from "react-router-dom";
 
 const Category = () => {
   const [isSelected, setIsSelected] = useState("All");

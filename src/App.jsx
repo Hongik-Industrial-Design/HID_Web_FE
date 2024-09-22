@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 
 import HomePage from "@pages/Home/HomePage";
+import FacultyList from "@pages/Faculty/FacultyList/FacultyList";
 import GraduationPage from "@pages/Exhibition/Graduation/GraduationPage";
 import DetailPage from "@pages/Exhibition/Detail/DetailPage";
 import ContactPage from "@pages/Contact/ContactPage";
-import FacultyList from "@pages/Faculty/FacultyList/FacultyList";
 
 function App() {
   return (
