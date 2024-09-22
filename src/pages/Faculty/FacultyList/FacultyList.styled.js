@@ -1,19 +1,30 @@
-import { colors } from "@styles/theme/colors";
 import styled from "styled-components";
+import { colors } from "@styles/theme/colors";
 
-export const FacultyListContainer = styled.div`
+export const FacultyListPageWrapper = styled.div`
   width: 100%;
   margin-top: 121px;
   padding-right: 158px;
+  padding-bottom: 239px;
 
+  display: flex;
+  justify-content: center;
+  gap: 194px;
+
+  .category-margin {
+    padding-top: 120px;
+
+    position: relative;
+  }
+`;
+
+export const FacultyListContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 64px;
 `;
 
 export const FacultyPageTitle = styled.h2`
-  margin-left: 498px;
-
   ${({ theme }) => theme.fontStyles.Header1}
   letter-spacing: -0.28px;
 
@@ -22,11 +33,4 @@ export const FacultyPageTitle = styled.h2`
   span {
     color: #ffc700;
   }
-`;
-
-export const FacultyMainContent = styled.div`
-  width: 100%;
-
-  display: flex;
-  gap: 194px;
 `;

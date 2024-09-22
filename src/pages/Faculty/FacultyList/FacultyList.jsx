@@ -2,10 +2,11 @@ import { useState } from "react";
 
 import Layout from "@layout/Layout";
 import Category from "@components/Exhibition/Category/Category";
+import FacultyGallery from "./FacultyGallery/FacultyGallery";
 
 import {
   FacultyListContainer,
-  FacultyMainContent,
+  FacultyListPageWrapper,
   FacultyPageTitle,
 } from "./FacultyList.styled";
 
@@ -14,15 +15,17 @@ const FacultyList = () => {
 
   return (
     <Layout isHovered={isHovered} setIsHovered={setIsHovered}>
-      <FacultyListContainer>
-        <FacultyPageTitle>
-          Faculty<span>.</span>
-        </FacultyPageTitle>
-        <FacultyMainContent>
+      <FacultyListPageWrapper>
+        <div className="category-margin">
           <Category />
-        </FacultyMainContent>
-      </FacultyListContainer>
-      ;
+        </div>
+        <FacultyListContainer>
+          <FacultyPageTitle>
+            Faculty<span>.</span>
+          </FacultyPageTitle>
+          <FacultyGallery />
+        </FacultyListContainer>
+      </FacultyListPageWrapper>
     </Layout>
   );
 };
