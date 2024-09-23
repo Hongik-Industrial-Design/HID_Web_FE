@@ -71,6 +71,10 @@ export const MajorSection = styled.div`
   width: 100%;
 `;
 
+export const DegreeSection = styled.div`
+  width: 100%;
+`
+
 export const BiographySection = styled.div`
   width: 100%;
 `;

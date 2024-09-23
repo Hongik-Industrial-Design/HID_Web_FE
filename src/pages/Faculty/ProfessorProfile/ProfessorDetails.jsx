@@ -5,6 +5,7 @@ import {
   BoldDivider,
   CareerContainer,
   CareerEntry,
+  DegreeSection,
   DetailsContainer,
   DetailsDescriptionBox,
   DetailsDescriptionText,
@@ -30,6 +31,28 @@ const ProfessorDetails = ({ professorDetails }) => {
         </DetailsDescriptionBox>
       </MajorSection>
 
+      {/* Degree Section */}
+      <DegreeSection>
+        <DetailSectionTitle>Degree</DetailSectionTitle>
+        <BoldDivider />
+        <CareerContainer>
+          {professorDetails?.degrees.map((degree) => (
+            <CareerEntry key={degree.id}>
+              <EventYearBox>
+                <p>{degree.year}</p>
+                <SubtleDivider />
+              </EventYearBox>
+              <DetailsDescriptionBox>
+                <DetailsDescriptionText>
+                  {degree.degree}
+                </DetailsDescriptionText>
+                <SubtleDivider />
+              </DetailsDescriptionBox>
+            </CareerEntry>
+          ))}
+        </CareerContainer>
+      </DegreeSection>
+
       {/* Biography Section */}
       <BiographySection>
         <DetailSectionTitle>Biography</DetailSectionTitle>
@@ -43,7 +66,7 @@ const ProfessorDetails = ({ professorDetails }) => {
               </EventYearBox>
               <DetailsDescriptionBox>
                 <DetailsDescriptionText>
-                  {career.description}
+                  {career.position}
                 </DetailsDescriptionText>
                 <SubtleDivider />
               </DetailsDescriptionBox>
@@ -53,24 +76,52 @@ const ProfessorDetails = ({ professorDetails }) => {
       </BiographySection>
 
       {/* Awards Section */}
-      <AwardsSection>
-        <DetailSectionTitle>Awards</DetailSectionTitle>
-        <BoldDivider />
-        <CareerContainer>
-          {professorDetails?.awards.map((career) => (
-            <CareerEntry key={career.id}>
-              <EventYearBox>
-                <p>{career.year}</p>
-                <SubtleDivider />
-              </EventYearBox>
-              <DetailsDescriptionBox>
-                <DetailsDescriptionText>{career.award}</DetailsDescriptionText>
-                <SubtleDivider />
-              </DetailsDescriptionBox>
-            </CareerEntry>
-          ))}
-        </CareerContainer>
-      </AwardsSection>
+      {professorDetails?.awards && (
+        <AwardsSection>
+          <DetailSectionTitle>Awards</DetailSectionTitle>
+          <BoldDivider />
+          <CareerContainer>
+            {professorDetails?.awards.map((career) => (
+              <CareerEntry key={career.id}>
+                <EventYearBox>
+                  <p>{career.year}</p>
+                  <SubtleDivider />
+                </EventYearBox>
+                <DetailsDescriptionBox>
+                  <DetailsDescriptionText>
+                    {career.award}
+                  </DetailsDescriptionText>
+                  <SubtleDivider />
+                </DetailsDescriptionBox>
+              </CareerEntry>
+            ))}
+          </CareerContainer>
+        </AwardsSection>
+      )}
+
+      {/* Publications Section */}
+      {professorDetails?.publications && (
+        <AwardsSection>
+          <DetailSectionTitle>Publications</DetailSectionTitle>
+          <BoldDivider />
+          <CareerContainer>
+            {professorDetails?.publications.map((publication) => (
+              <CareerEntry key={publication.id}>
+                <EventYearBox>
+                  <p>{publication.year}</p>
+                  <SubtleDivider />
+                </EventYearBox>
+                <DetailsDescriptionBox>
+                  <DetailsDescriptionText>
+                    {publication.title}
+                  </DetailsDescriptionText>
+                  <SubtleDivider />
+                </DetailsDescriptionBox>
+              </CareerEntry>
+            ))}
+          </CareerContainer>
+        </AwardsSection>
+      )}
 
       {/* Works Section */}
       <WorksSection>
