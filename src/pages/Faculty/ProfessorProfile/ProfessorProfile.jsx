@@ -5,7 +5,6 @@ import axios from "axios";
 import Layout from "@layout/Layout";
 
 import {
-  DetailsContainer,
   ProfessorProfileHeader,
   ProfessorProfileMainSection,
   ProfessorProfilePageTitle,
@@ -20,6 +19,7 @@ import {
 import { BreadscrumbContainer } from "@components/Breadscrumb/Breadscrumb.styled";
 
 import forwardArrow from "@assets/arrows/forward-arrow_triangle.svg";
+import ProfessorDetails from "./ProfessorDetails";
 
 const ProfessorProfile = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -99,7 +99,7 @@ const ProfessorProfile = () => {
             <ProfileDescription>{professorInfo.description}</ProfileDescription>
           </ProfileContainer>
 
-          <DetailsContainer></DetailsContainer>
+          <ProfessorDetails professorDetails={professorInfo.details} />
         </ProfessorProfileMainSection>
       </ProfessorProfileWrapper>
     </Layout>

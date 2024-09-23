@@ -33,7 +33,7 @@ export const ProfessorProfileMainSection = styled.div`
   width: 100%;
 
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   gap: 206px;
 `;
 
@@ -117,9 +117,4 @@ export const ProfileDescription = styled.p`
   line-height: 32px;
 
   color: ${colors.HID_Grayscale[700]};
-`;
-
-export const DetailsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
 `;
