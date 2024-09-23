@@ -36,6 +36,12 @@ export const fontStyles = {
     line-height: 28px;
     letter-spacing: 0%;
   `,
+  Title3: css`
+    font-style: normal;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 32px;
+  `,
   Headline: css`
     font-style: normal;
     font-size: 20px;
@@ -56,6 +62,12 @@ export const fontStyles = {
     font-weight: 400;
     line-height: 22px;
     letter-spacing: 0%;
+  `,
+  Body3: css`
+    font-style: normal;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 26px;
   `,
   Caption: css`
     font-style: normal;
