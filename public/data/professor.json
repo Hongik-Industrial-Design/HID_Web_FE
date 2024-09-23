@@ -1,5 +1,1279 @@
 [
   {
+    "id": 1,
+    "image": "lee-geun.jpg",
+    "name": "Lee, Geun",
+    "title": "Professor",
+    "specialization": "Smart Mobility",
+    "contact": {
+      "email": "kleeoh@hongik.ac.kr"
+    },
+    "description": "Lee Geun is a professor specializing in the field of designing propulsion systems for multi-seated public transport vehicles. He focuses on smart mobility, urban transportation systems, and smart city-related research, authorship, and consulting. From 2015 to 2017, he was part of the Seoul Design Foundation, where he worked on projects related to public transportation design and city infrastructure. His research covers a wide range of areas in the transportation sector, including future mobility concepts like smart transportation and smart cities. Additionally, he is passionate about public transportation systems, and how they relate to urban mobility, transit, and vehicle design. His current focus is on furthering research in the smart mobility field, examining trends and conducting further studies.",
+    "details": {
+      "major": "Future Mobility Design, Urban Transportation System Design",
+      "degrees": [
+        {
+          "id": 1,
+          "year": 1900,
+          "degree": "PhD in Transportation Studies, University of Seoul"
+        },
+        {
+          "id": 2,
+          "year": 1900,
+          "degree": "MSc in Transportation and Vehicle Design, Royal College of Art, UK"
+        },
+        {
+          "id": 3,
+          "year": 1900,
+          "degree": "MFA in Industrial Design, Hongik University"
+        },
+        {
+          "id": 4,
+          "year": 1900,
+          "degree": "BFA in Industrial Design, Hongik University"
+        }
+      ],
+      "biography": [
+        {
+          "id": 1,
+          "yearRange": "2019 - Present",
+          "position": "Director, Smart Mobility Research Lab, Hongik University"
+        },
+        {
+          "id": 2,
+          "yearRange": "2015 - 2017",
+          "position": "Chair, Seoul Design Foundation"
+        },
+        {
+          "id": 3,
+          "yearRange": "2012 - 2020",
+          "position": "Dean, International Design School for Advanced Studies, Hongik University"
+        },
+        {
+          "id": 4,
+          "yearRange": "1997 - 2000",
+          "position": "Head Designer, Advanced Vehicle Design Center"
+        },
+        {
+          "id": 5,
+          "yearRange": "1987 - 1996",
+          "position": "Head Designer, Advanced Vehicle Design Center"
+        }
+      ],
+      "works": [
+        {
+          "id": 1,
+          "yearRange": 2020,
+          "project": "E-BIKE Design"
+        },
+        {
+          "id": 2,
+          "yearRange": 2019,
+          "project": "Seoul Autonomous Vehicle Seoul Design"
+        },
+        {
+          "id": 3,
+          "yearRange": 2018,
+          "project": "Rural Public Bus Design"
+        },
+        {
+          "id": 4,
+          "yearRange": 2017,
+          "project": "Traditional Rickshaw Mobility Design"
+        },
+        {
+          "id": 5,
+          "yearRange": 2017,
+          "project": "Microsoft Smart Mobility Public Transport Relay"
+        },
+        {
+          "id": 6,
+          "yearRange": 2016,
+          "project": "Electric Taxi Design"
+        },
+        {
+          "id": 7,
+          "yearRange": 2016,
+          "project": "Smart Mobility International Conference Exhibition, Seoul International Smart Mobility"
+        },
+        {
+          "id": 8,
+          "yearRange": 2015,
+          "project": "Smart Mobility Design, Expo Exhibition"
+        }
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "image": "goo-sang.jpg",
+    "name": "Koo, Sang",
+    "title": "Professor",
+    "specialization": "Automotive and Mobility Design",
+    "contact": {
+      "email": "koosang@hongik.ac.kr"
+    },
+    "description": "Prof. Jae Kim is interested in social, cultural, and ethical consequences of emerging technologies. His research focuses on Human Centered Interaction and Intelligent (AI) products and services which includes voice and natural interface. He led various UX design projects such as Microsoft AI Assistant, AI Speaker, AI powered IoT devices and Smart TV at Microsoft Ai, Nokia and Samsung. He majored in communication design at Parsons School of Design in New York and received a master degree in design interactions from Royal College of Arts in London. He also participated in global exhibitions and conferences including Microsoft Ai & Data science Conference, MoMA, London Design Festival, and Helsinki Design Week",
+    "details": {
+      "major": "Future Mobility Design, Urban Transportation System Design",
+      "degrees": [
+        {
+          "id": 1,
+          "year": 2007,
+          "degree": "PhD, Seoul National University"
+        },
+        {
+          "id": 2,
+          "year": 1991,
+          "degree": "MFA, Hongik University"
+        },
+        {
+          "id": 3,
+          "year": 1989,
+          "degree": "BFA, Seoul National University"
+        }
+      ],
+      "biography": [
+        {
+          "id": 1,
+          "yearRange": "2018 - Present",
+          "position": "Director, Korea Automotive Designers Association"
+        },
+        {
+          "id": 2,
+          "yearRange": "2017 - Present",
+          "position": "Board Member, Korea Society of Design Science"
+        },
+        {
+          "id": 3,
+          "yearRange": "2016 - Present",
+          "position": "Director, Korea Industrial Designers Association"
+        },
+        {
+          "id": 4,
+          "yearRange": "2014 - 2018",
+          "position": "Professor, Korea National University of Transportation"
+        },
+        {
+          "id": 5,
+          "yearRange": 2007,
+          "position": "PhD, Seoul National University"
+        },
+        {
+          "id": 6,
+          "yearRange": "2002 - 2013",
+          "position": "Professor, Korea University of Technology and Education"
+        },
+        {
+          "id": 7,
+          "yearRange": "1997 - 2002",
+          "position": "Professor, Daegu University"
+        },
+        {
+          "id": 8,
+          "yearRange": 1991,
+          "position": "MFA, Hongik University"
+        },
+        {
+          "id": 9,
+          "yearRange": 1989,
+          "position": "BFA, Seoul National University"
+        }
+      ],
+      "awards": [
+        {
+          "id": 1,
+          "year": 2016,
+          "award": "Best Publication Award, Korea Society of Design"
+        },
+        {
+          "id": 2,
+          "year": 2010,
+          "award": "Korea Design Research Paper Excellence Award"
+        },
+        {
+          "id": 3,
+          "year": 2005,
+          "award": "Korea Design Award, 3D Vehicle Design Patent"
+        }
+      ],
+      "publications": [
+        {
+          "id": 1,
+          "year": 2021,
+          "title": "Mobility Design Textbook"
+        },
+        {
+          "id": 2,
+          "year": 2016,
+          "title": "Automotive Design Textbook"
+        },
+        {
+          "id": 3,
+          "year": 2013,
+          "title": "Novel: 'Hidden Hands'"
+        },
+        {
+          "id": 4,
+          "year": 2012,
+          "title": "Color Marketing"
+        },
+        {
+          "id": 5,
+          "year": 2010,
+          "title": "Sketch & Rendering Studio"
+        },
+        {
+          "id": 6,
+          "year": 2009,
+          "title": "Automotive Design Novel 'Dreaming Prometheus'"
+        },
+        {
+          "id": 7,
+          "year": 2009,
+          "title": "Secrets of Automotive Design Identity"
+        },
+        {
+          "id": 8,
+          "year": 2005,
+          "title": "Digital Sketch & Rendering in Automotive Design"
+        }
+      ],
+      "works": [
+        {
+          "id": 1,
+          "yearRange": 2018,
+          "project": "LS Automotive Concept Car Development"
+        },
+        {
+          "id": 2,
+          "yearRange": 2017,
+          "project": "Flying Vehicle Concept Design"
+        },
+        {
+          "id": 3,
+          "yearRange": 2016,
+          "project": "Kia Motors - High-Capacity Vehicle Design"
+        },
+        {
+          "id": 4,
+          "yearRange": 2015,
+          "project": "Daejeon City Small Urban Bicycle Design"
+        },
+        {
+          "id": 5,
+          "yearRange": 2014,
+          "project": "Hyundai Bus Seat Design Development"
+        },
+        {
+          "id": 6,
+          "yearRange": 2014,
+          "project": "Daejeon City Taxi Billboard Design"
+        }
+      ]
+    }
+  },
+
+  {
+    "id": 3,
+    "image": "kim-joo-yeon.jpg",
+    "name": "Kim, Joo Yeon",
+    "title": "Professor",
+    "specialization": "Space Design",
+    "contact": {
+      "email": "jykim@hongik.ac.kr"
+    },
+    "description": "Prof. Jae Kim is interested in social, cultural, and ethical consequences of emerging technologies. His research focuses on Human Centered Interaction and Intelligent (AI) products and services which includes voice and natural interface. He led various UX design projects such as Microsoft AI Assistant, AI Speaker, AI powered IoT devices and Smart TV at Microsoft Ai, Nokia and Samsung. He majored in communication design at Parsons School of Design in New York and received a master degree in design interactions from Royal College of Arts in London. He also participated in global exhibitions and conferences including Microsoft Ai & Data science Conference, MoMA, London Design Festival, and Helsinki Design Week",
+    "details": {
+      "major": "Space Branding, Spatial Design, Public Design",
+      "degrees": [
+        {
+          "id": 1,
+          "year": 2002,
+          "degree": "PhD in Architecture, Kookmin University"
+        },
+        {
+          "id": 2,
+          "year": 1991,
+          "degree": "MFA in Interior Design, Cornell University"
+        },
+        {
+          "id": 3,
+          "year": 1989,
+          "degree": "MFA in Interior Architecture, School of the Art Institute of Chicago"
+        },
+        {
+          "id": 4,
+          "year": 1986,
+          "degree": "MFA in Interior Design, Hongik University"
+        },
+        {
+          "id": 5,
+          "year": 1984,
+          "degree": "BFA in Architecture, Hongik University"
+        }
+      ],
+      "biography": [
+        {
+          "id": 1,
+          "yearRange": "2020 - Present",
+          "position": "Chair, Hongik University Student Affairs"
+        },
+        {
+          "id": 2,
+          "yearRange": "2019 - Present",
+          "position": "Director, Hongik Public Design Research Center"
+        },
+        {
+          "id": 3,
+          "yearRange": "2018 - Present",
+          "position": "Lead Professor, Public Design, Hongik University"
+        },
+        {
+          "id": 4,
+          "yearRange": "1996 - Present",
+          "position": "Professor, Hongik University Department of Industrial Design"
+        },
+        {
+          "id": 5,
+          "yearRange": "2017 - 18",
+          "position": "President, Korean Society of Interior Designers (KISD)"
+        },
+        {
+          "id": 6,
+          "yearRange": "2016 - 18",
+          "position": "Dean, Hongik University College of Industrial Arts"
+        }
+      ],
+      "awards": [
+        {
+          "id": 1,
+          "year": 2020,
+          "award": "Commendation, Ministry of Culture, Sports and Tourism"
+        },
+        {
+          "id": 2,
+          "year": 2020,
+          "award": "Fellow of the IFI by the International Federation of Interior Architects/Designers"
+        },
+        {
+          "id": 3,
+          "year": 2018,
+          "award": "Albert Nelson Marquis Lifetime Achievement Award"
+        }
+      ],
+      "publications": [
+        {
+          "id": 1,
+          "year": 2020,
+          "title": "Space Branding"
+        },
+        {
+          "id": 2,
+          "year": 2019,
+          "title": "Bauhaus"
+        },
+        {
+          "id": 3,
+          "year": 2019,
+          "title": "Iconic Architecture"
+        }
+      ],
+      "works": [
+        {
+          "id": 1,
+          "yearRange": 2019,
+          "project": "Hyundai Motors Autonomous Vehicle Package Design Roadmap"
+        },
+        {
+          "id": 2,
+          "yearRange": 2017,
+          "project": "LG Well-being 'Nature Collection' Space Service Design"
+        },
+        {
+          "id": 3,
+          "yearRange": 2013,
+          "project": "NCSoft Children’s Theme Park"
+        }
+      ]
+    }
+  },
+
+  {
+    "id": 4,
+    "name": "Lee, Jeong Gyo",
+    "image": "lee-jung-gyo.jpg",
+    "title": "Professor",
+    "specialization": "Space Design, Design Communication, and Space Marketing",
+    "contact": {
+      "email": "ismarket21@gmail.com"
+    },
+    "details": {
+      "major": "Spatial Design, Design Communication, and Space Marketing",
+      "degrees": [
+        {
+          "id": 1,
+          "year": 1995,
+          "degree": "MS in Design, Art Center College of Design, California"
+        },
+        {
+          "id": 2,
+          "year": 1992,
+          "degree": "MFA in Industrial Design, Hongik University"
+        },
+        {
+          "id": 3,
+          "year": 1985,
+          "degree": "BFA in Industrial Design, Hongik University"
+        }
+      ],
+      "biography": [
+        {
+          "id": 1,
+          "yearRange": "2013-14",
+          "position": "President, Korea Society of Design Science"
+        },
+        {
+          "id": 2,
+          "yearRange": "2016-18",
+          "position": "Advisor, PyeongChang Winter Olympics Design Committee"
+        },
+        {
+          "id": 3,
+          "yearRange": "2015",
+          "position": "Chair, IDC (International Design Congress) Exhibition Planning Committee"
+        },
+        {
+          "id": 4,
+          "yearRange": "2009-12",
+          "position": "Judge, Seoul International Design Competition"
+        },
+        {
+          "id": 5,
+          "yearRange": "2000-02",
+          "position": "Judge, Busan Asian Games Environmental Design Committee"
+        }
+      ],
+      "awards": [
+        {
+          "id": 1,
+          "year": 2008,
+          "award": "Design Award, Samsung Corporate Headquarters LED Gallery"
+        },
+        {
+          "id": 2,
+          "year": 2005,
+          "award": "Excellence Award, Ministry of Culture and Tourism"
+        },
+        {
+          "id": 3,
+          "year": 2003,
+          "award": "Olympic Architecture Lighting Design Award, Seoul City"
+        }
+      ],
+      "publications": [
+        {
+          "id": 1,
+          "year": 2016,
+          "title": "Coordination & Product: Space Design"
+        }
+      ],
+      "works": [
+        {
+          "id": 1,
+          "yearRange": 2021,
+          "project": "Hyundai Trensis 'Future Mobility Space Environment Study'"
+        },
+        {
+          "id": 2,
+          "yearRange": 2018,
+          "project": "Interactive Art for Safe Driving, IoT-based Digital Signage Development"
+        },
+        {
+          "id": 3,
+          "yearRange": 2017,
+          "project": "LG Electronics Global Market Promotion Design"
+        }
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "name": "Cho, Taek Yeon",
+    "image": "jo-taek-yeon.jpg",
+    "title": "Professor",
+    "specialization": "Department of Industrial Design",
+    "contact": {
+      "email": "taigyoung@hongik.ac.kr"
+    },
+    "details": {
+      "major": "Spatial Design, Cognitive Aesthetics, Evolving Aesthetics, 4th Industrial Design, Knowledge Content",
+      "degrees": [
+        {
+          "id": 1,
+          "year": 2006,
+          "degree": "Ph.D. in Engineering, Chung-Ang University"
+        },
+        {
+          "id": 2,
+          "year": 1999,
+          "degree": "AIA, New York Architect"
+        },
+        {
+          "id": 3,
+          "year": 1994,
+          "degree": "MFA in Architecture, UCLA"
+        },
+        {
+          "id": 4,
+          "year": 1990,
+          "degree": "MFA in Architecture, Pratt Institute"
+        },
+        {
+          "id": 5,
+          "year": 1986,
+          "degree": "MS in Engineering, Chung-Ang University"
+        },
+        {
+          "id": 6,
+          "year": 1984,
+          "degree": "BFA in Architecture, Chung-Ang University"
+        }
+      ],
+      "biography": [
+        {
+          "id": 1,
+          "yearRange": "Present",
+          "position": "Professor, Department of Industrial Design, Hongik University"
+        }
+      ],
+      "awards": [
+        {
+          "id": 1,
+          "year": "Unknown",
+          "award": "Pratt Student of the Year Award"
+        }
+      ],
+      "publications": [
+        {
+          "id": 1,
+          "year": 2019,
+          "title": "Design Anthropology"
+        },
+        {
+          "id": 2,
+          "year": 2006,
+          "title": "Pure Wonder"
+        }
+      ],
+      "works": [
+        {
+          "id": 1,
+          "yearRange": 2002,
+          "project": "Solo Exhibition '2042 and 2084'"
+        },
+        {
+          "id": 2,
+          "yearRange": 2000,
+          "project": "Solo Exhibition 'Spectrum of Paradigm'"
+        },
+        {
+          "id": 3,
+          "yearRange": 1997,
+          "project": "Solo Exhibition 'Gaia Project'"
+        },
+        {
+          "id": 4,
+          "yearRange": "Unknown",
+          "project": "Space Design for the film 'Wonderful Days' (Perkins & Will, New York)"
+        }
+      ]
+    }
+  },
+  {
+    "id": 6,
+    "name": "Choi, Ik Seo",
+    "image": "choi-ik-seo.jpg",
+    "title": "Professor",
+    "specialization": "Spatial Design",
+    "contact": {
+      "email": "ischoi@hongik.ac.kr",
+      "alternate_email": "ikseo_choi@naver.com"
+    },
+    "details": {
+      "major": "Exhibition Design, Furniture Design, Adaptive Furniture Research, Architectural Indeterminism",
+      "degrees": [
+        {
+          "id": 1,
+          "year": 1997,
+          "degree": "MFA in Industrial Design, Domus Academy"
+        },
+        {
+          "id": 2,
+          "year": 1990,
+          "degree": "MFA in Industrial Design, Hongik University"
+        },
+        {
+          "id": 3,
+          "year": 1988,
+          "degree": "BFA in Industrial Design, Hongik University"
+        }
+      ],
+      "biography": [
+        {
+          "id": 1,
+          "yearRange": "Present",
+          "position": "Professor, Department of Industrial Design, Hongik University"
+        },
+        {
+          "id": 2,
+          "yearRange": "2018-19",
+          "position": "Auditor, Korean Society of Space Design"
+        },
+        {
+          "id": 3,
+          "yearRange": "2013-16",
+          "position": "Vice President, Korean Society of Space Design"
+        }
+      ],
+      "awards": [
+        {
+          "id": 1,
+          "year": 2017,
+          "award": "Special Prize, Russia Novosibirsk International Design Competition"
+        },
+        {
+          "id": 2,
+          "year": 2006,
+          "award": "Minister's Award, Ministry of Construction and Transportation"
+        },
+        {
+          "id": 3,
+          "year": 2000,
+          "award": "Commendation, Ministry of Culture and Tourism"
+        }
+      ],
+      "publications": [],
+      "works": [
+        {
+          "id": 1,
+          "yearRange": "2014",
+          "project": "Exhibition Design, Gwangju National Asia Culture Hall Children's Museum"
+        },
+        {
+          "id": 2,
+          "yearRange": "2013",
+          "project": "Exhibition Design, DDP Museum, Dongdaemun Design Plaza"
+        },
+        {
+          "id": 3,
+          "yearRange": "2007",
+          "project": "Curator, Gwangju Design Biennale"
+        },
+        {
+          "id": 4,
+          "yearRange": "2004",
+          "project": "Curator, Venice Architecture Biennale, Italy"
+        },
+        {
+          "id": 5,
+          "yearRange": "2000",
+          "project": "Exhibition Design, 3rd ASEM Special Exhibition, Seoul"
+        }
+      ]
+    }
+  },
+
+  {
+    "id": 7,
+    "name": "Hwang, Sung Gul",
+    "image": "hwang-seong-geol.jpg",
+    "title": "Professor",
+    "specialization": "Product Design",
+    "contact": {
+      "email": "gulhwang@gmail.com"
+    },
+    "details": {
+      "major": "Product Design, Business Design, UX/UI Design, Creative Branding",
+      "degrees": [
+        {
+          "id": 1,
+          "year": 2015,
+          "degree": "Ph.D. in Product Design, Yonsei University"
+        },
+        {
+          "id": 2,
+          "year": 1998,
+          "degree": "MFA in Human-Centered Design, Illinois Institute of Technology"
+        },
+        {
+          "id": 3,
+          "year": 1991,
+          "degree": "BFA in Industrial Design, Hongik University"
+        }
+      ],
+      "biography": [
+        {
+          "id": 1,
+          "yearRange": "Present",
+          "position": "Professor, Department of Industrial Design, Hongik University"
+        },
+        {
+          "id": 2,
+          "yearRange": "Present",
+          "position": "Executive, SK Nano-Intelligence"
+        },
+        {
+          "id": 3,
+          "yearRange": "Present",
+          "position": "Advisor, Samsung Electronics"
+        },
+        {
+          "id": 4,
+          "yearRange": "Present",
+          "position": "Industry Expert - L'Oreal, Volkswagen, Audi, GE, LG Electronics, MIT Design Lab"
+        }
+      ],
+
+      "awards": [
+        {
+          "id": 1,
+          "year": 2019,
+          "award": "Germany IF Design Award"
+        },
+        {
+          "id": 2,
+          "year": 2014,
+          "award": "Audi Urban Future Initiative 2014 Global Finalist"
+        },
+        {
+          "id": 3,
+          "year": 2012,
+          "award": "IDEA Design Strategy Award"
+        },
+        {
+          "id": 4,
+          "year": 2007,
+          "award": "3GSM World Congress Best Handset"
+        },
+        {
+          "id": 5,
+          "year": 2006,
+          "award": "IDEA Business Design Catalyst Award"
+        },
+        {
+          "id": 6,
+          "year": 2006,
+          "award": "Korean Color Design Grand Prize"
+        },
+        {
+          "id": 7,
+          "year": 2003,
+          "award": "IDEA Consumer Product Gold"
+        },
+        {
+          "id": 8,
+          "year": 1993,
+          "award": "KAFA Photo Exhibition Overall Grand Prize"
+        }
+      ],
+      "works": [
+        {
+          "id": 1,
+          "yearRange": "Present",
+          "project": "Consulting for Hyundai-Kia Motors, HP USA, Naver, Samsung Electronics, SKT, Shilla Hotel, and Jeil Planning"
+        },
+        {
+          "id": 2,
+          "yearRange": "Present",
+          "project": "Founding Professor, Service Design Department, Hongik University"
+        },
+        {
+          "id": 3,
+          "yearRange": "2018",
+          "project": "Design Committee Member, Pyeongchang Winter Olympics"
+        },
+        {
+          "id": 4,
+          "yearRange": "Present",
+          "project": "Director, Google-Motorola Korea"
+        },
+        {
+          "id": 5,
+          "yearRange": "Present",
+          "project": "Design Manager, Motorola North America"
+        },
+        {
+          "id": 6,
+          "yearRange": "Present",
+          "project": "UX/GUI Designer, Microsoft USA"
+        },
+        {
+          "id": 7,
+          "yearRange": "Present",
+          "project": "Product Designer, Contineum, USA"
+        }
+      ]
+    }
+  },
+
+  {
+    "id": 8,
+    "name": "Kim, Sook-Yeon",
+    "image": "kim-sook-yeon.jpg",
+    "title": "Associate Professor",
+    "specialization": "UX Design, Interaction Design, Service Design",
+    "contact": {
+      "email": "sookyeonkim@gmail.com"
+    },
+    "details": {
+      "major": "UX Design, Interaction Design, Service Design",
+      "degrees": [
+        {
+          "id": 1,
+          "year": 2019,
+          "degree": "Ph.D. in Interaction Design, Yonsei University"
+        },
+        {
+          "id": 2,
+          "year": 2008,
+          "degree": "MFA in Interaction Design, Carnegie Mellon University"
+        },
+        {
+          "id": 3,
+          "year": 2004,
+          "degree": "BFA in Product Design, Kingston University (UK)"
+        },
+        {
+          "id": 4,
+          "year": 2003,
+          "degree": "BFA in Industrial Design, Hongik University"
+        }
+      ],
+      "works": [
+        {
+          "id": 1,
+          "yearRange": "2019",
+          "project": "Lead Designer for Web and Mobile Design, Hongik University College of Fine Arts"
+        },
+        {
+          "id": 2,
+          "yearRange": "2017-18",
+          "project": "UX/UI Designer, Hyundai Smart Home Platform"
+        },
+        {
+          "id": 3,
+          "yearRange": "2016",
+          "project": "Social Interaction Design Lead, SK Telecom"
+        },
+        {
+          "id": 4,
+          "yearRange": "2011-15",
+          "project": "Senior Interaction Designer, University of Phoenix - Designed educational systems for web and mobile services"
+        },
+        {
+          "id": 5,
+          "yearRange": "2011",
+          "project": "Senior Interaction Designer, Intuit - Designed online accounting and payment systems"
+        },
+        {
+          "id": 6,
+          "yearRange": "2008-10",
+          "project": "Senior UX Designer, Microsoft Research Center - Social interaction projects, online payment systems"
+        },
+        {
+          "id": 7,
+          "yearRange": "2007",
+          "project": "UX Designer, Google - Mobile map-based social interaction services"
+        }
+      ],
+      "awards": [
+        {
+          "id": 1,
+          "year": 2008,
+          "award": "Next Generation Design Leader Award (Korean Design Promotion Institute)"
+        },
+        {
+          "id": 2,
+          "year": 2004,
+          "award": "Cultural Tourism Design Scholarship Award"
+        },
+        {
+          "id": 3,
+          "year": 2001,
+          "award": "Christianson Prize for 'The Living Room of Life'"
+        }
+      ]
+    }
+  },
+
+  {
+    "name": "Kim, Eun-Young",
+    "image": "kim-eun-young.jpg",
+    "title": "Associate Professor",
+    "specialization": "Product Design, Design Strategy, Design Branding",
+    "contact": {
+      "email": "tateeykim@hongik.ac.kr"
+    },
+    "details": {
+      "major": "Product Design, Design Strategy, Design Branding",
+      "degrees": [
+        {
+          "id": 1,
+          "year": 2021,
+          "degree": "Ph.D. in Design, Loughborough University, UK"
+        },
+        {
+          "id": 2,
+          "year": 2017,
+          "degree": "MFA in Product Design Development and Management, Northwestern University, USA"
+        },
+        {
+          "id": 3,
+          "year": 2010,
+          "degree": "MFA in Industrial Design, Hongik University"
+        },
+        {
+          "id": 4,
+          "year": 2003,
+          "degree": "BFA in Architecture, Hongik University"
+        }
+      ],
+      "works": [
+        {
+          "id": 1,
+          "yearRange": "2024",
+          "project": "Samsung VD, AI-based next-generation display product design"
+        },
+        {
+          "id": 2,
+          "yearRange": "2024",
+          "project": "Samsung Design Management Center, Future Mobile AI Product Design Intelligence Research"
+        },
+        {
+          "id": 3,
+          "yearRange": "2024",
+          "project": "Samsung MX, 'Next Mobile for AI' Galaxy AI UX and scenario development"
+        },
+        {
+          "id": 4,
+          "yearRange": "2023",
+          "project": "Samsung MX, Galaxy Mobile New Design Seed project"
+        },
+        {
+          "id": 5,
+          "yearRange": "2023",
+          "project": "Samsung VD, next-generation gaming products & experience design"
+        },
+        {
+          "id": 6,
+          "yearRange": "2023",
+          "project": "Samsung VD, New Screen concept design development"
+        },
+        {
+          "id": 7,
+          "yearRange": "2023",
+          "project": "Samsung MX, next-generation mobile form factor concept scenario design"
+        },
+        {
+          "id": 8,
+          "yearRange": "2022",
+          "project": "Coway, Noble Water Purifier 'Next Premium' design"
+        },
+        {
+          "id": 9,
+          "yearRange": "2022",
+          "project": "Samsung MX, Galaxy Self-Expression editor experience research"
+        },
+        {
+          "id": 10,
+          "yearRange": "2022",
+          "project": "Samsung Design Management Center, Next Metaverse Project"
+        },
+        {
+          "id": 11,
+          "yearRange": "2022",
+          "project": "Samsung VD, The Freestyle next-generation design"
+        },
+        {
+          "id": 12,
+          "yearRange": "2021",
+          "project": "Samsung Galaxy Watch 4, Buds 2 and product design digital storytelling project"
+        },
+        {
+          "id": 13,
+          "yearRange": "2021",
+          "project": "Samsung MX, Galaxy mobile core experience project"
+        },
+        {
+          "id": 14,
+          "yearRange": "2020",
+          "project": "Samsung MX, Galaxy S, Note luxury accessory design project"
+        },
+        {
+          "id": 15,
+          "yearRange": "2020",
+          "project": "Samsung MX, Galaxy Z-Flip, Buds custom design project"
+        },
+        {
+          "id": 16,
+          "yearRange": "2020",
+          "project": "Nike Korea, Air Max 95 digital storytelling collaboration project"
+        },
+        {
+          "id": 17,
+          "yearRange": "2019-22",
+          "project": "NYC, USA iOttie product design consulting, connected car design project"
+        },
+        {
+          "id": 18,
+          "yearRange": "2019",
+          "project": "2019 Xfinity Family Product Design (Product Design, CMF, Branding)"
+        },
+        {
+          "id": 19,
+          "yearRange": "2018",
+          "project": "2019 Motorola Premium Mobile Phone Design for Moto Z, Z+, X, G, E"
+        },
+        {
+          "id": 20,
+          "yearRange": "2015-16",
+          "project": "Samsung Electronics, IoT Robot Design and Drone Design"
+        },
+        {
+          "id": 21,
+          "yearRange": "2003-14",
+          "project": "Mobile Phone Product Design Strategy, Samsung Electronics"
+        }
+      ],
+      "awards": [
+        {
+          "id": 1,
+          "year": 2022,
+          "award": "Red Dot Design Award"
+        },
+        {
+          "id": 2,
+          "year": 2021,
+          "award": "Red Dot Design Award"
+        },
+        {
+          "id": 3,
+          "year": 2012,
+          "award": "IF Design Award"
+        },
+        {
+          "id": 4,
+          "year": 2010,
+          "award": "IF Design Award"
+        },
+        {
+          "id": 5,
+          "year": 2009,
+          "award": "G-Mark Design Award"
+        },
+        {
+          "id": 6,
+          "year": 2008,
+          "award": "IDEA Award"
+        }
+      ]
+    }
+  },
+
+  {
+    "id": 9,
+    "name": "Kim, Eun-Young",
+    "image": "kim-eun-young.jpg",
+    "title": "Associate Professor",
+    "specialization": "Product Design, Design Strategy, Design Branding",
+    "contact": {
+      "email": "tateeykim@hongik.ac.kr"
+    },
+    "details": {
+      "major": "Product Design, Design Strategy, Design Branding",
+      "degrees": [
+        {
+          "id": 1,
+          "year": 2021,
+          "degree": "Ph.D. in Design, Loughborough University, UK"
+        },
+        {
+          "id": 2,
+          "year": 2017,
+          "degree": "MFA in Product Design Development and Management, Northwestern University, USA"
+        },
+        {
+          "id": 3,
+          "year": 2010,
+          "degree": "MFA in Industrial Design, Hongik University"
+        },
+        {
+          "id": 4,
+          "year": 2003,
+          "degree": "BFA in Architecture, Hongik University"
+        }
+      ],
+      "biography": [
+        {
+          "id": 1,
+          "yearRange": "2018-19",
+          "position": "Product Design Lead, Comcast NBCUniversal, Philadelphia"
+        },
+        {
+          "id": 2,
+          "yearRange": "2017-18",
+          "position": "Senior Designer, Motorola Mobility, Chicago"
+        },
+        {
+          "id": 3,
+          "yearRange": "2003-17",
+          "position": "Lead Designer, Samsung Electronics, Seoul"
+        }
+      ],
+      "works": [
+        {
+          "id": 1,
+          "yearRange": "2024",
+          "project": "Samsung VD, AI-based next-generation display product design"
+        },
+        {
+          "id": 2,
+          "yearRange": "2024",
+          "project": "Samsung Design Management Center, Future Mobile AI Product Design Intelligence Research"
+        },
+        {
+          "id": 3,
+          "yearRange": "2024",
+          "project": "Samsung MX, 'Next Mobile for AI' Galaxy AI UX and scenario development"
+        },
+        {
+          "id": 4,
+          "yearRange": "2023",
+          "project": "Samsung MX, Galaxy Mobile New Design Seed project"
+        },
+        {
+          "id": 5,
+          "yearRange": "2023",
+          "project": "Samsung VD, next-generation gaming products & experience design"
+        },
+        {
+          "id": 6,
+          "yearRange": "2023",
+          "project": "Samsung VD, New Screen concept design development"
+        },
+        {
+          "id": 7,
+          "yearRange": "2023",
+          "project": "Samsung MX, next-generation mobile form factor concept scenario design"
+        },
+        {
+          "id": 8,
+          "yearRange": "2022",
+          "project": "Coway, Noble Water Purifier 'Next Premium' design"
+        },
+        {
+          "id": 9,
+          "yearRange": "2022",
+          "project": "Samsung MX, Galaxy Self-Expression editor experience research"
+        },
+        {
+          "id": 10,
+          "yearRange": "2022",
+          "project": "Samsung Design Management Center, Next Metaverse Project"
+        },
+        {
+          "id": 11,
+          "yearRange": "2022",
+          "project": "Samsung VD, The Freestyle next-generation design"
+        },
+        {
+          "id": 12,
+          "yearRange": "2021",
+          "project": "Samsung Galaxy Watch 4, Buds 2 and product design digital storytelling project"
+        },
+        {
+          "id": 13,
+          "yearRange": "2021",
+          "project": "Samsung MX, Galaxy mobile core experience project"
+        },
+        {
+          "id": 14,
+          "yearRange": "2020",
+          "project": "Samsung MX, Galaxy S, Note luxury accessory design project"
+        },
+        {
+          "id": 15,
+          "yearRange": "2020",
+          "project": "Samsung MX, Galaxy Z-Flip, Buds custom design project"
+        },
+        {
+          "id": 16,
+          "yearRange": "2020",
+          "project": "Nike Korea, Air Max 95 digital storytelling collaboration project"
+        },
+        {
+          "id": 17,
+          "yearRange": "2019-22",
+          "project": "NYC, USA iOttie product design consulting, connected car design project"
+        },
+        {
+          "id": 18,
+          "yearRange": "2019",
+          "project": "2019 Xfinity Family Product Design (Product Design, CMF, Branding)"
+        },
+        {
+          "id": 19,
+          "yearRange": "2018",
+          "project": "2019 Motorola Premium Mobile Phone Design for Moto Z, Z+, X, G, E"
+        },
+        {
+          "id": 20,
+          "yearRange": "2015-16",
+          "project": "Samsung Electronics, IoT Robot Design and Drone Design"
+        },
+        {
+          "id": 21,
+          "yearRange": "2003-14",
+          "project": "Mobile Phone Product Design Strategy, Samsung Electronics"
+        }
+      ],
+      "awards": [
+        {
+          "id": 1,
+          "year": 2022,
+          "award": "Red Dot Design Award"
+        },
+        {
+          "id": 2,
+          "year": 2021,
+          "award": "Red Dot Design Award"
+        },
+        {
+          "id": 3,
+          "year": 2012,
+          "award": "IF Design Award"
+        },
+        {
+          "id": 4,
+          "year": 2010,
+          "award": "IF Design Award"
+        },
+        {
+          "id": 5,
+          "year": 2009,
+          "award": "G-Mark Design Award"
+        },
+        {
+          "id": 6,
+          "year": 2008,
+          "award": "IDEA Award"
+        }
+      ]
+    }
+  },
+
+  {
     "id": 10,
     "image": "kim-jae-yeop.jpg",
     "name": "KIM, JAE YEOP",
@@ -11,51 +1285,53 @@
     "description": "Prof. Jae Kim is interested in social, cultural, and ethical consequences of emerging technologies. His research focuses on Human Centered Interaction and Intelligent (AI) products and services which includes voice and natural interface. He led various UX design projects such as Microsoft AI Assistant, AI Speaker, AI powered IoT devices and Smart TV at Microsoft Ai, Nokia and Samsung. He majored in communication design at Parsons School of Design in New York and received a master degree in design interactions from Royal College of Arts in London. He also participated in global exhibitions and conferences including Microsoft Ai & Data science Conference, MoMA, London Design Festival, and Helsinki Design Week",
     "details": {
       "major": "Interaction Design, UI & UX Design, Service Design and Prototype",
-      "biography": [
+      "degrees": [
         {
           "id": 1,
-          "yearRange": "2019",
-          "description": "Ph.D. candidate in Creative Convergence Design, Korea University"
+          "year": "2019",
+          "degree": "Ph.D. candidate in Creative Convergence Design, Korea University"
         },
         {
           "id": 2,
-          "yearRange": "2012",
-          "description": "MA in Design Interactions, Royal College of Art"
+          "year": "2012",
+          "degree": "MA in Design Interactions, Royal College of Art"
         },
         {
           "id": 3,
-          "yearRange": "2006",
-          "description": "BFA in Communication Design, Parsons School of Design"
+          "year": "2006",
+          "degree": "BFA in Communication Design, Parsons School of Design"
+        }
+      ],
+      "biography": [
+        {
+          "id": 1,
+          "yearRange": "2015 - 19",
+          "position": "Microsoft AI & Research Team, Redmond"
+        },
+        {
+          "id": 2,
+          "yearRange": "2013 - 15",
+          "position": "Nokia, IoT Core UX Team, Helsinki"
+        },
+        {
+          "id": 3,
+          "yearRange": "2011 - 13",
+          "position": "Samsung Electronics, Smart TV UX Team, Seoul"
         },
         {
           "id": 4,
-          "yearRange": "2015 - 19",
-          "description": "Microsoft AI & Research Team, Redmond"
+          "yearRange": "2006 - 08",
+          "position": "Marc Echo Enterprise, Design Team, New York"
         },
         {
           "id": 5,
-          "yearRange": "2013 - 15",
-          "description": "Nokia, IoT Core UX Team, Helsinki"
+          "yearRange": "2019 ~",
+          "position": "Director of Research Institute of Art & Design Technology"
         },
         {
           "id": 6,
-          "yearRange": "2011 - 13",
-          "description": "Samsung Electronics, Smart TV UX Team, Seoul"
-        },
-        {
-          "id": 7,
-          "yearRange": "2006 - 08",
-          "description": "Marc Echo Enterprise, Design Team, New York"
-        },
-        {
-          "id": 8,
           "yearRange": "2019 ~",
-          "description": "Director of Research Institute of Art & Design Technology"
-        },
-        {
-          "id": 9,
-          "yearRange": "2019 ~",
-          "description": "Speculative Futures Korea Chapter Leader"
+          "position": "Speculative Futures Korea Chapter Leader"
         }
       ],
       "awards": [
@@ -155,6 +1431,502 @@
           "id": 12,
           "yearRange": "2012 - 14",
           "project": "Samsung Smart TV, Gesture and Voice Interaction"
+        }
+      ]
+    }
+  },
+  {
+    "id": 11,
+    "name": "Eo, Joon Hyuk",
+    "image": "eo-joon-hyuk.jpg",
+    "title": "Assistant Professor",
+    "specialization": "Mobility Design",
+    "contact": {
+      "email": "cardesigneddie@gmail.com"
+    },
+    "details": {
+      "major": "Transportation Design, Design Strategy, Digital Process",
+      "degrees": [
+        {
+          "id": 1,
+          "year": "2010",
+          "degree": "Master of Transportation Design, Pforzheim University"
+        },
+        {
+          "id": 2,
+          "year": "2005",
+          "degree": "Bachelor of Industrial Design, Hongik University"
+        }
+      ],
+      "biography": [
+        {
+          "id": 1,
+          "yearRange": "2014-Present",
+          "position": "Bentley Motors Limited Lead Designer (L4 Manager)"
+        },
+        {
+          "id": 2,
+          "yearRange": "2010-2014",
+          "position": "Opel AG (GM Europe) Interior Designer"
+        },
+        {
+          "id": 3,
+          "yearRange": "2009-2010",
+          "position": "Mercedes-Benz Design Intern"
+        }
+      ]
+    }
+  },
+  {
+    "id": 12,
+    "name": "Lee, Gil Ok",
+    "image": "lee-gil-ok.jpg",
+    "title": "Associate Professor",
+    "specialization": "Product Design",
+    "contact": {
+      "email": "gilock.lee@hongik.ac.kr"
+    },
+    "details": {
+      "major": "Product Design, Design Strategy Planning, Brand Design",
+      "degrees": [
+        {
+          "id": 1,
+          "year": 2017,
+          "degree": "Ph.D. in Industrial Design Engineering, Hongik University"
+        },
+        {
+          "id": 2,
+          "year": 2007,
+          "degree": "Master of Human-Centered Design, Illinois Institute of Technology"
+        },
+        {
+          "id": 3,
+          "year": 2005,
+          "degree": "BFA in Industrial Design, Hongik University"
+        },
+        {
+          "id": 4,
+          "year": 2004,
+          "degree": "Exchange Student, Kingston University (UK), Product Design"
+        }
+      ],
+      "biography": [
+        {
+          "id": 1,
+          "yearRange": "2022-Present",
+          "position": "Director, Korean Society of Industrial Design"
+        },
+        {
+          "id": 2,
+          "yearRange": "2023-Present",
+          "position": "Vice President, Hongik University Campus Entrepreneurship Center"
+        },
+        {
+          "id": 3,
+          "yearRange": "2009-17",
+          "position": "Lead Designer, Samsung Electronics Living Appliance"
+        },
+        {
+          "id": 4,
+          "yearRange": "2007-09",
+          "position": "Senior Designer, Electrolux North America"
+        }
+      ],
+
+      "awards": [
+        {
+          "id": 1,
+          "year": 2024,
+          "award": "IF Design Award"
+        },
+        {
+          "id": 2,
+          "year": 2023,
+          "award": "Spark International Design Award"
+        },
+        {
+          "id": 3,
+          "year": 2021,
+          "award": "IF Design Award (2 awards)"
+        },
+        {
+          "id": 4,
+          "year": 2020,
+          "award": "IF Design Award"
+        },
+        {
+          "id": 5,
+          "year": 2019,
+          "award": "Amorepacific ABC Award - Sustainable Design Management"
+        },
+        {
+          "id": 6,
+          "year": 2013,
+          "award": "CES Design & Engineering Innovation Award (2 awards)"
+        },
+        {
+          "id": 7,
+          "year": 2012,
+          "award": "IDEA Design Award GOLD, IF Design Award"
+        },
+        {
+          "id": 8,
+          "year": 2006,
+          "award": "Next Generation Design Leader [Korea Design Promotion]"
+        },
+        {
+          "id": 9,
+          "year": 2006,
+          "award": "Motorola Chicago HQ Designer, Industrial Excellence Award"
+        },
+        {
+          "id": 10,
+          "year": 2004,
+          "award": "Cultural Tourism Department Design Scholarship"
+        },
+        {
+          "id": 11,
+          "year": 2003,
+          "award": "Samsung Future Digital Home Appliance Design Contest - Grand Prize"
+        },
+        {
+          "id": 12,
+          "year": 2002,
+          "award": "Kyonghyang Newspaper Design Essay Competition - Excellence Award"
+        }
+      ],
+
+      "publications": [
+        {
+          "id": 1,
+          "year": 2024,
+          "title": "Analysis of User Experience on Pen-Shaped Insulin Syringe Design Directions: Focusing on Type 2 Diabetics. Journal of Industrial Design Research, 18(2), 45-67"
+        },
+        {
+          "id": 2,
+          "year": 2024,
+          "title": "Container Pad Design Based on User Research. Journal of Basic Formology, 25(1), 43-56"
+        },
+        {
+          "id": 3,
+          "year": 2023,
+          "title": "Smart Home Lighting Design for Sustainable Lifestyles: Focusing on Single-Person Households in Korea. Journal of Industrial Design Research, 17(4), 55-72"
+        },
+        {
+          "id": 4,
+          "year": 2023,
+          "title": "Perception of Large Appliance Designs for the Chinese Market. Journal of Industrial Design Research, 17(3), 33-42"
+        },
+        {
+          "id": 5,
+          "year": 2023,
+          "title": "Wearable Band Design for Elderly Loneliness Prevention. Journal of Basic Formology, 24(4), 225-241"
+        },
+        {
+          "id": 6,
+          "year": 2023,
+          "title": "Analysis of Household Appliance Design Attributes Based on Convergence. Journal of Industrial Design Research, 17(1), 71-83"
+        },
+        {
+          "id": 7,
+          "year": 2023,
+          "title": "Consumer Perception of Smart Speaker Design Attributes. Journal of Basic Formology, 24(1), 123-136"
+        },
+        {
+          "id": 8,
+          "year": 2022,
+          "title": "Research on Convergence Education Focused on Industrial Design. Journal of Basic Formology, 23(2), 396-410"
+        },
+        {
+          "id": 9,
+          "year": 2021,
+          "title": "Roles of Care in Design Process for Sustainable Behavior. Conference Proceedings of Product Lifetime and Environment Conference, Dublin, Ireland, https://doi.org/10.31880/10344/10202"
+        },
+        {
+          "id": 10,
+          "year": 2020,
+          "title": "Cosmetic Brand Collaboration Design Research. Journal of Industrial Design Research, 14(2), 55-64"
+        },
+        {
+          "id": 11,
+          "year": 2018,
+          "title": "Trends in Sustainable Packaging Design. Journal of Industrial Design Research, 12(3), 45-52"
+        },
+        {
+          "id": 12,
+          "year": 2016,
+          "title": "Smart Home Appliance Design Trends and Strategic Directions. Journal of Industrial Design Research, 10(1), 83-90"
+        },
+        {
+          "id": 13,
+          "year": 2015,
+          "title": "Strategic Approaches of Design Identity Based on Product Specificity. Journal of Design Research, 28(3), 75-87"
+        }
+      ],
+      "works": [
+        {
+          "id": 1,
+          "yearRange": "2024-2027",
+          "project": "Korean Research Foundation New Investigator Grant Research Project"
+        },
+        {
+          "id": 2,
+          "yearRange": "2024",
+          "project": "[Zurich Design Week 2024] Fashion Design x Product Design Collaboration PBL Project Exhibition"
+        },
+        {
+          "id": 3,
+          "yearRange": "2024",
+          "project": "Seoul Design Foundation, Designer-Industry Collaboration for Starion Next Generation Refrigerator and Product Design"
+        },
+        {
+          "id": 4,
+          "yearRange": "2023",
+          "project": "[Seoul Design 2023] ESG Project Collaboration (w/d’Origin), DDP Exhibition"
+        },
+        {
+          "id": 5,
+          "yearRange": "2023",
+          "project": "Seoul Design Foundation, Designer Collaboration for Industrial and BX Design Projects"
+        },
+        {
+          "id": 6,
+          "yearRange": "2022",
+          "project": "Amorepacific Cosonex Brand Collaboration Project"
+        },
+        {
+          "id": 7,
+          "yearRange": "2017-2021",
+          "project": "Amorepacific Innisfree Brand Product and BX Design Development Direction"
+        },
+        {
+          "id": 8,
+          "yearRange": "2009-2017",
+          "project": "Samsung Electronics Home Appliance Line, Lead Design Projects and Strategic Research, Design Instructor at Samsung Design Center"
+        },
+        {
+          "id": 9,
+          "yearRange": "2007-2009",
+          "project": "Electrolux North American Appliance Line, Lead Design Projects"
+        },
+        {
+          "id": 10,
+          "yearRange": "2006",
+          "project": "Motorola Mobile Phone Lead Design Project, CMFP Design Research Project"
+        },
+        {
+          "id": 11,
+          "yearRange": "2005",
+          "project": "Samsung Electronics Lead Design Project, SK Telecom Mobile Phone Design Project"
+        },
+        {
+          "id": 12,
+          "yearRange": "2003-2004",
+          "project": "Samsung Electronics Product Planning and Design Division Lead Design Project (Samsung YPM)"
+        }
+      ]
+    }
+  },
+  {
+    "id": 13,
+    "name": "Lee, Hee-Jin",
+    "image": "lee-hee-jin.jpg",
+    "title": "Assistant Professor",
+    "specialization": "Exhibition Design",
+    "contact": {
+      "email": "sonolee56@hongik.ac.kr"
+    },
+    "details": {
+      "major": "Master of Product Design, Domus Academy",
+      "biography": [
+        {
+          "id": 1,
+          "yearRange": "Present",
+          "position": "CEO, Sonolee, and Representative for Patricia Urquiola, South Korea"
+        },
+        {
+          "id": 2,
+          "yearRange": "2015-19",
+          "position": "Senior Architect & Project Manager, Patricia Urquiola Studio, Milan, Italy"
+        },
+        {
+          "id": 3,
+          "yearRange": "2014",
+          "position": "Designer, Dante Donegani & Giovanni Lauda Studio, Milan, Italy, Instructor at NABA"
+        },
+        {
+          "id": 4,
+          "yearRange": "2007-13",
+          "position": "Exhibition Designer, Sigong Tech"
+        }
+      ],
+      "awards": [
+        {
+          "id": 1,
+          "year": 2021,
+          "award": "23rd Korean Space Design Association International Invitation Exhibition Excellence Award"
+        },
+        {
+          "id": 2,
+          "year": 2017,
+          "award": "Into the Wood: 2nd Place, International Interior Design Competition by Slowwood, Italy"
+        },
+        {
+          "id": 3,
+          "year": 2016,
+          "award": "15th Korean Space Design Association International Invitation Exhibition Excellence Award"
+        },
+        {
+          "id": 4,
+          "year": 2014,
+          "award": "Wood Composition: Grand Prize, International Furniture Competition by Fondazione Aldo Morelato"
+        },
+        {
+          "id": 5,
+          "year": 2014,
+          "award": "Drive Beyond: Finalist, International Design Competition for Flagship Store by Ferrari"
+        },
+        {
+          "id": 6,
+          "year": 2014,
+          "award": "Peacock: Selected, Milan Furniture Fair Design Pavilion"
+        },
+        {
+          "id": 7,
+          "year": 2010,
+          "award": "Grand Prize, Automotive Wrapping Design Competition by Mbox (Metros) + Kia Motors"
+        }
+      ],
+      "works": [
+        {
+          "id": 1,
+          "yearRange": 2021,
+          "project": "Interior Design for Lotte Department Store 'Tailored Home'"
+        },
+        {
+          "id": 2,
+          "yearRange": 2021,
+          "project": "Samsung Bespoke Unreal Online Interior Design Exhibition"
+        },
+        {
+          "id": 3,
+          "yearRange": 2021,
+          "project": "Café and Dining Renovation at CES Hotel"
+        },
+        {
+          "id": 4,
+          "yearRange": 2021,
+          "project": "Interior Design for Dart Flex"
+        },
+        {
+          "id": 5,
+          "yearRange": 2021,
+          "project": "Interior Design for Cassamia New Collection"
+        },
+        {
+          "id": 6,
+          "yearRange": 2020,
+          "project": "Interior Design for Samsung Micro LED"
+        },
+        {
+          "id": 7,
+          "yearRange": 2019,
+          "project": "BMW Korea Driving Center Exhibition Hall"
+        },
+        {
+          "id": 8,
+          "yearRange": 2019,
+          "project": "Interior Design for DECOBU Showroom"
+        },
+        {
+          "id": 9,
+          "yearRange": 2019,
+          "project": "Interior Design for Cassamia Showroom"
+        },
+        {
+          "id": 10,
+          "yearRange": 2019,
+          "project": "Interior Design for JW Marriott Seoul 'The Lounge'"
+        },
+        {
+          "id": 11,
+          "yearRange": 2019,
+          "project": "Exhibition at Alcila Castiglioni, Milan, for the 100th Anniversary"
+        },
+        {
+          "id": 12,
+          "yearRange": 2018,
+          "project": "Booth Design for Daresseux Brand, Milan"
+        },
+        {
+          "id": 13,
+          "yearRange": 2018,
+          "project": "Exhibition Design for Milan Furniture Fair, Milan"
+        },
+        {
+          "id": 14,
+          "yearRange": 2017,
+          "project": "Hongbo Booth for Domus Academy at Seoul Design Festival"
+        },
+        {
+          "id": 15,
+          "yearRange": 2017,
+          "project": "Interior Design for IQOS Philip Morris Offices and Restaurants, Munich, Germany"
+        },
+        {
+          "id": 16,
+          "yearRange": 2017,
+          "project": "Cassina 90th Anniversary Exhibition, Milan Furniture Fair"
+        },
+        {
+          "id": 17,
+          "yearRange": 2016,
+          "project": "Interior Design for KIKO Flagship Store, Paris, France"
+        },
+        {
+          "id": 18,
+          "yearRange": 2016,
+          "project": "Exhibition for Cassina Milan Showroom, Milan Furniture Fair"
+        },
+        {
+          "id": 19,
+          "yearRange": 2016,
+          "project": "Interior Design for Cassina Showrooms in Paris and Madrid"
+        },
+        {
+          "id": 20,
+          "yearRange": 2015,
+          "project": "Renovation for Shinsegae Department Store, Gangnam Branch"
+        }
+      ]
+    }
+  },
+  {
+    "id": 14,
+    "name": "Noh, Seung-IL",
+    "image": "lo-seung-il.jpg",
+    "title": "Associate Professor",
+    "specialization": "Automotive Design, Smart Mobility Design",
+    "contact": {
+      "email": "cardesignerlo@gmail.com"
+    },
+    "details": {
+      "major": "Automotive Design, Smart Mobility",
+      "degrees": [
+        {
+          "id": 1,
+          "year": 2018,
+          "degree": "Master’s Degree in Integrated Management, University of Michigan"
+        },
+        {
+          "id": 2,
+          "year": 1999,
+          "degree": "Bachelor’s Degree in Automotive Design, ArtCenter College of Design"
+        },
+        {
+          "id": 3,
+          "year": 1995,
+          "degree": "Bachelor’s Degree in Mechanical Engineering, Hongik University"
         }
       ]
     }
