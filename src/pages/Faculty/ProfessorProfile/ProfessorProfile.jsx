@@ -94,7 +94,9 @@ const ProfessorProfile = () => {
               </div>
             </ProfileName>
             <ProfileEmail
-              onClick={() => openNewTab("mailto: jaeyeop.kim@hongik.ac.kr")}
+              onClick={() =>
+                openNewTab(`mailto: ${professorInfo.contact.email}`)
+              }
             >
               {professorInfo.contact?.email}
             </ProfileEmail>
