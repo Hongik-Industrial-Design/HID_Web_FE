@@ -97,6 +97,8 @@ export const ProfileName = styled.div`
 `;
 
 export const ProfileEmail = styled.a`
+  align-self: flex-start;
+
   margin-top: 26px;
 
   font-style: normal;
