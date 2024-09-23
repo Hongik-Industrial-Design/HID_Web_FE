@@ -25,6 +25,8 @@ const ProfessorProfile = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [professorInfo, setProfessorInfo] = useState({});
 
+  const [emailHover, setEmailHover] = useState(false);
+
   const { id } = useParams();
 
   const location = useLocation();
@@ -97,6 +99,9 @@ const ProfessorProfile = () => {
               onClick={() =>
                 openNewTab(`mailto: ${professorInfo.contact.email}`)
               }
+              onMouseEnter={() => setEmailHover(true)}
+              onMouseLeave={() => setEmailHover(false)}
+              $emailHovered={emailHover}
             >
               {professorInfo.contact?.email}
             </ProfileEmail>

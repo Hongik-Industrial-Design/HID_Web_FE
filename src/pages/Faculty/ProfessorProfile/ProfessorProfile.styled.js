@@ -107,6 +107,20 @@ export const ProfileEmail = styled.a`
   line-height: 32px;
 
   color: ${colors.HID_Navy[900]};
+
+  position: relative;
+
+  &::after {
+    content: "";
+    height: 3px;
+    position: absolute;
+    bottom: -7px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: ${({ $emailHovered }) => ($emailHovered ? "100%" : 0)};
+    background-color: ${colors.HID_Navy[200]};
+    transition: width 0.3s ease;
+  }
 `;
 
 export const ProfileDescription = styled.p`
