@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import axios from "axios";
 
 import Layout from "@layout/Layout";
+import ProfessorDetails from "./ProfessorDetails";
 
 import {
   ProfessorProfileHeader,
@@ -19,7 +20,6 @@ import {
 import { BreadscrumbContainer } from "@components/Breadscrumb/Breadscrumb.styled";
 
 import forwardArrow from "@assets/arrows/forward-arrow_triangle.svg";
-import ProfessorDetails from "./ProfessorDetails";
 
 const ProfessorProfile = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -69,13 +69,15 @@ const ProfessorProfile = () => {
           <BreadscrumbContainer
             $facultyPage={currentPath.startsWith("/faculty")}
           >
-            <span>Faculty</span>
+            <Link to="/faculty">
+              <span>Faculty</span>
+            </Link>
             <img
               src={forwardArrow}
               alt="forward-arrow"
               className="forward-arrow"
             />
-            <span>Professor</span>
+            <span className="current-page">Professor</span>
           </BreadscrumbContainer>
         </ProfessorProfileHeader>
         <ProfessorProfileMainSection>
