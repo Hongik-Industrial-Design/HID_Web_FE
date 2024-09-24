@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 import { GalleryWrapper, GalleryContainer } from "./Gallery.styled";
 
@@ -19,15 +20,18 @@ const Gallery = () => {
 
   // Fetching Dummy Gallery Image
   useEffect(() => {
-    fetch("/data/gallery.json")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network Problem");
-        }
-        return response.json();
-      })
-      .then((data) => setPieces(data))
-      .catch((error) => console.error("Fetching Error", error));
+    const fetchGalleryImage = async () => {
+      try {
+        const response = await axios.get("/data/gallery.json");
+        const galleryThumbnails = response.data;
+
+        setPieces(galleryThumbnails);
+      } catch (error) {
+        console.error("Fetching Error: ", error);
+      }
+    };
+
+    fetchGalleryImage();
   }, []);
 
   // Calculating height of Gallery grid
