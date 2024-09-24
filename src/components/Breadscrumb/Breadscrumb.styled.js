@@ -7,6 +7,7 @@ export const BreadscrumbContainer = styled.div`
   gap: 8px;
 
   position: absolute;
+  position: ${({ $facultyPage }) => $facultyPage && "static"};
   top: 98px;
   right: 0; // HeroSection content 오른쪽 끝이랑 일치하게끔!
 

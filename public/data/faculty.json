@@ -9,9 +9,9 @@
   },
   {
     "id": "2",
-    "thumbnail": "goo-sang.jpg",
+    "thumbnail": "koo-sang.jpg",
     "info": {
-      "name": "Goo Sang",
+      "name": "Koo Sang",
       "major": "Smart Mobility Design"
     }
   },
@@ -25,9 +25,9 @@
   },
   {
     "id": "4",
-    "thumbnail": "lee-jung-gyo.jpg",
+    "thumbnail": "lee-jeong-gyo.jpg",
     "info": {
-      "name": "Lee Jung Gyo",
+      "name": "Lee Jeong Gyo",
       "major": "Spatial Marketing Design"
     }
   },
@@ -49,9 +49,9 @@
   },
   {
     "id": "7",
-    "thumbnail": "hwang-seong-geol.jpg",
+    "thumbnail": "hwang-seong-gul.jpg",
     "info": {
-      "name": "Hwang Seong Geol",
+      "name": "Hwang Seong Gul",
       "major": "Industrial Design"
     }
   },
@@ -105,9 +105,9 @@
   },
   {
     "id": "14",
-    "thumbnail": "lo-seung-il.jpg",
+    "thumbnail": "noh-seung-il.jpg",
     "info": {
-      "name": "Lo Seung Il",
+      "name": "Noh Seung Il",
       "major": "Smart Mobility Design"
     }
   }
