@@ -1,38 +1,40 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 
 import { GalleryWrapper, GalleryContainer } from "./Gallery.styled";
 
 import Piece from "./Piece/Piece";
 import ScrollButton from "@components/ScrollButton/ScrollButton";
 import Indicator from "./Indicator/Indicator";
+import { AnimatePresence } from "framer-motion";
 
-const Gallery = () => {
+const Gallery = ({ pieces }) => {
   const navigate = useNavigate();
 
-  const [pieces, setPieces] = useState([]);
+  // const [pieces, setPieces] = useState([]);
   const [isScrolled, setIsScrolled] = useState(false);
   const [galleryHeight, setGalleryHeight] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
 
   const galleryRef = useRef(null);
 
-  // Fetching Dummy Gallery Image
-  useEffect(() => {
-    const fetchGalleryImage = async () => {
-      try {
-        const response = await axios.get("/data/gallery.json");
-        const galleryThumbnails = response.data;
+  // // Fetching Dummy Gallery Image
+  // useEffect(() => {
+  //   const fetchGalleryImage = async () => {
+  //     try {
+  //       const response = await axios.get("/data/gallery.json");
+  //       const galleryThumbnails = response.data;
 
-        setPieces(galleryThumbnails);
-      } catch (error) {
-        console.error("Fetching Error: ", error);
-      }
-    };
+  //       setPieces(galleryThumbnails);
+  //     } catch (error) {
+  //       console.error("Fetching Error: ", error);
+  //     }
+  //   };
 
-    fetchGalleryImage();
-  }, []);
+  //   fetchGalleryImage();
+  // }, []);
 
   // Calculating height of Gallery grid
   useEffect(() => {
@@ -109,14 +111,16 @@ const Gallery = () => {
           onClick={scrollLeft}
           isScrolled={isScrolled}
         />
-        {pieces.map((piece) => (
-          <Piece
-            key={piece.id}
-            pieceName={piece.thumbnail}
-            pieceInfos={piece.credit}
-            goToDetailPage={() => goToDetailPage(piece.id)}
-          />
-        ))}
+        <AnimatePresence>
+          {pieces.map((piece) => (
+            <Piece
+              key={piece.id}
+              pieceName={piece.thumbnail}
+              pieceInfos={piece.credit}
+              goToDetailPage={() => goToDetailPage(piece.id)}
+            />
+          ))}
+        </AnimatePresence>
         <ScrollButton
           arrowType="right"
           onClick={scrollRight}
