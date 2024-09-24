@@ -1,34 +1,12 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+/* eslint-disable react/prop-types */
+import ProfessorCard from "./ProfessorCard/ProfessorCard";
 
 import { FacultyGalleryGrid } from "./FacultyGallery.styled";
 
-import ProfessorCard from "./ProfessorCard/ProfessorCard";
-
-const FacultyGallery = () => {
-  const [facultyList, setFacultyList] = useState([]);
-
-  // Fetching Faculty Infos
-  useEffect(() => {
-    const fetchFacultyList = async () => {
-      try {
-        const response = await axios.get("/data/faculty.json");
-        const facultyInfo = response.data;
-
-        console.log(facultyInfo);
-
-        setFacultyList(facultyInfo);
-      } catch (error) {
-        console.error("Error occured: ", error);
-      }
-    };
-
-    fetchFacultyList();
-  }, []);
-
+const FacultyGallery = ({ categorizedFaculty }) => {
   return (
     <FacultyGalleryGrid>
-      {facultyList.map((professor) => (
+      {categorizedFaculty.map((professor) => (
         <ProfessorCard key={professor.id} professorInfo={professor} />
       ))}
     </FacultyGalleryGrid>
