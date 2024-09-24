@@ -4,7 +4,8 @@
     "thumbnail": "lee-geun.jpg",
     "info": {
       "name": "Lee Geun",
-      "major": "Smart Mobility Design"
+      "major": "Smart Mobility Design",
+      "category": "Smart Mobility"
     }
   },
   {
@@ -12,7 +13,8 @@
     "thumbnail": "koo-sang.jpg",
     "info": {
       "name": "Koo Sang",
-      "major": "Smart Mobility Design"
+      "major": "Smart Mobility Design",
+      "category": "Smart Mobility"
     }
   },
   {
@@ -20,7 +22,8 @@
     "thumbnail": "kim-ju-yeon.jpg",
     "info": {
       "name": "Kim Ju Yeon",
-      "major": "Spatial Design"
+      "major": "Spatial Design",
+      "category": "Spatial"
     }
   },
   {
@@ -28,7 +31,8 @@
     "thumbnail": "lee-jeong-gyo.jpg",
     "info": {
       "name": "Lee Jeong Gyo",
-      "major": "Spatial Marketing Design"
+      "major": "Spatial Marketing Design",
+      "category": "Spatial"
     }
   },
   {
@@ -36,7 +40,8 @@
     "thumbnail": "cho-taek-yeon.jpg",
     "info": {
       "name": "Cho Taek Yeon",
-      "major": "Spatial Design"
+      "major": "Spatial Design",
+      "category": "Spatial"
     }
   },
   {
@@ -44,7 +49,8 @@
     "thumbnail": "choi-ik-seo.jpg",
     "info": {
       "name": "Choi Ik Seo",
-      "major": "Spatial Design"
+      "major": "Spatial Design",
+      "category": "Spatial"
     }
   },
   {
@@ -52,7 +58,8 @@
     "thumbnail": "hwang-seong-gul.jpg",
     "info": {
       "name": "Hwang Seong Gul",
-      "major": "Industrial Design"
+      "major": "Industrial Design",
+      "category": "Product"
     }
   },
   {
@@ -60,7 +67,8 @@
     "thumbnail": "kim-sook-yeon.jpg",
     "info": {
       "name": "Kim Sook Yeon",
-      "major": "Interaction/Service Design"
+      "major": "Interaction/Service Design",
+      "category": "Interaction"
     }
   },
   {
@@ -68,7 +76,8 @@
     "thumbnail": "kim-eun-young.jpg",
     "info": {
       "name": "Kim Eun Young",
-      "major": "Industrial Design"
+      "major": "Industrial Design",
+      "category": "Product"
     }
   },
   {
@@ -76,7 +85,8 @@
     "thumbnail": "kim-jae-yeop.jpg",
     "info": {
       "name": "Kim Jae Yeop",
-      "major": "Inetraction/Industrial Design"
+      "major": "Inetraction/Industrial Design",
+      "category": "Interaction"
     }
   },
   {
@@ -84,7 +94,8 @@
     "thumbnail": "eo-joon-hyuk.jpg",
     "info": {
       "name": "Eo Joon Hyuk",
-      "major": "Smart Mobility Design"
+      "major": "Smart Mobility Design",
+      "category": "Smart Mobility"
     }
   },
   {
@@ -92,7 +103,8 @@
     "thumbnail": "lee-gil-ok.jpg",
     "info": {
       "name": "Lee Gil Ok",
-      "major": "Industrial Design"
+      "major": "Industrial Design",
+      "category": "Product"
     }
   },
   {
@@ -100,7 +112,8 @@
     "thumbnail": "lee-hee-jin.jpg",
     "info": {
       "name": "Lee Hee Jin",
-      "major": "Exhibition Design"
+      "major": "Exhibition Design",
+      "category": "Product"
     }
   },
   {
@@ -108,7 +121,8 @@
     "thumbnail": "noh-seung-il.jpg",
     "info": {
       "name": "Noh Seung Il",
-      "major": "Smart Mobility Design"
+      "major": "Smart Mobility Design",
+      "category": "Smart Mobility"
     }
   }
 ]
