@@ -37,13 +37,22 @@ export const ProfessorProfileMainSection = styled.div`
   gap: 206px;
 `;
 
-export const ProfileContainer = styled.div`
+export const ProfileStickyContainer = styled.div`
   width: 450px;
+
+  flex-shrink: 0;
+
+  position: relative;
+`;
+
+export const ProfileContainer = styled.div`
+  width: 100%;
 
   display: inline-flex;
   flex-direction: column;
 
-  flex-shrink: 0;
+  position: sticky;
+  top: 10%;
 `;
 
 export const ProfileImage = styled.img`

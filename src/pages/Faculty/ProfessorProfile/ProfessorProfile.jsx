@@ -15,6 +15,7 @@ import {
   ProfileEmail,
   ProfileImage,
   ProfileName,
+  ProfileStickyContainer,
 } from "./ProfessorProfile.styled";
 
 import { BreadscrumbContainer } from "@components/Breadscrumb/Breadscrumb.styled";
@@ -83,30 +84,36 @@ const ProfessorProfile = () => {
           </BreadscrumbContainer>
         </ProfessorProfileHeader>
         <ProfessorProfileMainSection>
-          <ProfileContainer>
-            <ProfileImage
-              src={`/ProfessorProfile/${professorInfo.image}`}
-              alt={professorInfo.name}
-            />
-            <ProfileName>
-              <h3 className="name">{professorInfo.name}</h3>
-              <div className="role">
-                <p className="title">{professorInfo.title},</p>
-                <p className="specialty">{professorInfo.specialization}</p>
-              </div>
-            </ProfileName>
-            <ProfileEmail
-              onClick={() =>
-                openNewTab(`mailto: ${professorInfo.contact.email}`)
-              }
-              onMouseEnter={() => setEmailHover(true)}
-              onMouseLeave={() => setEmailHover(false)}
-              $emailHovered={emailHover}
-            >
-              {professorInfo.contact?.email}
-            </ProfileEmail>
-            <ProfileDescription>{professorInfo.description}</ProfileDescription>
-          </ProfileContainer>
+          <ProfileStickyContainer>
+            <ProfileContainer>
+              <ProfileImage
+                src={`/ProfessorProfile/${professorInfo.image}`}
+                alt={professorInfo.name}
+              />
+              <ProfileName>
+                <h3 className="name">{professorInfo.name}</h3>
+                <div className="role">
+                  <p className="title">{professorInfo.title},</p>
+                  <p className="specialty">{professorInfo.specialization}</p>
+                </div>
+              </ProfileName>
+              <ProfileEmail
+                onClick={() =>
+                  openNewTab(`mailto: ${professorInfo.contact.email}`)
+                }
+                onMouseEnter={() => setEmailHover(true)}
+                onMouseLeave={() => setEmailHover(false)}
+                $emailHovered={emailHover}
+              >
+                {professorInfo.contact?.email}
+              </ProfileEmail>
+              {professorInfo.description && (
+                <ProfileDescription>
+                  {professorInfo.description}
+                </ProfileDescription>
+              )}
+            </ProfileContainer>
+          </ProfileStickyContainer>
 
           <ProfessorDetails professorDetails={professorInfo.details} />
         </ProfessorProfileMainSection>
