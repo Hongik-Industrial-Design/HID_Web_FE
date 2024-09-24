@@ -113,12 +113,12 @@ const Gallery = () => {
             goToDetailPage={() => goToDetailPage(piece.id)}
           />
         ))}
+        <ScrollButton
+          arrowType="right"
+          onClick={scrollRight}
+          isScrolled={isScrolled}
+        />
       </GalleryContainer>
-      <ScrollButton
-        arrowType="right"
-        onClick={scrollRight}
-        isScrolled={isScrolled}
-      />
       <Indicator
         handleScroll={handleScrollIndicator}
         width={`${scrollProgress}%`}

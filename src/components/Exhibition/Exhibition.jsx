@@ -1,4 +1,4 @@
-import { ExhibitionContainer } from "./Exhibition.styled";
+import { ExhibitionContainer, StickyContainer } from "./Exhibition.styled";
 
 import Category from "./Category/Category";
 import Gallery from "./Gallery/Gallery";
@@ -6,7 +6,9 @@ import Gallery from "./Gallery/Gallery";
 const Exhibition = () => {
   return (
     <ExhibitionContainer>
-      <Category />
+      <StickyContainer>
+        <Category />
+      </StickyContainer>
       <Gallery />
     </ExhibitionContainer>
   );

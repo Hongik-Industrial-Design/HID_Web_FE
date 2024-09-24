@@ -2,12 +2,14 @@ import styled from "styled-components";
 
 export const ExhibitionContainer = styled.div`
   width: 100%;
-  position: relative;
-
+  padding-top: 200px;
+  
   display: flex;
   gap: 196px;
-
-  padding-top: 200px;
-
-  overflow-x: hidden;
+  
+  position: relative;
 `;
+
+export const StickyContainer = styled.div`
+  position: relative;
+`
