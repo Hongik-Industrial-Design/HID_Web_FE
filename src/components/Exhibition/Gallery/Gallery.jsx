@@ -103,12 +103,12 @@ const Gallery = () => {
 
   return (
     <GalleryWrapper $height={galleryHeight}>
-      <ScrollButton
-        arrowType="left"
-        onClick={scrollLeft}
-        isScrolled={isScrolled}
-      />
       <GalleryContainer ref={galleryRef} onScroll={handleScroll}>
+        <ScrollButton
+          arrowType="left"
+          onClick={scrollLeft}
+          isScrolled={isScrolled}
+        />
         {pieces.map((piece) => (
           <Piece
             key={piece.id}
