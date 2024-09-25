@@ -56,7 +56,16 @@ const HeroSection = () => {
   return (
     <>
       <HeroSectionContainer>
-        <Breadscrumb />
+        <Breadscrumb
+          paths={[
+            {
+              content: "Graduation Exhibition",
+              path: "/graduation",
+            },
+            { content: "2024", path: "/graduation" },
+          ]}
+          currentPage="View Detail"
+        />
         <ThumbnailContainer>
           <TinyThumbnailContainer>
             <img src={tinyImage1} alt="tiny-image_1" className="secondary" />
