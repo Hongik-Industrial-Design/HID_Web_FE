@@ -1,25 +1,12 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-
-import MemberCard from "./MemberCard/MemberCard";
+/* eslint-disable react/prop-types */
 import { TeamMembersContainer } from "./TeamMemberSection.styled";
 
-const TeamMembersSection = () => {
-  const [teamMembers, setTeamMembers] = useState(null);
+import MemberCard from "./MemberCard/MemberCard";
 
-  useEffect(() => {
-    axios
-      .get("/data/artwork.json")
-      .then((response) => {
-        setTeamMembers(response.data);
-        console.log(response.data.author);
-      })
-      .catch((error) => console.log("Error fetching local JSON: ", error));
-  }, []);
-
+const TeamMembersSection = ({ membersData }) => {
   return (
     <TeamMembersContainer>
-      {teamMembers?.author?.map((teamMember) => (
+      {membersData?.map((teamMember) => (
         <MemberCard key={teamMember.id} teamMember={teamMember} />
       ))}
     </TeamMembersContainer>

@@ -1,9 +1,13 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+/* eslint-disable react/prop-types */
+import { useState } from "react";
 
 import {
+  ArtworkDescription,
+  ArtworkSubTitle,
+  ArtworkTitle,
+  AuthorContainer,
+  AuthorUnit,
   ContentArea,
-  ContentDescription,
   ContentFooter,
   ContentHeader,
   HeroSectionContainer,
@@ -17,114 +21,78 @@ import Breadscrumb from "@components/Breadscrumb/Breadscrumb";
 import GoToList from "@components/GoToList/GoToList";
 import NextPrevious from "@components/NextPrevious/NextPrevious";
 
-import tinyImage1 from "@assets/detail-images/tiny-1.jpg";
-import tinyImage2 from "@assets/detail-images/tiny-2.jpg";
-import tinyImage3 from "@assets/detail-images/tiny-3.jpg";
-import primaryImage from "@assets/detail-images/primary.jpg";
-
-import Mail from "@assets/Social-Icons/Mail_transparent.svg";
-import Instagram from "@assets/Social-Icons/instagram_transparent.svg";
-import Behance from "@assets/Social-Icons/behance_transparent.svg";
-import Linkedin from "@assets/Social-Icons/linkedin_transparent.svg";
-
-const HeroSection = () => {
-  const [artworkInfos, setArtworkInfos] = useState([]);
+const HeroSection = ({ fetchedData, totalPages, currentPage }) => {
+  // const [artworkInfos, setArtworkInfos] = useState([]);
   const [isHovered, setIsHovered] = useState(false);
 
   const openNewTab = (url) => {
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
-  // Fetching Personal Artwork Information
-  useEffect(() => {
-    const fetchArtworkInfos = async () => {
-      try {
-        const response = await axios.get("/data/artwork.json");
-        const personalArtworkInfos = response.data;
-
-        console.log(personalArtworkInfos);
-
-        setArtworkInfos(personalArtworkInfos);
-      } catch (error) {
-        console.error("Error occured: ", error);
-      }
-    };
-
-    fetchArtworkInfos();
-  }, []);
-
   return (
-    <>
-      <HeroSectionContainer>
-        <Breadscrumb
-          paths={[
-            {
-              content: "Graduation Exhibition",
-              path: "/graduation",
-            },
-            { content: "2024", path: "/graduation" },
-          ]}
-          currentPage="View Detail"
+    <HeroSectionContainer>
+      <Breadscrumb
+        paths={[
+          {
+            content: "Graduation Exhibition",
+            path: "/graduation",
+          },
+          { content: "2024", path: "/graduation" },
+        ]}
+        currentPage="View Detail"
+      />
+      <ThumbnailContainer>
+        <TinyThumbnailContainer>
+          {fetchedData?.thumbnails?.tinyImages.map((tinyImage) => (
+            <img
+              key={tinyImage.id}
+              src={`/Graduation-Exhibition/${currentPage}/${tinyImage.url}`}
+              alt="tiny-image_1"
+              className="secondary"
+            />
+          ))}
+        </TinyThumbnailContainer>
+        <img
+          src={`/Graduation-Exhibition/${currentPage}/${fetchedData?.thumbnails?.primary.url}`}
+          alt="primary-thumbnail"
+          className="primary"
         />
-        <ThumbnailContainer>
-          <TinyThumbnailContainer>
-            <img src={tinyImage1} alt="tiny-image_1" className="secondary" />
-            <img src={tinyImage2} alt="tiny-image_2" className="secondary" />
-            <img src={tinyImage3} alt="tiny-image_3" className="secondary" />
-          </TinyThumbnailContainer>
-          <img src={primaryImage} alt="primary-thumbnail" className="primary" />
-        </ThumbnailContainer>
-        <ContentArea>
-          <ContentHeader>
-            <div className="title">{artworkInfos.title}</div>
-            <div className="type">{artworkInfos.subtitle}</div>
-            <div className="author">
-              Alex Kim <span className="divider">|</span> Jordan Park
-            </div>
-          </ContentHeader>
-          <ContentDescription>
-            <div>{artworkInfos.description_en}</div>
-            <div>{artworkInfos.description_ko}</div>
-          </ContentDescription>
-          <ContentFooter>
-            <SocialIcons>
+      </ThumbnailContainer>
+      <ContentArea>
+        <ContentHeader>
+          <ArtworkTitle>{fetchedData?.title}</ArtworkTitle>
+          <ArtworkSubTitle>{fetchedData?.subtitle}</ArtworkSubTitle>
+          <AuthorContainer>
+            {fetchedData?.authors.map((author) => (
+              <AuthorUnit key={author.id}>
+                <p>{author.name}</p>
+                <span className="divider" />
+              </AuthorUnit>
+            ))}
+          </AuthorContainer>
+        </ContentHeader>
+        <ArtworkDescription>
+          <div>{fetchedData?.description_en}</div>
+          <div>{fetchedData?.description_ko}</div>
+        </ArtworkDescription>
+        <ContentFooter>
+          <SocialIcons>
+            {fetchedData?.social.map((sns) => (
               <img
-                src={Mail}
-                alt="Mail-Icon"
+                key={sns.id}
+                src={`/Social-Icons/${sns.service}_transparent.svg`}
                 className="icon"
-                onClick={() => openNewTab("mailto: keaikim77@gmail.com")}
+                onClick={() => openNewTab(`${sns.link}`)}
               />
-              <img
-                src={Instagram}
-                alt="Instagram-Icon"
-                className="icon"
-                onClick={() => openNewTab("https://www.instagram.com/")}
-              />
-              <img
-                src={Behance}
-                alt="Behance-Icon"
-                className="icon"
-                onClick={() => openNewTab("https://www.behance.net/")}
-              />
-              <img
-                src={Linkedin}
-                alt="Linkedin-Icon"
-                className="icon"
-                onClick={() => {
-                  openNewTab(
-                    "https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit"
-                  );
-                }}
-              />
-            </SocialIcons>
-            <RoutingArea>
-              <GoToList isHovered={isHovered} setIsHovered={setIsHovered} />
-              <NextPrevious />
-            </RoutingArea>
-          </ContentFooter>
-        </ContentArea>
-      </HeroSectionContainer>
-    </>
+            ))}
+          </SocialIcons>
+          <RoutingArea>
+            <GoToList isHovered={isHovered} setIsHovered={setIsHovered} />
+            <NextPrevious currentPage={currentPage} totalPages={totalPages} />
+          </RoutingArea>
+        </ContentFooter>
+      </ContentArea>
+    </HeroSectionContainer>
   );
 };
 
