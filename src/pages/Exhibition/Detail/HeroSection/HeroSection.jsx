@@ -82,7 +82,7 @@ const HeroSection = ({ fetchedData, totalPages, currentPage }) => {
                 key={sns.id}
                 src={`/Social-Icons/${sns.service}_transparent.svg`}
                 className="icon"
-                onClick={() => openNewTab(`${sns.link}`)}
+                onClick={() => openNewTab(`${sns.linkInfo}`)}
               />
             ))}
           </SocialIcons>
