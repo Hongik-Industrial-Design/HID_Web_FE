@@ -1,14 +1,21 @@
 /* eslint-disable react/prop-types */
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { ArrowButton, ButtonContainer } from "./NextPrevious.styled";
-
-import leftArrow from "@assets/arrows/left-arrow.svg";
-import rightArrow from "@assets/arrows/right-arrow.svg";
+import {
+  ButtonContainer,
+  LeftArrowButton,
+  RightArrowButton,
+  StyledLeftArrow,
+  StyledRightArrow,
+} from "./NextPrevious.styled";
 
 const NextPrevious = ({ currentPage, totalPages }) => {
   console.log("Current page: ", currentPage);
   console.log("Total pages: ", totalPages);
+
+  const [previousHovered, setPreviousHovered] = useState(false);
+  const [nextHovered, setNextHovered] = useState(false);
 
   const navigate = useNavigate();
 
@@ -24,14 +31,40 @@ const NextPrevious = ({ currentPage, totalPages }) => {
     }
   };
 
+  const handlePreviousButtonHover = () => {
+    setPreviousHovered(true);
+  };
+
+  const handlePreviousButtonLeave = () => {
+    setPreviousHovered(false);
+  };
+
+  const handleNextButtonHover = () => {
+    setNextHovered(true);
+  };
+
+  const handleNextButtonLeave = () => {
+    setNextHovered(false);
+  };
+
   return (
     <ButtonContainer>
-      <ArrowButton onClick={handlePreviousClick}>
-        <img src={leftArrow} alt="left-arrow" />
-      </ArrowButton>
-      <ArrowButton onClick={handleNextClick}>
-        <img src={rightArrow} alt="right-arrow" />
-      </ArrowButton>
+      <LeftArrowButton
+        onMouseEnter={handlePreviousButtonHover}
+        onMouseLeave={handlePreviousButtonLeave}
+        onClick={handlePreviousClick}
+        disabled={currentPage === 1}
+      >
+        <StyledLeftArrow $isHovered={previousHovered} />
+      </LeftArrowButton>
+      <RightArrowButton
+        onMouseEnter={handleNextButtonHover}
+        onMouseLeave={handleNextButtonLeave}
+        onClick={handleNextClick}
+        disabled={currentPage === totalPages}
+      >
+        <StyledRightArrow $isHovered={nextHovered} />
+      </RightArrowButton>
     </ButtonContainer>
   );
 };
