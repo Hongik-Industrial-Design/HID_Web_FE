@@ -5,7 +5,7 @@ export const IndicatorContainer = styled.div`
   height: 8px;
 
   position: relative;
-  top: 48px;
+  top: 32px;
   left: 0;
 `;
 

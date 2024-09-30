@@ -37,11 +37,12 @@ export const ThumbnailContainer = styled.div`
 `;
 
 export const TinyThumbnailContainer = styled.div`
+  width: 179px;
+
   display: flex;
   flex-direction: column;
   gap: 24px;
 
-  width: 179px;
 `;
 
 export const ContentArea = styled.div`
@@ -55,37 +56,43 @@ export const ContentHeader = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 24px;
+`;
 
-  .title {
-    ${({ theme }) => theme.fontStyles.Header2}
-    color: ${colors.HID_Grayscale[800]};
-  }
+export const ArtworkTitle = styled.h2`
+  ${({ theme }) => theme.fontStyles.Header2}
+  color: ${colors.HID_Grayscale[800]};
+`;
 
-  .type {
-    ${({ theme }) => theme.fontStyles.Title3}
-    color: ${colors.HID_Grayscale[900]};
-  }
+export const ArtworkSubTitle = styled.h3`
+  ${({ theme }) => theme.fontStyles.Title2}
+  font-weight: 400;
 
-  .author {
-    font-style: normal;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 26px;
+  color: ${colors.HID_Grayscale[900]};
+`;
 
-    color: ${colors.HID_Grayscale[500]};
-  }
+export const AuthorContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+`;
+
+export const AuthorUnit = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  ${({ theme }) => theme.fontStyles.Body3}
+  color: ${colors.HID_Grayscale[500]};
 
   .divider {
+    display: inline-block;
     width: 1px;
     height: 14px;
-
-    margin: 0 8px;
-
-    color: ${colors.HID_Grayscale[300]};
+    background-color: ${colors.HID_Grayscale[300]};
   }
 `;
 
-export const ContentDescription = styled.div`
+export const ArtworkDescription = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;

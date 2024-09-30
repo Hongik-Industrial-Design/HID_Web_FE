@@ -1,10 +1,8 @@
 import styled from "styled-components";
 
 export const GalleryWrapper = styled.div`
-  width: 100%;
-  height: ${({ $height }) => $height + 238}px;
-
-  padding-right: 64px;
+  height: ${({ $height }) => $height + 242}px;
+  margin-right: 64px;
 
   position: relative;
 
@@ -12,15 +10,15 @@ export const GalleryWrapper = styled.div`
 `;
 
 export const GalleryContainer = styled.div`
+  width: 100%;
+
   display: grid;
   grid-auto-flow: column;
   grid-template-rows: repeat(3, 1fr);
   gap: 24px;
 
-  width: 100%;
-
   overflow-x: scroll;
-  
+
   /* scroll-snap-type: x mandatory; // 가로 스냅 스크롤 기능 */
 
   /* // Safari, Chorme 에서 스크롤 바 숨기기
