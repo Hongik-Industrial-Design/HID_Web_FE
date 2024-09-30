@@ -1,6 +1,7 @@
 [
   {
     "id": "1",
+    "category": "Smart Mobility",
     "thumbnail": "piece-1.jpg",
     "credit": {
       "title": "Invisible",
@@ -9,6 +10,7 @@
   },
   {
     "id": "2",
+    "category": "Spatial",
     "thumbnail": "piece-2.jpg",
     "credit": {
       "title": "Beyond the Horizon",
@@ -17,6 +19,7 @@
   },
   {
     "id": "3",
+    "category": "Product",
     "thumbnail": "piece-3.jpg",
     "credit": {
       "title": "Silent Echo",
@@ -25,6 +28,7 @@
   },
   {
     "id": "4",
+    "category": "Interaction",
     "thumbnail": "piece-4.jpg",
     "credit": {
       "title": "Fading Light",
@@ -33,6 +37,7 @@
   },
   {
     "id": "5",
+    "category": "Product",
     "thumbnail": "piece-5.jpg",
     "credit": {
       "title": "Whispers of Time",
@@ -41,6 +46,7 @@
   },
   {
     "id": "6",
+    "category": "Smart Mobility",
     "thumbnail": "piece-6.jpg",
     "credit": {
       "title": "Echoes of Silence",
@@ -49,6 +55,7 @@
   },
   {
     "id": "7",
+    "category": "Spatial",
     "thumbnail": "piece-7.jpg",
     "credit": {
       "title": "Shadows of Memory",
@@ -57,6 +64,7 @@
   },
   {
     "id": "8",
+    "category": "Product",
     "thumbnail": "piece-8.jpg",
     "credit": {
       "title": "Lost in Reflection",
@@ -65,6 +73,7 @@
   },
   {
     "id": "9",
+    "category": "Smart Mobility",
     "thumbnail": "piece-9.jpg",
     "credit": {
       "title": "Fragments of Reality",
@@ -73,6 +82,7 @@
   },
   {
     "id": "10",
+    "category": "Interaction",
     "thumbnail": "piece-10.jpg",
     "credit": {
       "title": "Illusion of Time",
@@ -81,6 +91,7 @@
   },
   {
     "id": "11",
+    "category": "Product",
     "thumbnail": "piece-11.jpg",
     "credit": {
       "title": "Dreamscape",
@@ -89,6 +100,7 @@
   },
   {
     "id": "12",
+    "category": "Spatial",
     "thumbnail": "piece-12.jpg",
     "credit": {
       "title": "Dreamscape",
@@ -97,6 +109,7 @@
   },
   {
     "id": "13",
+    "category": "Interaction",
     "thumbnail": "piece-13.jpg",
     "credit": {
       "title": "Ethereal Moments",
@@ -105,6 +118,7 @@
   },
   {
     "id": "14",
+    "category": "Smart Mobility",
     "thumbnail": "piece-14.jpg",
     "credit": {
       "title": "Mirage",
@@ -113,6 +127,7 @@
   },
   {
     "id": "15",
+    "category": "Interaction",
     "thumbnail": "piece-15.jpg",
     "credit": {
       "title": "Nebula",
@@ -121,6 +136,7 @@
   },
   {
     "id": "16",
+    "category": "Interaction",
     "thumbnail": "piece-16.jpg",
     "credit": {
       "title": "Temporal Drift",
@@ -129,6 +145,7 @@
   },
   {
     "id": "17",
+    "category": "Spatial",
     "thumbnail": "piece-17.jpg",
     "credit": {
       "title": "Veil of Illusion",
@@ -137,6 +154,7 @@
   },
   {
     "id": "18",
+    "category": "Product",
     "thumbnail": "piece-18.jpg",
     "credit": {
       "title": "Paradox",
@@ -145,6 +163,7 @@
   },
   {
     "id": "19",
+    "category": "Smart Mobility",
     "thumbnail": "piece-19.jpg",
     "credit": {
       "title": "Quantum Dreams",
@@ -153,6 +172,7 @@
   },
   {
     "id": "20",
+    "category": "Spatial",
     "thumbnail": "piece-20.jpg",
     "credit": {
       "title": "Echo of Eternity",

@@ -1,36 +1,1660 @@
-{
-  "title": "Retro Gaming Legends",
-  "author": [
-    { "id": 1, "name": "Alex Kim", "specialty": "Interaction/UI Design" },
-    {
-      "id": 2,
-      "name": "Jordan Park",
-      "specialty": "UX/UI Designer, Product Designer"
-    }
-  ],
-  "description_en": "This collection of iconic handheld gaming consoles is designed for retro gaming enthusiasts and collectors. The devices, including the Game Boy Color and other vintage consoles, are perfect for those looking to relive the golden age of portable gaming. They serve not only as functional devices for playing classic games but also as decorative pieces that embody the charm and creativity of early gaming technology.",
-  "description_ko": "이 레트로 게임 콘솔 컬렉션은 과거 휴대용 게임기의 황금기를 다시 경험하고 싶은 게이머와 수집가들을 위해 설계되었습니다. Game Boy Color를 비롯한 여러 빈티지 콘솔은 그 자체로 클래식 게임을 즐길 수 있을 뿐만 아니라, 독창적이고 매력적인 디자인으로 인테리어 장식용으로도 손색이 없습니다.",
-  "videos": [
-    {
-      "id": 1,
-      "url": "src/assets/videos/console-game.mp4"
-    }
-  ],
-  "images": [
-    {
-      "id": 1,
-      "url": "/detail-images/detail-1.jpg",
-      "caption": "Nintendo"
+[
+  {
+    "id": 1,
+    "heroSection": {
+      "title": "Retro Gaming Legends",
+      "subtitle": "Iconic Handheld Console Collection",
+      "authors": [
+        { "id": 1, "name": "Alex Kim", "specialty": "Interaction/UI Design" },
+        {
+          "id": 2,
+          "name": "Jordan Park",
+          "specialty": "UX/UI Designer, Product Designer"
+        }
+      ],
+      "description_en": "This collection of iconic handheld gaming consoles is designed for retro gaming enthusiasts and collectors. The devices, including the Game Boy Color and other vintage consoles, are perfect for those looking to relive the golden age of portable gaming. They serve not only as functional devices for playing classic games but also as decorative pieces that embody the charm and creativity of early gaming technology.",
+      "description_ko": "이 레트로 게임 콘솔 컬렉션은 과거 휴대용 게임기의 황금기를 다시 경험하고 싶은 게이머와 수집가들을 위해 설계되었습니다. Game Boy Color를 비롯한 여러 빈티지 콘솔은 그 자체로 클래식 게임을 즐길 수 있을 뿐만 아니라, 독창적이고 매력적인 디자인으로 인테리어 장식용으로도 손색이 없습니다.",
+      "thumbnails": {
+        "primary": { "id": 1, "url": "nintendo.jpg" },
+        "tinyImages": [
+          { "id": 1, "url": "nintendo-1.jpg" },
+          { "id": 2, "url": "nintendo-2.jpg" },
+          { "id": 3, "url": "nintendo-3.jpg" }
+        ]
+      },
+      "social": [
+        { "id": 1, "service": "Mail", "linkInfo": "keaikim77@gmail.com" },
+        {
+          "id": 2,
+          "service": "Instagram",
+          "linkInfo": "https://www.instagram.com/"
+        },
+        {
+          "id": 3,
+          "service": "Behance",
+          "linkInfo": "https://www.behance.net/"
+        },
+        {
+          "id": 4,
+          "service": "Linkedin",
+          "linkInfo": "https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit"
+        }
+      ]
     },
-    {
-      "id": 2,
-      "url": "/detail-images/detail-2.jpg",
-      "caption": "Console 1"
+    "media": {
+      "videos": [
+        {
+          "id": 1,
+          "url": "nintendo.mp4"
+        }
+      ],
+      "images": [
+        {
+          "id": 1,
+          "url": "nintendo-detail-1.jpg",
+          "caption": "Nintendo"
+        },
+        {
+          "id": 2,
+          "url": "nintendo-detail-2.jpg",
+          "caption": "Console 1"
+        },
+        {
+          "id": 3,
+          "url": "nintendo-detail-3.jpg",
+          "caption": "Console 2"
+        }
+      ]
     },
-    {
-      "id": 3,
-      "url": "/detail-images/detail-3.jpg",
-      "caption": "Console 2"
-    }
-  ]
-}
+    "authorInfos": [
+      {
+        "id": 1,
+        "name": "Alex Kim",
+        "specialty": "Interaction/UI Design",
+        "profileImage": "Alex Kim.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Jordan Park",
+        "specialty": "UX/UI Designer, Product Designer",
+        "profileImage": "Jordan Park.jpg"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "heroSection": {
+      "title": "Beyond the Horizon",
+      "subtitle": "Focus On Your Sound",
+      "authors": [
+        { "id": 1, "name": "Alex Kim", "specialty": "Interaction/UI Design" },
+        {
+          "id": 2,
+          "name": "Jordan Park",
+          "specialty": "UX/UI Designer, Product Designer"
+        }
+      ],
+      "description_en": "This collection of iconic handheld gaming consoles is designed for retro gaming enthusiasts and collectors. The devices, including the Game Boy Color and other vintage consoles, are perfect for those looking to relive the golden age of portable gaming. They serve not only as functional devices for playing classic games but also as decorative pieces that embody the charm and creativity of early gaming technology.",
+      "description_ko": "이 레트로 게임 콘솔 컬렉션은 과거 휴대용 게임기의 황금기를 다시 경험하고 싶은 게이머와 수집가들을 위해 설계되었습니다. Game Boy Color를 비롯한 여러 빈티지 콘솔은 그 자체로 클래식 게임을 즐길 수 있을 뿐만 아니라, 독창적이고 매력적인 디자인으로 인테리어 장식용으로도 손색이 없습니다.",
+      "thumbnails": {
+        "primary": { "id": 1, "url": "headphone.jpg" },
+        "tinyImages": [
+          { "id": 1, "url": "headphone-1.jpg" },
+          { "id": 2, "url": "headphone-2.jpg" },
+          { "id": 3, "url": "headphone-3.jpg" }
+        ]
+      },
+      "social": [
+        { "id": 1, "service": "Mail", "linkInfo": "keaikim77@gmail.com" },
+        {
+          "id": 2,
+          "service": "Instagram",
+          "linkInfo": "https://www.instagram.com/"
+        },
+        {
+          "id": 3,
+          "service": "Behance",
+          "linkInfo": "https://www.behance.net/"
+        },
+        {
+          "id": 4,
+          "service": "Linkedin",
+          "linkInfo": "https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit"
+        }
+      ]
+    },
+    "media": {
+      "videos": [
+        {
+          "id": 1,
+          "url": "headphone.mp4"
+        }
+      ],
+      "images": [
+        {
+          "id": 1,
+          "url": "headphone-detail-1.jpg",
+          "caption": "Nintendo"
+        },
+        {
+          "id": 2,
+          "url": "headphone-detail-2.jpg",
+          "caption": "Console 1"
+        },
+        {
+          "id": 3,
+          "url": "headphone-detail-3.jpg",
+          "caption": "Console 2"
+        }
+      ]
+    },
+    "authorInfos": [
+      {
+        "id": 1,
+        "name": "Alex Kim",
+        "specialty": "Interaction/UI Design",
+        "profileImage": "Alex Kim.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Jordan Park",
+        "specialty": "UX/UI Designer, Product Designer",
+        "profileImage": "Jordan Park.jpg"
+      }
+    ]
+  },
+
+  {
+    "id": 3,
+    "heroSection": {
+      "title": "Silent Echo",
+      "subtitle": "Take A Deep Breath",
+      "authors": [
+        { "id": 1, "name": "Alex Kim", "specialty": "Interaction/UI Design" },
+        {
+          "id": 2,
+          "name": "Jordan Park",
+          "specialty": "UX/UI Designer, Product Designer"
+        }
+      ],
+      "description_en": "This collection of iconic handheld gaming consoles is designed for retro gaming enthusiasts and collectors. The devices, including the Game Boy Color and other vintage consoles, are perfect for those looking to relive the golden age of portable gaming. They serve not only as functional devices for playing classic games but also as decorative pieces that embody the charm and creativity of early gaming technology.",
+      "description_ko": "이 레트로 게임 콘솔 컬렉션은 과거 휴대용 게임기의 황금기를 다시 경험하고 싶은 게이머와 수집가들을 위해 설계되었습니다. Game Boy Color를 비롯한 여러 빈티지 콘솔은 그 자체로 클래식 게임을 즐길 수 있을 뿐만 아니라, 독창적이고 매력적인 디자인으로 인테리어 장식용으로도 손색이 없습니다.",
+      "thumbnails": {
+        "primary": { "id": 1, "url": "earphone.jpg" },
+        "tinyImages": [
+          { "id": 1, "url": "earphone-1.jpg" },
+          { "id": 2, "url": "earphone-2.jpg" },
+          { "id": 3, "url": "earphone-3.jpg" }
+        ]
+      },
+      "social": [
+        { "id": 1, "service": "Mail", "linkInfo": "keaikim77@gmail.com" },
+        {
+          "id": 2,
+          "service": "Instagram",
+          "linkInfo": "https://www.instagram.com/"
+        },
+        {
+          "id": 3,
+          "service": "Behance",
+          "linkInfo": "https://www.behance.net/"
+        },
+        {
+          "id": 4,
+          "service": "Linkedin",
+          "linkInfo": "https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit"
+        }
+      ]
+    },
+    "media": {
+      "videos": [
+        {
+          "id": 1,
+          "url": "earphone.mp4"
+        }
+      ],
+      "images": [
+        {
+          "id": 1,
+          "url": "earphone-detail-1.jpg",
+          "caption": "Nintendo"
+        },
+        {
+          "id": 2,
+          "url": "earphone-detail-2.jpg",
+          "caption": "Console 1"
+        },
+        {
+          "id": 3,
+          "url": "earphone-detail-3.jpg",
+          "caption": "Console 2"
+        }
+      ]
+    },
+    "authorInfos": [
+      {
+        "id": 1,
+        "name": "Alex Kim",
+        "specialty": "Interaction/UI Design",
+        "profileImage": "Alex Kim.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Jordan Park",
+        "specialty": "UX/UI Designer, Product Designer",
+        "profileImage": "Jordan Park.jpg"
+      }
+    ]
+  },
+
+  {
+    "id": 4,
+    "heroSection": {
+      "title": "Fading Light",
+      "subtitle": "Delicious Jelly",
+      "authors": [
+        { "id": 1, "name": "Alex Kim", "specialty": "Interaction/UI Design" },
+        {
+          "id": 2,
+          "name": "Jordan Park",
+          "specialty": "UX/UI Designer, Product Designer"
+        }
+      ],
+      "description_en": "This collection of iconic handheld gaming consoles is designed for retro gaming enthusiasts and collectors. The devices, including the Game Boy Color and other vintage consoles, are perfect for those looking to relive the golden age of portable gaming. They serve not only as functional devices for playing classic games but also as decorative pieces that embody the charm and creativity of early gaming technology.",
+      "description_ko": "이 레트로 게임 콘솔 컬렉션은 과거 휴대용 게임기의 황금기를 다시 경험하고 싶은 게이머와 수집가들을 위해 설계되었습니다. Game Boy Color를 비롯한 여러 빈티지 콘솔은 그 자체로 클래식 게임을 즐길 수 있을 뿐만 아니라, 독창적이고 매력적인 디자인으로 인테리어 장식용으로도 손색이 없습니다.",
+      "thumbnails": {
+        "primary": { "id": 1, "url": "jelly.jpg" },
+        "tinyImages": [
+          { "id": 1, "url": "jelly-1.jpg" },
+          { "id": 2, "url": "jelly-2.jpg" },
+          { "id": 3, "url": "jelly-3.jpg" }
+        ]
+      },
+      "social": [
+        { "id": 1, "service": "Mail", "linkInfo": "keaikim77@gmail.com" },
+        {
+          "id": 2,
+          "service": "Instagram",
+          "linkInfo": "https://www.instagram.com/"
+        },
+        {
+          "id": 3,
+          "service": "Behance",
+          "linkInfo": "https://www.behance.net/"
+        },
+        {
+          "id": 4,
+          "service": "Linkedin",
+          "linkInfo": "https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit"
+        }
+      ]
+    },
+    "media": {
+      "videos": [
+        {
+          "id": 1,
+          "url": "jelly.mp4"
+        }
+      ],
+      "images": [
+        {
+          "id": 1,
+          "url": "jelly-detail-1.jpg",
+          "caption": "Nintendo"
+        },
+        {
+          "id": 2,
+          "url": "jelly-detail-2.jpg",
+          "caption": "Console 1"
+        },
+        {
+          "id": 3,
+          "url": "jelly-detail-3.jpg",
+          "caption": "Console 2"
+        }
+      ]
+    },
+    "authorInfos": [
+      {
+        "id": 1,
+        "name": "Alex Kim",
+        "specialty": "Interaction/UI Design",
+        "profileImage": "Alex Kim.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Jordan Park",
+        "specialty": "UX/UI Designer, Product Designer",
+        "profileImage": "Jordan Park.jpg"
+      }
+    ]
+  },
+
+  {
+    "id": 5,
+    "heroSection": {
+      "title": "Whispers Of Time",
+      "subtitle": "Worldwide Sampler",
+      "authors": [
+        { "id": 1, "name": "Alex Kim", "specialty": "Interaction/UI Design" },
+        {
+          "id": 2,
+          "name": "Jordan Park",
+          "specialty": "UX/UI Designer, Product Designer"
+        }
+      ],
+      "description_en": "This collection of iconic handheld gaming consoles is designed for retro gaming enthusiasts and collectors. The devices, including the Game Boy Color and other vintage consoles, are perfect for those looking to relive the golden age of portable gaming. They serve not only as functional devices for playing classic games but also as decorative pieces that embody the charm and creativity of early gaming technology.",
+      "description_ko": "이 레트로 게임 콘솔 컬렉션은 과거 휴대용 게임기의 황금기를 다시 경험하고 싶은 게이머와 수집가들을 위해 설계되었습니다. Game Boy Color를 비롯한 여러 빈티지 콘솔은 그 자체로 클래식 게임을 즐길 수 있을 뿐만 아니라, 독창적이고 매력적인 디자인으로 인테리어 장식용으로도 손색이 없습니다.",
+      "thumbnails": {
+        "primary": { "id": 1, "url": "sampler.jpg" },
+        "tinyImages": [
+          { "id": 1, "url": "sampler-1.jpg" },
+          { "id": 2, "url": "sampler-2.jpg" },
+          { "id": 3, "url": "sampler-3.jpg" }
+        ]
+      },
+      "social": [
+        { "id": 1, "service": "Mail", "linkInfo": "keaikim77@gmail.com" },
+        {
+          "id": 2,
+          "service": "Instagram",
+          "linkInfo": "https://www.instagram.com/"
+        },
+        {
+          "id": 3,
+          "service": "Behance",
+          "linkInfo": "https://www.behance.net/"
+        },
+        {
+          "id": 4,
+          "service": "Linkedin",
+          "linkInfo": "https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit"
+        }
+      ]
+    },
+    "media": {
+      "videos": [
+        {
+          "id": 1,
+          "url": "sampler.mp4"
+        }
+      ],
+      "images": [
+        {
+          "id": 1,
+          "url": "sampler-detail-1.jpg",
+          "caption": "Nintendo"
+        },
+        {
+          "id": 2,
+          "url": "sampler-detail-2.jpg",
+          "caption": "Console 1"
+        },
+        {
+          "id": 3,
+          "url": "sampler-detail-3.jpg",
+          "caption": "Console 2"
+        }
+      ]
+    },
+    "authorInfos": [
+      {
+        "id": 1,
+        "name": "Alex Kim",
+        "specialty": "Interaction/UI Design",
+        "profileImage": "Alex Kim.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Jordan Park",
+        "specialty": "UX/UI Designer, Product Designer",
+        "profileImage": "Jordan Park.jpg"
+      }
+    ]
+  },
+
+  {
+    "id": 6,
+    "heroSection": {
+      "title": "Echoes Of Silence",
+      "subtitle": "Handheld Camera",
+      "authors": [
+        { "id": 1, "name": "Alex Kim", "specialty": "Interaction/UI Design" },
+        {
+          "id": 2,
+          "name": "Jordan Park",
+          "specialty": "UX/UI Designer, Product Designer"
+        }
+      ],
+      "description_en": "This collection of iconic handheld gaming consoles is designed for retro gaming enthusiasts and collectors. The devices, including the Game Boy Color and other vintage consoles, are perfect for those looking to relive the golden age of portable gaming. They serve not only as functional devices for playing classic games but also as decorative pieces that embody the charm and creativity of early gaming technology.",
+      "description_ko": "이 레트로 게임 콘솔 컬렉션은 과거 휴대용 게임기의 황금기를 다시 경험하고 싶은 게이머와 수집가들을 위해 설계되었습니다. Game Boy Color를 비롯한 여러 빈티지 콘솔은 그 자체로 클래식 게임을 즐길 수 있을 뿐만 아니라, 독창적이고 매력적인 디자인으로 인테리어 장식용으로도 손색이 없습니다.",
+      "thumbnails": {
+        "primary": { "id": 1, "url": "camera.jpg" },
+        "tinyImages": [
+          { "id": 1, "url": "camera-1.jpg" },
+          { "id": 2, "url": "camera-2.jpg" },
+          { "id": 3, "url": "camera-3.jpg" }
+        ]
+      },
+      "social": [
+        { "id": 1, "service": "Mail", "linkInfo": "keaikim77@gmail.com" },
+        {
+          "id": 2,
+          "service": "Instagram",
+          "linkInfo": "https://www.instagram.com/"
+        },
+        {
+          "id": 3,
+          "service": "Behance",
+          "linkInfo": "https://www.behance.net/"
+        },
+        {
+          "id": 4,
+          "service": "Linkedin",
+          "linkInfo": "https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit"
+        }
+      ]
+    },
+    "media": {
+      "videos": [
+        {
+          "id": 1,
+          "url": "camera.mp4"
+        }
+      ],
+      "images": [
+        {
+          "id": 1,
+          "url": "camera-detail-1.jpg",
+          "caption": "Nintendo"
+        },
+        {
+          "id": 2,
+          "url": "camera-detail-2.jpg",
+          "caption": "Console 1"
+        },
+        {
+          "id": 3,
+          "url": "camera-detail-3.jpg",
+          "caption": "Console 2"
+        }
+      ]
+    },
+    "authorInfos": [
+      {
+        "id": 1,
+        "name": "Alex Kim",
+        "specialty": "Interaction/UI Design",
+        "profileImage": "Alex Kim.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Jordan Park",
+        "specialty": "UX/UI Designer, Product Designer",
+        "profileImage": "Jordan Park.jpg"
+      }
+    ]
+  },
+
+  {
+    "id": 7,
+    "heroSection": {
+      "title": "Shadows Of Memory",
+      "subtitle": "Best Smartphone Ever",
+      "authors": [
+        { "id": 1, "name": "Alex Kim", "specialty": "Interaction/UI Design" },
+        {
+          "id": 2,
+          "name": "Jordan Park",
+          "specialty": "UX/UI Designer, Product Designer"
+        }
+      ],
+      "description_en": "This collection of iconic handheld gaming consoles is designed for retro gaming enthusiasts and collectors. The devices, including the Game Boy Color and other vintage consoles, are perfect for those looking to relive the golden age of portable gaming. They serve not only as functional devices for playing classic games but also as decorative pieces that embody the charm and creativity of early gaming technology.",
+      "description_ko": "이 레트로 게임 콘솔 컬렉션은 과거 휴대용 게임기의 황금기를 다시 경험하고 싶은 게이머와 수집가들을 위해 설계되었습니다. Game Boy Color를 비롯한 여러 빈티지 콘솔은 그 자체로 클래식 게임을 즐길 수 있을 뿐만 아니라, 독창적이고 매력적인 디자인으로 인테리어 장식용으로도 손색이 없습니다.",
+      "thumbnails": {
+        "primary": { "id": 1, "url": "smartphone.jpg" },
+        "tinyImages": [
+          { "id": 1, "url": "smartphone-1.jpg" },
+          { "id": 2, "url": "smartphone-2.jpg" },
+          { "id": 3, "url": "smartphone-3.jpg" }
+        ]
+      },
+      "social": [
+        { "id": 1, "service": "Mail", "linkInfo": "keaikim77@gmail.com" },
+        {
+          "id": 2,
+          "service": "Instagram",
+          "linkInfo": "https://www.instagram.com/"
+        },
+        {
+          "id": 3,
+          "service": "Behance",
+          "linkInfo": "https://www.behance.net/"
+        },
+        {
+          "id": 4,
+          "service": "Linkedin",
+          "linkInfo": "https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit"
+        }
+      ]
+    },
+    "media": {
+      "videos": [
+        {
+          "id": 1,
+          "url": "smartphone.mp4"
+        }
+      ],
+      "images": [
+        {
+          "id": 1,
+          "url": "smartphone-detail-1.jpg",
+          "caption": "Nintendo"
+        },
+        {
+          "id": 2,
+          "url": "smartphone-detail-2.jpg",
+          "caption": "Console 1"
+        },
+        {
+          "id": 3,
+          "url": "smartphone-detail-3.jpg",
+          "caption": "Console 2"
+        }
+      ]
+    },
+    "authorInfos": [
+      {
+        "id": 1,
+        "name": "Alex Kim",
+        "specialty": "Interaction/UI Design",
+        "profileImage": "Alex Kim.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Jordan Park",
+        "specialty": "UX/UI Designer, Product Designer",
+        "profileImage": "Jordan Park.jpg"
+      }
+    ]
+  },
+
+  {
+    "id": 8,
+    "heroSection": {
+      "title": "Lost In Reflection",
+      "subtitle": "Riding The City With Airpods",
+      "authors": [
+        { "id": 1, "name": "Alex Kim", "specialty": "Interaction/UI Design" },
+        {
+          "id": 2,
+          "name": "Jordan Park",
+          "specialty": "UX/UI Designer, Product Designer"
+        }
+      ],
+      "description_en": "This collection of iconic handheld gaming consoles is designed for retro gaming enthusiasts and collectors. The devices, including the Game Boy Color and other vintage consoles, are perfect for those looking to relive the golden age of portable gaming. They serve not only as functional devices for playing classic games but also as decorative pieces that embody the charm and creativity of early gaming technology.",
+      "description_ko": "이 레트로 게임 콘솔 컬렉션은 과거 휴대용 게임기의 황금기를 다시 경험하고 싶은 게이머와 수집가들을 위해 설계되었습니다. Game Boy Color를 비롯한 여러 빈티지 콘솔은 그 자체로 클래식 게임을 즐길 수 있을 뿐만 아니라, 독창적이고 매력적인 디자인으로 인테리어 장식용으로도 손색이 없습니다.",
+      "thumbnails": {
+        "primary": { "id": 1, "url": "airpods.jpg" },
+        "tinyImages": [
+          { "id": 1, "url": "airpods-1.jpg" },
+          { "id": 2, "url": "airpods-2.jpg" },
+          { "id": 3, "url": "airpods-3.jpg" }
+        ]
+      },
+      "social": [
+        { "id": 1, "service": "Mail", "linkInfo": "keaikim77@gmail.com" },
+        {
+          "id": 2,
+          "service": "Instagram",
+          "linkInfo": "https://www.instagram.com/"
+        },
+        {
+          "id": 3,
+          "service": "Behance",
+          "linkInfo": "https://www.behance.net/"
+        },
+        {
+          "id": 4,
+          "service": "Linkedin",
+          "linkInfo": "https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit"
+        }
+      ]
+    },
+    "media": {
+      "videos": [
+        {
+          "id": 1,
+          "url": "airpods.mp4"
+        }
+      ],
+      "images": [
+        {
+          "id": 1,
+          "url": "airpods-detail-1.jpg",
+          "caption": "Nintendo"
+        },
+        {
+          "id": 2,
+          "url": "airpods-detail-2.jpg",
+          "caption": "Console 1"
+        },
+        {
+          "id": 3,
+          "url": "airpods-detail-3.jpg",
+          "caption": "Console 2"
+        }
+      ]
+    },
+    "authorInfos": [
+      {
+        "id": 1,
+        "name": "Alex Kim",
+        "specialty": "Interaction/UI Design",
+        "profileImage": "Alex Kim.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Jordan Park",
+        "specialty": "UX/UI Designer, Product Designer",
+        "profileImage": "Jordan Park.jpg"
+      }
+    ]
+  },
+
+  {
+    "id": 9,
+    "heroSection": {
+      "title": "Fragment Of Reality",
+      "subtitle": "Capture Your Mometn With Polaroid",
+      "authors": [
+        { "id": 1, "name": "Alex Kim", "specialty": "Interaction/UI Design" },
+        {
+          "id": 2,
+          "name": "Jordan Park",
+          "specialty": "UX/UI Designer, Product Designer"
+        }
+      ],
+      "description_en": "This collection of iconic handheld gaming consoles is designed for retro gaming enthusiasts and collectors. The devices, including the Game Boy Color and other vintage consoles, are perfect for those looking to relive the golden age of portable gaming. They serve not only as functional devices for playing classic games but also as decorative pieces that embody the charm and creativity of early gaming technology.",
+      "description_ko": "이 레트로 게임 콘솔 컬렉션은 과거 휴대용 게임기의 황금기를 다시 경험하고 싶은 게이머와 수집가들을 위해 설계되었습니다. Game Boy Color를 비롯한 여러 빈티지 콘솔은 그 자체로 클래식 게임을 즐길 수 있을 뿐만 아니라, 독창적이고 매력적인 디자인으로 인테리어 장식용으로도 손색이 없습니다.",
+      "thumbnails": {
+        "primary": { "id": 1, "url": "polaroid.jpg" },
+        "tinyImages": [
+          { "id": 1, "url": "polaroid-1.jpg" },
+          { "id": 2, "url": "polaroid-2.jpg" },
+          { "id": 3, "url": "polaroid-3.jpg" }
+        ]
+      },
+      "social": [
+        { "id": 1, "service": "Mail", "linkInfo": "keaikim77@gmail.com" },
+        {
+          "id": 2,
+          "service": "Instagram",
+          "linkInfo": "https://www.instagram.com/"
+        },
+        {
+          "id": 3,
+          "service": "Behance",
+          "linkInfo": "https://www.behance.net/"
+        },
+        {
+          "id": 4,
+          "service": "Linkedin",
+          "linkInfo": "https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit"
+        }
+      ]
+    },
+    "media": {
+      "videos": [
+        {
+          "id": 1,
+          "url": "polaroid.mp4"
+        }
+      ],
+      "images": [
+        {
+          "id": 1,
+          "url": "polaroid-detail-1.jpg",
+          "caption": "Nintendo"
+        },
+        {
+          "id": 2,
+          "url": "polaroid-detail-2.jpg",
+          "caption": "Console 1"
+        },
+        {
+          "id": 3,
+          "url": "polaroid-detail-3.jpg",
+          "caption": "Console 2"
+        }
+      ]
+    },
+    "authorInfos": [
+      {
+        "id": 1,
+        "name": "Alex Kim",
+        "specialty": "Interaction/UI Design",
+        "profileImage": "Alex Kim.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Jordan Park",
+        "specialty": "UX/UI Designer, Product Designer",
+        "profileImage": "Jordan Park.jpg"
+      }
+    ]
+  },
+
+  {
+    "id": 10,
+    "heroSection": {
+      "title": "Illusion Of Time",
+      "subtitle": "Grab A New Moment With Unbelivable Cushion",
+      "authors": [
+        { "id": 1, "name": "Alex Kim", "specialty": "Interaction/UI Design" },
+        {
+          "id": 2,
+          "name": "Jordan Park",
+          "specialty": "UX/UI Designer, Product Designer"
+        }
+      ],
+      "description_en": "This collection of iconic handheld gaming consoles is designed for retro gaming enthusiasts and collectors. The devices, including the Game Boy Color and other vintage consoles, are perfect for those looking to relive the golden age of portable gaming. They serve not only as functional devices for playing classic games but also as decorative pieces that embody the charm and creativity of early gaming technology.",
+      "description_ko": "이 레트로 게임 콘솔 컬렉션은 과거 휴대용 게임기의 황금기를 다시 경험하고 싶은 게이머와 수집가들을 위해 설계되었습니다. Game Boy Color를 비롯한 여러 빈티지 콘솔은 그 자체로 클래식 게임을 즐길 수 있을 뿐만 아니라, 독창적이고 매력적인 디자인으로 인테리어 장식용으로도 손색이 없습니다.",
+      "thumbnails": {
+        "primary": { "id": 1, "url": "cushion.jpg" },
+        "tinyImages": [
+          { "id": 1, "url": "cushion-1.jpg" },
+          { "id": 2, "url": "cushion-2.jpg" },
+          { "id": 3, "url": "cushion-3.jpg" }
+        ]
+      },
+      "social": [
+        { "id": 1, "service": "Mail", "linkInfo": "keaikim77@gmail.com" },
+        {
+          "id": 2,
+          "service": "Instagram",
+          "linkInfo": "https://www.instagram.com/"
+        },
+        {
+          "id": 3,
+          "service": "Behance",
+          "linkInfo": "https://www.behance.net/"
+        },
+        {
+          "id": 4,
+          "service": "Linkedin",
+          "linkInfo": "https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit"
+        }
+      ]
+    },
+    "media": {
+      "videos": [
+        {
+          "id": 1,
+          "url": "cushion.mp4"
+        }
+      ],
+      "images": [
+        {
+          "id": 1,
+          "url": "cushion-detail-1.jpg",
+          "caption": "Nintendo"
+        },
+        {
+          "id": 2,
+          "url": "cushion-detail-2.jpg",
+          "caption": "Console 1"
+        },
+        {
+          "id": 3,
+          "url": "cushion-detail-3.jpg",
+          "caption": "Console 2"
+        }
+      ]
+    },
+    "authorInfos": [
+      {
+        "id": 1,
+        "name": "Alex Kim",
+        "specialty": "Interaction/UI Design",
+        "profileImage": "Alex Kim.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Jordan Park",
+        "specialty": "UX/UI Designer, Product Designer",
+        "profileImage": "Jordan Park.jpg"
+      }
+    ]
+  },
+
+  {
+    "id": 11,
+    "heroSection": {
+      "title": "Dreamscape",
+      "subtitle": "Dream & Keep Pedal Your Track",
+      "authors": [
+        { "id": 1, "name": "Alex Kim", "specialty": "Interaction/UI Design" },
+        {
+          "id": 2,
+          "name": "Jordan Park",
+          "specialty": "UX/UI Designer, Product Designer"
+        }
+      ],
+      "description_en": "This collection of iconic handheld gaming consoles is designed for retro gaming enthusiasts and collectors. The devices, including the Game Boy Color and other vintage consoles, are perfect for those looking to relive the golden age of portable gaming. They serve not only as functional devices for playing classic games but also as decorative pieces that embody the charm and creativity of early gaming technology.",
+      "description_ko": "이 레트로 게임 콘솔 컬렉션은 과거 휴대용 게임기의 황금기를 다시 경험하고 싶은 게이머와 수집가들을 위해 설계되었습니다. Game Boy Color를 비롯한 여러 빈티지 콘솔은 그 자체로 클래식 게임을 즐길 수 있을 뿐만 아니라, 독창적이고 매력적인 디자인으로 인테리어 장식용으로도 손색이 없습니다.",
+      "thumbnails": {
+        "primary": { "id": 1, "url": "cycle.jpg" },
+        "tinyImages": [
+          { "id": 1, "url": "cycle-1.jpg" },
+          { "id": 2, "url": "cycle-2.jpg" },
+          { "id": 3, "url": "cycle-3.jpg" }
+        ]
+      },
+      "social": [
+        { "id": 1, "service": "Mail", "linkInfo": "keaikim77@gmail.com" },
+        {
+          "id": 2,
+          "service": "Instagram",
+          "linkInfo": "https://www.instagram.com/"
+        },
+        {
+          "id": 3,
+          "service": "Behance",
+          "linkInfo": "https://www.behance.net/"
+        },
+        {
+          "id": 4,
+          "service": "Linkedin",
+          "linkInfo": "https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit"
+        }
+      ]
+    },
+    "media": {
+      "videos": [
+        {
+          "id": 1,
+          "url": "cycle.mp4"
+        }
+      ],
+      "images": [
+        {
+          "id": 1,
+          "url": "cycle-detail-1.jpg",
+          "caption": "Nintendo"
+        },
+        {
+          "id": 2,
+          "url": "cycle-detail-2.jpg",
+          "caption": "Console 1"
+        },
+        {
+          "id": 3,
+          "url": "cycle-detail-3.jpg",
+          "caption": "Console 2"
+        }
+      ]
+    },
+    "authorInfos": [
+      {
+        "id": 1,
+        "name": "Alex Kim",
+        "specialty": "Interaction/UI Design",
+        "profileImage": "Alex Kim.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Jordan Park",
+        "specialty": "UX/UI Designer, Product Designer",
+        "profileImage": "Jordan Park.jpg"
+      }
+    ]
+  },
+
+  {
+    "id": 12,
+    "heroSection": {
+      "title": "Run The Town",
+      "subtitle": "Best Drum Machine Ever",
+      "authors": [
+        { "id": 1, "name": "Alex Kim", "specialty": "Interaction/UI Design" },
+        {
+          "id": 2,
+          "name": "Jordan Park",
+          "specialty": "UX/UI Designer, Product Designer"
+        }
+      ],
+      "description_en": "This collection of iconic handheld gaming consoles is designed for retro gaming enthusiasts and collectors. The devices, including the Game Boy Color and other vintage consoles, are perfect for those looking to relive the golden age of portable gaming. They serve not only as functional devices for playing classic games but also as decorative pieces that embody the charm and creativity of early gaming technology.",
+      "description_ko": "이 레트로 게임 콘솔 컬렉션은 과거 휴대용 게임기의 황금기를 다시 경험하고 싶은 게이머와 수집가들을 위해 설계되었습니다. Game Boy Color를 비롯한 여러 빈티지 콘솔은 그 자체로 클래식 게임을 즐길 수 있을 뿐만 아니라, 독창적이고 매력적인 디자인으로 인테리어 장식용으로도 손색이 없습니다.",
+      "thumbnails": {
+        "primary": { "id": 1, "url": "drumMachine.jpg" },
+        "tinyImages": [
+          { "id": 1, "url": "drumMachine-1.jpg" },
+          { "id": 2, "url": "drumMachine-2.jpg" },
+          { "id": 3, "url": "drumMachine-3.jpg" }
+        ]
+      },
+      "social": [
+        { "id": 1, "service": "Mail", "linkInfo": "keaikim77@gmail.com" },
+        {
+          "id": 2,
+          "service": "Instagram",
+          "linkInfo": "https://www.instagram.com/"
+        },
+        {
+          "id": 3,
+          "service": "Behance",
+          "linkInfo": "https://www.behance.net/"
+        },
+        {
+          "id": 4,
+          "service": "Linkedin",
+          "linkInfo": "https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit"
+        }
+      ]
+    },
+    "media": {
+      "videos": [
+        {
+          "id": 1,
+          "url": "drumMachine.mp4"
+        }
+      ],
+      "images": [
+        {
+          "id": 1,
+          "url": "drumMachine-detail-1.jpg",
+          "caption": "Nintendo"
+        },
+        {
+          "id": 2,
+          "url": "drumMachine-detail-2.jpg",
+          "caption": "Console 1"
+        },
+        {
+          "id": 3,
+          "url": "drumMachine-detail-3.jpg",
+          "caption": "Console 2"
+        }
+      ]
+    },
+    "authorInfos": [
+      {
+        "id": 1,
+        "name": "Alex Kim",
+        "specialty": "Interaction/UI Design",
+        "profileImage": "Alex Kim.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Jordan Park",
+        "specialty": "UX/UI Designer, Product Designer",
+        "profileImage": "Jordan Park.jpg"
+      }
+    ]
+  },
+
+  {
+    "id": 13,
+    "heroSection": {
+      "title": "Eternal Moments",
+      "subtitle": "Record Your Daily Life with GoPro",
+      "authors": [
+        { "id": 1, "name": "Alex Kim", "specialty": "Interaction/UI Design" },
+        {
+          "id": 2,
+          "name": "Jordan Park",
+          "specialty": "UX/UI Designer, Product Designer"
+        }
+      ],
+      "description_en": "This collection of iconic handheld gaming consoles is designed for retro gaming enthusiasts and collectors. The devices, including the Game Boy Color and other vintage consoles, are perfect for those looking to relive the golden age of portable gaming. They serve not only as functional devices for playing classic games but also as decorative pieces that embody the charm and creativity of early gaming technology.",
+      "description_ko": "이 레트로 게임 콘솔 컬렉션은 과거 휴대용 게임기의 황금기를 다시 경험하고 싶은 게이머와 수집가들을 위해 설계되었습니다. Game Boy Color를 비롯한 여러 빈티지 콘솔은 그 자체로 클래식 게임을 즐길 수 있을 뿐만 아니라, 독창적이고 매력적인 디자인으로 인테리어 장식용으로도 손색이 없습니다.",
+      "thumbnails": {
+        "primary": { "id": 1, "url": "gopro.jpg" },
+        "tinyImages": [
+          { "id": 1, "url": "gopro-1.jpg" },
+          { "id": 2, "url": "gopro-2.jpg" },
+          { "id": 3, "url": "gopro-3.jpg" }
+        ]
+      },
+      "social": [
+        { "id": 1, "service": "Mail", "linkInfo": "keaikim77@gmail.com" },
+        {
+          "id": 2,
+          "service": "Instagram",
+          "linkInfo": "https://www.instagram.com/"
+        },
+        {
+          "id": 3,
+          "service": "Behance",
+          "linkInfo": "https://www.behance.net/"
+        },
+        {
+          "id": 4,
+          "service": "Linkedin",
+          "linkInfo": "https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit"
+        }
+      ]
+    },
+    "media": {
+      "videos": [
+        {
+          "id": 1,
+          "url": "gopro.mp4"
+        }
+      ],
+      "images": [
+        {
+          "id": 1,
+          "url": "gopro-detail-1.jpg",
+          "caption": "Nintendo"
+        },
+        {
+          "id": 2,
+          "url": "gopro-detail-2.jpg",
+          "caption": "Console 1"
+        },
+        {
+          "id": 3,
+          "url": "gopro-detail-3.jpg",
+          "caption": "Console 2"
+        }
+      ]
+    },
+    "authorInfos": [
+      {
+        "id": 1,
+        "name": "Alex Kim",
+        "specialty": "Interaction/UI Design",
+        "profileImage": "Alex Kim.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Jordan Park",
+        "specialty": "UX/UI Designer, Product Designer",
+        "profileImage": "Jordan Park.jpg"
+      }
+    ]
+  },
+
+  {
+    "id": 14,
+    "heroSection": {
+      "title": "Mirage",
+      "subtitle": "Apple Product with Blue color",
+      "authors": [
+        { "id": 1, "name": "Alex Kim", "specialty": "Interaction/UI Design" },
+        {
+          "id": 2,
+          "name": "Jordan Park",
+          "specialty": "UX/UI Designer, Product Designer"
+        }
+      ],
+      "description_en": "This collection of iconic handheld gaming consoles is designed for retro gaming enthusiasts and collectors. The devices, including the Game Boy Color and other vintage consoles, are perfect for those looking to relive the golden age of portable gaming. They serve not only as functional devices for playing classic games but also as decorative pieces that embody the charm and creativity of early gaming technology.",
+      "description_ko": "이 레트로 게임 콘솔 컬렉션은 과거 휴대용 게임기의 황금기를 다시 경험하고 싶은 게이머와 수집가들을 위해 설계되었습니다. Game Boy Color를 비롯한 여러 빈티지 콘솔은 그 자체로 클래식 게임을 즐길 수 있을 뿐만 아니라, 독창적이고 매력적인 디자인으로 인테리어 장식용으로도 손색이 없습니다.",
+      "thumbnails": {
+        "primary": { "id": 1, "url": "appleBlue.jpg" },
+        "tinyImages": [
+          { "id": 1, "url": "appleBlue-1.jpg" },
+          { "id": 2, "url": "appleBlue-2.jpg" },
+          { "id": 3, "url": "appleBlue-3.jpg" }
+        ]
+      },
+      "social": [
+        { "id": 1, "service": "Mail", "linkInfo": "keaikim77@gmail.com" },
+        {
+          "id": 2,
+          "service": "Instagram",
+          "linkInfo": "https://www.instagram.com/"
+        },
+        {
+          "id": 3,
+          "service": "Behance",
+          "linkInfo": "https://www.behance.net/"
+        },
+        {
+          "id": 4,
+          "service": "Linkedin",
+          "linkInfo": "https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit"
+        }
+      ]
+    },
+    "media": {
+      "videos": [
+        {
+          "id": 1,
+          "url": "appleBlue.mp4"
+        }
+      ],
+      "images": [
+        {
+          "id": 1,
+          "url": "appleBlue-detail-1.jpg",
+          "caption": "Nintendo"
+        },
+        {
+          "id": 2,
+          "url": "appleBlue-detail-2.jpg",
+          "caption": "Console 1"
+        },
+        {
+          "id": 3,
+          "url": "appleBlue-detail-3.jpg",
+          "caption": "Console 2"
+        }
+      ]
+    },
+    "authorInfos": [
+      {
+        "id": 1,
+        "name": "Alex Kim",
+        "specialty": "Interaction/UI Design",
+        "profileImage": "Alex Kim.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Jordan Park",
+        "specialty": "UX/UI Designer, Product Designer",
+        "profileImage": "Jordan Park.jpg"
+      }
+    ]
+  },
+
+  {
+    "id": 15,
+    "heroSection": {
+      "title": "Nebula",
+      "subtitle": "Innovation of Smart Watch",
+      "authors": [
+        { "id": 1, "name": "Alex Kim", "specialty": "Interaction/UI Design" },
+        {
+          "id": 2,
+          "name": "Jordan Park",
+          "specialty": "UX/UI Designer, Product Designer"
+        }
+      ],
+      "description_en": "This collection of iconic handheld gaming consoles is designed for retro gaming enthusiasts and collectors. The devices, including the Game Boy Color and other vintage consoles, are perfect for those looking to relive the golden age of portable gaming. They serve not only as functional devices for playing classic games but also as decorative pieces that embody the charm and creativity of early gaming technology.",
+      "description_ko": "이 레트로 게임 콘솔 컬렉션은 과거 휴대용 게임기의 황금기를 다시 경험하고 싶은 게이머와 수집가들을 위해 설계되었습니다. Game Boy Color를 비롯한 여러 빈티지 콘솔은 그 자체로 클래식 게임을 즐길 수 있을 뿐만 아니라, 독창적이고 매력적인 디자인으로 인테리어 장식용으로도 손색이 없습니다.",
+      "thumbnails": {
+        "primary": { "id": 1, "url": "smartWatch.jpg" },
+        "tinyImages": [
+          { "id": 1, "url": "smartWatch-1.jpg" },
+          { "id": 2, "url": "smartWatch-2.jpg" },
+          { "id": 3, "url": "smartWatch-3.jpg" }
+        ]
+      },
+      "social": [
+        { "id": 1, "service": "Mail", "linkInfo": "keaikim77@gmail.com" },
+        {
+          "id": 2,
+          "service": "Instagram",
+          "linkInfo": "https://www.instagram.com/"
+        },
+        {
+          "id": 3,
+          "service": "Behance",
+          "linkInfo": "https://www.behance.net/"
+        },
+        {
+          "id": 4,
+          "service": "Linkedin",
+          "linkInfo": "https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit"
+        }
+      ]
+    },
+    "media": {
+      "videos": [
+        {
+          "id": 1,
+          "url": "smartWatch.mp4"
+        }
+      ],
+      "images": [
+        {
+          "id": 1,
+          "url": "smartWatch-detail-1.jpg",
+          "caption": "Nintendo"
+        },
+        {
+          "id": 2,
+          "url": "smartWatch-detail-2.jpg",
+          "caption": "Console 1"
+        },
+        {
+          "id": 3,
+          "url": "smartWatch-detail-3.jpg",
+          "caption": "Console 2"
+        }
+      ]
+    },
+    "authorInfos": [
+      {
+        "id": 1,
+        "name": "Alex Kim",
+        "specialty": "Interaction/UI Design",
+        "profileImage": "Alex Kim.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Jordan Park",
+        "specialty": "UX/UI Designer, Product Designer",
+        "profileImage": "Jordan Park.jpg"
+      }
+    ]
+  },
+
+  {
+    "id": 16,
+    "heroSection": {
+      "title": "Temporal Drift",
+      "subtitle": "Set of Airpods Change The World",
+      "authors": [
+        { "id": 1, "name": "Alex Kim", "specialty": "Interaction/UI Design" },
+        {
+          "id": 2,
+          "name": "Jordan Park",
+          "specialty": "UX/UI Designer, Product Designer"
+        }
+      ],
+      "description_en": "This collection of iconic handheld gaming consoles is designed for retro gaming enthusiasts and collectors. The devices, including the Game Boy Color and other vintage consoles, are perfect for those looking to relive the golden age of portable gaming. They serve not only as functional devices for playing classic games but also as decorative pieces that embody the charm and creativity of early gaming technology.",
+      "description_ko": "이 레트로 게임 콘솔 컬렉션은 과거 휴대용 게임기의 황금기를 다시 경험하고 싶은 게이머와 수집가들을 위해 설계되었습니다. Game Boy Color를 비롯한 여러 빈티지 콘솔은 그 자체로 클래식 게임을 즐길 수 있을 뿐만 아니라, 독창적이고 매력적인 디자인으로 인테리어 장식용으로도 손색이 없습니다.",
+      "thumbnails": {
+        "primary": { "id": 1, "url": "airpodsSet.jpg" },
+        "tinyImages": [
+          { "id": 1, "url": "airpodsSet-1.jpg" },
+          { "id": 2, "url": "airpodsSet-2.jpg" },
+          { "id": 3, "url": "airpodsSet-3.jpg" }
+        ]
+      },
+      "social": [
+        { "id": 1, "service": "Mail", "linkInfo": "keaikim77@gmail.com" },
+        {
+          "id": 2,
+          "service": "Instagram",
+          "linkInfo": "https://www.instagram.com/"
+        },
+        {
+          "id": 3,
+          "service": "Behance",
+          "linkInfo": "https://www.behance.net/"
+        },
+        {
+          "id": 4,
+          "service": "Linkedin",
+          "linkInfo": "https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit"
+        }
+      ]
+    },
+    "media": {
+      "videos": [
+        {
+          "id": 1,
+          "url": "airpodsSet.mp4"
+        }
+      ],
+      "images": [
+        {
+          "id": 1,
+          "url": "airpodsSet-detail-1.jpg",
+          "caption": "Nintendo"
+        },
+        {
+          "id": 2,
+          "url": "airpodsSet-detail-2.jpg",
+          "caption": "Console 1"
+        },
+        {
+          "id": 3,
+          "url": "airpodsSet-detail-3.jpg",
+          "caption": "Console 2"
+        }
+      ]
+    },
+    "authorInfos": [
+      {
+        "id": 1,
+        "name": "Alex Kim",
+        "specialty": "Interaction/UI Design",
+        "profileImage": "Alex Kim.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Jordan Park",
+        "specialty": "UX/UI Designer, Product Designer",
+        "profileImage": "Jordan Park.jpg"
+      }
+    ]
+  },
+
+  {
+    "id": 17,
+    "heroSection": {
+      "title": "Veil Of Illusion",
+      "subtitle": "Back To Cassette Generation",
+      "authors": [
+        { "id": 1, "name": "Alex Kim", "specialty": "Interaction/UI Design" },
+        {
+          "id": 2,
+          "name": "Jordan Park",
+          "specialty": "UX/UI Designer, Product Designer"
+        }
+      ],
+      "description_en": "This collection of iconic handheld gaming consoles is designed for retro gaming enthusiasts and collectors. The devices, including the Game Boy Color and other vintage consoles, are perfect for those looking to relive the golden age of portable gaming. They serve not only as functional devices for playing classic games but also as decorative pieces that embody the charm and creativity of early gaming technology.",
+      "description_ko": "이 레트로 게임 콘솔 컬렉션은 과거 휴대용 게임기의 황금기를 다시 경험하고 싶은 게이머와 수집가들을 위해 설계되었습니다. Game Boy Color를 비롯한 여러 빈티지 콘솔은 그 자체로 클래식 게임을 즐길 수 있을 뿐만 아니라, 독창적이고 매력적인 디자인으로 인테리어 장식용으로도 손색이 없습니다.",
+      "thumbnails": {
+        "primary": { "id": 1, "url": "cassette.jpg" },
+        "tinyImages": [
+          { "id": 1, "url": "cassette-1.jpg" },
+          { "id": 2, "url": "cassette-2.jpg" },
+          { "id": 3, "url": "cassette-3.jpg" }
+        ]
+      },
+      "social": [
+        { "id": 1, "service": "Mail", "linkInfo": "keaikim77@gmail.com" },
+        {
+          "id": 2,
+          "service": "Instagram",
+          "linkInfo": "https://www.instagram.com/"
+        },
+        {
+          "id": 3,
+          "service": "Behance",
+          "linkInfo": "https://www.behance.net/"
+        },
+        {
+          "id": 4,
+          "service": "Linkedin",
+          "linkInfo": "https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit"
+        }
+      ]
+    },
+    "media": {
+      "videos": [
+        {
+          "id": 1,
+          "url": "cassette.mp4"
+        }
+      ],
+      "images": [
+        {
+          "id": 1,
+          "url": "cassette-detail-1.jpg",
+          "caption": "Nintendo"
+        },
+        {
+          "id": 2,
+          "url": "cassette-detail-2.jpg",
+          "caption": "Console 1"
+        },
+        {
+          "id": 3,
+          "url": "cassette-detail-3.jpg",
+          "caption": "Console 2"
+        }
+      ]
+    },
+    "authorInfos": [
+      {
+        "id": 1,
+        "name": "Alex Kim",
+        "specialty": "Interaction/UI Design",
+        "profileImage": "Alex Kim.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Jordan Park",
+        "specialty": "UX/UI Designer, Product Designer",
+        "profileImage": "Jordan Park.jpg"
+      }
+    ]
+  },
+
+  {
+    "id": 18,
+    "heroSection": {
+      "title": "Paradox",
+      "subtitle": "Apple Product with Red Color",
+      "authors": [
+        { "id": 1, "name": "Alex Kim", "specialty": "Interaction/UI Design" },
+        {
+          "id": 2,
+          "name": "Jordan Park",
+          "specialty": "UX/UI Designer, Product Designer"
+        }
+      ],
+      "description_en": "This collection of iconic handheld gaming consoles is designed for retro gaming enthusiasts and collectors. The devices, including the Game Boy Color and other vintage consoles, are perfect for those looking to relive the golden age of portable gaming. They serve not only as functional devices for playing classic games but also as decorative pieces that embody the charm and creativity of early gaming technology.",
+      "description_ko": "이 레트로 게임 콘솔 컬렉션은 과거 휴대용 게임기의 황금기를 다시 경험하고 싶은 게이머와 수집가들을 위해 설계되었습니다. Game Boy Color를 비롯한 여러 빈티지 콘솔은 그 자체로 클래식 게임을 즐길 수 있을 뿐만 아니라, 독창적이고 매력적인 디자인으로 인테리어 장식용으로도 손색이 없습니다.",
+      "thumbnails": {
+        "primary": { "id": 1, "url": "appleRed.jpg" },
+        "tinyImages": [
+          { "id": 1, "url": "appleRed-1.jpg" },
+          { "id": 2, "url": "appleRed-2.jpg" },
+          { "id": 3, "url": "appleRed-3.jpg" }
+        ]
+      },
+      "social": [
+        { "id": 1, "service": "Mail", "linkInfo": "keaikim77@gmail.com" },
+        {
+          "id": 2,
+          "service": "Instagram",
+          "linkInfo": "https://www.instagram.com/"
+        },
+        {
+          "id": 3,
+          "service": "Behance",
+          "linkInfo": "https://www.behance.net/"
+        },
+        {
+          "id": 4,
+          "service": "Linkedin",
+          "linkInfo": "https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit"
+        }
+      ]
+    },
+    "media": {
+      "videos": [
+        {
+          "id": 1,
+          "url": "appleRed.mp4"
+        }
+      ],
+      "images": [
+        {
+          "id": 1,
+          "url": "appleRed-detail-1.jpg",
+          "caption": "Nintendo"
+        },
+        {
+          "id": 2,
+          "url": "appleRed-detail-2.jpg",
+          "caption": "Console 1"
+        },
+        {
+          "id": 3,
+          "url": "appleRed-detail-3.jpg",
+          "caption": "Console 2"
+        }
+      ]
+    },
+    "authorInfos": [
+      {
+        "id": 1,
+        "name": "Alex Kim",
+        "specialty": "Interaction/UI Design",
+        "profileImage": "Alex Kim.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Jordan Park",
+        "specialty": "UX/UI Designer, Product Designer",
+        "profileImage": "Jordan Park.jpg"
+      }
+    ]
+  },
+
+  {
+    "id": 19,
+    "heroSection": {
+      "title": "Quantum Dreams",
+      "subtitle": "Apple Watch, Change The World",
+      "authors": [
+        { "id": 1, "name": "Alex Kim", "specialty": "Interaction/UI Design" },
+        {
+          "id": 2,
+          "name": "Jordan Park",
+          "specialty": "UX/UI Designer, Product Designer"
+        }
+      ],
+      "description_en": "This collection of iconic handheld gaming consoles is designed for retro gaming enthusiasts and collectors. The devices, including the Game Boy Color and other vintage consoles, are perfect for those looking to relive the golden age of portable gaming. They serve not only as functional devices for playing classic games but also as decorative pieces that embody the charm and creativity of early gaming technology.",
+      "description_ko": "이 레트로 게임 콘솔 컬렉션은 과거 휴대용 게임기의 황금기를 다시 경험하고 싶은 게이머와 수집가들을 위해 설계되었습니다. Game Boy Color를 비롯한 여러 빈티지 콘솔은 그 자체로 클래식 게임을 즐길 수 있을 뿐만 아니라, 독창적이고 매력적인 디자인으로 인테리어 장식용으로도 손색이 없습니다.",
+      "thumbnails": {
+        "primary": { "id": 1, "url": "appleWatch.jpg" },
+        "tinyImages": [
+          { "id": 1, "url": "appleWatch-1.jpg" },
+          { "id": 2, "url": "appleWatch-2.jpg" },
+          { "id": 3, "url": "appleWatch-3.jpg" }
+        ]
+      },
+      "social": [
+        { "id": 1, "service": "Mail", "linkInfo": "keaikim77@gmail.com" },
+        {
+          "id": 2,
+          "service": "Instagram",
+          "linkInfo": "https://www.instagram.com/"
+        },
+        {
+          "id": 3,
+          "service": "Behance",
+          "linkInfo": "https://www.behance.net/"
+        },
+        {
+          "id": 4,
+          "service": "Linkedin",
+          "linkInfo": "https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit"
+        }
+      ]
+    },
+    "media": {
+      "videos": [
+        {
+          "id": 1,
+          "url": "appleWatch.mp4"
+        }
+      ],
+      "images": [
+        {
+          "id": 1,
+          "url": "appleWatch-detail-1.jpg",
+          "caption": "Nintendo"
+        },
+        {
+          "id": 2,
+          "url": "appleWatch-detail-2.jpg",
+          "caption": "Console 1"
+        },
+        {
+          "id": 3,
+          "url": "appleWatch-detail-3.jpg",
+          "caption": "Console 2"
+        }
+      ]
+    },
+    "authorInfos": [
+      {
+        "id": 1,
+        "name": "Alex Kim",
+        "specialty": "Interaction/UI Design",
+        "profileImage": "Alex Kim.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Jordan Park",
+        "specialty": "UX/UI Designer, Product Designer",
+        "profileImage": "Jordan Park.jpg"
+      }
+    ]
+  },
+
+  {
+    "id": 20,
+    "heroSection": {
+      "title": "Echo Of Eternity",
+      "subtitle": "ToolSet, Ready For You",
+      "authors": [
+        { "id": 1, "name": "Alex Kim", "specialty": "Interaction/UI Design" },
+        {
+          "id": 2,
+          "name": "Jordan Park",
+          "specialty": "UX/UI Designer, Product Designer"
+        }
+      ],
+      "description_en": "This collection of iconic handheld gaming consoles is designed for retro gaming enthusiasts and collectors. The devices, including the Game Boy Color and other vintage consoles, are perfect for those looking to relive the golden age of portable gaming. They serve not only as functional devices for playing classic games but also as decorative pieces that embody the charm and creativity of early gaming technology.",
+      "description_ko": "이 레트로 게임 콘솔 컬렉션은 과거 휴대용 게임기의 황금기를 다시 경험하고 싶은 게이머와 수집가들을 위해 설계되었습니다. Game Boy Color를 비롯한 여러 빈티지 콘솔은 그 자체로 클래식 게임을 즐길 수 있을 뿐만 아니라, 독창적이고 매력적인 디자인으로 인테리어 장식용으로도 손색이 없습니다.",
+      "thumbnails": {
+        "primary": { "id": 1, "url": "toolSet.jpg" },
+        "tinyImages": [
+          { "id": 1, "url": "toolSet-1.jpg" },
+          { "id": 2, "url": "toolSet-2.jpg" },
+          { "id": 3, "url": "toolSet-3.jpg" }
+        ]
+      },
+      "social": [
+        { "id": 1, "service": "Mail", "linkInfo": "keaikim77@gmail.com" },
+        {
+          "id": 2,
+          "service": "Instagram",
+          "linkInfo": "https://www.instagram.com/"
+        },
+        {
+          "id": 3,
+          "service": "Behance",
+          "linkInfo": "https://www.behance.net/"
+        },
+        {
+          "id": 4,
+          "service": "Linkedin",
+          "linkInfo": "https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit"
+        }
+      ]
+    },
+    "media": {
+      "videos": [
+        {
+          "id": 1,
+          "url": "toolSet.mp4"
+        }
+      ],
+      "images": [
+        {
+          "id": 1,
+          "url": "toolSet-detail-1.jpg",
+          "caption": "Nintendo"
+        },
+        {
+          "id": 2,
+          "url": "toolSet-detail-2.jpg",
+          "caption": "Console 1"
+        },
+        {
+          "id": 3,
+          "url": "toolSet-detail-3.jpg",
+          "caption": "Console 2"
+        }
+      ]
+    },
+    "authorInfos": [
+      {
+        "id": 1,
+        "name": "Alex Kim",
+        "specialty": "Interaction/UI Design",
+        "profileImage": "Alex Kim.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Jordan Park",
+        "specialty": "UX/UI Designer, Product Designer",
+        "profileImage": "Jordan Park.jpg"
+      }
+    ]
+  }
+]

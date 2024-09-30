@@ -1,4 +1,5 @@
-import { useRef, useState } from "react";
+/* eslint-disable react/prop-types */
+import { useEffect, useRef, useState } from "react";
 
 import {
   BlurScreen,
@@ -8,16 +9,21 @@ import {
   VideoContainer,
 } from "./VideoPlayer.styled";
 
-import dummyVideo from "@assets/Videos/console-game.mp4";
-
 import playButton from "@assets/Videos/play_fill-white.svg";
 import fullScreenButton from "@assets/Videos/full-screen_white.svg";
 
-const VideoPlayer = () => {
+const VideoPlayer = ({ videoData, currentPage }) => {
   const videoRef = useRef(null);
 
   const [isPlaying, setIsPlaying] = useState(false);
-  //   const [isFullScreen, setIsFullScreen] = useState(false);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.src = `/Graduation-Exhibition/${currentPage}/${videoData[0]?.url}`;
+      videoRef.current.load(); // Reload the new video
+      setIsPlaying(false); // Reset Playing state
+    }
+  }, [currentPage, videoData]);
 
   const handleVideoClick = () => {
     if (isPlaying) {
@@ -58,25 +64,32 @@ const VideoPlayer = () => {
   };
 
   return (
-    <VideoContainer>
-      <Video ref={videoRef} onClick={handleVideoClick}>
-        <source src={dummyVideo} type="video/mp4" />
-      </Video>
+    <>
+      {videoData?.map((video) => (
+        <VideoContainer key={video.id}>
+          <Video ref={videoRef} onClick={handleVideoClick}>
+            <source
+              src={`/Graduation-Exhibition/${currentPage}/${video?.url}`}
+              type="video/mp4"
+            />
+          </Video>
 
-      <BlurScreen $isPlaying={isPlaying} />
+          <BlurScreen $isPlaying={isPlaying} />
 
-      <PlayButton onClick={handlePlay} $isPlaying={isPlaying}>
-        <img src={playButton} alt="Play-Button" className="play" />
-      </PlayButton>
+          <PlayButton onClick={handlePlay} $isPlaying={isPlaying}>
+            <img src={playButton} alt="Play-Button" className="play" />
+          </PlayButton>
 
-      <FullScreenButton onClick={handleFullScreen}>
-        <img
-          src={fullScreenButton}
-          alt="Full-Screen-Button"
-          className="full-screen"
-        />
-      </FullScreenButton>
-    </VideoContainer>
+          <FullScreenButton onClick={handleFullScreen}>
+            <img
+              src={fullScreenButton}
+              alt="Full-Screen-Button"
+              className="full-screen"
+            />
+          </FullScreenButton>
+        </VideoContainer>
+      ))}
+    </>
   );
 };
 
