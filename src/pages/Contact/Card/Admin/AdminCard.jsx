@@ -1,16 +1,17 @@
 /* eslint-disable react/prop-types */
 import {
-  CardTitle,
-  CloudyDivider,
-  ContactCardContainer,
-  Divider,
-} from "../ContactCard.styled";
-import {
   PersonalCardContainer,
   PersonalCardSection,
   PersonalMail,
   PersonalName,
 } from "./AdminCard.styled";
+
+import {
+  CardTitle,
+  CloudyDivider,
+  ContactCardContainer,
+  Divider,
+} from "../ContactCard.styled";
 
 const AdminCard = ({ adminData }) => {
   return (

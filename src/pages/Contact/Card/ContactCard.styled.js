@@ -2,15 +2,16 @@ import styled from "styled-components";
 import { colors } from "@styles/theme/colors";
 
 export const ContactCardContainer = styled.div`
-  width: 383px;
-  
+  /* width: 383px; */
+
   display: inline-flex;
   flex-direction: column;
   gap: 26px;
-
 `;
 
 export const CardTitle = styled.h2`
+  white-space: nowrap;
+
   font-style: normal;
   font-size: 32px;
   font-weight: 600;
@@ -18,7 +19,7 @@ export const CardTitle = styled.h2`
 `;
 
 export const Divider = styled.div`
-  width: 383px;
+  /* width: 383px; */
   height: 4px;
 
   background-color: ${colors.HID_Grayscale[800]};
@@ -71,7 +72,7 @@ export const SocialLink = styled.a`
 `;
 
 export const CloudyDivider = styled.div`
-  width: 383px;
+  /* width: 383px; */
   height: 1px;
 
   background-color: ${colors.HID_Grayscale[200]};
