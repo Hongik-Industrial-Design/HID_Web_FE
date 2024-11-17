@@ -1,22 +1,19 @@
-import Layout from "@layout/Layout";
-import {
-  CommunityPageContainer,
-  EventSectionContainer,
-  NewsSectionContainer,
-  NoticeSectionContainer,
-} from "./CommunityPage.styled";
 import { useState } from "react";
+
+import * as S from "./CommunityPage.styled";
+
+import Layout from "@layout/Layout";
+import NoticeSection from "./Notice/NoticeSection";
 
 const CommunityPage = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <Layout isHovered={isHovered} setIsHovered={setIsHovered}>
-      <CommunityPageContainer>
-        <NewsSectionContainer></NewsSectionContainer>
-        <EventSectionContainer></EventSectionContainer>
-        <NoticeSectionContainer></NoticeSectionContainer>
-      </CommunityPageContainer>
+      <S.CommunityPageContainer>
+        <NoticeSection />
+        <S.NewsEventContainer></S.NewsEventContainer>
+      </S.CommunityPageContainer>
     </Layout>
   );
 };
