@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 import * as S from "./CategoryCommunity.styled";
 
@@ -8,7 +8,7 @@ const CategoryCommunity = ({ categoryList, ScrollToTopRef }) => {
 
   const handleFilterOption = (filterOption) => {
     setSelectedOption(filterOption);
-    
+
     if (ScrollToTopRef.current) {
       ScrollToTopRef.current.scrollIntoView({
         behavior: "smooth",
@@ -30,6 +30,13 @@ const CategoryCommunity = ({ categoryList, ScrollToTopRef }) => {
       ))}
     </S.CategoryContainer>
   );
+};
+
+CategoryCommunity.propTypes = {
+  categoryList: PropTypes.array.isRequired,
+  ScrollToTopRef: PropTypes.shape({
+    current: PropTypes.instanceOf(HTMLElement),
+  }),
 };
 
 export default CategoryCommunity;
