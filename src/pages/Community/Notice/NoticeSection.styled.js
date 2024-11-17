@@ -4,10 +4,20 @@ import { colors } from "@styles/theme/colors";
 import clipIcon from "@assets/svgs/paper-clip.svg?react";
 import alarmIcon from "@assets/svgs/alarm.svg?react";
 
+export const NoticeCategoryContainer = styled.div`
+  display: flex;
+  gap: 180px;
+`;
+
+export const CategoryStickyContainer = styled.div`
+  position: relative;
+  margin-top: 100px;
+`;
+
 export const NoticeContainer = styled.div`
   width: 100%;
-  min-width: 1180px;
-  padding-left: 233px;
+  min-width: 1080px;
+  max-width: 1520px;
 `;
 
 export const NoticeHeader = styled.div`
@@ -15,7 +25,7 @@ export const NoticeHeader = styled.div`
 
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 30px;
 
   .bold-divider {
     width: 100%;

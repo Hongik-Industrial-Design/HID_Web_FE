@@ -1,14 +1,19 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import * as S from "./NoticeSection.styled";
 
 import Pagination from "@components/Pagination/Pagination";
+import CategoryCommunity from "@components/CategoryCommunity/CategoryCommunity";
 
 const NoticeSection = () => {
   const [noticeData, setNoticeData] = useState(null);
   const [pagePosts, setPagePosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+
+  const noticeCategory = ["All", "College TA", "Council"];
+
+  const noticeTopRef = useRef(null);
 
   // Notice Data Fetching & Sorting (important: true 순으로 정렬)
   useEffect(() => {
@@ -82,75 +87,83 @@ const NoticeSection = () => {
   };
 
   return (
-    <S.NoticeContainer>
-      <S.NoticeHeader>
-        <S.NoticeTitle>
-          Notice<span>.</span>
-        </S.NoticeTitle>
-        <div className="bold-divider"></div>
-      </S.NoticeHeader>
-
-      {/* 제목, 공지 일자, 작성자, 첨부파일 */}
-      <S.NoticeBoard>
-        <S.BoardHeaderContainer>
-          <S.NoticeBoardRow>
-            <S.BoardTitle>제목</S.BoardTitle>
-            <S.NoticeBoardCredit>
-              <S.UploadDate>공지 일자</S.UploadDate>
-              <S.Author>작성자</S.Author>
-              <S.Attatchment>첨부 파일</S.Attatchment>
-            </S.NoticeBoardCredit>
-          </S.NoticeBoardRow>
-          <S.ThinDivider />
-        </S.BoardHeaderContainer>
-
-        {/* 게시글 목록 */}
-        {noticeData &&
-          pagePosts?.map((notice) => (
-            <S.BoardHeaderContainer key={notice.id}>
-              <S.NoticeBoardRow>
-                <S.PostTitleContainer href={`/notice/${notice.id}`}>
-                  {notice.important && (
-                    <S.ImportantText>
-                      <S.AlarmIcon />
-                      <span>중요!</span>
-                    </S.ImportantText>
-                  )}
-                  <S.PostTitle>{notice.title}</S.PostTitle>
-                </S.PostTitleContainer>
-                <S.NoticeBoardCredit>
-                  <S.UploadDate>{notice.credit.postDate}</S.UploadDate>
-                  <S.AuthorBox>
-                    <S.PostAuthor>{notice.credit.author}</S.PostAuthor>
-                  </S.AuthorBox>
-                  <S.ClipIconContainer>
-                    {notice.credit.attatchment ? (
-                      <S.ClipIconButton
-                        onClick={() => handleDownload(notice.id)}
-                      >
-                        <S.ClipIcon />
-                      </S.ClipIconButton>
-                    ) : (
-                      "-"
-                    )}
-                  </S.ClipIconContainer>
-                </S.NoticeBoardCredit>
-              </S.NoticeBoardRow>
-              <S.ThinDivider />
-            </S.BoardHeaderContainer>
-          ))}
-      </S.NoticeBoard>
-
-      {/* Pagination Component */}
-      <S.PaginationWrapper>
-        <Pagination
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-          totalPages={noticeData?.totalPages}
-          isPreview={true}
+    <S.NoticeCategoryContainer ref={noticeTopRef}>
+      <S.CategoryStickyContainer>
+        <CategoryCommunity
+          categoryList={noticeCategory}
+          ScrollToTopRef={noticeTopRef}
         />
-      </S.PaginationWrapper>
-    </S.NoticeContainer>
+      </S.CategoryStickyContainer>
+      <S.NoticeContainer>
+        <S.NoticeHeader>
+          <S.NoticeTitle>
+            Notice<span>.</span>
+          </S.NoticeTitle>
+          <div className="bold-divider"></div>
+        </S.NoticeHeader>
+
+        {/* 제목, 공지 일자, 작성자, 첨부파일 */}
+        <S.NoticeBoard>
+          <S.BoardHeaderContainer>
+            <S.NoticeBoardRow>
+              <S.BoardTitle>제목</S.BoardTitle>
+              <S.NoticeBoardCredit>
+                <S.UploadDate>공지 일자</S.UploadDate>
+                <S.Author>작성자</S.Author>
+                <S.Attatchment>첨부 파일</S.Attatchment>
+              </S.NoticeBoardCredit>
+            </S.NoticeBoardRow>
+            <S.ThinDivider />
+          </S.BoardHeaderContainer>
+
+          {/* 게시글 목록 */}
+          {noticeData &&
+            pagePosts?.map((notice) => (
+              <S.BoardHeaderContainer key={notice.id}>
+                <S.NoticeBoardRow>
+                  <S.PostTitleContainer href={`/notice/${notice.id}`}>
+                    {notice.important && (
+                      <S.ImportantText>
+                        <S.AlarmIcon />
+                        <span>중요!</span>
+                      </S.ImportantText>
+                    )}
+                    <S.PostTitle>{notice.title}</S.PostTitle>
+                  </S.PostTitleContainer>
+                  <S.NoticeBoardCredit>
+                    <S.UploadDate>{notice.credit.postDate}</S.UploadDate>
+                    <S.AuthorBox>
+                      <S.PostAuthor>{notice.credit.author}</S.PostAuthor>
+                    </S.AuthorBox>
+                    <S.ClipIconContainer>
+                      {notice.credit.attatchment ? (
+                        <S.ClipIconButton
+                          onClick={() => handleDownload(notice.id)}
+                        >
+                          <S.ClipIcon />
+                        </S.ClipIconButton>
+                      ) : (
+                        "-"
+                      )}
+                    </S.ClipIconContainer>
+                  </S.NoticeBoardCredit>
+                </S.NoticeBoardRow>
+                <S.ThinDivider />
+              </S.BoardHeaderContainer>
+            ))}
+        </S.NoticeBoard>
+
+        {/* Pagination Component */}
+        <S.PaginationWrapper>
+          <Pagination
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            totalPages={noticeData?.totalPages}
+            isPreview={true}
+          />
+        </S.PaginationWrapper>
+      </S.NoticeContainer>
+    </S.NoticeCategoryContainer>
   );
 };
 
