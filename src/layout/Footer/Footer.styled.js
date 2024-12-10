@@ -1,7 +1,13 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { colors } from "@styles/theme/colors";
 
+import facebookLogo from "@assets/Social-Icons/Facebook.svg?react";
+import instagramLogo from "@assets/Social-Icons/Instagram.svg?react";
+import mailLogo from "@assets/Social-Icons/Mail.svg?react";
+
 export const FooterContainer = styled.div`
+  width: 100%;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,18 +23,18 @@ export const ContactInfos = styled.div`
   display: flex;
   align-items: center;
   gap: 80px;
-`
+`;
 
 export const Infos = styled.div`
   display: inline-flex;
   flex-direction: column;
   gap: 20px;
 
-  margin-right: 737px;
-
   font-size: 14px;
   line-height: normal;
   color: ${colors.HID_Grayscale[400]};
+
+  white-space: nowrap;
 
   .address {
     font-weight: 500;
@@ -49,9 +55,21 @@ export const SocialIconContainer = styled.div`
   gap: 16px;
 `;
 
-export const SocialIcon = styled.img`
-    width: 48px;
-    height: 48px;
+const SocialIconStyles = css`
+  width: 48px;
+  height: 48px;
 
-    cursor: pointer;
-`
+  cursor: pointer;
+`;
+
+export const FacebookIcon = styled(facebookLogo)`
+  ${SocialIconStyles}
+`;
+
+export const InstagramIcon = styled(instagramLogo)`
+  ${SocialIconStyles}
+`;
+
+export const MailIcon = styled(mailLogo)`
+  ${SocialIconStyles}
+`;

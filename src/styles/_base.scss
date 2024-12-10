@@ -5,6 +5,7 @@ $font-primary: greycliff-cf, sans-serif;
 // 2. 전역 타이포그래피 설정
 body {
   font-family: $font-primary;
+  font-size: 16px; //  추후 반응형 고려 수정 미디어 쿼리 설정 필요
   background-color: $background-color;
 
   overflow-x: hidden;

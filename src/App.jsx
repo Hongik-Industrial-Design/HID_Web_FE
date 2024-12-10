@@ -5,6 +5,7 @@ import FacultyList from "@pages/Faculty/FacultyList/FacultyList";
 import ProfessorProfile from "@pages/Faculty/ProfessorProfile/ProfessorProfile";
 import GraduationPage from "@pages/Exhibition/Graduation/GraduationPage";
 import DetailPage from "@pages/Exhibition/Detail/DetailPage";
+import CommunityPage from "@pages/Community/CommunityPage";
 import ContactPage from "@pages/Contact/ContactPage";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Route path="/faculty/:id" element={<ProfessorProfile />} />
       <Route path="/graduation" element={<GraduationPage />} />
       <Route path="/graduation/work/:id" element={<DetailPage />} />
+      <Route path="/community" element={<CommunityPage />} />
       <Route path="/contact" element={<ContactPage />} />
     </Routes>
   );
