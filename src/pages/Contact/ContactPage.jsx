@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 import {
   ContactPageContainer,
@@ -9,7 +10,6 @@ import {
 } from "./ContactPage.styled";
 
 import Layout from "@layout/Layout";
-import axios from "axios";
 import ContactCard from "./Card/ContactCard";
 import AdminCard from "./Card/Admin/AdminCard";
 
@@ -36,27 +36,25 @@ const ContactPage = () => {
   }, []);
 
   return (
-    <>
-      <Layout isHovered={isHovered} setIsHovered={setIsHovered}>
-        <ContactPageContainer>
-          <Title>
-            Contact<span>.</span>
-          </Title>
-          <ContentContainer>
-            <HIDInfo>
-              <ContactCard cardData={contactData?.officeInfo} />
-              <ContactCard cardData={contactData?.admission} />
-              <ContactCard cardData={contactData?.onlineCommunity} />
-              <ContactCard cardData={contactData?.updateInfo} />
-            </HIDInfo>
-            <WebAdmin>
-              <AdminCard adminData={contactData?.designer} />
-              <AdminCard adminData={contactData?.developer} />
-            </WebAdmin>
-          </ContentContainer>
-        </ContactPageContainer>
-      </Layout>
-    </>
+    <Layout isHovered={isHovered} setIsHovered={setIsHovered}>
+      <ContactPageContainer>
+        <Title>
+          Contact<span>.</span>
+        </Title>
+        <ContentContainer>
+          <HIDInfo>
+            <ContactCard cardData={contactData?.officeInfo} />
+            <ContactCard cardData={contactData?.admission} />
+            <ContactCard cardData={contactData?.onlineCommunity} />
+            <ContactCard cardData={contactData?.updateInfo} />
+          </HIDInfo>
+          <WebAdmin>
+            <AdminCard adminData={contactData?.designer} />
+            <AdminCard adminData={contactData?.developer} />
+          </WebAdmin>
+        </ContentContainer>
+      </ContactPageContainer>
+    </Layout>
   );
 };
 

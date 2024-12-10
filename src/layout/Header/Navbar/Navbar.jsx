@@ -2,6 +2,7 @@
 import { Link, useLocation } from "react-router-dom";
 
 import { NavItem, NavItemsContainer } from "./Navbar.styled";
+
 import SearchButton from "./SearchButton/SearchButton";
 
 const Navbar = ({
@@ -24,9 +25,9 @@ const Navbar = ({
       >
         <Link to="/faculty">
           <NavItem
-          $currentPage={currentPath.startsWith("/faculty")}
-          // $isActive={activeMenu === "Faculty"}
-          // onClick={() => setActiveMenu("Faculty")}
+            $currentPage={currentPath.startsWith("/faculty")}
+            // $isActive={activeMenu === "Faculty"}
+            // onClick={() => setActiveMenu("Faculty")}
           >
             Faculty
           </NavItem>
@@ -41,9 +42,9 @@ const Navbar = ({
           </NavItem>
         </Link>
         <NavItem
-          $currentPage={currentPath.startsWith("/student")}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
+        // $currentPage={currentPath.startsWith("/student")}
+        // onMouseEnter={() => setIsHovered(true)}
+        // onMouseLeave={() => setIsHovered(false)}
         >
           Student Exhibition
         </NavItem>
@@ -53,12 +54,15 @@ const Navbar = ({
         >
           CourseTrack
         </NavItem>
-        <NavItem
-        // $isActive={activeTab === "Community"}
-        // onClick={() => setActiveTab("Community")}
-        >
-          Community
-        </NavItem>
+        <Link to="/community">
+          <NavItem
+            $currentPage={currentPath.startsWith("/community")}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            Community
+          </NavItem>
+        </Link>
         <Link to="/contact">
           <NavItem
             $currentPage={currentPath.startsWith("/contact")}

@@ -11,6 +11,15 @@ export const BreadscrumbContainer = styled.div`
   top: 102px;
   right: 0; // HeroSection content 오른쪽 끝이랑 일치하게끔!
 
+  font-style: normal;
+  font-size: 14px;
+  line-height: 14px;
+
+  span {
+    font-weight: 300;
+    color: ${colors.HID_Grayscale[500]};
+  }
+
   .current-page {
     font-weight: 500;
     color: ${colors.HID_Navy[900]};

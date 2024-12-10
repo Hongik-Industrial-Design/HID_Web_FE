@@ -25,6 +25,8 @@ export const PersonalCardSection = styled.div`
 export const PersonalCardContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  gap: 32px;
 
   font-style: normal;
   font-size: 18px;
