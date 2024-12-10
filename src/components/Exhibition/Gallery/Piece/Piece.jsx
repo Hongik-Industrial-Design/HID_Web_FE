@@ -21,7 +21,7 @@ const Piece = ({ pieceName, pieceInfos, goToDetailPage }) => {
         onClick={goToDetailPage}
       >
         <PieceImage
-          src={`src/assets/DummyGallery/${pieceName}`}
+          src={`/Exhibition-Thumbnail/${pieceName}`}
           alt={pieceName}
         />
         <OverlayInfos pieceInfos={pieceInfos} isHovered={isHovered} />
