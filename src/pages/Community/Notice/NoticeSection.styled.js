@@ -12,6 +12,7 @@ export const NoticeCategoryContainer = styled.div`
 export const CategoryStickyContainer = styled.div`
   position: relative;
   margin-top: 100px;
+  margin-bottom: 100px;
 `;
 
 export const NoticeContainer = styled.div`

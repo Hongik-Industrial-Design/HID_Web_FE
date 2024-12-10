@@ -2,6 +2,8 @@ import styled, { css } from "styled-components";
 import { colors } from "@styles/theme/colors";
 
 export const CategoryContainer = styled.div`
+  min-width: 110px;
+
   position: sticky;
   top: 100px;
 
