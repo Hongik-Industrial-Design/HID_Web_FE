@@ -659,6 +659,13 @@
     "@types/react" "*"
     hoist-non-react-statics "^3.3.0"
 
+"@types/node@^22.10.4":
+  version "22.10.4"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.10.4.tgz#da36bebcc4b124f3d62bfde1cd1dafd7763949c1"
+  integrity sha512-99l6wv4HEzBQhvaU/UGoeBoCK61SCROQaCCGyQSgX2tEQ3rKkNZ2S7CEWnS/4s1LV+8ODdK21UeyR1fHP2mXug==
+  dependencies:
+    undici-types "~6.20.0"
+
 "@types/react-dom@^19.0.2":
   version "19.0.2"
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-19.0.2.tgz#ad21f9a1ee881817995fd3f7fd33659c87e7b1b7"
@@ -2666,6 +2673,11 @@ unbox-primitive@^1.0.2:
     has-bigints "^1.0.2"
     has-symbols "^1.0.3"
     which-boxed-primitive "^1.0.2"
+
+undici-types@~6.20.0:
+  version "6.20.0"
+  resolved "https://registry.yarnpkg.com/undici-types/-/undici-types-6.20.0.tgz#8171bf22c1f588d1554d55bf204bc624af388433"
+  integrity sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==
 
 update-browserslist-db@^1.1.0:
   version "1.1.0"
