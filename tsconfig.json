@@ -4,7 +4,7 @@
     "module": "ESNext", // Vite는 ES 모듈을 사용하므로 "esnext" 설정
     "useDefineForClassFields": true, // 클래스 필드의 초기화를 JavaScript의 define 동작으로 할지 결정
     "lib": ["ES2020", "DOM", "DOM.Iterable"], // DOM 관련 타입과 최신 JavaScript 기능
-    "allowJs": false, // JavaScript 파일을 사용하지 않음
+    "allowJs": true, // JavaScript 파일을 사용하지 않음
     "skipLibCheck": true, // 라이브러리 타입 검사 생략하여 빌드 속도 개선
     "esModuleInterop": true, // ES6 모듈 및 CommonJS 호환성
     "allowSyntheticDefaultImports": true, // import 구문을 ES6 스타일로 허용
