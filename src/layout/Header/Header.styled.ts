@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { colors } from '@styles/theme/colors';
 
-import HIDHomeLogo from '@assets/HID-home-logo.svg?react';
+import HIDHomeLogo from '@assets/icons/svgs/logos/HID-home-logo.svg?react';
 
 export const HeaderContainer = styled.header`
   position: fixed;

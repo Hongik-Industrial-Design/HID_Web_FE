@@ -9,7 +9,7 @@ import {
   GraduationPageContainer,
 } from './GraduationPage.styled';
 
-import graduationBanner from '@assets/BannerImage/graduation-banner.jpg';
+import graduationBanner from '@assets/images/banners/graduation-banner.jpg';
 
 export const GraduationPage = () => {
   const [isHovered, setIsHovered] = useState(false);

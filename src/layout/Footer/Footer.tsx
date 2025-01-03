@@ -1,9 +1,9 @@
 import * as S from './Footer.styled';
 
-import FooterLogo from '@assets/footer-logo.svg';
-import FacebookLogo from '@assets/Social-Icons/Facebook.svg';
-import InstagramLogo from '@assets/Social-Icons/Instagram.svg';
-import MailLogo from '@assets/Social-Icons/Mail.svg';
+import FooterLogo from '@assets/icons/svgs/logos/footer-logo.svg';
+import FacebookLogo from '@assets/icons/svgs/social-icons/Facebook.svg';
+import InstagramLogo from '@assets/icons/svgs/social-icons/Instagram.svg';
+import MailLogo from '@assets/icons/svgs/social-icons/Mail.svg';
 
 const Footer = () => {
   const openNewTab = (url) => {

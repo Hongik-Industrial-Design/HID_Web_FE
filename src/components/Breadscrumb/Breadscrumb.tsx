@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import { BreadscrumbContainer, BreadScrumbUnit } from './Breadscrumb.styled';
 
-import forwardArrow from '@assets/arrows/forward-arrow_triangle.svg';
+import forwardArrow from '@assets/icons/svgs/arrows/forward-arrow_triangle.svg';
 
 const Breadscrumb = ({ paths, currentPage }) => {
   return (

@@ -8,8 +8,8 @@ import {
   VideoContainer,
 } from './VideoPlayer.styled';
 
-import playButton from '@assets/Videos/play_fill-white.svg';
-import fullScreenButton from '@assets/Videos/full-screen_white.svg';
+import playButton from '@assets/icons/svgs/video-player/play_fill-white.svg';
+import fullScreenButton from '@assets/icons/svgs/video-player/full-screen_white.svg';
 
 const VideoPlayer = ({ videoData, currentPage }) => {
   const videoRef = useRef(null);

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { colors } from '@styles/theme/colors';
 
-import LeftArrow from '@assets/arrows/left-arrow_full.svg?react';
+import LeftArrow from '@assets/icons/svgs/arrows/left-arrow_full.svg?react';
 
 export const ButtonContainer = styled.div`
   display: flex;

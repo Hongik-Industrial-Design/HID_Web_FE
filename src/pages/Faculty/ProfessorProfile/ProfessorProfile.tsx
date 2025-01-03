@@ -20,7 +20,7 @@ import {
 
 import { BreadscrumbContainer } from '@components/Breadscrumb/Breadscrumb.styled';
 
-import forwardArrow from '@assets/arrows/forward-arrow_triangle.svg';
+import forwardArrow from '@assets/icons/svgs/arrows/forward-arrow_triangle.svg';
 
 const ProfessorProfile = () => {
   const [isHovered, setIsHovered] = useState(false);

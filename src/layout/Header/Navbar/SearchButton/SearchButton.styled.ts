@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { colors } from '@styles/theme/colors';
 
-import MagnifyLens from '@assets/circle.svg?react';
+import MagnifyLens from '@assets/icons/svgs/search/circle.svg?react';
 
 export const IconContainer = styled.div`
   display: flex;
