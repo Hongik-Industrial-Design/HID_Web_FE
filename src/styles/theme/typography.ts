@@ -1,6 +1,10 @@
-import { css } from 'styled-components';
+import { css, CSSProp } from 'styled-components';
 
-export const fontStyles = {
+type Typography = {
+  [key: string]: CSSProp;
+};
+
+export const fontStyles: Typography = {
   Display: css`
     font-style: normal;
     font-size: 32px;

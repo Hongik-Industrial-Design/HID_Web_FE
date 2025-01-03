@@ -1,4 +1,14 @@
-export const colors = {
+type Colors = {
+  [key: number]: string;
+};
+
+type ColorPalette = {
+  HID_Navy: Colors;
+  HID_Grayscale: Colors;
+  HID_YellowDot: string;
+};
+
+export const colors: ColorPalette = {
   HID_Navy: {
     900: '#09287a',
     800: '#1b388f',
