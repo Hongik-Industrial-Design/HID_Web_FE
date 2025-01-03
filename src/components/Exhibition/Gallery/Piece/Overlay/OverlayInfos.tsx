@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { OverlayContainer } from './OverlayInfos.styled';
 
 const OverlayInfos = ({ pieceInfos, isHovered }) => {

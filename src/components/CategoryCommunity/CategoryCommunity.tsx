@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
 
 import * as S from './CategoryCommunity.styled';
 
@@ -30,13 +29,6 @@ const CategoryCommunity = ({ categoryList, ScrollToTopRef }) => {
       ))}
     </S.CategoryContainer>
   );
-};
-
-CategoryCommunity.propTypes = {
-  categoryList: PropTypes.array.isRequired,
-  ScrollToTopRef: PropTypes.shape({
-    current: PropTypes.instanceOf(HTMLElement),
-  }),
 };
 
 export default CategoryCommunity;

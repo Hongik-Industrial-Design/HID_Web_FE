@@ -6,7 +6,6 @@ import { HeaderContainer, StyledHIDHomeLogo } from './Header.styled';
 import Navbar from './Navbar/Navbar';
 import Dropdown from './Navbar/Dropdown/Dropdown';
 
-// eslint-disable-next-line react/prop-types
 const Header = ({ isHovered, setIsHovered }) => {
   const location = useLocation();
   const isHomePage = location.pathname === '/';

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { TeamMembersContainer } from './TeamMemberSection.styled';
 
 import MemberCard from './MemberCard/MemberCard';

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { AnimatePresence } from 'framer-motion';
 
 import ProfessorCard from './ProfessorCard/ProfessorCard';

@@ -4,7 +4,6 @@ import OverlayInfos from './Overlay/OverlayInfos';
 import { PieceContainer, PieceImage } from './Piece.styled';
 import { motion } from 'framer-motion';
 
-// eslint-disable-next-line react/prop-types
 const Piece = ({ pieceName, pieceInfos, goToDetailPage }) => {
   const [isHovered, setIsHovered] = useState(false);
 

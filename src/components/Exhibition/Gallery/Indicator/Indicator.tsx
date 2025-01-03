@@ -1,6 +1,5 @@
 import { IndicatorBar, IndicatorContainer } from './Indicator.styled';
 
-// eslint-disable-next-line react/prop-types
 const Indicator = ({ handleScroll, width }) => {
   return (
     <IndicatorContainer>

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { ArtworkImageContainer, DetailImage } from './ArtworkImages.styled';
 
 const ArtworkImages = ({ detailImages, currentPage }) => {

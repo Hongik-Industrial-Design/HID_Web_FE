@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { ArtworkSectionContainer } from './ArtworkSection.styled';
 
 import ArtworkImages from '@pages/Exhibition/Detail/ArtworkSection/ArtworkImages/ArtworkImages';

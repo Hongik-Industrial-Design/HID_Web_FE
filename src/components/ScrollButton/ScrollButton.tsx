@@ -1,6 +1,5 @@
 import { Arrow, ScrollContainer } from './ScrollButton.styled';
 
-// eslint-disable-next-line react/prop-types
 const ScrollButton = ({ arrowType, onClick, isScrolled }) => {
   return (
     <ScrollContainer

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import * as S from './NewsEventCard.styled';
 
 const NewsEventCard = ({ route, imageURL, deadline, title, category }) => {
@@ -14,12 +13,12 @@ const NewsEventCard = ({ route, imageURL, deadline, title, category }) => {
   );
 };
 
-NewsEventCard.propTypes = {
-  route: PropTypes.string.isRequired,
-  imageURL: PropTypes.string.isRequired,
-  deadline: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
-};
+// NewsEventCard.propTypes = {
+//   route: PropTypes.string.isRequired,
+//   imageURL: PropTypes.string.isRequired,
+//   deadline: PropTypes.string.isRequired,
+//   title: PropTypes.string.isRequired,
+//   category: PropTypes.string.isRequired,
+// };
 
 export default NewsEventCard;
