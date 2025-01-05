@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 // import axios from "axios";
 
 import { GalleryWrapper, GalleryContainer } from './Gallery.styled';
