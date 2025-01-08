@@ -1,19 +1,12 @@
-import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useEffect, useState } from 'react';
 
-import Layout from '@layout/Layout';
 import Category from '@components/Exhibition/Category/Category';
 import FacultyGallery from './FacultyGallery/FacultyGallery';
 
-import {
-  CategoryStickyContainer,
-  FacultyListContainer,
-  FacultyListPageWrapper,
-  FacultyPageTitle,
-} from './FacultyList.styled';
+import * as S from './FacultyList.styled';
 
 const FacultyList = () => {
-  const [isHovered, setIsHovered] = useState(false);
   const [facultyList, setFacultyList] = useState([]);
   const [categorizedFaculty, setCategorizedFaculty] = useState([]);
 
@@ -48,21 +41,19 @@ const FacultyList = () => {
   };
 
   return (
-    <Layout isHovered={isHovered} setIsHovered={setIsHovered}>
-      <FacultyListPageWrapper>
-        <CategoryStickyContainer>
-          <Category handleFilter={handleFilterFaculty} />
-        </CategoryStickyContainer>
+    <S.FacultyListPageWrapper>
+      <S.CategoryStickyContainer>
+        <Category handleFilter={handleFilterFaculty} />
+      </S.CategoryStickyContainer>
 
-        <FacultyListContainer>
-          <FacultyPageTitle>
-            Faculty<span>.</span>
-          </FacultyPageTitle>
+      <S.FacultyListContainer>
+        <S.FacultyPageTitle>
+          Faculty<span>.</span>
+        </S.FacultyPageTitle>
 
-          <FacultyGallery categorizedFaculty={categorizedFaculty} />
-        </FacultyListContainer>
-      </FacultyListPageWrapper>
-    </Layout>
+        <FacultyGallery categorizedFaculty={categorizedFaculty} />
+      </S.FacultyListContainer>
+    </S.FacultyListPageWrapper>
   );
 };
 

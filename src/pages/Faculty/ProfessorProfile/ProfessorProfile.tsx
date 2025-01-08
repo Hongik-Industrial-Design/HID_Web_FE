@@ -1,29 +1,16 @@
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useParams } from 'react-router';
-import axios from 'axios';
 
-import Layout from '@layout/Layout';
 import ProfessorDetails from './ProfessorDetails';
 
-import {
-  ProfessorProfileHeader,
-  ProfessorProfileMainSection,
-  ProfessorProfilePageTitle,
-  ProfessorProfileWrapper,
-  ProfileContainer,
-  ProfileDescription,
-  ProfileEmail,
-  ProfileImage,
-  ProfileName,
-  ProfileStickyContainer,
-} from './ProfessorProfile.styled';
+import * as S from './ProfessorProfile.styled';
 
 import { BreadscrumbContainer } from '@components/Breadscrumb/Breadscrumb.styled';
 
 import forwardArrow from '@assets/icons/svgs/arrows/forward-arrow_triangle.svg';
 
 const ProfessorProfile = () => {
-  const [isHovered, setIsHovered] = useState(false);
   const [professorInfo, setProfessorInfo] = useState({});
 
   const [emailHover, setEmailHover] = useState(false);
@@ -63,62 +50,58 @@ const ProfessorProfile = () => {
   }, [id]); // id가 변경될 때마다 데이터를 다시 가져옴
 
   return (
-    <Layout isHovered={isHovered} setIsHovered={setIsHovered}>
-      <ProfessorProfileWrapper>
-        <ProfessorProfileHeader>
-          <ProfessorProfilePageTitle>
-            Professor<span>.</span>
-          </ProfessorProfilePageTitle>
-          <BreadscrumbContainer
-            $facultyPage={currentPath.startsWith('/faculty')}
-          >
-            <Link to="/faculty">
-              <span>Faculty</span>
-            </Link>
-            <img
-              src={forwardArrow}
-              alt="forward-arrow"
-              className="forward-arrow"
+    <S.ProfessorProfileWrapper>
+      <S.ProfessorProfileHeader>
+        <S.ProfessorProfilePageTitle>
+          Professor<span>.</span>
+        </S.ProfessorProfilePageTitle>
+        <BreadscrumbContainer $facultyPage={currentPath.startsWith('/faculty')}>
+          <Link to="/faculty">
+            <span>Faculty</span>
+          </Link>
+          <img
+            src={forwardArrow}
+            alt="forward-arrow"
+            className="forward-arrow"
+          />
+          <span className="current-page">Professor</span>
+        </BreadscrumbContainer>
+      </S.ProfessorProfileHeader>
+      <S.ProfessorProfileMainSection>
+        <S.ProfileStickyContainer>
+          <S.ProfileContainer>
+            <S.ProfileImage
+              src={`/ProfessorProfile/${professorInfo.image}`}
+              alt={professorInfo.name}
             />
-            <span className="current-page">Professor</span>
-          </BreadscrumbContainer>
-        </ProfessorProfileHeader>
-        <ProfessorProfileMainSection>
-          <ProfileStickyContainer>
-            <ProfileContainer>
-              <ProfileImage
-                src={`/ProfessorProfile/${professorInfo.image}`}
-                alt={professorInfo.name}
-              />
-              <ProfileName>
-                <h3 className="name">{professorInfo.name}</h3>
-                <div className="role">
-                  <p className="title">{professorInfo.title},</p>
-                  <p className="specialty">{professorInfo.specialization}</p>
-                </div>
-              </ProfileName>
-              <ProfileEmail
-                onClick={() =>
-                  openNewTab(`mailto: ${professorInfo.contact.email}`)
-                }
-                onMouseEnter={() => setEmailHover(true)}
-                onMouseLeave={() => setEmailHover(false)}
-                $emailHovered={emailHover}
-              >
-                {professorInfo.contact?.email}
-              </ProfileEmail>
-              {professorInfo.description && (
-                <ProfileDescription>
-                  {professorInfo.description}
-                </ProfileDescription>
-              )}
-            </ProfileContainer>
-          </ProfileStickyContainer>
+            <S.ProfileName>
+              <h3 className="name">{professorInfo.name}</h3>
+              <div className="role">
+                <p className="title">{professorInfo.title},</p>
+                <p className="specialty">{professorInfo.specialization}</p>
+              </div>
+            </S.ProfileName>
+            <S.ProfileEmail
+              onClick={() =>
+                openNewTab(`mailto: ${professorInfo.contact.email}`)
+              }
+              onMouseEnter={() => setEmailHover(true)}
+              onMouseLeave={() => setEmailHover(false)}
+              $emailHovered={emailHover}
+            >
+              {professorInfo.contact?.email}
+            </S.ProfileEmail>
+            {professorInfo.description && (
+              <S.ProfileDescription>
+                {professorInfo.description}
+              </S.ProfileDescription>
+            )}
+          </S.ProfileContainer>
+        </S.ProfileStickyContainer>
 
-          <ProfessorDetails professorDetails={professorInfo.details} />
-        </ProfessorProfileMainSection>
-      </ProfessorProfileWrapper>
-    </Layout>
+        <ProfessorDetails professorDetails={professorInfo.details} />
+      </S.ProfessorProfileMainSection>
+    </S.ProfessorProfileWrapper>
   );
 };
 

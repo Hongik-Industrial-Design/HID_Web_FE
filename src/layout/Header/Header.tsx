@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router';
 
-import { HeaderContainer, StyledHIDHomeLogo } from './Header.styled';
-
 import Navbar from './Navbar/Navbar';
 import Dropdown from './Navbar/Dropdown/Dropdown';
 
-const Header = ({ isHovered, setIsHovered }) => {
+import { HeaderContainer, StyledHIDHomeLogo } from './Header.styled';
+
+const Header = ({ isHovered, handleNavbarHover }) => {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
@@ -89,7 +89,7 @@ const Header = ({ isHovered, setIsHovered }) => {
         </Link>
         <Navbar
           isHovered={isHovered}
-          setIsHovered={setIsHovered}
+          handleNavbarHover={handleNavbarHover}
           isDropdownOpen={isDropdownOpen}
           isHomePage={isHomePage}
           scrolled={scrollPosition > 1056}

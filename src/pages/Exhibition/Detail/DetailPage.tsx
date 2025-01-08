@@ -1,16 +1,14 @@
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import axios from 'axios';
 
 import { DetailPageContainer } from './DetailPage.styled';
 
-import Layout from '@layout/Layout';
 import HeroSection from '@pages/Exhibition/Detail/HeroSection/HeroSection';
 import ArtworkSection from '@pages/Exhibition/Detail/ArtworkSection/ArtworkSection';
 import TeamMembersSection from './TeamMemberSection/TeamMembersSection';
 
 const DetailPage = () => {
-  const [isHovered, setIsHovered] = useState(false);
   const [artworkInfos, setArtworkInfos] = useState([]);
   const [totalPages, setTotalPages] = useState(0);
 
@@ -47,20 +45,18 @@ const DetailPage = () => {
   }, []);
 
   return (
-    <Layout isHovered={isHovered} setIsHovered={setIsHovered}>
-      <DetailPageContainer>
-        <HeroSection
-          fetchedData={individualArtworkInfos?.heroSection}
-          totalPages={totalPages}
-          currentPage={currentPage}
-        />
-        <ArtworkSection
-          fetchedData={individualArtworkInfos?.media}
-          currentPage={currentPage}
-        />
-        <TeamMembersSection membersData={individualArtworkInfos?.authorInfos} />
-      </DetailPageContainer>
-    </Layout>
+    <DetailPageContainer>
+      <HeroSection
+        fetchedData={individualArtworkInfos?.heroSection}
+        totalPages={totalPages}
+        currentPage={currentPage}
+      />
+      <ArtworkSection
+        fetchedData={individualArtworkInfos?.media}
+        currentPage={currentPage}
+      />
+      <TeamMembersSection membersData={individualArtworkInfos?.authorInfos} />
+    </DetailPageContainer>
   );
 };
 

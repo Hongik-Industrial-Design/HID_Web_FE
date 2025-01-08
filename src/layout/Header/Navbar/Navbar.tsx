@@ -6,7 +6,7 @@ import SearchButton from './SearchButton/SearchButton';
 
 const Navbar = ({
   isHovered,
-  setIsHovered,
+  handleNavbarHover,
   isDropdownOpen,
   isHomePage,
   scrolled,
@@ -34,8 +34,8 @@ const Navbar = ({
         <Link to="/graduation">
           <NavItem
             $currentPage={currentPath.startsWith('/graduation')}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
+            onMouseEnter={() => handleNavbarHover()}
+            onMouseLeave={() => handleNavbarHover()}
           >
             Graduation Exhibition
           </NavItem>
@@ -56,8 +56,8 @@ const Navbar = ({
         <Link to="/community">
           <NavItem
             $currentPage={currentPath.startsWith('/community')}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
+            onMouseEnter={() => handleNavbarHover()}
+            onMouseLeave={() => handleNavbarHover()}
           >
             Community
           </NavItem>

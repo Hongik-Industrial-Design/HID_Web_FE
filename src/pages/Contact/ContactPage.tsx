@@ -1,20 +1,12 @@
-import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useEffect, useState } from 'react';
 
-import {
-  ContactPageContainer,
-  ContentContainer,
-  HIDInfo,
-  Title,
-  WebAdmin,
-} from './ContactPage.styled';
+import * as S from './ContactPage.styled';
 
-import Layout from '@layout/Layout';
 import ContactCard from './Card/ContactCard';
 import AdminCard from './Card/Admin/AdminCard';
 
 const ContactPage = (): JSX.Element => {
-  const [isHovered, setIsHovered] = useState(false);
   const [contactData, setContactData] = useState([]);
 
   useEffect(() => {
@@ -36,25 +28,23 @@ const ContactPage = (): JSX.Element => {
   }, []);
 
   return (
-    <Layout isHovered={isHovered} setIsHovered={setIsHovered}>
-      <ContactPageContainer>
-        <Title>
-          Contact<span>.</span>
-        </Title>
-        <ContentContainer>
-          <HIDInfo>
-            <ContactCard cardData={contactData?.officeInfo} />
-            <ContactCard cardData={contactData?.admission} />
-            <ContactCard cardData={contactData?.onlineCommunity} />
-            <ContactCard cardData={contactData?.updateInfo} />
-          </HIDInfo>
-          <WebAdmin>
-            <AdminCard adminData={contactData?.designer} />
-            <AdminCard adminData={contactData?.developer} />
-          </WebAdmin>
-        </ContentContainer>
-      </ContactPageContainer>
-    </Layout>
+    <S.ContactPageContainer>
+      <S.Title>
+        Contact<span>.</span>
+      </S.Title>
+      <S.ContentContainer>
+        <S.HIDInfo>
+          <ContactCard cardData={contactData?.officeInfo} />
+          <ContactCard cardData={contactData?.admission} />
+          <ContactCard cardData={contactData?.onlineCommunity} />
+          <ContactCard cardData={contactData?.updateInfo} />
+        </S.HIDInfo>
+        <S.WebAdmin>
+          <AdminCard adminData={contactData?.designer} />
+          <AdminCard adminData={contactData?.developer} />
+        </S.WebAdmin>
+      </S.ContentContainer>
+    </S.ContactPageContainer>
   );
 };
 
