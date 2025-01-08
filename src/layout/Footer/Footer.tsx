@@ -1,9 +1,6 @@
 import * as S from './Footer.styled';
 
 import FooterLogo from '@assets/icons/svgs/logos/footer-logo.svg';
-import FacebookLogo from '@assets/icons/svgs/social-icons/Facebook.svg';
-import InstagramLogo from '@assets/icons/svgs/social-icons/Instagram.svg';
-import MailLogo from '@assets/icons/svgs/social-icons/Mail.svg';
 
 const Footer = () => {
   const openNewTab = (url) => {
@@ -28,22 +25,16 @@ const Footer = () => {
       </S.ContactInfos>
       <S.SocialIconContainer>
         <S.FacebookIcon
-          src={FacebookLogo}
-          alt="Facebook-logo"
           onClick={() =>
             openNewTab('https://www.facebook.com/groups/hiid2012/?locale=ko_KR')
           }
         />
         <S.InstagramIcon
-          src={InstagramLogo}
-          alt="Instagram-logo"
           onClick={() =>
             openNewTab('https://www.instagram.com/sandidandi_hid/')
           }
         />
         <S.MailIcon
-          src={MailLogo}
-          alt="Mail-logo"
           onClick={() => openNewTab('mailto: webmaster@hongik.ac.kr')}
         />
       </S.SocialIconContainer>

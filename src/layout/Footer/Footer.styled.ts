@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
 import { colors } from '@styles/theme/colors';
 
-import facebookLogo from '@assets/icons/svgs/Social-Icons/Facebook.svg?react';
-import instagramLogo from '@assets/icons/svgs/Social-Icons/Instagram.svg?react';
-import mailLogo from '@assets/icons/svgs/Social-Icons/Mail.svg?react';
+import facebookLogo from '@assets/icons/svgs/social-icons/Facebook.svg?react';
+import instagramLogo from '@assets/icons/svgs/social-icons/Instagram.svg?react';
+import mailLogo from '@assets/icons/svgs/social-icons/Mail.svg?react';
 
 export const FooterContainer = styled.div`
   width: 100%;
