@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation, useParams } from 'react-router';
 
 import ProfessorDetails from './ProfessorDetails';
-
 import { BreadscrumbArrow } from '@icons/BreadscrumbArrow';
 
 import * as S from './ProfessorProfile.styled';

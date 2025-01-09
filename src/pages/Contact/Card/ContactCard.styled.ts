@@ -31,7 +31,7 @@ export const CardContent = styled.div`
   gap: 32px;
 `;
 
-export const SingleInfoContainer = styled.div`
+export const SingleInfoContainer = styled.div<{ $type: string }>`
   display: flex;
   flex-direction: column;
   gap: 16px;

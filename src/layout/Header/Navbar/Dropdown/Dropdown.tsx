@@ -6,7 +6,7 @@ import ExhibitionTab from './ExhibitionTab/ExhibitionTab';
 import * as S from './Dropdown.styled';
 
 const Dropdown = ({
-  isHovered,
+  isNavbarHovered,
   isDropdownOpen,
   enterDropdown,
   leaveDropdown,
@@ -39,18 +39,21 @@ const Dropdown = ({
 
   return (
     <>
-      <S.DropdownBackground $isHovered={isHovered} $isOpened={isDropdownOpen} />
+      <S.DropdownBackground
+        $isNavbarHovered={isNavbarHovered}
+        $isDropdownOpen={isDropdownOpen}
+      />
       <S.DropdownContainer
-        $isHovered={isHovered}
-        $isOpened={isDropdownOpen}
+        $isNavbarHovered={isNavbarHovered}
+        $isDropdownOpen={isDropdownOpen}
         onMouseEnter={enterDropdown}
         onMouseLeave={leaveDropdown}
       >
         <ExhibitionTab
           exhibitonType={'Graduation'}
           timeline={timeline}
-          isHovered={isHovered}
-          isOpened={isDropdownOpen}
+          isNavbarHovered={isNavbarHovered}
+          isDropdownOpen={isDropdownOpen}
         />
       </S.DropdownContainer>
     </>

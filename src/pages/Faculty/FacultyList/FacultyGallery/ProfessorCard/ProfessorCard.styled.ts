@@ -18,8 +18,8 @@ export const ProfessorThumbnail = styled.img`
   border: 1px solid ${colors.HID_Grayscale[200]};
 `;
 
-export const ProfessorOverlay = styled.div`
-  opacity: ${({ $isHovered }) => ($isHovered ? 1 : 0)};
+export const ProfessorOverlay = styled.div<{ $isThumbnailHovered: boolean }>`
+  opacity: ${({ $isThumbnailHovered }) => ($isThumbnailHovered ? 1 : 0)};
   transition: opacity 0.3s ease-out;
 
   position: absolute;

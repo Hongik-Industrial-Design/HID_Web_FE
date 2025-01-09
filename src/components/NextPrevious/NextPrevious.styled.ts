@@ -78,14 +78,14 @@ export const RightArrowButton = styled(BaseArrowButton)`
   }
 `;
 
-export const StyledLeftArrow = styled(leftArrow)`
+export const StyledLeftArrow = styled(leftArrow)<{ $isHovered: boolean }>`
   fill: ${({ $isHovered }) =>
     $isHovered ? `${colors.HID_Grayscale[0]}` : '#0000008f'};
   z-index: 10;
   transition: fill 0.3s ease;
 `;
 
-export const StyledRightArrow = styled(rightArrow)`
+export const StyledRightArrow = styled(rightArrow)<{ $isHovered: boolean }>`
   fill: ${({ $isHovered }) =>
     $isHovered ? `${colors.HID_Grayscale[0]}` : '#0000008f'};
   z-index: 10;

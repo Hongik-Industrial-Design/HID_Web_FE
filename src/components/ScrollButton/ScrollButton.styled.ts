@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
-export const ScrollContainer = styled.div`
+export const ScrollContainer = styled.div<{
+  $isScrolled: boolean;
+  $arrowType: string;
+}>`
   opacity: ${({ $isScrolled }) => ($isScrolled ? 1 : 0)};
   transition: opacity 0.5s ease;
 

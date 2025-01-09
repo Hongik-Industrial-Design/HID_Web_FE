@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-import * as S from './Piece.styled';
-
 import OverlayInfos from './Overlay/OverlayInfos';
 
+import * as S from './Piece.styled';
+
 const Piece = ({ pieceName, pieceInfos, goToDetailPage }) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isPieceHovered, setIsPieceHovered] = useState(false);
 
   return (
     <motion.div
@@ -16,15 +16,15 @@ const Piece = ({ pieceName, pieceInfos, goToDetailPage }) => {
       exit={{ opacity: 0 }}
     >
       <S.PieceContainer
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        onMouseEnter={() => setIsPieceHovered(true)}
+        onMouseLeave={() => setIsPieceHovered(false)}
         onClick={goToDetailPage}
       >
         <S.PieceImage
           src={`/Exhibition-Thumbnail/${pieceName}`}
           alt={pieceName}
         />
-        <OverlayInfos pieceInfos={pieceInfos} isHovered={isHovered} />
+        <OverlayInfos pieceInfos={pieceInfos} isPieceHovered={isPieceHovered} />
       </S.PieceContainer>
     </motion.div>
   );

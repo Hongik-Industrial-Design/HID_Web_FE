@@ -7,10 +7,10 @@ const NextPrevious = ({ currentPage, totalPages }) => {
   console.log('Current page: ', currentPage);
   console.log('Total pages: ', totalPages);
 
+  const navigate = useNavigate();
+
   const [previousHovered, setPreviousHovered] = useState(false);
   const [nextHovered, setNextHovered] = useState(false);
-
-  const navigate = useNavigate();
 
   const handlePreviousClick = () => {
     if (currentPage > 1) {

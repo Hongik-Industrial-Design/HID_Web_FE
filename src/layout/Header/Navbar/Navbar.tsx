@@ -5,7 +5,7 @@ import * as S from './Navbar.styled';
 import SearchButton from './SearchButton/SearchButton';
 
 const Navbar = ({
-  isHovered,
+  isNavbarHovered,
   handleNavbarHover,
   isDropdownOpen,
   isHomePage,
@@ -16,8 +16,8 @@ const Navbar = ({
 
   return (
     <S.NavItemsContainer
-      $isHovered={isHovered}
-      $dropdownOpen={isDropdownOpen}
+      $isNavbarHovered={isNavbarHovered}
+      $isDropdownOpen={isDropdownOpen}
       $isHomePage={isHomePage}
       $scrolled={scrolled}
     >

@@ -1,13 +1,13 @@
+// import axios from "axios";
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
-// import axios from "axios";
-
-import { GalleryWrapper, GalleryContainer } from './Gallery.styled';
+import { AnimatePresence } from 'framer-motion';
 
 import Piece from './Piece/Piece';
 import ScrollButton from '@components/ScrollButton/ScrollButton';
 import Indicator from './Indicator/Indicator';
-import { AnimatePresence } from 'framer-motion';
+
+import * as S from './Gallery.styled';
 
 const Gallery = ({ pieces }) => {
   const navigate = useNavigate();
@@ -103,8 +103,8 @@ const Gallery = ({ pieces }) => {
   };
 
   return (
-    <GalleryWrapper $height={galleryHeight}>
-      <GalleryContainer ref={galleryRef} onScroll={handleScroll}>
+    <S.GalleryWrapper $height={galleryHeight}>
+      <S.GalleryContainer ref={galleryRef} onScroll={handleScroll}>
         <ScrollButton
           arrowType="left"
           onClick={scrollLeft}
@@ -125,12 +125,12 @@ const Gallery = ({ pieces }) => {
           onClick={scrollRight}
           isScrolled={isScrolled}
         />
-      </GalleryContainer>
+      </S.GalleryContainer>
       <Indicator
         handleScroll={handleScrollIndicator}
         width={`${scrollProgress}%`}
       />
-    </GalleryWrapper>
+    </S.GalleryWrapper>
   );
 };
 

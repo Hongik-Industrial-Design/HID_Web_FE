@@ -1,12 +1,15 @@
 import styled from 'styled-components';
 import { colors } from '@styles/theme/colors';
 
-export const ExhibitionTabContainer = styled.div`
-  opacity: ${({ $isHovered, $isOpened }) => ($isHovered || $isOpened ? 1 : 0)};
+import { DropdownProps } from '../dropdownProps';
+
+export const ExhibitionTabContainer = styled.div<DropdownProps>`
+  opacity: ${({ $isNavbarHovered, $isDropdownOpen }) =>
+    $isNavbarHovered || $isDropdownOpen ? 1 : 0};
   transition: opacity 0.9s ease;
 
-  z-index: ${({ $isHovered, $isOpened }) =>
-    $isHovered || $isOpened ? 100 : -1};
+  z-index: ${({ $isNavbarHovered, $isDropdownOpen }) =>
+    $isNavbarHovered || $isDropdownOpen ? 100 : -1};
 
   width: 100%;
   padding: 40px 0 56px 158px;

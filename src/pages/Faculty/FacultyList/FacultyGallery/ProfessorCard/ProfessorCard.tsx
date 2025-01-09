@@ -2,11 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { motion } from 'framer-motion';
 
-import {
-  ProfessorContainer,
-  ProfessorOverlay,
-  ProfessorThumbnail,
-} from './ProfessorCard.styled';
+import * as S from './ProfessorCard.styled';
 
 const ProfessorCard = ({ professorInfo }) => {
   const [thumbnailHovered, setThumbnailHovered] = useState(false);
@@ -22,22 +18,22 @@ const ProfessorCard = ({ professorInfo }) => {
       layout
       animate={{ opacity: 1 }}
       initial={{ opacity: 0 }}
-      exit={{ opactiy: 0 }}
+      exit={{ opacity: 0 }}
     >
-      <ProfessorContainer
+      <S.ProfessorContainer
         onClick={() => goToProfessorProfile(professorInfo.id)}
         onMouseEnter={() => setThumbnailHovered(true)}
         onMouseLeave={() => setThumbnailHovered(false)}
       >
-        <ProfessorThumbnail
+        <S.ProfessorThumbnail
           src={`/Faculty/${professorInfo.thumbnail}`}
           alt={professorInfo.info.name}
         />
-        <ProfessorOverlay $isHovered={thumbnailHovered}>
+        <S.ProfessorOverlay $isThumbnailHovered={thumbnailHovered}>
           <h2 className="name">{professorInfo.info.name}</h2>
           <h3 className="major">{professorInfo.info.major}</h3>
-        </ProfessorOverlay>
-      </ProfessorContainer>
+        </S.ProfessorOverlay>
+      </S.ProfessorContainer>
     </motion.div>
   );
 };

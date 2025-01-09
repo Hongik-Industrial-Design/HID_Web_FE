@@ -6,7 +6,7 @@ import Dropdown from './Navbar/Dropdown/Dropdown';
 
 import * as S from './Header.styled';
 
-const Header = ({ isHovered, handleNavbarHover }) => {
+const Header = ({ isNavbarHovered, handleNavbarHover }) => {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
@@ -28,7 +28,7 @@ const Header = ({ isHovered, handleNavbarHover }) => {
 
   // Dropdown 렌더링 시 Scroll 제어
   useEffect(() => {
-    if (isHovered || isDropdownOpen) {
+    if (isNavbarHovered || isDropdownOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
@@ -37,7 +37,7 @@ const Header = ({ isHovered, handleNavbarHover }) => {
     return () => {
       document.body.style.overflow = '';
     };
-  }, [isHovered, isDropdownOpen]);
+  }, [isNavbarHovered, isDropdownOpen]);
 
   // Dropdown 컨테이너 hover시 Dropdown 컴포넌트 유지 (for better UX)
   const enterDropdown = () => {
@@ -74,8 +74,8 @@ const Header = ({ isHovered, handleNavbarHover }) => {
   return (
     <>
       <S.HeaderContainer
-        $isHovered={isHovered}
-        $dropdownOpen={isDropdownOpen}
+        $isNavbarHovered={isNavbarHovered}
+        $isDropdownOpen={isDropdownOpen}
         $isHomePage={isHomePage}
         $scrolled={scrollPosition > 1056}
       >
@@ -83,12 +83,12 @@ const Header = ({ isHovered, handleNavbarHover }) => {
           <S.StyledHIDHomeLogo
             $isHomePage={isHomePage}
             $scrolled={scrollPosition > 1056}
-            $isHovered={isHovered}
-            $dropdownOpen={isDropdownOpen}
+            $isNavbarHovered={isNavbarHovered}
+            $isDropdownOpen={isDropdownOpen}
           />
         </Link>
         <Navbar
-          isHovered={isHovered}
+          isNavbarHovered={isNavbarHovered}
           handleNavbarHover={handleNavbarHover}
           isDropdownOpen={isDropdownOpen}
           isHomePage={isHomePage}
@@ -96,7 +96,7 @@ const Header = ({ isHovered, handleNavbarHover }) => {
         />
       </S.HeaderContainer>
       <Dropdown
-        isHovered={isHovered}
+        isNavbarHovered={isNavbarHovered}
         isDropdownOpen={isDropdownOpen}
         enterDropdown={enterDropdown}
         leaveDropdown={leaveDropdown}

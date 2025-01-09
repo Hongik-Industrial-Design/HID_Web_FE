@@ -21,17 +21,17 @@ const useDropdownStore = create(
 
 const Layout = () => {
   // Navbar Hover 전역 상태 관리 (Zustand)
-  const isDropdownHovered = useDropdownStore((state) => state.isHovered);
-  const setIsDropdownHovered = useDropdownStore((state) => state.setIsHovered);
+  const isNavbarHovered = useDropdownStore((state) => state.isHovered);
+  const setIsNavbarHovered = useDropdownStore((state) => state.setIsHovered);
 
   const handleNavbarHover = () => {
-    setIsDropdownHovered(!isDropdownHovered);
+    setIsNavbarHovered(!isNavbarHovered);
   };
 
   return (
     <S.TopLevelContainer>
       <Header
-        isHovered={isDropdownHovered}
+        isNavbarHovered={isNavbarHovered}
         handleNavbarHover={handleNavbarHover}
       />
       <S.Contents>

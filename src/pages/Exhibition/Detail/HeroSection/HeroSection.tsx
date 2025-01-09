@@ -1,17 +1,25 @@
 import { useState } from 'react';
 
-import * as S from './HeroSection.styled';
-
 import Breadscrumb from '@components/Breadscrumb/Breadscrumb';
 import GoToList from '@components/GoToList/GoToList';
 import NextPrevious from '@components/NextPrevious/NextPrevious';
 
+import * as S from './HeroSection.styled';
+
 const HeroSection = ({ fetchedData, totalPages, currentPage }) => {
   // const [artworkInfos, setArtworkInfos] = useState([]);
-  const [isHovered, setIsHovered] = useState(false);
+  const [gotToListHovered, setGoToListHovered] = useState(false);
 
   const openNewTab = (url) => {
     window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
+  const handleGoToListEnter = () => {
+    setGoToListHovered(true);
+  };
+
+  const handleGoToListLeave = () => {
+    setGoToListHovered(false);
   };
 
   return (
@@ -72,7 +80,11 @@ const HeroSection = ({ fetchedData, totalPages, currentPage }) => {
             ))}
           </S.SocialIcons>
           <S.RoutingArea>
-            <GoToList isHovered={isHovered} setIsHovered={setIsHovered} />
+            <GoToList
+              isHovered={gotToListHovered}
+              onMouseEnter={handleGoToListEnter}
+              onMouseLeave={handleGoToListLeave}
+            />
             <NextPrevious currentPage={currentPage} totalPages={totalPages} />
           </S.RoutingArea>
         </S.ContentFooter>

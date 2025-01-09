@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { colors } from '@styles/theme/colors';
 
-export const CategoryContainer = styled.div`
+export const CategoryContainer = styled.div<{ $currentPath: string }>`
   position: sticky;
   top: ${({ $currentPath }) => $currentPath === '/faculty' && '253px'};
   top: ${({ $currentPath }) => $currentPath === '/graduation' && '15%'};
@@ -13,7 +13,7 @@ export const CategoryContainer = styled.div`
   margin-left: 158px;
 `;
 
-export const DetailedMajor = styled.p`
+export const DetailedMajor = styled.p<{ $isSelected: boolean }>`
   max-width: 144px;
   white-space: nowrap;
 

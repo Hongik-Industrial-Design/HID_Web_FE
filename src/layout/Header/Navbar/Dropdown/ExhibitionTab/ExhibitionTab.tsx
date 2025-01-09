@@ -1,8 +1,16 @@
 import * as S from './ExhibitonTab.styled';
 
-const ExhibitionTab = ({ exhibitonType, timeline, isHovered, isOpened }) => {
+const ExhibitionTab = ({
+  exhibitonType,
+  timeline,
+  isNavbarHovered,
+  isDropdownOpen,
+}) => {
   return (
-    <S.ExhibitionTabContainer $isHovered={isHovered} $isOpened={isOpened}>
+    <S.ExhibitionTabContainer
+      $isNavbarHovered={isNavbarHovered}
+      $isDropdownOpen={isDropdownOpen}
+    >
       <S.Title>
         All {exhibitonType} Exhibition<span>.</span>
       </S.Title>

@@ -15,7 +15,7 @@ export const PaginationContainer = styled.div`
   letter-spacing: -0.28px;
 `;
 
-export const PageButton = styled.button`
+export const PageButton = styled.button<{ $currentPage: boolean }>`
   min-width: 15px;
 
   ${({ $currentPage }) =>

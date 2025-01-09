@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 import { colors } from '@styles/theme/colors';
+import { DropdownProps } from './dropdownProps';
 
-export const DropdownBackground = styled.div`
-  opacity: ${({ $isHovered, $isOpened }) => ($isHovered || $isOpened ? 1 : 0)};
+export const DropdownBackground = styled.div<DropdownProps>`
+  opacity: ${({ $isNavbarHovered, $isDropdownOpen }) =>
+    $isNavbarHovered || $isDropdownOpen ? 1 : 0};
   transition: opacity 0.5s ease;
 
   width: 100%;
@@ -13,21 +15,22 @@ export const DropdownBackground = styled.div`
 
   position: fixed;
   top: 0;
-  z-index: ${({ $isHovered, $isOpened }) =>
-    $isHovered || $isOpened ? 10 : -1};
+  z-index: ${({ $isNavbarHovered, $isDropdownOpen }) =>
+    $isNavbarHovered || $isDropdownOpen ? 10 : -1};
 `;
 
-export const DropdownContainer = styled.div`
+export const DropdownContainer = styled.div<DropdownProps>`
   width: 100%;
 
   position: fixed;
   top: 50px;
 
-  opacity: ${({ $isHovered, $isOpened }) => ($isHovered || $isOpened ? 1 : 0)};
+  opacity: ${({ $isNavbarHovered, $isDropdownOpen }) =>
+    $isNavbarHovered || $isDropdownOpen ? 1 : 0};
   transition: opacity 0.5s ease;
 
-  z-index: ${({ $isHovered, $isOpened }) =>
-    $isHovered || $isOpened ? 99 : -1};
+  z-index: ${({ $isNavbarHovered, $isDropdownOpen }) =>
+    $isNavbarHovered || $isDropdownOpen ? 99 : -1};
 
   background-color: ${colors.HID_Grayscale[0]};
 `;

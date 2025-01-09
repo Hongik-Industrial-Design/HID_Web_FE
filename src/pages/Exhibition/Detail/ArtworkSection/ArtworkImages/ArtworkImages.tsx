@@ -1,16 +1,16 @@
-import { ArtworkImageContainer, DetailImage } from './ArtworkImages.styled';
+import * as S from './ArtworkImages.styled';
 
 const ArtworkImages = ({ detailImages, currentPage }) => {
   return (
-    <ArtworkImageContainer>
+    <S.ArtworkImageContainer>
       {detailImages.map((image) => (
-        <DetailImage
+        <S.DetailImage
           key={image.id}
           src={`/Graduation-Exhibition/${currentPage}/${image?.url}`}
           alt={image.caption}
         />
       ))}
-    </ArtworkImageContainer>
+    </S.ArtworkImageContainer>
   );
 };
 

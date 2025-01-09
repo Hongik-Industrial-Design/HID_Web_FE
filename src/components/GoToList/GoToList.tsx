@@ -2,13 +2,12 @@ import { Link } from 'react-router';
 
 import * as S from './GoToList.styled';
 
-const GoToList = ({ isHovered, setIsHovered }) => {
+const GoToList = ({ isHovered, onMouseEnter, onMouseLeave }) => {
   return (
     <Link to="/graduation">
       <S.ButtonContainer
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        $isHovered={isHovered}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
       >
         <S.StyledLeftArrow $isHovered={isHovered} />
         <S.GoToListText $isHovered={isHovered}>Go To List</S.GoToListText>
