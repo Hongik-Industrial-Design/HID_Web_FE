@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 import FeatureCard from '../FeatureCard/FeatureCard';
-import { HighlightSectionContainer } from './HighlightSection.styled';
+
+import * as S from './HighlightSection.styled';
 
 const HighlightSection = () => {
   const [highlights, setHighlights] = useState([]);
@@ -25,11 +26,11 @@ const HighlightSection = () => {
   }, []);
 
   return (
-    <HighlightSectionContainer>
+    <S.HighlightSectionContainer>
       {highlights.map((highlight) => (
         <FeatureCard key={highlight.id} cardData={highlight} />
       ))}
-    </HighlightSectionContainer>
+    </S.HighlightSectionContainer>
   );
 };
 

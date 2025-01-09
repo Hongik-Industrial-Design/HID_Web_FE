@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router';
 import Navbar from './Navbar/Navbar';
 import Dropdown from './Navbar/Dropdown/Dropdown';
 
-import { HeaderContainer, StyledHIDHomeLogo } from './Header.styled';
+import * as S from './Header.styled';
 
 const Header = ({ isHovered, handleNavbarHover }) => {
   const location = useLocation();
@@ -73,14 +73,14 @@ const Header = ({ isHovered, handleNavbarHover }) => {
 
   return (
     <>
-      <HeaderContainer
+      <S.HeaderContainer
         $isHovered={isHovered}
         $dropdownOpen={isDropdownOpen}
         $isHomePage={isHomePage}
         $scrolled={scrollPosition > 1056}
       >
         <Link to="/">
-          <StyledHIDHomeLogo
+          <S.StyledHIDHomeLogo
             $isHomePage={isHomePage}
             $scrolled={scrollPosition > 1056}
             $isHovered={isHovered}
@@ -94,7 +94,7 @@ const Header = ({ isHovered, handleNavbarHover }) => {
           isHomePage={isHomePage}
           scrolled={scrollPosition > 1056}
         />
-      </HeaderContainer>
+      </S.HeaderContainer>
       <Dropdown
         isHovered={isHovered}
         isDropdownOpen={isDropdownOpen}

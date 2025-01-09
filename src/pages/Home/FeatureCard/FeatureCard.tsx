@@ -1,32 +1,25 @@
 import { Link } from 'react-router';
 
-import {
-  FeatureCardContainer,
-  FeatureCardImage,
-  FeatureCardInfoContainer,
-  FeatureCardInfo,
-  FeatureCardDate,
-  FeatureCardContents,
-} from './FeatureCard.styled';
+import * as S from './FeatureCard.styled';
 
 const FeatureCard = ({ cardData }) => {
   return (
     <Link to={cardData.route}>
-      <FeatureCardContainer>
-        <FeatureCardImage
+      <S.FeatureCardContainer>
+        <S.FeatureCardImage
           src={`/FeatureCardImage/${cardData.imageUrl}`}
           alt="cardData"
         />
-        <FeatureCardInfoContainer>
-          <FeatureCardInfo>
-            <FeatureCardDate>{cardData.date}</FeatureCardDate>
-            <FeatureCardContents>
+        <S.FeatureCardInfoContainer>
+          <S.FeatureCardInfo>
+            <S.FeatureCardDate>{cardData.date}</S.FeatureCardDate>
+            <S.FeatureCardContents>
               <div className="title">{cardData.title}</div>
               <div className="description">{cardData.description}</div>
-            </FeatureCardContents>
-          </FeatureCardInfo>
-        </FeatureCardInfoContainer>
-      </FeatureCardContainer>
+            </S.FeatureCardContents>
+          </S.FeatureCardInfo>
+        </S.FeatureCardInfoContainer>
+      </S.FeatureCardContainer>
     </Link>
   );
 };

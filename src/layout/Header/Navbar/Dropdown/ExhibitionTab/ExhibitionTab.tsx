@@ -1,22 +1,17 @@
-import {
-  ExhibitionTabContainer,
-  Timeline,
-  Title,
-  Year,
-} from './ExhibitonTab.styled';
+import * as S from './ExhibitonTab.styled';
 
 const ExhibitionTab = ({ exhibitonType, timeline, isHovered, isOpened }) => {
   return (
-    <ExhibitionTabContainer $isHovered={isHovered} $isOpened={isOpened}>
-      <Title>
+    <S.ExhibitionTabContainer $isHovered={isHovered} $isOpened={isOpened}>
+      <S.Title>
         All {exhibitonType} Exhibition<span>.</span>
-      </Title>
-      <Timeline>
+      </S.Title>
+      <S.Timeline>
         {timeline.map((time, index) => (
-          <Year key={index}>{time}</Year>
+          <S.Year key={index}>{time}</S.Year>
         ))}
-      </Timeline>
-    </ExhibitionTabContainer>
+      </S.Timeline>
+    </S.ExhibitionTabContainer>
   );
 };
 

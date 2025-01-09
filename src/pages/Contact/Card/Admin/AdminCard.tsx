@@ -1,9 +1,4 @@
-import {
-  PersonalCardContainer,
-  PersonalCardSection,
-  PersonalMail,
-  PersonalName,
-} from './AdminCard.styled';
+import * as S from './AdminCard.styled';
 
 import {
   CardTitle,
@@ -19,13 +14,13 @@ const AdminCard = ({ adminData }) => {
         <CardTitle>{adminData?.category}</CardTitle>
         <Divider />
         {adminData?.contributors?.map((contributor, index) => (
-          <PersonalCardSection key={index}>
-            <PersonalCardContainer>
-              <PersonalName>{contributor.name}</PersonalName>
-              <PersonalMail>{contributor.email}</PersonalMail>
-            </PersonalCardContainer>
+          <S.PersonalCardSection key={index}>
+            <S.PersonalCardContainer>
+              <S.PersonalName>{contributor.name}</S.PersonalName>
+              <S.PersonalMail>{contributor.email}</S.PersonalMail>
+            </S.PersonalCardContainer>
             <CloudyDivider />
-          </PersonalCardSection>
+          </S.PersonalCardSection>
         ))}
       </ContactCardContainer>
     </>

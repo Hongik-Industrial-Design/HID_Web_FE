@@ -1,12 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-import {
-  BlurScreen,
-  FullScreenButton,
-  PlayButton,
-  Video,
-  VideoContainer,
-} from './VideoPlayer.styled';
+import * as S from './VideoPlayer.styled';
 
 import playButton from '@assets/icons/svgs/video-player/play_fill-white.svg';
 import fullScreenButton from '@assets/icons/svgs/video-player/full-screen_white.svg';
@@ -65,28 +59,28 @@ const VideoPlayer = ({ videoData, currentPage }) => {
   return (
     <>
       {videoData?.map((video) => (
-        <VideoContainer key={video.id}>
-          <Video ref={videoRef} onClick={handleVideoClick}>
+        <S.VideoContainer key={video.id}>
+          <S.Video ref={videoRef} onClick={handleVideoClick}>
             <source
               src={`/Graduation-Exhibition/${currentPage}/${video?.url}`}
               type="video/mp4"
             />
-          </Video>
+          </S.Video>
 
-          <BlurScreen $isPlaying={isPlaying} />
+          <S.BlurScreen $isPlaying={isPlaying} />
 
-          <PlayButton onClick={handlePlay} $isPlaying={isPlaying}>
+          <S.PlayButton onClick={handlePlay} $isPlaying={isPlaying}>
             <img src={playButton} alt="Play-Button" className="play" />
-          </PlayButton>
+          </S.PlayButton>
 
-          <FullScreenButton onClick={handleFullScreen}>
+          <S.FullScreenButton onClick={handleFullScreen}>
             <img
               src={fullScreenButton}
               alt="Full-Screen-Button"
               className="full-screen"
             />
-          </FullScreenButton>
-        </VideoContainer>
+          </S.FullScreenButton>
+        </S.VideoContainer>
       ))}
     </>
   );

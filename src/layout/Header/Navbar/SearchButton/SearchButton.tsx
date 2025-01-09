@@ -1,15 +1,11 @@
-import {
-  IconContainer,
-  MagnifyHandle,
-  StyledMagnifyLens,
-} from './SearchButton.styled';
+import * as S from './SearchButton.styled';
 
 const SearchButton = ({ isHomePage, scrolled }) => {
   return (
-    <IconContainer>
-      <StyledMagnifyLens $isHomePage={isHomePage} $scrolled={scrolled} />
-      <MagnifyHandle $isHomePage={isHomePage} $scrolled={scrolled} />
-    </IconContainer>
+    <S.IconContainer>
+      <S.StyledMagnifyLens $isHomePage={isHomePage} $scrolled={scrolled} />
+      <S.MagnifyHandle $isHomePage={isHomePage} $scrolled={scrolled} />
+    </S.IconContainer>
   );
 };
 

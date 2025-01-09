@@ -1,15 +1,4 @@
-import {
-  AdmissionPageLink,
-  CardContent,
-  CardTitle,
-  CloudyDivider,
-  ContactCardContainer,
-  Divider,
-  SingleInfoContainer,
-  SingleInfoContent,
-  SingleInfoTitle,
-  SocialLink,
-} from './ContactCard.styled';
+import * as S from './ContactCard.styled';
 
 const ContactCard = ({ cardData }) => {
   const openNewTab = (url) => {
@@ -17,36 +6,36 @@ const ContactCard = ({ cardData }) => {
   };
 
   return (
-    <ContactCardContainer>
-      <CardTitle>{cardData?.category}</CardTitle>
-      <Divider />
-      <CardContent>
+    <S.ContactCardContainer>
+      <S.CardTitle>{cardData?.category}</S.CardTitle>
+      <S.Divider />
+      <S.CardContent>
         {cardData?.contactDetails?.map((detail, index) => (
-          <SingleInfoContainer key={index} $type={detail.type}>
+          <S.SingleInfoContainer key={index} $type={detail.type}>
             {detail?.type === 'Admission' ? (
-              <AdmissionPageLink onClick={() => openNewTab(detail?.url)}>
+              <S.AdmissionPageLink onClick={() => openNewTab(detail?.url)}>
                 {detail.title}
-              </AdmissionPageLink>
+              </S.AdmissionPageLink>
             ) : (
-              <SingleInfoTitle>{detail.title}</SingleInfoTitle>
+              <S.SingleInfoTitle>{detail.title}</S.SingleInfoTitle>
             )}
             {detail?.title === 'Facebook' ||
             detail?.title === 'Instagram' ||
             detail?.title === 'Cafe' ? (
               detail?.content?.map((group, index) => (
-                <SocialLink key={index} onClick={() => openNewTab(group.url)}>
+                <S.SocialLink key={index} onClick={() => openNewTab(group.url)}>
                   {group.name}
-                </SocialLink>
+                </S.SocialLink>
               ))
             ) : (
-              <SingleInfoContent>{detail.content}</SingleInfoContent>
+              <S.SingleInfoContent>{detail.content}</S.SingleInfoContent>
             )}
 
-            <CloudyDivider />
-          </SingleInfoContainer>
+            <S.CloudyDivider />
+          </S.SingleInfoContainer>
         ))}
-      </CardContent>
-    </ContactCardContainer>
+      </S.CardContent>
+    </S.ContactCardContainer>
   );
 };
 

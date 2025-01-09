@@ -1,13 +1,13 @@
-import { OverlayContainer } from './OverlayInfos.styled';
+import * as S from './OverlayInfos.styled';
 
 const OverlayInfos = ({ pieceInfos, isHovered }) => {
   return (
-    <OverlayContainer $isHovered={isHovered}>
+    <S.OverlayContainer $isHovered={isHovered}>
       <div className="credit">
         <div className="title">{pieceInfos.title}</div>
         <div className="author">{pieceInfos.author}</div>
       </div>
-    </OverlayContainer>
+    </S.OverlayContainer>
   );
 };
 

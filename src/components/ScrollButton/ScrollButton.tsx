@@ -1,17 +1,17 @@
-import { Arrow, ScrollContainer } from './ScrollButton.styled';
+import * as S from './ScrollButton.styled';
 
 const ScrollButton = ({ arrowType, onClick, isScrolled }) => {
   return (
-    <ScrollContainer
+    <S.ScrollContainer
       onClick={onClick}
       $arrowType={arrowType}
       $isScrolled={isScrolled}
     >
-      <Arrow
+      <S.Arrow
         src={`src/assets/arrows/${arrowType}-arrow.svg`}
         alt={`${arrowType}-arrow`}
       />
-    </ScrollContainer>
+    </S.ScrollContainer>
   );
 };
 

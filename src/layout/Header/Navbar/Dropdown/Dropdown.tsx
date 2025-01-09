@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useEffect, useState } from 'react';
 
-import { DropdownBackground, DropdownContainer } from './Dropdown.styled';
 import ExhibitionTab from './ExhibitionTab/ExhibitionTab';
+
+import * as S from './Dropdown.styled';
 
 const Dropdown = ({
   isHovered,
@@ -38,8 +39,8 @@ const Dropdown = ({
 
   return (
     <>
-      <DropdownBackground $isHovered={isHovered} $isOpened={isDropdownOpen} />
-      <DropdownContainer
+      <S.DropdownBackground $isHovered={isHovered} $isOpened={isDropdownOpen} />
+      <S.DropdownContainer
         $isHovered={isHovered}
         $isOpened={isDropdownOpen}
         onMouseEnter={enterDropdown}
@@ -51,7 +52,7 @@ const Dropdown = ({
           isHovered={isHovered}
           isOpened={isDropdownOpen}
         />
-      </DropdownContainer>
+      </S.DropdownContainer>
     </>
   );
 };

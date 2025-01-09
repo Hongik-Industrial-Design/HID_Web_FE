@@ -1,20 +1,6 @@
 import { useState } from 'react';
 
-import {
-  ArtworkDescription,
-  ArtworkSubTitle,
-  ArtworkTitle,
-  AuthorContainer,
-  AuthorUnit,
-  ContentArea,
-  ContentFooter,
-  ContentHeader,
-  HeroSectionContainer,
-  RoutingArea,
-  SocialIcons,
-  ThumbnailContainer,
-  TinyThumbnailContainer,
-} from './HeroSection.styled';
+import * as S from './HeroSection.styled';
 
 import Breadscrumb from '@components/Breadscrumb/Breadscrumb';
 import GoToList from '@components/GoToList/GoToList';
@@ -29,7 +15,7 @@ const HeroSection = ({ fetchedData, totalPages, currentPage }) => {
   };
 
   return (
-    <HeroSectionContainer>
+    <S.HeroSectionContainer>
       <Breadscrumb
         paths={[
           {
@@ -40,8 +26,8 @@ const HeroSection = ({ fetchedData, totalPages, currentPage }) => {
         ]}
         currentPage="View Detail"
       />
-      <ThumbnailContainer>
-        <TinyThumbnailContainer>
+      <S.ThumbnailContainer>
+        <S.TinyThumbnailContainer>
           {fetchedData?.thumbnails?.tinyImages.map((tinyImage) => (
             <img
               key={tinyImage.id}
@@ -50,32 +36,32 @@ const HeroSection = ({ fetchedData, totalPages, currentPage }) => {
               className="secondary"
             />
           ))}
-        </TinyThumbnailContainer>
+        </S.TinyThumbnailContainer>
         <img
           src={`/Graduation-Exhibition/${currentPage}/${fetchedData?.thumbnails?.primary.url}`}
           alt="primary-thumbnail"
           className="primary"
         />
-      </ThumbnailContainer>
-      <ContentArea>
-        <ContentHeader>
-          <ArtworkTitle>{fetchedData?.title}</ArtworkTitle>
-          <ArtworkSubTitle>{fetchedData?.subtitle}</ArtworkSubTitle>
-          <AuthorContainer>
+      </S.ThumbnailContainer>
+      <S.ContentArea>
+        <S.ContentHeader>
+          <S.ArtworkTitle>{fetchedData?.title}</S.ArtworkTitle>
+          <S.ArtworkSubTitle>{fetchedData?.subtitle}</S.ArtworkSubTitle>
+          <S.AuthorContainer>
             {fetchedData?.authors.map((author) => (
-              <AuthorUnit key={author.id}>
+              <S.AuthorUnit key={author.id}>
                 <p>{author.name}</p>
                 <span className="divider" />
-              </AuthorUnit>
+              </S.AuthorUnit>
             ))}
-          </AuthorContainer>
-        </ContentHeader>
-        <ArtworkDescription>
+          </S.AuthorContainer>
+        </S.ContentHeader>
+        <S.ArtworkDescription>
           <div>{fetchedData?.description_en}</div>
           <div>{fetchedData?.description_ko}</div>
-        </ArtworkDescription>
-        <ContentFooter>
-          <SocialIcons>
+        </S.ArtworkDescription>
+        <S.ContentFooter>
+          <S.SocialIcons>
             {fetchedData?.social.map((sns) => (
               <img
                 key={sns.id}
@@ -84,14 +70,14 @@ const HeroSection = ({ fetchedData, totalPages, currentPage }) => {
                 onClick={() => openNewTab(`${sns.linkInfo}`)}
               />
             ))}
-          </SocialIcons>
-          <RoutingArea>
+          </S.SocialIcons>
+          <S.RoutingArea>
             <GoToList isHovered={isHovered} setIsHovered={setIsHovered} />
             <NextPrevious currentPage={currentPage} totalPages={totalPages} />
-          </RoutingArea>
-        </ContentFooter>
-      </ContentArea>
-    </HeroSectionContainer>
+          </S.RoutingArea>
+        </S.ContentFooter>
+      </S.ContentArea>
+    </S.HeroSectionContainer>
   );
 };
 

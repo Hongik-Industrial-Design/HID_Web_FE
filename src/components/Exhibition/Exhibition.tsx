@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useEffect, useState } from 'react';
 
-import { ExhibitionContainer, StickyContainer } from './Exhibition.styled';
+import * as S from './Exhibition.styled';
 
 import Category from './Category/Category';
 import Gallery from './Gallery/Gallery';
@@ -41,12 +41,12 @@ const Exhibition = () => {
   };
 
   return (
-    <ExhibitionContainer>
-      <StickyContainer>
+    <S.ExhibitionContainer>
+      <S.StickyContainer>
         <Category handleFilter={handleFilterPieces} />
-      </StickyContainer>
+      </S.StickyContainer>
       <Gallery pieces={categorizedPieces} />
-    </ExhibitionContainer>
+    </S.ExhibitionContainer>
   );
 };
 

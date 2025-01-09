@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router';
 
-import { CategoryContainer, DetailedMajor } from './Category.styled';
+import * as S from './Category.styled';
 
 const Category = ({ handleFilter }) => {
   const [isSelected, setIsSelected] = useState('All');
@@ -11,8 +11,8 @@ const Category = ({ handleFilter }) => {
 
   return (
     <>
-      <CategoryContainer $currentPath={currentPath}>
-        <DetailedMajor
+      <S.CategoryContainer $currentPath={currentPath}>
+        <S.DetailedMajor
           $isSelected={isSelected === 'All'}
           onClick={() => {
             setIsSelected('All');
@@ -20,8 +20,8 @@ const Category = ({ handleFilter }) => {
           }}
         >
           All
-        </DetailedMajor>
-        <DetailedMajor
+        </S.DetailedMajor>
+        <S.DetailedMajor
           $isSelected={isSelected === 'Smart Mobility'}
           onClick={() => {
             setIsSelected('Smart Mobility');
@@ -29,8 +29,8 @@ const Category = ({ handleFilter }) => {
           }}
         >
           Smart Mobility
-        </DetailedMajor>
-        <DetailedMajor
+        </S.DetailedMajor>
+        <S.DetailedMajor
           $isSelected={isSelected === 'Spatial'}
           onClick={() => {
             setIsSelected('Spatial');
@@ -38,8 +38,8 @@ const Category = ({ handleFilter }) => {
           }}
         >
           Spatial
-        </DetailedMajor>
-        <DetailedMajor
+        </S.DetailedMajor>
+        <S.DetailedMajor
           $isSelected={isSelected === 'Product'}
           onClick={() => {
             setIsSelected('Product');
@@ -47,8 +47,8 @@ const Category = ({ handleFilter }) => {
           }}
         >
           Product
-        </DetailedMajor>
-        <DetailedMajor
+        </S.DetailedMajor>
+        <S.DetailedMajor
           $isSelected={isSelected === 'Interaction'}
           onClick={() => {
             setIsSelected('Interaction');
@@ -56,8 +56,8 @@ const Category = ({ handleFilter }) => {
           }}
         >
           Interaction
-        </DetailedMajor>
-      </CategoryContainer>
+        </S.DetailedMajor>
+      </S.CategoryContainer>
     </>
   );
 };

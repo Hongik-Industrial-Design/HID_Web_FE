@@ -1,10 +1,10 @@
-import { IndicatorBar, IndicatorContainer } from './Indicator.styled';
+import * as S from './Indicator.styled';
 
 const Indicator = ({ handleScroll, width }) => {
   return (
-    <IndicatorContainer>
-      <IndicatorBar onScroll={handleScroll} style={{ width: `${width}` }} />
-    </IndicatorContainer>
+    <S.IndicatorContainer>
+      <S.IndicatorBar onScroll={handleScroll} style={{ width: `${width}` }} />
+    </S.IndicatorContainer>
   );
 };
 
