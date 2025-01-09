@@ -2,14 +2,20 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { motion } from 'framer-motion';
 
+import { FacultyInfos } from '../../FacultyList.types';
+
 import * as S from './ProfessorCard.styled';
 
-const ProfessorCard = ({ professorInfo }) => {
+type ProfessorCardProps = {
+  professorInfo: FacultyInfos;
+};
+
+const ProfessorCard = ({ professorInfo }: ProfessorCardProps): JSX.Element => {
   const [thumbnailHovered, setThumbnailHovered] = useState(false);
 
   const navigate = useNavigate();
 
-  const goToProfessorProfile = (id) => {
+  const goToProfessorProfile = (id: string) => {
     navigate(`/faculty/${id}`);
   };
 

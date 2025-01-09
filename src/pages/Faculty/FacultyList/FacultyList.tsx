@@ -1,14 +1,18 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
+import { FacultyInfos } from './FacultyList.types';
+
 import Category from '@components/Exhibition/Category/Category';
 import FacultyGallery from './FacultyGallery/FacultyGallery';
 
 import * as S from './FacultyList.styled';
 
-const FacultyList = () => {
-  const [facultyList, setFacultyList] = useState([]);
-  const [categorizedFaculty, setCategorizedFaculty] = useState([]);
+const FacultyList = (): JSX.Element => {
+  const [facultyList, setFacultyList] = useState<FacultyInfos[]>([]);
+  const [categorizedFaculty, setCategorizedFaculty] = useState<FacultyInfos[]>(
+    []
+  );
 
   useEffect(() => {
     const fetchFacultyList = async () => {
@@ -28,7 +32,7 @@ const FacultyList = () => {
     fetchFacultyList();
   }, []);
 
-  const handleFilterFaculty = (category) => {
+  const handleFilterFaculty = (category: string) => {
     if (category === 'All') {
       setCategorizedFaculty(facultyList);
     } else {
