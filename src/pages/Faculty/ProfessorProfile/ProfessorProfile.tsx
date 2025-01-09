@@ -4,11 +4,10 @@ import { Link, useLocation, useParams } from 'react-router';
 
 import ProfessorDetails from './ProfessorDetails';
 
+import { BreadscrumbArrow } from '@icons/BreadscrumbArrow';
+
 import * as S from './ProfessorProfile.styled';
-
 import { BreadscrumbContainer } from '@components/Breadscrumb/Breadscrumb.styled';
-
-import forwardArrow from '@assets/icons/svgs/arrows/forward-arrow_triangle.svg';
 
 const ProfessorProfile = () => {
   const [professorInfo, setProfessorInfo] = useState({});
@@ -59,11 +58,7 @@ const ProfessorProfile = () => {
           <Link to="/faculty">
             <span>Faculty</span>
           </Link>
-          <img
-            src={forwardArrow}
-            alt="forward-arrow"
-            className="forward-arrow"
-          />
+          <BreadscrumbArrow />
           <span className="current-page">Professor</span>
         </BreadscrumbContainer>
       </S.ProfessorProfileHeader>

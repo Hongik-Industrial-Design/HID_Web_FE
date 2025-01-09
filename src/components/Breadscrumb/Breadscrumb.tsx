@@ -1,26 +1,22 @@
 import { Link } from 'react-router';
 
-import { BreadscrumbContainer, BreadScrumbUnit } from './Breadscrumb.styled';
+import { BreadscrumbArrow } from '@icons/BreadscrumbArrow';
 
-import forwardArrow from '@assets/icons/svgs/arrows/forward-arrow_triangle.svg';
+import * as S from './Breadscrumb.styled';
 
 const Breadscrumb = ({ paths, currentPage }) => {
   return (
-    <BreadscrumbContainer>
+    <S.BreadscrumbContainer>
       {paths.map((path, index) => (
-        <BreadScrumbUnit key={index}>
+        <S.BreadScrumbUnit key={index}>
           <Link to={path.path}>
             <span>{path.content}</span>
           </Link>
-          <img
-            src={forwardArrow}
-            alt="forward-arrow"
-            className="forward-arrow"
-          />
-        </BreadScrumbUnit>
+          <BreadscrumbArrow />
+        </S.BreadScrumbUnit>
       ))}
       <span className="current-page">{currentPage}</span>
-    </BreadscrumbContainer>
+    </S.BreadscrumbContainer>
   );
 };
 
