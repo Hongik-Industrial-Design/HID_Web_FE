@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { openNewTab } from '@utils/openNewTab';
+
 import Breadscrumb from '@components/Breadscrumb/Breadscrumb';
 import GoToList from '@components/GoToList/GoToList';
 import NextPrevious from '@components/NextPrevious/NextPrevious';
@@ -9,10 +11,6 @@ import * as S from './HeroSection.styled';
 const HeroSection = ({ fetchedData, totalPages, currentPage }) => {
   // const [artworkInfos, setArtworkInfos] = useState([]);
   const [gotToListHovered, setGoToListHovered] = useState(false);
-
-  const openNewTab = (url) => {
-    window.open(url, '_blank', 'noopener,noreferrer');
-  };
 
   const handleGoToListEnter = () => {
     setGoToListHovered(true);

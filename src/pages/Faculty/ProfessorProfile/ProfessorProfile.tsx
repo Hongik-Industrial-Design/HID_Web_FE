@@ -2,6 +2,8 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useParams } from 'react-router';
 
+import { openNewTab } from '@utils/openNewTab';
+
 import ProfessorDetails from './ProfessorDetails';
 import { BreadscrumbArrow } from '@icons/BreadscrumbArrow';
 
@@ -17,10 +19,6 @@ const ProfessorProfile = () => {
 
   const location = useLocation();
   const currentPath = location.pathname;
-
-  const openNewTab = (url) => {
-    window.open(url, '_blank', 'noopener,noreferrer');
-  };
 
   // Fetching Professor Infos & extracting individual professor info
   useEffect(() => {
