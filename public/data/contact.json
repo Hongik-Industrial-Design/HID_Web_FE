@@ -21,7 +21,10 @@
       },
       { "title": "Tel", "content": "+82(0)2-320-1056" },
       { "title": "Fax", "content": "+82(0)2-320-1059" },
-      { "type": "Admission", "title": "Admission Page ⇱", "url": "/" }
+      {
+        "title": "Admission Page ⇱",
+        "url": "https://www.hongik.ac.kr/kr/admission/undergraduate-admission.do"
+      }
     ]
   },
   "onlineCommunity": {

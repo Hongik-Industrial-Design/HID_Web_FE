@@ -1,13 +1,17 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-import * as S from './ContactPage.styled';
+import { ContactPageProps } from './Contact.types';
 
-import ContactCard from './Card/ContactCard';
+import ContactCard from './Card/Contact/ContactCard';
 import AdminCard from './Card/Admin/AdminCard';
 
+import * as S from './ContactPage.styled';
+
 const ContactPage = (): JSX.Element => {
-  const [contactData, setContactData] = useState([]);
+  const [contactData, setContactData] = useState<ContactPageProps>(
+    {} as ContactPageProps
+  );
 
   useEffect(() => {
     const fetchContactData = async () => {
@@ -34,14 +38,14 @@ const ContactPage = (): JSX.Element => {
       </S.Title>
       <S.ContentContainer>
         <S.HIDInfo>
-          <ContactCard cardData={contactData?.officeInfo} />
-          <ContactCard cardData={contactData?.admission} />
-          <ContactCard cardData={contactData?.onlineCommunity} />
-          <ContactCard cardData={contactData?.updateInfo} />
+          <ContactCard cardData={contactData.officeInfo} />
+          <ContactCard cardData={contactData.admission} />
+          <ContactCard cardData={contactData.onlineCommunity} />
+          <ContactCard cardData={contactData.updateInfo} />
         </S.HIDInfo>
         <S.WebAdmin>
-          <AdminCard adminData={contactData?.designer} />
-          <AdminCard adminData={contactData?.developer} />
+          <AdminCard adminData={contactData.designer} />
+          <AdminCard adminData={contactData.developer} />
         </S.WebAdmin>
       </S.ContentContainer>
     </S.ContactPageContainer>

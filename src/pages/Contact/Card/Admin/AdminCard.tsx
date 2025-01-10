@@ -1,13 +1,15 @@
-import * as S from './AdminCard.styled';
+import * as T from '../../Contact.types';
 
 import {
   CardTitle,
   CloudyDivider,
   ContactCardContainer,
   Divider,
-} from '../ContactCard.styled';
+} from '../Contact/ContactCard.styled';
 
-const AdminCard = ({ adminData }) => {
+import * as S from './AdminCard.styled';
+
+const AdminCard = ({ adminData }: T.AdminCardProps) => {
   return (
     <>
       <ContactCardContainer>
