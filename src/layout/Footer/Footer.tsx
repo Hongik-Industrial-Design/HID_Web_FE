@@ -1,12 +1,10 @@
+import { openNewTab } from '@utils/openNewTab';
+
 import * as S from './Footer.styled';
 
 import FooterLogo from '@assets/icons/svgs/logos/footer-logo.svg';
 
 const Footer = () => {
-  const openNewTab = (url) => {
-    window.open(url, '_blank', 'noopener,noreferrer');
-  };
-
   return (
     <S.FooterContainer>
       <S.ContactInfos>
