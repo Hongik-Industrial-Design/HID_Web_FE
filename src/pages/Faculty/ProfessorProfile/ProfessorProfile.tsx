@@ -4,18 +4,27 @@ import { Link, useLocation, useParams } from 'react-router';
 
 import { openNewTab } from '@utils/openNewTab';
 
+import { ProfessorInfos } from './Professor.types';
+
 import ProfessorDetails from './ProfessorDetails';
 import { BreadscrumbArrow } from '@icons/BreadscrumbArrow';
 
 import * as S from './ProfessorProfile.styled';
 import { BreadscrumbContainer } from '@components/Breadscrumb/Breadscrumb.styled';
 
-const ProfessorProfile = () => {
-  const [professorInfo, setProfessorInfo] = useState({});
+type RouteParams = {
+  id: string;
+};
 
-  const [emailHover, setEmailHover] = useState(false);
+const ProfessorProfile = (): JSX.Element => {
+  const [professorInfo, setProfessorInfo] = useState<ProfessorInfos>(
+    {} as ProfessorInfos
+  );
 
-  const { id } = useParams();
+  const [emailHover, setEmailHover] = useState<boolean>(false);
+
+  const { id } = useParams<RouteParams>();
+  const safeID = id ?? 'default ID'; // 타입 안정성을 위해 null/undefined일 경우, 기본 값 지정
 
   const location = useLocation();
   const currentPath = location.pathname;
@@ -30,7 +39,7 @@ const ProfessorProfile = () => {
 
         // URL id와 일치하는 professor를 찾아서 저장
         const selectedProfessor = fetchedProfessorInfos.find(
-          (professor) => professor.id === parseInt(id)
+          (professor: ProfessorInfos) => professor.id === parseInt(safeID)
         );
 
         console.log(selectedProfessor);
@@ -43,7 +52,7 @@ const ProfessorProfile = () => {
     };
 
     fetchProfessorInfo();
-  }, [id]); // id가 변경될 때마다 데이터를 다시 가져옴
+  }, [safeID]); // id가 변경될 때마다 데이터를 다시 가져옴
 
   return (
     <S.ProfessorProfileWrapper>

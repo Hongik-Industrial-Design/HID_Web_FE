@@ -63,47 +63,48 @@
       "works": [
         {
           "id": 1,
-          "yearRange": 2020,
+          "yearRange": "2020",
           "project": "E-BIKE Design"
         },
         {
           "id": 2,
-          "yearRange": 2019,
+          "yearRange": "2019",
           "project": "Seoul Autonomous Vehicle Seoul Design"
         },
         {
           "id": 3,
-          "yearRange": 2018,
+          "yearRange": "2018",
           "project": "Rural Public Bus Design"
         },
         {
           "id": 4,
-          "yearRange": 2017,
+          "yearRange": "2017",
           "project": "Traditional Rickshaw Mobility Design"
         },
         {
           "id": 5,
-          "yearRange": 2017,
+          "yearRange": "2017",
           "project": "Microsoft Smart Mobility Public Transport Relay"
         },
         {
           "id": 6,
-          "yearRange": 2016,
+          "yearRange": "2016",
           "project": "Electric Taxi Design"
         },
         {
           "id": 7,
-          "yearRange": 2016,
+          "yearRange": "2016",
           "project": "Smart Mobility International Conference Exhibition, Seoul International Smart Mobility"
         },
         {
           "id": 8,
-          "yearRange": 2015,
+          "yearRange": "2015",
           "project": "Smart Mobility Design, Expo Exhibition"
         }
       ]
     }
   },
+
   {
     "id": 2,
     "image": "koo-sang.jpg",
@@ -119,17 +120,17 @@
       "degrees": [
         {
           "id": 1,
-          "year": 2007,
+          "year": "2007",
           "degree": "PhD, Seoul National University"
         },
         {
           "id": 2,
-          "year": 1991,
+          "year": "1991",
           "degree": "MFA, Hongik University"
         },
         {
           "id": 3,
-          "year": 1989,
+          "year": "1989",
           "degree": "BFA, Seoul National University"
         }
       ],
@@ -156,7 +157,7 @@
         },
         {
           "id": 5,
-          "yearRange": 2007,
+          "yearRange": "2007",
           "position": "PhD, Seoul National University"
         },
         {
@@ -171,103 +172,103 @@
         },
         {
           "id": 8,
-          "yearRange": 1991,
+          "yearRange": "1991",
           "position": "MFA, Hongik University"
         },
         {
           "id": 9,
-          "yearRange": 1989,
+          "yearRange": "1989",
           "position": "BFA, Seoul National University"
         }
       ],
       "awards": [
         {
           "id": 1,
-          "year": 2016,
+          "year": "2016",
           "award": "Best Publication Award, Korea Society of Design"
         },
         {
           "id": 2,
-          "year": 2010,
+          "year": "2010",
           "award": "Korea Design Research Paper Excellence Award"
         },
         {
           "id": 3,
-          "year": 2005,
+          "year": "2005",
           "award": "Korea Design Award, 3D Vehicle Design Patent"
         }
       ],
       "publications": [
         {
           "id": 1,
-          "year": 2021,
+          "year": "2021",
           "title": "Mobility Design Textbook"
         },
         {
           "id": 2,
-          "year": 2016,
+          "year": "2016",
           "title": "Automotive Design Textbook"
         },
         {
           "id": 3,
-          "year": 2013,
+          "year": "2013",
           "title": "Novel: 'Hidden Hands'"
         },
         {
           "id": 4,
-          "year": 2012,
+          "year": "2012",
           "title": "Color Marketing"
         },
         {
           "id": 5,
-          "year": 2010,
+          "year": "2010",
           "title": "Sketch & Rendering Studio"
         },
         {
           "id": 6,
-          "year": 2009,
+          "year": "2009",
           "title": "Automotive Design Novel 'Dreaming Prometheus'"
         },
         {
           "id": 7,
-          "year": 2009,
+          "year": "2009",
           "title": "Secrets of Automotive Design Identity"
         },
         {
           "id": 8,
-          "year": 2005,
+          "year": "2005",
           "title": "Digital Sketch & Rendering in Automotive Design"
         }
       ],
       "works": [
         {
           "id": 1,
-          "yearRange": 2018,
+          "yearRange": "2018",
           "project": "LS Automotive Concept Car Development"
         },
         {
           "id": 2,
-          "yearRange": 2017,
+          "yearRange": "2017",
           "project": "Flying Vehicle Concept Design"
         },
         {
           "id": 3,
-          "yearRange": 2016,
+          "yearRange": "2016",
           "project": "Kia Motors - High-Capacity Vehicle Design"
         },
         {
           "id": 4,
-          "yearRange": 2015,
+          "yearRange": "2015",
           "project": "Daejeon City Small Urban Bicycle Design"
         },
         {
           "id": 5,
-          "yearRange": 2014,
+          "yearRange": "2014",
           "project": "Hyundai Bus Seat Design Development"
         },
         {
           "id": 6,
-          "yearRange": 2014,
+          "yearRange": "2014",
           "project": "Daejeon City Taxi Billboard Design"
         }
       ]
@@ -289,27 +290,27 @@
       "degrees": [
         {
           "id": 1,
-          "year": 2002,
+          "year": "2002",
           "degree": "PhD in Architecture, Kookmin University"
         },
         {
           "id": 2,
-          "year": 1991,
+          "year": "1991",
           "degree": "MFA in Interior Design, Cornell University"
         },
         {
           "id": 3,
-          "year": 1989,
+          "year": "1989",
           "degree": "MFA in Interior Architecture, School of the Art Institute of Chicago"
         },
         {
           "id": 4,
-          "year": 1986,
+          "year": "1986",
           "degree": "MFA in Interior Design, Hongik University"
         },
         {
           "id": 5,
-          "year": 1984,
+          "year": "1984",
           "degree": "BFA in Architecture, Hongik University"
         }
       ],
@@ -348,51 +349,51 @@
       "awards": [
         {
           "id": 1,
-          "year": 2020,
+          "year": "2020",
           "award": "Commendation, Ministry of Culture, Sports and Tourism"
         },
         {
           "id": 2,
-          "year": 2020,
+          "year": "2020",
           "award": "Fellow of the IFI by the International Federation of Interior Architects/Designers"
         },
         {
           "id": 3,
-          "year": 2018,
+          "year": "2018",
           "award": "Albert Nelson Marquis Lifetime Achievement Award"
         }
       ],
       "publications": [
         {
           "id": 1,
-          "year": 2020,
+          "year": "2020",
           "title": "Space Branding"
         },
         {
           "id": 2,
-          "year": 2019,
+          "year": "2019",
           "title": "Bauhaus"
         },
         {
           "id": 3,
-          "year": 2019,
+          "year": "2019",
           "title": "Iconic Architecture"
         }
       ],
       "works": [
         {
           "id": 1,
-          "yearRange": 2019,
+          "yearRange": "2019",
           "project": "Hyundai Motors Autonomous Vehicle Package Design Roadmap"
         },
         {
           "id": 2,
-          "yearRange": 2017,
+          "yearRange": "2017",
           "project": "LG Well-being 'Nature Collection' Space Service Design"
         },
         {
           "id": 3,
-          "yearRange": 2013,
+          "yearRange": "2013",
           "project": "NCSoft Children’s Theme Park"
         }
       ]
@@ -413,17 +414,17 @@
       "degrees": [
         {
           "id": 1,
-          "year": 1995,
+          "year": "1995",
           "degree": "MS in Design, Art Center College of Design, California"
         },
         {
           "id": 2,
-          "year": 1992,
+          "year": "1992",
           "degree": "MFA in Industrial Design, Hongik University"
         },
         {
           "id": 3,
-          "year": 1985,
+          "year": "1985",
           "degree": "BFA in Industrial Design, Hongik University"
         }
       ],
@@ -457,41 +458,41 @@
       "awards": [
         {
           "id": 1,
-          "year": 2008,
+          "year": "2008",
           "award": "Design Award, Samsung Corporate Headquarters LED Gallery"
         },
         {
           "id": 2,
-          "year": 2005,
+          "year": "2005",
           "award": "Excellence Award, Ministry of Culture and Tourism"
         },
         {
           "id": 3,
-          "year": 2003,
+          "year": "2003",
           "award": "Olympic Architecture Lighting Design Award, Seoul City"
         }
       ],
       "publications": [
         {
           "id": 1,
-          "year": 2016,
+          "year": "2016",
           "title": "Coordination & Product: Space Design"
         }
       ],
       "works": [
         {
           "id": 1,
-          "yearRange": 2021,
+          "yearRange": "2021",
           "project": "Hyundai Trensis 'Future Mobility Space Environment Study'"
         },
         {
           "id": 2,
-          "yearRange": 2018,
+          "yearRange": "2018",
           "project": "Interactive Art for Safe Driving, IoT-based Digital Signage Development"
         },
         {
           "id": 3,
-          "yearRange": 2017,
+          "yearRange": "2017",
           "project": "LG Electronics Global Market Promotion Design"
         }
       ]
@@ -511,32 +512,32 @@
       "degrees": [
         {
           "id": 1,
-          "year": 2006,
+          "year": "2006",
           "degree": "Ph.D. in Engineering, Chung-Ang University"
         },
         {
           "id": 2,
-          "year": 1999,
+          "year": "1999",
           "degree": "AIA, New York Architect"
         },
         {
           "id": 3,
-          "year": 1994,
+          "year": "1994",
           "degree": "MFA in Architecture, UCLA"
         },
         {
           "id": 4,
-          "year": 1990,
+          "year": "1990",
           "degree": "MFA in Architecture, Pratt Institute"
         },
         {
           "id": 5,
-          "year": 1986,
+          "year": "1986",
           "degree": "MS in Engineering, Chung-Ang University"
         },
         {
           "id": 6,
-          "year": 1984,
+          "year": "1984",
           "degree": "BFA in Architecture, Chung-Ang University"
         }
       ],
@@ -557,34 +558,34 @@
       "publications": [
         {
           "id": 1,
-          "year": 2019,
+          "year": "2019",
           "title": "Design Anthropology"
         },
         {
           "id": 2,
-          "year": 2006,
+          "year": "2006",
           "title": "Pure Wonder"
         }
       ],
       "works": [
         {
           "id": 1,
-          "yearRange": 2003,
+          "yearRange": "2003",
           "project": "Space Design for the film 'Wonderful Days' (Perkins & Will, New York)"
         },
         {
           "id": 2,
-          "yearRange": 2002,
+          "yearRange": "2002",
           "project": "Solo Exhibition '2042 and 2084'"
         },
         {
           "id": 3,
-          "yearRange": 2000,
+          "yearRange": "2000",
           "project": "Solo Exhibition 'Spectrum of Paradigm'"
         },
         {
           "id": 4,
-          "yearRange": 1997,
+          "yearRange": "1997",
           "project": "Solo Exhibition 'Gaia Project'"
         }
       ]
@@ -605,17 +606,17 @@
       "degrees": [
         {
           "id": 1,
-          "year": 1997,
+          "year": "1997",
           "degree": "MFA in Industrial Design, Domus Academy"
         },
         {
           "id": 2,
-          "year": 1990,
+          "year": "1990",
           "degree": "MFA in Industrial Design, Hongik University"
         },
         {
           "id": 3,
-          "year": 1988,
+          "year": "1988",
           "degree": "BFA in Industrial Design, Hongik University"
         }
       ],
@@ -639,17 +640,17 @@
       "awards": [
         {
           "id": 1,
-          "year": 2017,
+          "year": "2017",
           "award": "Special Prize, Russia Novosibirsk International Design Competition"
         },
         {
           "id": 2,
-          "year": 2006,
+          "year": "2006",
           "award": "Minister's Award, Ministry of Construction and Transportation"
         },
         {
           "id": 3,
-          "year": 2000,
+          "year": "2000",
           "award": "Commendation, Ministry of Culture and Tourism"
         }
       ],
@@ -697,17 +698,17 @@
       "degrees": [
         {
           "id": 1,
-          "year": 2015,
+          "year": "2015",
           "degree": "Ph.D. in Product Design, Yonsei University"
         },
         {
           "id": 2,
-          "year": 1998,
+          "year": "1998",
           "degree": "MFA in Human-Centered Design, Illinois Institute of Technology"
         },
         {
           "id": 3,
-          "year": 1991,
+          "year": "1991",
           "degree": "BFA in Industrial Design, Hongik University"
         }
       ],
@@ -737,42 +738,42 @@
       "awards": [
         {
           "id": 1,
-          "year": 2019,
+          "year": "2019",
           "award": "Germany IF Design Award"
         },
         {
           "id": 2,
-          "year": 2014,
+          "year": "2014",
           "award": "Audi Urban Future Initiative 2014 Global Finalist"
         },
         {
           "id": 3,
-          "year": 2012,
+          "year": "2012",
           "award": "IDEA Design Strategy Award"
         },
         {
           "id": 4,
-          "year": 2007,
+          "year": "2007",
           "award": "3GSM World Congress Best Handset"
         },
         {
           "id": 5,
-          "year": 2006,
+          "year": "2006",
           "award": "IDEA Business Design Catalyst Award"
         },
         {
           "id": 6,
-          "year": 2006,
+          "year": "2006",
           "award": "Korean Color Design Grand Prize"
         },
         {
           "id": 7,
-          "year": 2003,
+          "year": "2003",
           "award": "IDEA Consumer Product Gold"
         },
         {
           "id": 8,
-          "year": 1993,
+          "year": "1993",
           "award": "KAFA Photo Exhibition Overall Grand Prize"
         }
       ],
@@ -830,22 +831,22 @@
       "degrees": [
         {
           "id": 1,
-          "year": 2019,
+          "year": "2019",
           "degree": "Ph.D. in Interaction Design, Yonsei University"
         },
         {
           "id": 2,
-          "year": 2008,
+          "year": "2008",
           "degree": "MFA in Interaction Design, Carnegie Mellon University"
         },
         {
           "id": 3,
-          "year": 2004,
+          "year": "2004",
           "degree": "BFA in Product Design, Kingston University (UK)"
         },
         {
           "id": 4,
-          "year": 2003,
+          "year": "2003",
           "degree": "BFA in Industrial Design, Hongik University"
         }
       ],
@@ -889,17 +890,17 @@
       "awards": [
         {
           "id": 1,
-          "year": 2008,
+          "year": "2008",
           "award": "Next Generation Design Leader Award (Korean Design Promotion Institute)"
         },
         {
           "id": 2,
-          "year": 2004,
+          "year": "2004",
           "award": "Cultural Tourism Design Scholarship Award"
         },
         {
           "id": 3,
-          "year": 2001,
+          "year": "2001",
           "award": "Christianson Prize for 'The Living Room of Life'"
         }
       ]
@@ -920,22 +921,22 @@
       "degrees": [
         {
           "id": 1,
-          "year": 2021,
+          "year": "2021",
           "degree": "Ph.D. in Design, Loughborough University, UK"
         },
         {
           "id": 2,
-          "year": 2017,
+          "year": "2017",
           "degree": "MFA in Product Design Development and Management, Northwestern University, USA"
         },
         {
           "id": 3,
-          "year": 2010,
+          "year": "2010",
           "degree": "MFA in Industrial Design, Hongik University"
         },
         {
           "id": 4,
-          "year": 2003,
+          "year": "2003",
           "degree": "BFA in Architecture, Hongik University"
         }
       ],
@@ -1066,32 +1067,32 @@
       "awards": [
         {
           "id": 1,
-          "year": 2022,
+          "year": "2022",
           "award": "Red Dot Design Award"
         },
         {
           "id": 2,
-          "year": 2021,
+          "year": "2021",
           "award": "Red Dot Design Award"
         },
         {
           "id": 3,
-          "year": 2012,
+          "year": "2012",
           "award": "IF Design Award"
         },
         {
           "id": 4,
-          "year": 2010,
+          "year": "2010",
           "award": "IF Design Award"
         },
         {
           "id": 5,
-          "year": 2009,
+          "year": "2009",
           "award": "G-Mark Design Award"
         },
         {
           "id": 6,
-          "year": 2008,
+          "year": "2008",
           "award": "IDEA Award"
         }
       ]
@@ -1316,22 +1317,22 @@
       "degrees": [
         {
           "id": 1,
-          "year": 2017,
+          "year": "2017",
           "degree": "Ph.D. in Industrial Design Engineering, Hongik University"
         },
         {
           "id": 2,
-          "year": 2007,
+          "year": "2007",
           "degree": "Master of Human-Centered Design, Illinois Institute of Technology"
         },
         {
           "id": 3,
-          "year": 2005,
+          "year": "2005",
           "degree": "BFA in Industrial Design, Hongik University"
         },
         {
           "id": 4,
-          "year": 2004,
+          "year": "2004",
           "degree": "Exchange Student, Kingston University (UK), Product Design"
         }
       ],
@@ -1361,62 +1362,62 @@
       "awards": [
         {
           "id": 1,
-          "year": 2024,
+          "year": "2024",
           "award": "IF Design Award"
         },
         {
           "id": 2,
-          "year": 2023,
+          "year": "2023",
           "award": "Spark International Design Award"
         },
         {
           "id": 3,
-          "year": 2021,
+          "year": "2021",
           "award": "IF Design Award (2 awards)"
         },
         {
           "id": 4,
-          "year": 2020,
+          "year": "2020",
           "award": "IF Design Award"
         },
         {
           "id": 5,
-          "year": 2019,
+          "year": "2019",
           "award": "Amorepacific ABC Award - Sustainable Design Management"
         },
         {
           "id": 6,
-          "year": 2013,
+          "year": "2013",
           "award": "CES Design & Engineering Innovation Award (2 awards)"
         },
         {
           "id": 7,
-          "year": 2012,
+          "year": "2012",
           "award": "IDEA Design Award GOLD, IF Design Award"
         },
         {
           "id": 8,
-          "year": 2006,
+          "year": "2006",
           "award": "Next Generation Design Leader [Korea Design Promotion]"
         },
         {
           "id": 9,
-          "year": 2006,
+          "year": "2006",
           "award": "Motorola Chicago HQ Designer, Industrial Excellence Award"
         },
         {
           "id": 10,
-          "year": 2004,
+          "year": "2004",
           "award": "Cultural Tourism Department Design Scholarship"
         },
         {
           "id": 11,
-          "year": 2003,
+          "year": "2003",
           "award": "Samsung Future Digital Home Appliance Design Contest - Grand Prize"
         },
         {
           "id": 12,
-          "year": 2002,
+          "year": "2002",
           "award": "Kyonghyang Newspaper Design Essay Competition - Excellence Award"
         }
       ],
@@ -1424,67 +1425,67 @@
       "publications": [
         {
           "id": 1,
-          "year": 2024,
+          "year": "2024",
           "title": "Analysis of User Experience on Pen-Shaped Insulin Syringe Design Directions: Focusing on Type 2 Diabetics. Journal of Industrial Design Research, 18(2), 45-67"
         },
         {
           "id": 2,
-          "year": 2024,
+          "year": "2024",
           "title": "Container Pad Design Based on User Research. Journal of Basic Formology, 25(1), 43-56"
         },
         {
           "id": 3,
-          "year": 2023,
+          "year": "2023",
           "title": "Smart Home Lighting Design for Sustainable Lifestyles: Focusing on Single-Person Households in Korea. Journal of Industrial Design Research, 17(4), 55-72"
         },
         {
           "id": 4,
-          "year": 2023,
+          "year": "2023",
           "title": "Perception of Large Appliance Designs for the Chinese Market. Journal of Industrial Design Research, 17(3), 33-42"
         },
         {
           "id": 5,
-          "year": 2023,
+          "year": "2023",
           "title": "Wearable Band Design for Elderly Loneliness Prevention. Journal of Basic Formology, 24(4), 225-241"
         },
         {
           "id": 6,
-          "year": 2023,
+          "year": "2023",
           "title": "Analysis of Household Appliance Design Attributes Based on Convergence. Journal of Industrial Design Research, 17(1), 71-83"
         },
         {
           "id": 7,
-          "year": 2023,
+          "year": "2023",
           "title": "Consumer Perception of Smart Speaker Design Attributes. Journal of Basic Formology, 24(1), 123-136"
         },
         {
           "id": 8,
-          "year": 2022,
+          "year": "2022",
           "title": "Research on Convergence Education Focused on Industrial Design. Journal of Basic Formology, 23(2), 396-410"
         },
         {
           "id": 9,
-          "year": 2021,
+          "year": "2021",
           "title": "Roles of Care in Design Process for Sustainable Behavior. Conference Proceedings of Product Lifetime and Environment Conference, Dublin, Ireland, https://doi.org/10.31880/10344/10202"
         },
         {
           "id": 10,
-          "year": 2020,
+          "year": "2020",
           "title": "Cosmetic Brand Collaboration Design Research. Journal of Industrial Design Research, 14(2), 55-64"
         },
         {
           "id": 11,
-          "year": 2018,
+          "year": "2018",
           "title": "Trends in Sustainable Packaging Design. Journal of Industrial Design Research, 12(3), 45-52"
         },
         {
           "id": 12,
-          "year": 2016,
+          "year": "2016",
           "title": "Smart Home Appliance Design Trends and Strategic Directions. Journal of Industrial Design Research, 10(1), 83-90"
         },
         {
           "id": 13,
-          "year": 2015,
+          "year": "2015",
           "title": "Strategic Approaches of Design Identity Based on Product Specificity. Journal of Design Research, 28(3), 75-87"
         }
       ],
@@ -1588,139 +1589,139 @@
       "awards": [
         {
           "id": 1,
-          "year": 2021,
+          "year": "2021",
           "award": "23rd Korean Space Design Association International Invitation Exhibition Excellence Award"
         },
         {
           "id": 2,
-          "year": 2017,
+          "year": "2017",
           "award": "Into the Wood: 2nd Place, International Interior Design Competition by Slowwood, Italy"
         },
         {
           "id": 3,
-          "year": 2016,
+          "year": "2016",
           "award": "15th Korean Space Design Association International Invitation Exhibition Excellence Award"
         },
         {
           "id": 4,
-          "year": 2014,
+          "year": "2014",
           "award": "Wood Composition: Grand Prize, International Furniture Competition by Fondazione Aldo Morelato"
         },
         {
           "id": 5,
-          "year": 2014,
+          "year": "2014",
           "award": "Drive Beyond: Finalist, International Design Competition for Flagship Store by Ferrari"
         },
         {
           "id": 6,
-          "year": 2014,
+          "year": "2014",
           "award": "Peacock: Selected, Milan Furniture Fair Design Pavilion"
         },
         {
           "id": 7,
-          "year": 2010,
+          "year": "2010",
           "award": "Grand Prize, Automotive Wrapping Design Competition by Mbox (Metros) + Kia Motors"
         }
       ],
       "works": [
         {
           "id": 1,
-          "yearRange": 2021,
+          "yearRange": "2021",
           "project": "Interior Design for Lotte Department Store 'Tailored Home'"
         },
         {
           "id": 2,
-          "yearRange": 2021,
+          "yearRange": "2021",
           "project": "Samsung Bespoke Unreal Online Interior Design Exhibition"
         },
         {
           "id": 3,
-          "yearRange": 2021,
+          "yearRange": "2021",
           "project": "Café and Dining Renovation at CES Hotel"
         },
         {
           "id": 4,
-          "yearRange": 2021,
+          "yearRange": "2021",
           "project": "Interior Design for Dart Flex"
         },
         {
           "id": 5,
-          "yearRange": 2021,
+          "yearRange": "2021",
           "project": "Interior Design for Cassamia New Collection"
         },
         {
           "id": 6,
-          "yearRange": 2020,
+          "yearRange": "2020",
           "project": "Interior Design for Samsung Micro LED"
         },
         {
           "id": 7,
-          "yearRange": 2019,
+          "yearRange": "2019",
           "project": "BMW Korea Driving Center Exhibition Hall"
         },
         {
           "id": 8,
-          "yearRange": 2019,
+          "yearRange": "2019",
           "project": "Interior Design for DECOBU Showroom"
         },
         {
           "id": 9,
-          "yearRange": 2019,
+          "yearRange": "2019",
           "project": "Interior Design for Cassamia Showroom"
         },
         {
           "id": 10,
-          "yearRange": 2019,
+          "yearRange": "2019",
           "project": "Interior Design for JW Marriott Seoul 'The Lounge'"
         },
         {
           "id": 11,
-          "yearRange": 2019,
+          "yearRange": "2019",
           "project": "Exhibition at Alcila Castiglioni, Milan, for the 100th Anniversary"
         },
         {
           "id": 12,
-          "yearRange": 2018,
+          "yearRange": "2018",
           "project": "Booth Design for Daresseux Brand, Milan"
         },
         {
           "id": 13,
-          "yearRange": 2018,
+          "yearRange": "2018",
           "project": "Exhibition Design for Milan Furniture Fair, Milan"
         },
         {
           "id": 14,
-          "yearRange": 2017,
+          "yearRange": "2017",
           "project": "Hongbo Booth for Domus Academy at Seoul Design Festival"
         },
         {
           "id": 15,
-          "yearRange": 2017,
+          "yearRange": "2017",
           "project": "Interior Design for IQOS Philip Morris Offices and Restaurants, Munich, Germany"
         },
         {
           "id": 16,
-          "yearRange": 2017,
+          "yearRange": "2017",
           "project": "Cassina 90th Anniversary Exhibition, Milan Furniture Fair"
         },
         {
           "id": 17,
-          "yearRange": 2016,
+          "yearRange": "2016",
           "project": "Interior Design for KIKO Flagship Store, Paris, France"
         },
         {
           "id": 18,
-          "yearRange": 2016,
+          "yearRange": "2016",
           "project": "Exhibition for Cassina Milan Showroom, Milan Furniture Fair"
         },
         {
           "id": 19,
-          "yearRange": 2016,
+          "yearRange": "2016",
           "project": "Interior Design for Cassina Showrooms in Paris and Madrid"
         },
         {
           "id": 20,
-          "yearRange": 2015,
+          "yearRange": "2015",
           "project": "Renovation for Shinsegae Department Store, Gangnam Branch"
         }
       ]
@@ -1740,17 +1741,17 @@
       "degrees": [
         {
           "id": 1,
-          "year": 2018,
+          "year": "2018",
           "degree": "Master’s Degree in Integrated Management, University of Michigan"
         },
         {
           "id": 2,
-          "year": 1999,
+          "year": "1999",
           "degree": "Bachelor’s Degree in Automotive Design, ArtCenter College of Design"
         },
         {
           "id": 3,
-          "year": 1995,
+          "year": "1995",
           "degree": "Bachelor’s Degree in Mechanical Engineering, Hongik University"
         }
       ]

@@ -1,6 +1,14 @@
+import * as T from './Professor.types';
+
 import * as S from './ProfessorDetails.styled';
 
-const ProfessorDetails = ({ professorDetails }) => {
+type ProfessorDetailProps = {
+  professorDetails: T.professorDetails;
+};
+
+const ProfessorDetails = ({
+  professorDetails,
+}: ProfessorDetailProps): JSX.Element => {
   return (
     <S.DetailsContainer>
       {/* Major Section */}
@@ -9,19 +17,19 @@ const ProfessorDetails = ({ professorDetails }) => {
         <S.BoldDivider />
         <S.DetailsDescriptionBox>
           <S.DetailsDescriptionText>
-            {professorDetails?.major}
+            {professorDetails.major}
           </S.DetailsDescriptionText>
           <S.SubtleDivider />
         </S.DetailsDescriptionBox>
       </S.MajorSection>
 
       {/* Degree Section */}
-      {professorDetails?.degrees && (
+      {professorDetails.degrees && (
         <S.DegreeSection>
           <S.DetailSectionTitle>Degree</S.DetailSectionTitle>
           <S.BoldDivider />
           <S.CareerContainer>
-            {professorDetails?.degrees.map((degree) => (
+            {professorDetails.degrees.map((degree: T.Degree) => (
               <S.CareerEntry key={degree.id}>
                 <S.EventYearBox>
                   <p>{degree.year}</p>
@@ -40,20 +48,20 @@ const ProfessorDetails = ({ professorDetails }) => {
       )}
 
       {/* Biography Section */}
-      {professorDetails?.biography && (
+      {professorDetails.biography && (
         <S.BiographySection>
           <S.DetailSectionTitle>Biography</S.DetailSectionTitle>
           <S.BoldDivider />
           <S.CareerContainer>
-            {professorDetails?.biography.map((career) => (
-              <S.CareerEntry key={career.id}>
+            {professorDetails.biography.map((biography: T.Biography) => (
+              <S.CareerEntry key={biography.id}>
                 <S.EventYearBox>
-                  <p>{career.yearRange}</p>
+                  <p>{biography.yearRange}</p>
                   <S.SubtleDivider />
                 </S.EventYearBox>
                 <S.DetailsDescriptionBox>
                   <S.DetailsDescriptionText>
-                    {career.position}
+                    {biography.position}
                   </S.DetailsDescriptionText>
                   <S.SubtleDivider />
                 </S.DetailsDescriptionBox>
@@ -64,20 +72,20 @@ const ProfessorDetails = ({ professorDetails }) => {
       )}
 
       {/* Awards Section */}
-      {professorDetails?.awards && (
+      {professorDetails.awards && (
         <S.AwardsSection>
           <S.DetailSectionTitle>Awards</S.DetailSectionTitle>
           <S.BoldDivider />
           <S.CareerContainer>
-            {professorDetails?.awards.map((career) => (
-              <S.CareerEntry key={career.id}>
+            {professorDetails.awards.map((award: T.Award) => (
+              <S.CareerEntry key={award.id}>
                 <S.EventYearBox>
-                  <p>{career.year}</p>
+                  <p>{award.year}</p>
                   <S.SubtleDivider />
                 </S.EventYearBox>
                 <S.DetailsDescriptionBox>
                   <S.DetailsDescriptionText>
-                    {career.award}
+                    {award.award}
                   </S.DetailsDescriptionText>
                   <S.SubtleDivider />
                 </S.DetailsDescriptionBox>
@@ -93,7 +101,7 @@ const ProfessorDetails = ({ professorDetails }) => {
           <S.DetailSectionTitle>Publications</S.DetailSectionTitle>
           <S.BoldDivider />
           <S.CareerContainer>
-            {professorDetails?.publications.map((publication) => (
+            {professorDetails.publications.map((publication: T.Publication) => (
               <S.CareerEntry key={publication.id}>
                 <S.EventYearBox>
                   <p>{publication.year}</p>
@@ -117,7 +125,7 @@ const ProfessorDetails = ({ professorDetails }) => {
           <S.DetailSectionTitle>Works</S.DetailSectionTitle>
           <S.BoldDivider />
           <S.CareerContainer>
-            {professorDetails?.works.map((career) => (
+            {professorDetails.works.map((career: T.Career) => (
               <S.CareerEntry key={career.id}>
                 <S.EventYearBox>
                   <p>{career.yearRange}</p>
