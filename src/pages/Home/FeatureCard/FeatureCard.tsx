@@ -1,9 +1,14 @@
 import { JSX } from 'react/jsx-runtime';
 import { Link } from 'react-router';
 
-import * as S from './FeatureCard.styled';
+import { HighlightCard } from '../HighlightSection/Highlight.types';
 
-const FeatureCard = ({ cardData }): JSX.Element => {
+import * as S from './FeatureCard.styled';
+interface FeatureCardProps {
+  cardData: HighlightCard;
+}
+
+const FeatureCard = ({ cardData }: FeatureCardProps): JSX.Element => {
   return (
     <Link to={cardData.route}>
       <S.FeatureCardContainer>
