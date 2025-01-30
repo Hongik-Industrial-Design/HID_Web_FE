@@ -12,8 +12,8 @@ interface OfficeInfo {
 // Admission
 interface AdmissionDetail {
   title: string;
-  content?: string;
-  url?: string;
+  content: string;
+  url: string;
 }
 
 interface AdmissionInfo {
