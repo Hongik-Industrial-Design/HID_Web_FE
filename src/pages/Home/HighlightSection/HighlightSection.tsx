@@ -1,11 +1,12 @@
 import axios from 'axios';
+import { JSX } from 'react/jsx-runtime';
 import { useEffect, useState } from 'react';
 
 import FeatureCard from '../FeatureCard/FeatureCard';
 
 import * as S from './HighlightSection.styled';
 
-const HighlightSection = () => {
+const HighlightSection = (): JSX.Element => {
   const [highlights, setHighlights] = useState([]);
 
   // Fetching highlight section data

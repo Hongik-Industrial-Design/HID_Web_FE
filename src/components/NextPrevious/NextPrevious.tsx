@@ -3,7 +3,15 @@ import { useNavigate } from 'react-router';
 
 import * as S from './NextPrevious.styled';
 
-const NextPrevious = ({ currentPage, totalPages }) => {
+type NextPreviousProps = {
+  currentPage: number;
+  totalPages: number;
+};
+
+const NextPrevious = ({
+  currentPage,
+  totalPages,
+}: NextPreviousProps): JSX.Element => {
   console.log('Current page: ', currentPage);
   console.log('Total pages: ', totalPages);
 

@@ -1,3 +1,5 @@
+import { JSX } from 'react/jsx-runtime';
+
 import OverviewSection from './OverviewSection/OverviewSection';
 
 import homeBanner from '@assets/images/banners/home-banner.jpg';

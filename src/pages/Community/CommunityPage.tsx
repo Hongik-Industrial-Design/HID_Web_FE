@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { JSX } from 'react/jsx-runtime';
 import { useEffect, useRef, useState } from 'react';
 
 import * as S from './CommunityPage.styled';
@@ -7,7 +8,7 @@ import NoticeSection from './Notice/NoticeSection';
 import CategoryCommunity from '@components/CategoryCommunity/CategoryCommunity';
 import NewsEventCard from './NewsEvent/NewsEventCard';
 
-const CommunityPage = () => {
+const CommunityPage = (): JSX.Element => {
   const [newsEventCardInfos, setNewsEventCardInfos] = useState([]);
 
   const newsEventTopRef = useRef(null);

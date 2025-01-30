@@ -1,3 +1,4 @@
+import { JSX } from 'react/jsx-runtime';
 import { useEffect, useRef, useState } from 'react';
 
 import * as S from './VideoPlayer.styled';
@@ -5,7 +6,7 @@ import * as S from './VideoPlayer.styled';
 import playButton from '@assets/icons/svgs/video-player/play_fill-white.svg';
 import fullScreenButton from '@assets/icons/svgs/video-player/full-screen_white.svg';
 
-const VideoPlayer = ({ videoData, currentPage }) => {
+const VideoPlayer = ({ videoData, currentPage }): JSX.Element => {
   const videoRef = useRef(null);
 
   const [isPlaying, setIsPlaying] = useState(false);

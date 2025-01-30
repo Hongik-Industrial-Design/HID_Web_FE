@@ -1,3 +1,5 @@
+import { JSX } from 'react/jsx-runtime';
+
 import { openNewTab } from '@utils/openNewTab';
 
 import * as T from '../../Contact.types';

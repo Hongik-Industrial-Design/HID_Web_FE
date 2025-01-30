@@ -1,8 +1,14 @@
+import { JSX } from 'react/jsx-runtime';
 import { useState } from 'react';
 
 import * as S from './Pagination.styled';
 
-const Pagination = ({ currentPage, setCurrentPage, totalPages, isPreview }) => {
+const Pagination = ({
+  currentPage,
+  setCurrentPage,
+  totalPages,
+  isPreview,
+}): JSX.Element => {
   const [startPage, setStartPage] = useState(1);
   const [currentPageSection, setCurrentPageSection] = useState(1);
 

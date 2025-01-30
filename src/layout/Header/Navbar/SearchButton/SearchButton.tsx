@@ -1,6 +1,8 @@
+import { JSX } from 'react/jsx-runtime';
+
 import * as S from './SearchButton.styled';
 
-const SearchButton = ({ isHomePage, scrolled }) => {
+const SearchButton = ({ isHomePage, scrolled }): JSX.Element => {
   return (
     <S.IconContainer>
       <S.StyledMagnifyLens $isHomePage={isHomePage} $scrolled={scrolled} />

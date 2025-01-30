@@ -1,3 +1,4 @@
+import { JSX } from 'react/jsx-runtime';
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router';
 
@@ -6,7 +7,7 @@ import Dropdown from './Navbar/Dropdown/Dropdown';
 
 import * as S from './Header.styled';
 
-const Header = ({ isNavbarHovered, handleNavbarHover }) => {
+const Header = ({ isNavbarHovered, handleNavbarHover }): JSX.Element => {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 

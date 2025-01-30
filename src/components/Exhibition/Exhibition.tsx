@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { JSX } from 'react/jsx-runtime';
 import { useEffect, useState } from 'react';
 
 import * as S from './Exhibition.styled';
@@ -6,7 +7,7 @@ import * as S from './Exhibition.styled';
 import Category from './Category/Category';
 import Gallery from './Gallery/Gallery';
 
-const Exhibition = () => {
+const Exhibition = (): JSX.Element => {
   const [pieces, setPieces] = useState([]);
   const [categorizedPieces, setCategorizedPieces] = useState([]);
 
@@ -28,7 +29,7 @@ const Exhibition = () => {
   }, []);
 
   // Filterirng corresponding category Pieces list
-  const handleFilterPieces = (category) => {
+  const handleFilterPieces = (category: string) => {
     if (category === 'All') {
       setCategorizedPieces(pieces);
     } else {

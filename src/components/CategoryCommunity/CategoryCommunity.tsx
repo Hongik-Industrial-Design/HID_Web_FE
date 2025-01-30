@@ -1,8 +1,9 @@
+import { JSX } from 'react/jsx-runtime';
 import { useState } from 'react';
 
 import * as S from './CategoryCommunity.styled';
 
-const CategoryCommunity = ({ categoryList, ScrollToTopRef }) => {
+const CategoryCommunity = ({ categoryList, ScrollToTopRef }): JSX.Element => {
   const [selectedOption, setSelectedOption] = useState(categoryList[0]);
 
   const handleFilterOption = (filterOption) => {

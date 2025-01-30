@@ -1,10 +1,11 @@
+import { JSX } from 'react/jsx-runtime';
 import { Link } from 'react-router';
 
 import { BreadscrumbArrow } from '@icons/BreadscrumbArrow';
 
 import * as S from './Breadscrumb.styled';
 
-const Breadscrumb = ({ paths, currentPage }) => {
+const Breadscrumb = ({ paths, currentPage }): JSX.Element => {
   return (
     <S.BreadscrumbContainer>
       {paths.map((path, index) => (

@@ -1,6 +1,14 @@
+import { JSX } from 'react/jsx-runtime';
+
 import * as S from './NewsEventCard.styled';
 
-const NewsEventCard = ({ route, imageURL, deadline, title, category }) => {
+const NewsEventCard = ({
+  route,
+  imageURL,
+  deadline,
+  title,
+  category,
+}): JSX.Element => {
   return (
     <S.NewsEventCardContainer href={route}>
       <S.CardThumbnail src={imageURL} alt={title} />

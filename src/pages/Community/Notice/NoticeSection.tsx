@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { JSX } from 'react/jsx-runtime';
 import { useEffect, useRef, useState } from 'react';
 
 import * as S from './NoticeSection.styled';
@@ -6,7 +7,7 @@ import * as S from './NoticeSection.styled';
 import Pagination from '@components/Pagination/Pagination';
 import CategoryCommunity from '@components/CategoryCommunity/CategoryCommunity';
 
-const NoticeSection = () => {
+const NoticeSection = (): JSX.Element => {
   const [noticeData, setNoticeData] = useState(null);
   const [pagePosts, setPagePosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);

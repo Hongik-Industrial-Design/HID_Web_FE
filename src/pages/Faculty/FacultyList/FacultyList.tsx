@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { JSX } from 'react/jsx-runtime';
 import { useEffect, useState } from 'react';
 
 import { FacultyInfos } from './FacultyList.types';

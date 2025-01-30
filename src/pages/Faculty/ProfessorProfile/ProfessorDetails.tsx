@@ -1,3 +1,5 @@
+import { JSX } from 'react/jsx-runtime';
+
 import * as T from './Professor.types';
 
 import * as S from './ProfessorDetails.styled';

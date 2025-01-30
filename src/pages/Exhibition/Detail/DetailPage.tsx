@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { JSX } from 'react/jsx-runtime';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 
@@ -8,7 +9,7 @@ import HeroSection from '@pages/Exhibition/Detail/HeroSection/HeroSection';
 import ArtworkSection from '@pages/Exhibition/Detail/ArtworkSection/ArtworkSection';
 import TeamMembersSection from './TeamMemberSection/TeamMembersSection';
 
-const DetailPage = () => {
+const DetailPage = (): JSX.Element => {
   const [artworkInfos, setArtworkInfos] = useState([]);
   const [totalPages, setTotalPages] = useState(0);
 

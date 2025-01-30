@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { JSX } from 'react/jsx-runtime';
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useParams } from 'react-router';
 
@@ -9,8 +10,8 @@ import { ProfessorInfos } from './Professor.types';
 import ProfessorDetails from './ProfessorDetails';
 import { BreadscrumbArrow } from '@icons/BreadscrumbArrow';
 
-import * as S from './ProfessorProfile.styled';
 import { BreadscrumbContainer } from '@components/Breadscrumb/Breadscrumb.styled';
+import * as S from './ProfessorProfile.styled';
 
 type RouteParams = {
   id: string;

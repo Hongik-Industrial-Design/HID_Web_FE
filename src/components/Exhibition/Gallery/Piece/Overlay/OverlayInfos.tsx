@@ -1,6 +1,8 @@
+import { JSX } from 'react/jsx-runtime';
+
 import * as S from './OverlayInfos.styled';
 
-const OverlayInfos = ({ pieceInfos, isPieceHovered }) => {
+const OverlayInfos = ({ pieceInfos, isPieceHovered }): JSX.Element => {
   return (
     <S.OverlayContainer $isPieceHovered={isPieceHovered}>
       <div className="credit">

@@ -1,6 +1,8 @@
+import { JSX } from 'react/jsx-runtime';
+
 import * as S from './MemberCard.styled';
 
-const MemberCard = ({ teamMember }) => {
+const MemberCard = ({ teamMember }): JSX.Element => {
   return (
     <S.MemberCardContainer>
       <S.ProfileImage

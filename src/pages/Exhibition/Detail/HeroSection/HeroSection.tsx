@@ -1,3 +1,4 @@
+import { JSX } from 'react/jsx-runtime';
 import { useState } from 'react';
 
 import { openNewTab } from '@utils/openNewTab';
@@ -8,7 +9,7 @@ import NextPrevious from '@components/NextPrevious/NextPrevious';
 
 import * as S from './HeroSection.styled';
 
-const HeroSection = ({ fetchedData, totalPages, currentPage }) => {
+const HeroSection = ({ fetchedData, totalPages, currentPage }): JSX.Element => {
   // const [artworkInfos, setArtworkInfos] = useState([]);
   const [gotToListHovered, setGoToListHovered] = useState(false);
 

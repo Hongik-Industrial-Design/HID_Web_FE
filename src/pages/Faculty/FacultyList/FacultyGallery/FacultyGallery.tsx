@@ -1,3 +1,4 @@
+import { JSX } from 'react/jsx-runtime';
 import { AnimatePresence } from 'framer-motion';
 
 import { FacultyInfos } from '../FacultyList.types';

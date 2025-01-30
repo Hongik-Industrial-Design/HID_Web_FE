@@ -1,3 +1,5 @@
+import { JSX } from 'react/jsx-runtime';
+
 import NextPrevious from '@components/NextPrevious/NextPrevious';
 import HighlightSection from '../HighlightSection/HighlightSection';
 

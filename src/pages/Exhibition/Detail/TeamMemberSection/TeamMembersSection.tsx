@@ -1,8 +1,10 @@
-import { TeamMembersContainer } from './TeamMemberSection.styled';
+import { JSX } from 'react/jsx-runtime';
 
 import MemberCard from './MemberCard/MemberCard';
 
-const TeamMembersSection = ({ membersData }) => {
+import { TeamMembersContainer } from './TeamMemberSection.styled';
+
+const TeamMembersSection = ({ membersData }): JSX.Element => {
   return (
     <TeamMembersContainer>
       {membersData?.map((teamMember) => (

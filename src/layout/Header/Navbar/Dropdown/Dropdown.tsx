@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { JSX } from 'react/jsx-runtime';
 import { useEffect, useState } from 'react';
 
 import ExhibitionTab from './ExhibitionTab/ExhibitionTab';
@@ -10,7 +11,7 @@ const Dropdown = ({
   isDropdownOpen,
   enterDropdown,
   leaveDropdown,
-}) => {
+}): JSX.Element => {
   const [timeline, setTimeline] = useState([]);
 
   useEffect(() => {

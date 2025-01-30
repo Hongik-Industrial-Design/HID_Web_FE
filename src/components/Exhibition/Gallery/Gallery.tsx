@@ -1,4 +1,5 @@
 // import axios from "axios";
+import { JSX } from 'react/jsx-runtime';
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { AnimatePresence } from 'framer-motion';
@@ -9,7 +10,7 @@ import Indicator from './Indicator/Indicator';
 
 import * as S from './Gallery.styled';
 
-const Gallery = ({ pieces }) => {
+const Gallery = ({ pieces }): JSX.Element => {
   const navigate = useNavigate();
 
   // const [pieces, setPieces] = useState([]);

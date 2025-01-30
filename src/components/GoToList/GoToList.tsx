@@ -1,8 +1,9 @@
+import { JSX } from 'react/jsx-runtime';
 import { Link } from 'react-router';
 
 import * as S from './GoToList.styled';
 
-const GoToList = ({ isHovered, onMouseEnter, onMouseLeave }) => {
+const GoToList = ({ isHovered, onMouseEnter, onMouseLeave }): JSX.Element => {
   return (
     <Link to="/graduation">
       <S.ButtonContainer
