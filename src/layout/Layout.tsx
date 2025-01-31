@@ -1,3 +1,4 @@
+import { JSX } from 'react/jsx-runtime';
 import { create } from 'zustand';
 import { combine } from 'zustand/middleware';
 import { Outlet } from 'react-router';
@@ -7,10 +8,11 @@ import Footer from './Footer/Footer';
 
 import * as S from './Layout.styled';
 
+// Navbar Hover 전역 상태 관리 (Zustand)
 const useDropdownStore = create(
   combine({ isHovered: false }, (set) => {
     return {
-      setIsHovered: (hover) => {
+      setIsHovered: (hover: boolean) => {
         set(() => ({
           isHovered: hover,
         }));
@@ -19,19 +21,19 @@ const useDropdownStore = create(
   })
 );
 
-const Layout = () => {
+const Layout = (): JSX.Element => {
   // Navbar Hover 전역 상태 관리 (Zustand)
-  const isDropdownHovered = useDropdownStore((state) => state.isHovered);
-  const setIsDropdownHovered = useDropdownStore((state) => state.setIsHovered);
+  const isNavbarHovered = useDropdownStore((state) => state.isHovered);
+  const setIsNavbarHovered = useDropdownStore((state) => state.setIsHovered);
 
   const handleNavbarHover = () => {
-    setIsDropdownHovered(!isDropdownHovered);
+    setIsNavbarHovered(!isNavbarHovered);
   };
 
   return (
     <S.TopLevelContainer>
       <Header
-        isHovered={isDropdownHovered}
+        isNavbarHovered={isNavbarHovered}
         handleNavbarHover={handleNavbarHover}
       />
       <S.Contents>

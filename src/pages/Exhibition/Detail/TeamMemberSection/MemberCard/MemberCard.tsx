@@ -1,23 +1,25 @@
-import {
-  MemberCardContainer,
-  MemberInfo,
-  ProfileImage,
-} from './MemberCard.styled';
+import { JSX } from 'react/jsx-runtime';
 
-const MemberCard = ({ teamMember }) => {
+import { AuthorInfos } from '../../Artwork.types';
+
+import * as S from './MemberCard.styled';
+
+interface MemberCardProps {
+  teamMember: AuthorInfos;
+}
+
+const MemberCard = ({ teamMember }: MemberCardProps): JSX.Element => {
   return (
-    <>
-      <MemberCardContainer>
-        <ProfileImage
-          src={`/members/${teamMember.name}.jpg`}
-          alt={teamMember.name}
-        />
-        <MemberInfo>
-          <div className="name">{teamMember.name}</div>
-          <div className="specialty">{teamMember.specialty}</div>
-        </MemberInfo>
-      </MemberCardContainer>
-    </>
+    <S.MemberCardContainer>
+      <S.ProfileImage
+        src={`/members/${teamMember.name}.jpg`}
+        alt={teamMember.name}
+      />
+      <S.MemberInfo>
+        <div className="name">{teamMember.name}</div>
+        <div className="specialty">{teamMember.specialty}</div>
+      </S.MemberInfo>
+    </S.MemberCardContainer>
   );
 };
 

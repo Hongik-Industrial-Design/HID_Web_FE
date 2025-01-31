@@ -105,7 +105,7 @@ export const ProfileName = styled.div`
   }
 `;
 
-export const ProfileEmail = styled.a`
+export const ProfileEmail = styled.a<{ $emailHovered: boolean }>`
   align-self: flex-start;
 
   margin-top: 26px;

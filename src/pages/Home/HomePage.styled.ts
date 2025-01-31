@@ -7,9 +7,6 @@ export const BannerContainer = styled.div`
 
 export const BannerImage = styled.img`
   width: 100%;
-  height: 1080px;
-
-  flex-shrink: 0;
 `;
 
 export const BannerLogo = styled.img`

@@ -1,25 +1,23 @@
+import { JSX } from 'react/jsx-runtime';
+
 import NextPrevious from '@components/NextPrevious/NextPrevious';
 import HighlightSection from '../HighlightSection/HighlightSection';
 
-import {
-  IntroductionText,
-  OverviewContainer,
-  OverviewHeader,
-} from './OverviewSection.styled';
+import * as S from './OverviewSection.styled';
 
 const OverviewSection = (): JSX.Element => {
   return (
-    <OverviewContainer>
-      <OverviewHeader>
-        <IntroductionText>
+    <S.OverviewContainer>
+      <S.OverviewHeader>
+        <S.IntroductionText>
           About
           <br />
           Hongik Industrial Design<span>.</span>
-        </IntroductionText>
+        </S.IntroductionText>
         <NextPrevious />
-      </OverviewHeader>
+      </S.OverviewHeader>
       <HighlightSection />
-    </OverviewContainer>
+    </S.OverviewContainer>
   );
 };
 

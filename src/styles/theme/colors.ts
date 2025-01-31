@@ -1,8 +1,8 @@
-type Colors = {
+export type Colors = {
   [key: number]: string;
 };
 
-type ColorPalette = {
+export type ColorPalette = {
   HID_Navy: Colors;
   HID_Grayscale: Colors;
   HID_YellowDot: string;

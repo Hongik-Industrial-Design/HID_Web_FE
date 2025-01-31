@@ -13,7 +13,7 @@ export const CategoryContainer = styled.div`
   gap: 32px;
 `;
 
-export const FilterOption = styled.span`
+export const FilterOption = styled.span<{ $selectedOption: boolean }>`
   font-size: 22px;
   font-style: normal;
   font-weight: 500;

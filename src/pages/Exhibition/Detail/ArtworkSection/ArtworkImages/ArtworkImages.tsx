@@ -1,16 +1,30 @@
-import { ArtworkImageContainer, DetailImage } from './ArtworkImages.styled';
+import { JSX } from 'react/jsx-runtime';
 
-const ArtworkImages = ({ detailImages, currentPage }) => {
+import * as S from './ArtworkImages.styled';
+
+interface ArtworkImagesProps {
+  detailImages: {
+    id: number;
+    url: string;
+    caption: string;
+  }[];
+  currentPage: number;
+}
+
+const ArtworkImages = ({
+  detailImages,
+  currentPage,
+}: ArtworkImagesProps): JSX.Element => {
   return (
-    <ArtworkImageContainer>
+    <S.ArtworkImageContainer>
       {detailImages.map((image) => (
-        <DetailImage
+        <S.DetailImage
           key={image.id}
           src={`/Graduation-Exhibition/${currentPage}/${image?.url}`}
           alt={image.caption}
         />
       ))}
-    </ArtworkImageContainer>
+    </S.ArtworkImageContainer>
   );
 };
 

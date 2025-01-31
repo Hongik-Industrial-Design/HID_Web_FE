@@ -1,14 +1,19 @@
-import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { JSX } from 'react/jsx-runtime';
+import { useEffect, useState } from 'react';
 
-import { ExhibitionContainer, StickyContainer } from './Exhibition.styled';
+import { GalleryInfos } from './Gallery.types';
 
 import Category from './Category/Category';
 import Gallery from './Gallery/Gallery';
 
-const Exhibition = () => {
-  const [pieces, setPieces] = useState([]);
-  const [categorizedPieces, setCategorizedPieces] = useState([]);
+import * as S from './Exhibition.styled';
+
+const Exhibition = (): JSX.Element => {
+  const [pieces, setPieces] = useState<GalleryInfos[]>([]);
+  const [categorizedPieces, setCategorizedPieces] = useState<GalleryInfos[]>(
+    []
+  );
 
   // Fetching Dummy Gallery Image
   useEffect(() => {
@@ -28,7 +33,7 @@ const Exhibition = () => {
   }, []);
 
   // Filterirng corresponding category Pieces list
-  const handleFilterPieces = (category) => {
+  const handleFilterPieces = (category: string) => {
     if (category === 'All') {
       setCategorizedPieces(pieces);
     } else {
@@ -41,12 +46,12 @@ const Exhibition = () => {
   };
 
   return (
-    <ExhibitionContainer>
-      <StickyContainer>
+    <S.ExhibitionContainer>
+      <S.StickyContainer>
         <Category handleFilter={handleFilterPieces} />
-      </StickyContainer>
+      </S.StickyContainer>
       <Gallery pieces={categorizedPieces} />
-    </ExhibitionContainer>
+    </S.ExhibitionContainer>
   );
 };
 

@@ -1,19 +1,22 @@
+import { JSX } from 'react/jsx-runtime';
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { motion } from 'framer-motion';
 
-import {
-  ProfessorContainer,
-  ProfessorOverlay,
-  ProfessorThumbnail,
-} from './ProfessorCard.styled';
+import { FacultyInfos } from '../../FacultyList.types';
 
-const ProfessorCard = ({ professorInfo }) => {
+import * as S from './ProfessorCard.styled';
+
+type ProfessorCardProps = {
+  professorInfo: FacultyInfos;
+};
+
+const ProfessorCard = ({ professorInfo }: ProfessorCardProps): JSX.Element => {
   const [thumbnailHovered, setThumbnailHovered] = useState(false);
 
   const navigate = useNavigate();
 
-  const goToProfessorProfile = (id) => {
+  const goToProfessorProfile = (id: string) => {
     navigate(`/faculty/${id}`);
   };
 
@@ -22,22 +25,22 @@ const ProfessorCard = ({ professorInfo }) => {
       layout
       animate={{ opacity: 1 }}
       initial={{ opacity: 0 }}
-      exit={{ opactiy: 0 }}
+      exit={{ opacity: 0 }}
     >
-      <ProfessorContainer
+      <S.ProfessorContainer
         onClick={() => goToProfessorProfile(professorInfo.id)}
         onMouseEnter={() => setThumbnailHovered(true)}
         onMouseLeave={() => setThumbnailHovered(false)}
       >
-        <ProfessorThumbnail
+        <S.ProfessorThumbnail
           src={`/Faculty/${professorInfo.thumbnail}`}
           alt={professorInfo.info.name}
         />
-        <ProfessorOverlay $isHovered={thumbnailHovered}>
+        <S.ProfessorOverlay $isThumbnailHovered={thumbnailHovered}>
           <h2 className="name">{professorInfo.info.name}</h2>
           <h3 className="major">{professorInfo.info.major}</h3>
-        </ProfessorOverlay>
-      </ProfessorContainer>
+        </S.ProfessorOverlay>
+      </S.ProfessorContainer>
     </motion.div>
   );
 };

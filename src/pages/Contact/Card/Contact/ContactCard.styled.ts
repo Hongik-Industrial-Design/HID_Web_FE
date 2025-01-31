@@ -31,12 +31,13 @@ export const CardContent = styled.div`
   gap: 32px;
 `;
 
-export const SingleInfoContainer = styled.div`
+export const SingleInfoContainer = styled.div<{ $type: string }>`
   display: flex;
   flex-direction: column;
   gap: 16px;
 
-  color: ${({ $type }) => $type === 'Admission' && `${colors.HID_Navy[900]}`};
+  color: ${({ $type }) =>
+    $type === 'Admission Page ⇱' && `${colors.HID_Navy[900]}`};
 `;
 
 export const SingleInfoTitle = styled.h3`

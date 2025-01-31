@@ -58,7 +58,7 @@ export const ButtonContainer = styled.div`
   }
 `;
 
-export const GoToListText = styled.div`
+export const GoToListText = styled.div<{ $isHovered: boolean }>`
   color: ${({ $isHovered }) =>
     $isHovered ? `${colors.HID_Grayscale[0]}` : '#0000008F'};
 
@@ -70,7 +70,7 @@ export const GoToListText = styled.div`
   line-height: 22px;
 `;
 
-export const StyledLeftArrow = styled(LeftArrow)`
+export const StyledLeftArrow = styled(LeftArrow)<{ $isHovered: boolean }>`
   width: 24px;
   height: 24px;
 

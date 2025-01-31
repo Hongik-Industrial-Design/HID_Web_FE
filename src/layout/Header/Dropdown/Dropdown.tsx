@@ -1,16 +1,20 @@
-import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { JSX } from 'react/jsx-runtime';
+import { useEffect, useState } from 'react';
 
-import { DropdownBackground, DropdownContainer } from './Dropdown.styled';
+import { DropdownProps } from './Dropdown.types';
+
 import ExhibitionTab from './ExhibitionTab/ExhibitionTab';
 
+import * as S from './Dropdown.styled';
+
 const Dropdown = ({
-  isHovered,
+  isNavbarHovered,
   isDropdownOpen,
   enterDropdown,
   leaveDropdown,
-}) => {
-  const [timeline, setTimeline] = useState([]);
+}: DropdownProps): JSX.Element => {
+  const [timeline, setTimeline] = useState<number[]>([]);
 
   useEffect(() => {
     const fetchTimelineData = async () => {
@@ -32,26 +36,29 @@ const Dropdown = ({
     fetchTimelineData();
   }, []);
 
-  const reverseArray = (arr) => {
+  const reverseArray = (arr: number[]): number[] => {
     return [...arr].reverse();
   };
 
   return (
     <>
-      <DropdownBackground $isHovered={isHovered} $isOpened={isDropdownOpen} />
-      <DropdownContainer
-        $isHovered={isHovered}
-        $isOpened={isDropdownOpen}
+      <S.DropdownBackground
+        $isNavbarHovered={isNavbarHovered}
+        $isDropdownOpen={isDropdownOpen}
+      />
+      <S.DropdownContainer
+        $isNavbarHovered={isNavbarHovered}
+        $isDropdownOpen={isDropdownOpen}
         onMouseEnter={enterDropdown}
         onMouseLeave={leaveDropdown}
       >
         <ExhibitionTab
           exhibitonType={'Graduation'}
           timeline={timeline}
-          isHovered={isHovered}
-          isOpened={isDropdownOpen}
+          isNavbarHovered={isNavbarHovered}
+          isDropdownOpen={isDropdownOpen}
         />
-      </DropdownContainer>
+      </S.DropdownContainer>
     </>
   );
 };

@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import { colors } from '@styles/theme/colors';
 
-export const NavItemsContainer = styled.ul`
+import { HeaderTransientProps } from '../Header.types';
+
+export const NavItemsContainer = styled.ul<HeaderTransientProps>`
   height: 100%;
 
   display: flex;
@@ -16,9 +18,9 @@ export const NavItemsContainer = styled.ul`
   color: ${({ $isHomePage, $scrolled }) =>
     $isHomePage && $scrolled && `${colors.HID_Grayscale[800]}`};
 
-  color: ${({ $isHomePage, $isHovered, $dropdownOpen }) =>
+  color: ${({ $isHomePage, $isNavbarHovered, $isDropdownOpen }) =>
     $isHomePage &&
-    ($isHovered || $dropdownOpen) &&
+    ($isNavbarHovered || $isDropdownOpen) &&
     `${colors.HID_Grayscale[800]}`};
 
   transition: color 0.3s ease;
@@ -28,7 +30,7 @@ export const NavItemsContainer = styled.ul`
   }
 `;
 
-export const NavItem = styled.li`
+export const NavItem = styled.li<{ $currentPage?: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,15 +1,18 @@
-import {
-  IconContainer,
-  MagnifyHandle,
-  StyledMagnifyLens,
-} from './SearchButton.styled';
+import { JSX } from 'react/jsx-runtime';
 
-const SearchButton = ({ isHomePage, scrolled }) => {
+import { SearchButtonProps } from '../Navbar.types';
+
+import * as S from './SearchButton.styled';
+
+const SearchButton = ({
+  isHomePage,
+  scrolled,
+}: SearchButtonProps): JSX.Element => {
   return (
-    <IconContainer>
-      <StyledMagnifyLens $isHomePage={isHomePage} $scrolled={scrolled} />
-      <MagnifyHandle $isHomePage={isHomePage} $scrolled={scrolled} />
-    </IconContainer>
+    <S.IconContainer>
+      <S.StyledMagnifyLens $isHomePage={isHomePage} $scrolled={scrolled} />
+      <S.MagnifyHandle $isHomePage={isHomePage} $scrolled={scrolled} />
+    </S.IconContainer>
   );
 };
 

@@ -1,34 +1,31 @@
-import {
-  PersonalCardContainer,
-  PersonalCardSection,
-  PersonalMail,
-  PersonalName,
-} from './AdminCard.styled';
+import { JSX } from 'react/jsx-runtime';
+
+import * as T from '../../Contact.types';
 
 import {
   CardTitle,
   CloudyDivider,
   ContactCardContainer,
   Divider,
-} from '../ContactCard.styled';
+} from '../Contact/ContactCard.styled';
 
-const AdminCard = ({ adminData }) => {
+import * as S from './AdminCard.styled';
+
+const AdminCard = ({ adminData }: T.AdminCardProps): JSX.Element => {
   return (
-    <>
-      <ContactCardContainer>
-        <CardTitle>{adminData?.category}</CardTitle>
-        <Divider />
-        {adminData?.contributors?.map((contributor, index) => (
-          <PersonalCardSection key={index}>
-            <PersonalCardContainer>
-              <PersonalName>{contributor.name}</PersonalName>
-              <PersonalMail>{contributor.email}</PersonalMail>
-            </PersonalCardContainer>
-            <CloudyDivider />
-          </PersonalCardSection>
-        ))}
-      </ContactCardContainer>
-    </>
+    <ContactCardContainer>
+      <CardTitle>{adminData?.category}</CardTitle>
+      <Divider />
+      {adminData?.contributors?.map((contributor, index) => (
+        <S.PersonalCardSection key={index}>
+          <S.PersonalCardContainer>
+            <S.PersonalName>{contributor.name}</S.PersonalName>
+            <S.PersonalMail>{contributor.email}</S.PersonalMail>
+          </S.PersonalCardContainer>
+          <CloudyDivider />
+        </S.PersonalCardSection>
+      ))}
+    </ContactCardContainer>
   );
 };
 

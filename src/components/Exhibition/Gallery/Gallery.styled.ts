@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const GalleryWrapper = styled.div`
+export const GalleryWrapper = styled.div<{ $height: number }>`
   height: ${({ $height }) => $height + 242}px;
   margin-right: 64px;
 

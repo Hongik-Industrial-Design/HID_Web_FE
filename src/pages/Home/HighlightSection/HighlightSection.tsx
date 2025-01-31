@@ -1,11 +1,15 @@
-import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { JSX } from 'react/jsx-runtime';
+import { useEffect, useState } from 'react';
+
+import { HighlightCard } from './Highlight.types';
 
 import FeatureCard from '../FeatureCard/FeatureCard';
-import { HighlightSectionContainer } from './HighlightSection.styled';
 
-const HighlightSection = () => {
-  const [highlights, setHighlights] = useState([]);
+import * as S from './HighlightSection.styled';
+
+const HighlightSection = (): JSX.Element => {
+  const [highlights, setHighlights] = useState<HighlightCard[]>([]);
 
   // Fetching highlight section data
   useEffect(() => {
@@ -25,11 +29,11 @@ const HighlightSection = () => {
   }, []);
 
   return (
-    <HighlightSectionContainer>
+    <S.HighlightSectionContainer>
       {highlights.map((highlight) => (
         <FeatureCard key={highlight.id} cardData={highlight} />
       ))}
-    </HighlightSectionContainer>
+    </S.HighlightSectionContainer>
   );
 };
 

@@ -1,10 +1,14 @@
-import { IndicatorBar, IndicatorContainer } from './Indicator.styled';
+import { JSX } from 'react/jsx-runtime';
 
-const Indicator = ({ handleScroll, width }) => {
+import { IndicatorProps } from '@components/Exhibition/Gallery.types';
+
+import * as S from './Indicator.styled';
+
+const Indicator = ({ handleScroll, width }: IndicatorProps): JSX.Element => {
   return (
-    <IndicatorContainer>
-      <IndicatorBar onScroll={handleScroll} style={{ width: `${width}` }} />
-    </IndicatorContainer>
+    <S.IndicatorContainer>
+      <S.IndicatorBar onScroll={handleScroll} style={{ width: `${width}` }} />
+    </S.IndicatorContainer>
   );
 };
 

@@ -1,35 +1,33 @@
+import { JSX } from 'react/jsx-runtime';
 import { useState } from 'react';
 
-import {
-  ArtworkDescription,
-  ArtworkSubTitle,
-  ArtworkTitle,
-  AuthorContainer,
-  AuthorUnit,
-  ContentArea,
-  ContentFooter,
-  ContentHeader,
-  HeroSectionContainer,
-  RoutingArea,
-  SocialIcons,
-  ThumbnailContainer,
-  TinyThumbnailContainer,
-} from './HeroSection.styled';
+import { HeroSectionInfos } from '../Artwork.types';
+import { openNewTab } from '@utils/openNewTab';
 
 import Breadscrumb from '@components/Breadscrumb/Breadscrumb';
 import GoToList from '@components/GoToList/GoToList';
 import NextPrevious from '@components/NextPrevious/NextPrevious';
 
-const HeroSection = ({ fetchedData, totalPages, currentPage }) => {
-  // const [artworkInfos, setArtworkInfos] = useState([]);
-  const [isHovered, setIsHovered] = useState(false);
+import * as S from './HeroSection.styled';
 
-  const openNewTab = (url) => {
-    window.open(url, '_blank', 'noopener,noreferrer');
-  };
+interface HeroSectionProps {
+  fetchedData?: HeroSectionInfos;
+  totalPages: number;
+  currentPage: number;
+}
+
+const HeroSection = ({
+  fetchedData,
+  totalPages,
+  currentPage,
+}: HeroSectionProps): JSX.Element => {
+  const [gotToListHovered, setGoToListHovered] = useState<boolean>(false);
+
+  const handleGoToListEnter = () => setGoToListHovered(true);
+  const handleGoToListLeave = () => setGoToListHovered(false);
 
   return (
-    <HeroSectionContainer>
+    <S.HeroSectionContainer>
       <Breadscrumb
         paths={[
           {
@@ -40,8 +38,8 @@ const HeroSection = ({ fetchedData, totalPages, currentPage }) => {
         ]}
         currentPage="View Detail"
       />
-      <ThumbnailContainer>
-        <TinyThumbnailContainer>
+      <S.ThumbnailContainer>
+        <S.TinyThumbnailContainer>
           {fetchedData?.thumbnails?.tinyImages.map((tinyImage) => (
             <img
               key={tinyImage.id}
@@ -50,32 +48,32 @@ const HeroSection = ({ fetchedData, totalPages, currentPage }) => {
               className="secondary"
             />
           ))}
-        </TinyThumbnailContainer>
+        </S.TinyThumbnailContainer>
         <img
           src={`/Graduation-Exhibition/${currentPage}/${fetchedData?.thumbnails?.primary.url}`}
           alt="primary-thumbnail"
           className="primary"
         />
-      </ThumbnailContainer>
-      <ContentArea>
-        <ContentHeader>
-          <ArtworkTitle>{fetchedData?.title}</ArtworkTitle>
-          <ArtworkSubTitle>{fetchedData?.subtitle}</ArtworkSubTitle>
-          <AuthorContainer>
+      </S.ThumbnailContainer>
+      <S.ContentArea>
+        <S.ContentHeader>
+          <S.ArtworkTitle>{fetchedData?.title}</S.ArtworkTitle>
+          <S.ArtworkSubTitle>{fetchedData?.subtitle}</S.ArtworkSubTitle>
+          <S.AuthorContainer>
             {fetchedData?.authors.map((author) => (
-              <AuthorUnit key={author.id}>
+              <S.AuthorUnit key={author.id}>
                 <p>{author.name}</p>
                 <span className="divider" />
-              </AuthorUnit>
+              </S.AuthorUnit>
             ))}
-          </AuthorContainer>
-        </ContentHeader>
-        <ArtworkDescription>
+          </S.AuthorContainer>
+        </S.ContentHeader>
+        <S.ArtworkDescription>
           <div>{fetchedData?.description_en}</div>
           <div>{fetchedData?.description_ko}</div>
-        </ArtworkDescription>
-        <ContentFooter>
-          <SocialIcons>
+        </S.ArtworkDescription>
+        <S.ContentFooter>
+          <S.SocialIcons>
             {fetchedData?.social.map((sns) => (
               <img
                 key={sns.id}
@@ -84,14 +82,18 @@ const HeroSection = ({ fetchedData, totalPages, currentPage }) => {
                 onClick={() => openNewTab(`${sns.linkInfo}`)}
               />
             ))}
-          </SocialIcons>
-          <RoutingArea>
-            <GoToList isHovered={isHovered} setIsHovered={setIsHovered} />
+          </S.SocialIcons>
+          <S.RoutingArea>
+            <GoToList
+              isHovered={gotToListHovered}
+              onMouseEnter={handleGoToListEnter}
+              onMouseLeave={handleGoToListLeave}
+            />
             <NextPrevious currentPage={currentPage} totalPages={totalPages} />
-          </RoutingArea>
-        </ContentFooter>
-      </ContentArea>
-    </HeroSectionContainer>
+          </S.RoutingArea>
+        </S.ContentFooter>
+      </S.ContentArea>
+    </S.HeroSectionContainer>
   );
 };
 

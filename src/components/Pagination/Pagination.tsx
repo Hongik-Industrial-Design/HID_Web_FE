@@ -1,36 +1,45 @@
+import { JSX } from 'react/jsx-runtime';
 import { useState } from 'react';
 
 import * as S from './Pagination.styled';
 
-const Pagination = ({ currentPage, setCurrentPage, totalPages, isPreview }) => {
+type PaginationProps = {
+  currentPage: number;
+  handleCurrentPage: (page: number) => void;
+  totalPages: number | undefined;
+  isPreview: boolean;
+};
+
+const Pagination = ({
+  currentPage,
+  handleCurrentPage,
+  totalPages,
+  isPreview,
+}: PaginationProps): JSX.Element => {
   const [startPage, setStartPage] = useState(1);
   const [currentPageSection, setCurrentPageSection] = useState(1);
 
   const endPage = isPreview
-    ? Math.min(startPage + 4, Math.min(totalPages, 10))
-    : Math.min(startPage + 4, totalPages);
+    ? Math.min(startPage + 4, Math.min(totalPages ?? 0, 10))
+    : Math.min(startPage + 4, totalPages ?? 0);
 
   const totalPageSection = isPreview
-    ? Math.min(Math.ceil(totalPages / 5), 2)
-    : Math.ceil(totalPages / 5);
-
-  const handlePageClick = (page) => {
-    setCurrentPage(page);
-  };
+    ? Math.min(Math.ceil((totalPages ?? 0) / 5), 2)
+    : Math.ceil((totalPages ?? 0) / 5);
 
   const handlePreviousClick = () => {
     const newStartPage = startPage - 5;
     const newEndPage = startPage - 1;
     setCurrentPageSection(currentPageSection - 1);
     setStartPage(newStartPage);
-    setCurrentPage(newEndPage);
+    handleCurrentPage(newEndPage);
   };
 
   const handleNextClick = () => {
     const newStartPage = startPage + 5;
     setCurrentPageSection(currentPageSection + 1);
     setStartPage(newStartPage);
-    setCurrentPage(newStartPage);
+    handleCurrentPage(newStartPage);
   };
 
   const getPageNumbers = () => {
@@ -48,13 +57,13 @@ const Pagination = ({ currentPage, setCurrentPage, totalPages, isPreview }) => {
       {getPageNumbers().map((page) => (
         <S.PageButton
           key={page}
-          onClick={() => handlePageClick(page)}
+          onClick={() => handleCurrentPage(page)}
           $currentPage={currentPage === page}
         >
           {page}
         </S.PageButton>
       ))}
-      {totalPages > 5 && currentPageSection !== totalPageSection && (
+      {(totalPages ?? 0) > 5 && currentPageSection !== totalPageSection && (
         <S.NextArrow onClick={handleNextClick} />
       )}
     </S.PaginationContainer>

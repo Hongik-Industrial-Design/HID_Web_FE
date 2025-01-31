@@ -1,17 +1,29 @@
-import { Arrow, ScrollContainer } from './ScrollButton.styled';
+import { JSX } from 'react/jsx-runtime';
 
-const ScrollButton = ({ arrowType, onClick, isScrolled }) => {
+import * as S from './ScrollButton.styled';
+
+type ScrollButtonProps = {
+  arrowType: 'left' | 'right';
+  onClick: () => void;
+  isScrolled: boolean;
+};
+
+const ScrollButton = ({
+  arrowType,
+  onClick,
+  isScrolled,
+}: ScrollButtonProps): JSX.Element => {
   return (
-    <ScrollContainer
+    <S.ScrollContainer
       onClick={onClick}
       $arrowType={arrowType}
       $isScrolled={isScrolled}
     >
-      <Arrow
+      <S.Arrow
         src={`src/assets/arrows/${arrowType}-arrow.svg`}
         alt={`${arrowType}-arrow`}
       />
-    </ScrollContainer>
+    </S.ScrollContainer>
   );
 };
 

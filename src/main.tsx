@@ -1,13 +1,13 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { ThemeProvider } from 'styled-components';
-import { theme } from '@styles/theme/theme.js';
 import { BrowserRouter } from 'react-router';
 
+import { theme } from '@styles/theme/theme.js';
 import ScrollToTop from '@utils/ScrollToTop.js';
 import App from './App.js';
 
-import '@styles/main.scss';
+import '@styles/global/main.scss';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
