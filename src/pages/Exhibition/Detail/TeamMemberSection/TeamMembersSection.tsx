@@ -3,8 +3,15 @@ import { JSX } from 'react/jsx-runtime';
 import MemberCard from './MemberCard/MemberCard';
 
 import { TeamMembersContainer } from './TeamMemberSection.styled';
+import { AuthorInfos } from '../Artwork.types';
 
-const TeamMembersSection = ({ membersData }): JSX.Element => {
+interface TeamMemberSectionProps {
+  membersData?: AuthorInfos[];
+}
+
+const TeamMembersSection = ({
+  membersData,
+}: TeamMemberSectionProps): JSX.Element => {
   return (
     <TeamMembersContainer>
       {membersData?.map((teamMember) => (

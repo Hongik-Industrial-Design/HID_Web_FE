@@ -1,15 +1,23 @@
 import { JSX } from 'react/jsx-runtime';
 import { useEffect, useRef, useState } from 'react';
 
-import * as S from './VideoPlayer.styled';
-
 import playButton from '@assets/icons/svgs/video-player/play_fill-white.svg';
 import fullScreenButton from '@assets/icons/svgs/video-player/full-screen_white.svg';
 
-const VideoPlayer = ({ videoData, currentPage }): JSX.Element => {
-  const videoRef = useRef(null);
+import * as S from './VideoPlayer.styled';
 
-  const [isPlaying, setIsPlaying] = useState(false);
+interface VideoPlayerProps {
+  videoData: { id: number; url: string }[];
+  currentPage: number;
+}
+
+const VideoPlayer = ({
+  videoData,
+  currentPage,
+}: VideoPlayerProps): JSX.Element => {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
 
   useEffect(() => {
     if (videoRef.current) {
@@ -20,12 +28,14 @@ const VideoPlayer = ({ videoData, currentPage }): JSX.Element => {
   }, [currentPage, videoData]);
 
   const handleVideoClick = () => {
-    if (isPlaying) {
-      videoRef.current.pause();
-      setIsPlaying(false);
-    } else {
-      videoRef.current.play();
-      setIsPlaying(true);
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        videoRef.current.play();
+        setIsPlaying(true);
+      }
     }
   };
 
@@ -37,14 +47,16 @@ const VideoPlayer = ({ videoData, currentPage }): JSX.Element => {
   };
 
   const handleFullScreen = () => {
-    if (!document.fullscreenElement) {
-      if (videoRef.current.requestFullScreen) {
-        console.log(videoRef.current.requestFullScreen);
-        videoRef.current.requestFullScreen();
-      } else if (videoRef.current.webkitRequestFullscreen) {
-        videoRef.current.webkitRequestFullscreen();
-      } else if (videoRef.current.msRequestFullscreen) {
-        videoRef.current.msRequestFullscreen();
+    const videoElement = videoRef.current as HTMLVideoElement & {
+      webkitRequestFullscreen?: () => void;
+      msRequestFullscreen?: () => void;
+    };
+
+    if (!document.fullscreenElement && videoRef.current) {
+      if (videoElement.webkitRequestFullscreen) {
+        videoElement.webkitRequestFullscreen();
+      } else if (videoElement.msRequestFullscreen) {
+        videoElement.msRequestFullscreen();
       }
     } else {
       if (document.exitFullscreen) {

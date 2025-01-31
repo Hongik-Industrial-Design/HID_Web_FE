@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const GraduationPageContainer = styled.div`
+export const GraduationExhibitionContainer = styled.div`
   width: 100%;
 `;
 

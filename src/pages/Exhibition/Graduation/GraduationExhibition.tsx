@@ -3,13 +3,13 @@ import { motion } from 'framer-motion';
 
 import Exhibition from '@components/Exhibition/Exhibition';
 
-import * as S from './GraduationPage.styled';
-
 import graduationBanner from '@assets/images/banners/graduation-banner.jpg';
 
-export const GraduationPage = (): JSX.Element => {
+import * as S from './GraduationExhibition.styled';
+
+export const GraduationExhibition = (): JSX.Element => {
   return (
-    <S.GraduationPageContainer>
+    <S.GraduationExhibitionContainer>
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -28,8 +28,8 @@ export const GraduationPage = (): JSX.Element => {
       </motion.div>
 
       <Exhibition />
-    </S.GraduationPageContainer>
+    </S.GraduationExhibitionContainer>
   );
 };
 
-export default GraduationPage;
+export default GraduationExhibition;

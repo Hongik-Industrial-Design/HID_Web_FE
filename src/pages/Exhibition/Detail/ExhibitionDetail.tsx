@@ -3,23 +3,26 @@ import { JSX } from 'react/jsx-runtime';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 
-import { DetailPageContainer } from './DetailPage.styled';
+import { ArtworkInfo } from './Artwork.types';
 
 import HeroSection from '@pages/Exhibition/Detail/HeroSection/HeroSection';
 import ArtworkSection from '@pages/Exhibition/Detail/ArtworkSection/ArtworkSection';
 import TeamMembersSection from './TeamMemberSection/TeamMembersSection';
 
+import * as S from './ExhibitionDetail.styled';
+
 const DetailPage = (): JSX.Element => {
-  const [artworkInfos, setArtworkInfos] = useState([]);
-  const [totalPages, setTotalPages] = useState(0);
+  const [artworkInfos, setArtworkInfos] = useState<ArtworkInfo[]>([]);
+  const [totalPages, setTotalPages] = useState<number>(0);
 
   // Extract URL id value & parse string into a number
   const { id } = useParams();
-  const currentPage = parseInt(id, 10);
+  const currentPage = id ? parseInt(id) : 1;
 
   // Find corresponding Artwork matched with URL id
-  const individualArtworkInfos =
-    artworkInfos.find((artwork) => artwork.id === currentPage) || {};
+  const individualArtworkInfos = artworkInfos.find(
+    (artwork) => artwork.id === currentPage
+  );
 
   console.log('Individual Artwork Infos: ', individualArtworkInfos);
 
@@ -46,7 +49,7 @@ const DetailPage = (): JSX.Element => {
   }, []);
 
   return (
-    <DetailPageContainer>
+    <S.ExhibitionDetailContainer>
       <HeroSection
         fetchedData={individualArtworkInfos?.heroSection}
         totalPages={totalPages}
@@ -57,7 +60,7 @@ const DetailPage = (): JSX.Element => {
         currentPage={currentPage}
       />
       <TeamMembersSection membersData={individualArtworkInfos?.authorInfos} />
-    </DetailPageContainer>
+    </S.ExhibitionDetailContainer>
   );
 };
 

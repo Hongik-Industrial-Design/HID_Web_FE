@@ -1,8 +1,14 @@
 import { JSX } from 'react/jsx-runtime';
 
+import { AuthorInfos } from '../../Artwork.types';
+
 import * as S from './MemberCard.styled';
 
-const MemberCard = ({ teamMember }): JSX.Element => {
+interface MemberCardProps {
+  teamMember: AuthorInfos;
+}
+
+const MemberCard = ({ teamMember }: MemberCardProps): JSX.Element => {
   return (
     <S.MemberCardContainer>
       <S.ProfileImage

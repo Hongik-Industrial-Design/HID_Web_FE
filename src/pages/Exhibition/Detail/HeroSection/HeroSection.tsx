@@ -1,6 +1,7 @@
 import { JSX } from 'react/jsx-runtime';
 import { useState } from 'react';
 
+import { HeroSectionInfos } from '../Artwork.types';
 import { openNewTab } from '@utils/openNewTab';
 
 import Breadscrumb from '@components/Breadscrumb/Breadscrumb';
@@ -9,17 +10,21 @@ import NextPrevious from '@components/NextPrevious/NextPrevious';
 
 import * as S from './HeroSection.styled';
 
-const HeroSection = ({ fetchedData, totalPages, currentPage }): JSX.Element => {
-  // const [artworkInfos, setArtworkInfos] = useState([]);
-  const [gotToListHovered, setGoToListHovered] = useState(false);
+interface HeroSectionProps {
+  fetchedData?: HeroSectionInfos;
+  totalPages: number;
+  currentPage: number;
+}
 
-  const handleGoToListEnter = () => {
-    setGoToListHovered(true);
-  };
+const HeroSection = ({
+  fetchedData,
+  totalPages,
+  currentPage,
+}: HeroSectionProps): JSX.Element => {
+  const [gotToListHovered, setGoToListHovered] = useState<boolean>(false);
 
-  const handleGoToListLeave = () => {
-    setGoToListHovered(false);
-  };
+  const handleGoToListEnter = () => setGoToListHovered(true);
+  const handleGoToListLeave = () => setGoToListHovered(false);
 
   return (
     <S.HeroSectionContainer>

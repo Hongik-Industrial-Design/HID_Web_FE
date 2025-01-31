@@ -5,8 +5,8 @@ import Layout from '@layout/Layout';
 import HomePage from '@pages/Home/HomePage';
 import FacultyList from '@pages/Faculty/FacultyList/FacultyList';
 import ProfessorProfile from '@pages/Faculty/ProfessorProfile/ProfessorProfile';
-import GraduationPage from '@pages/Exhibition/Graduation/GraduationPage';
-import DetailPage from '@pages/Exhibition/Detail/DetailPage';
+import GraduationExhibition from '@pages/Exhibition/Graduation/GraduationExhibition';
+import DetailPage from '@pages/Exhibition/Detail/ExhibitionDetail';
 import CommunityPage from '@pages/Community/CommunityPage';
 import ContactPage from '@pages/Contact/ContactPage';
 
@@ -22,7 +22,7 @@ function App() {
         </Route>
 
         <Route path="graduation">
-          <Route index element={<GraduationPage />} />
+          <Route index element={<GraduationExhibition />} />
           <Route path="work/:id" element={<DetailPage />} />
         </Route>
 

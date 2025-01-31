@@ -2,7 +2,19 @@ import { JSX } from 'react/jsx-runtime';
 
 import * as S from './ArtworkImages.styled';
 
-const ArtworkImages = ({ detailImages, currentPage }): JSX.Element => {
+interface ArtworkImagesProps {
+  detailImages: {
+    id: number;
+    url: string;
+    caption: string;
+  }[];
+  currentPage: number;
+}
+
+const ArtworkImages = ({
+  detailImages,
+  currentPage,
+}: ArtworkImagesProps): JSX.Element => {
   return (
     <S.ArtworkImageContainer>
       {detailImages.map((image) => (
