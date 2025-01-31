@@ -1,8 +1,13 @@
 import { JSX } from 'react/jsx-runtime';
 
+import { OverlayInfosProps } from '@components/Exhibition/Gallery.types';
+
 import * as S from './OverlayInfos.styled';
 
-const OverlayInfos = ({ pieceInfos, isPieceHovered }): JSX.Element => {
+const OverlayInfos = ({
+  pieceInfos,
+  isPieceHovered,
+}: OverlayInfosProps): JSX.Element => {
   return (
     <S.OverlayContainer $isPieceHovered={isPieceHovered}>
       <div className="credit">

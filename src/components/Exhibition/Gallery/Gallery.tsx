@@ -1,8 +1,9 @@
-// import axios from "axios";
 import { JSX } from 'react/jsx-runtime';
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { AnimatePresence } from 'framer-motion';
+
+import { GalleryInfos } from '../Gallery.types';
 
 import Piece from './Piece/Piece';
 import ScrollButton from '@components/ScrollButton/ScrollButton';
@@ -10,15 +11,19 @@ import Indicator from './Indicator/Indicator';
 
 import * as S from './Gallery.styled';
 
-const Gallery = ({ pieces }): JSX.Element => {
+interface GalleryProps {
+  pieces: GalleryInfos[];
+}
+
+const Gallery = ({ pieces }: GalleryProps): JSX.Element => {
   const navigate = useNavigate();
 
   // const [pieces, setPieces] = useState([]);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [galleryHeight, setGalleryHeight] = useState(0);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [galleryHeight, setGalleryHeight] = useState<number>(0);
+  const [scrollProgress, setScrollProgress] = useState<number>(0);
 
-  const galleryRef = useRef(null);
+  const galleryRef = useRef<HTMLDivElement | null>(null);
 
   // // Fetching Dummy Gallery Image
   // useEffect(() => {
@@ -46,61 +51,72 @@ const Gallery = ({ pieces }): JSX.Element => {
   }, [pieces, galleryHeight]);
 
   // Routing to individual pieces
-  const goToDetailPage = (id) => {
+  const goToDetailPage = (id: number) => {
     navigate(`/graduation/work/${id}`);
   };
 
   const handleScroll = () => {
-    if (galleryRef.current.scrollLeft > 100) {
-      setIsScrolled(true);
-    } else {
-      setIsScrolled(false);
+    if (galleryRef.current) {
+      if (galleryRef.current.scrollLeft > 100) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+
+      // Indicator Bar width 계산
+      const scrollLeft = galleryRef.current.scrollLeft;
+      const scrollWidth = galleryRef.current.scrollWidth;
+      const clientWidth = galleryRef.current.clientWidth;
+
+      // 가로 스크롤 진행률 계산 (%)
+      const progress = (scrollLeft / (scrollWidth - clientWidth)) * 100;
+      setScrollProgress(progress);
     }
-
-    // Indicator Bar width 계산
-    const scrollLeft = galleryRef.current.scrollLeft;
-    const scrollWidth = galleryRef.current.scrollWidth;
-    const clientWidth = galleryRef.current.clientWidth;
-
-    // 가로 스크롤 진행률 계산 (%)
-    const progress = (scrollLeft / (scrollWidth - clientWidth)) * 100;
-    setScrollProgress(progress);
   };
 
   const handleScrollIndicator = () => {
-    const scrollLeft = galleryRef.current.scrollLeft;
-    const scrollWidth = galleryRef.current.scrollWidth;
-    const clientWidth = galleryRef.current.clientWidth;
+    if (galleryRef.current) {
+      const scrollLeft = galleryRef.current.scrollLeft;
+      const scrollWidth = galleryRef.current.scrollWidth;
+      const clientWidth = galleryRef.current.clientWidth;
 
-    // 가로 스크롤 진행률 계산 (%)
-    const progress = (scrollLeft / (scrollWidth - clientWidth)) * 100;
-    setScrollProgress(progress);
+      // 가로 스크롤 진행률 계산 (%)
+      const progress = (scrollLeft / (scrollWidth - clientWidth)) * 100;
+      setScrollProgress(progress);
+    }
   };
 
   const scrollLeft = () => {
-    galleryRef.current.style.scrollSnapType = 'x mandatory';
+    if (galleryRef.current) {
+      galleryRef.current.style.scrollSnapType = 'x mandatory';
 
-    galleryRef.current.scrollBy({
-      left: -200,
-      behavior: 'smooth',
-    });
-
-    setTimeout(() => {
-      galleryRef.current.style.scrollSnapType = 'none';
-    }, 1000);
+      galleryRef.current.scrollBy({
+        left: -200,
+        behavior: 'smooth',
+      });
+      setTimeout(() => {
+        if (galleryRef.current) {
+          galleryRef.current.style.scrollSnapType = 'none';
+        }
+      }, 1000);
+    }
   };
 
   const scrollRight = () => {
-    galleryRef.current.style.scrollSnapType = 'x mandatory';
+    if (galleryRef.current) {
+      galleryRef.current.style.scrollSnapType = 'x mandatory';
 
-    galleryRef.current.scrollBy({
-      left: 200,
-      behavior: 'smooth',
-    });
+      galleryRef.current.scrollBy({
+        left: 200,
+        behavior: 'smooth',
+      });
 
-    setTimeout(() => {
-      galleryRef.current.style.scrollSnapType = 'none';
-    }, 1000);
+      setTimeout(() => {
+        if (galleryRef.current) {
+          galleryRef.current.style.scrollSnapType = 'none';
+        }
+      }, 1000);
+    }
   };
 
   return (

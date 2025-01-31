@@ -2,12 +2,18 @@ import { JSX } from 'react/jsx-runtime';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
+import { PieceProps } from '@components/Exhibition/Gallery.types';
+
 import OverlayInfos from './Overlay/OverlayInfos';
 
 import * as S from './Piece.styled';
 
-const Piece = ({ pieceName, pieceInfos, goToDetailPage }): JSX.Element => {
-  const [isPieceHovered, setIsPieceHovered] = useState(false);
+const Piece = ({
+  pieceName,
+  pieceInfos,
+  goToDetailPage,
+}: PieceProps): JSX.Element => {
+  const [isPieceHovered, setIsPieceHovered] = useState<boolean>(false);
 
   return (
     <motion.div
