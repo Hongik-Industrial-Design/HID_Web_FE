@@ -25,7 +25,7 @@ const ProfessorProfile = (): JSX.Element => {
   const [emailHover, setEmailHover] = useState<boolean>(false);
 
   const { id } = useParams<RouteParams>();
-  const safeID = id ?? 'default ID'; // 타입 안정성을 위해 null/undefined일 경우, 기본 값 지정
+  const safeID = id ?? '1'; // 타입 안정성을 위해 null/undefined일 경우, 기본 값 지정
 
   const location = useLocation();
   const currentPath = location.pathname;

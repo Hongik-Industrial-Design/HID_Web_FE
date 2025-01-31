@@ -19,14 +19,14 @@ const ProfessorDetails = ({
         <S.BoldDivider />
         <S.DetailsDescriptionBox>
           <S.DetailsDescriptionText>
-            {professorDetails.major}
+            {professorDetails?.major}
           </S.DetailsDescriptionText>
           <S.SubtleDivider />
         </S.DetailsDescriptionBox>
       </S.MajorSection>
 
       {/* Degree Section */}
-      {professorDetails.degrees && (
+      {professorDetails?.degrees && (
         <S.DegreeSection>
           <S.DetailSectionTitle>Degree</S.DetailSectionTitle>
           <S.BoldDivider />
@@ -50,7 +50,7 @@ const ProfessorDetails = ({
       )}
 
       {/* Biography Section */}
-      {professorDetails.biography && (
+      {professorDetails?.biography && (
         <S.BiographySection>
           <S.DetailSectionTitle>Biography</S.DetailSectionTitle>
           <S.BoldDivider />
@@ -74,7 +74,7 @@ const ProfessorDetails = ({
       )}
 
       {/* Awards Section */}
-      {professorDetails.awards && (
+      {professorDetails?.awards && (
         <S.AwardsSection>
           <S.DetailSectionTitle>Awards</S.DetailSectionTitle>
           <S.BoldDivider />
