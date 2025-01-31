@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { colors } from '@styles/theme/colors';
 
-import { HeaderProps } from '../HeaderProps';
+import { HeaderTransientProps } from '../Header.types';
 
-export const NavItemsContainer = styled.ul<HeaderProps>`
+export const NavItemsContainer = styled.ul<HeaderTransientProps>`
   height: 100%;
 
   display: flex;

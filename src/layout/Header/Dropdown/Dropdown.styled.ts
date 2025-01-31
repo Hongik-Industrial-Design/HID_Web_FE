@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import { colors } from '@styles/theme/colors';
-import { DropdownProps } from './dropdownProps';
 
-export const DropdownBackground = styled.div<DropdownProps>`
+import { DropdownTransientProps } from './Dropdown.types';
+
+export const DropdownBackground = styled.div<DropdownTransientProps>`
   opacity: ${({ $isNavbarHovered, $isDropdownOpen }) =>
     $isNavbarHovered || $isDropdownOpen ? 1 : 0};
   transition: opacity 0.5s ease;
@@ -19,7 +20,7 @@ export const DropdownBackground = styled.div<DropdownProps>`
     $isNavbarHovered || $isDropdownOpen ? 10 : -1};
 `;
 
-export const DropdownContainer = styled.div<DropdownProps>`
+export const DropdownContainer = styled.div<DropdownTransientProps>`
   width: 100%;
 
   position: fixed;

@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { colors } from '@styles/theme/colors';
 
-import { DropdownProps } from '../dropdownProps';
+import { DropdownTransientProps } from '../Dropdown.types';
 
-export const ExhibitionTabContainer = styled.div<DropdownProps>`
+export const ExhibitionTabContainer = styled.div<DropdownTransientProps>`
   opacity: ${({ $isNavbarHovered, $isDropdownOpen }) =>
     $isNavbarHovered || $isDropdownOpen ? 1 : 0};
   transition: opacity 0.9s ease;

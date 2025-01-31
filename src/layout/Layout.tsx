@@ -12,7 +12,7 @@ import * as S from './Layout.styled';
 const useDropdownStore = create(
   combine({ isHovered: false }, (set) => {
     return {
-      setIsHovered: (hover) => {
+      setIsHovered: (hover: boolean) => {
         set(() => ({
           isHovered: hover,
         }));

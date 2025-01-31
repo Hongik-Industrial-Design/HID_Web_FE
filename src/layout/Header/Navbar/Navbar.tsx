@@ -1,9 +1,11 @@
 import { JSX } from 'react/jsx-runtime';
 import { Link, useLocation } from 'react-router';
 
-import * as S from './Navbar.styled';
+import { NavbarProps } from './Navbar.types';
 
 import SearchButton from './SearchButton/SearchButton';
+
+import * as S from './Navbar.styled';
 
 const Navbar = ({
   isNavbarHovered,
@@ -11,7 +13,7 @@ const Navbar = ({
   isDropdownOpen,
   isHomePage,
   scrolled,
-}): JSX.Element => {
+}: NavbarProps): JSX.Element => {
   const location = useLocation();
   const currentPath = location.pathname;
 

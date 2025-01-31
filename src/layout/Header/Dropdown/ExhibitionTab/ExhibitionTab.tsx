@@ -1,5 +1,7 @@
 import { JSX } from 'react/jsx-runtime';
 
+import { ExhibitionTabProps } from '../Dropdown.types';
+
 import * as S from './ExhibitonTab.styled';
 
 const ExhibitionTab = ({
@@ -7,7 +9,7 @@ const ExhibitionTab = ({
   timeline,
   isNavbarHovered,
   isDropdownOpen,
-}): JSX.Element => {
+}: ExhibitionTabProps): JSX.Element => {
   return (
     <S.ExhibitionTabContainer
       $isNavbarHovered={isNavbarHovered}

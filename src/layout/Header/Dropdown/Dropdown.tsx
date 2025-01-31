@@ -2,6 +2,8 @@ import axios from 'axios';
 import { JSX } from 'react/jsx-runtime';
 import { useEffect, useState } from 'react';
 
+import { DropdownProps } from './Dropdown.types';
+
 import ExhibitionTab from './ExhibitionTab/ExhibitionTab';
 
 import * as S from './Dropdown.styled';
@@ -11,8 +13,8 @@ const Dropdown = ({
   isDropdownOpen,
   enterDropdown,
   leaveDropdown,
-}): JSX.Element => {
-  const [timeline, setTimeline] = useState([]);
+}: DropdownProps): JSX.Element => {
+  const [timeline, setTimeline] = useState<number[]>([]);
 
   useEffect(() => {
     const fetchTimelineData = async () => {
@@ -34,7 +36,7 @@ const Dropdown = ({
     fetchTimelineData();
   }, []);
 
-  const reverseArray = (arr) => {
+  const reverseArray = (arr: number[]): number[] => {
     return [...arr].reverse();
   };
 

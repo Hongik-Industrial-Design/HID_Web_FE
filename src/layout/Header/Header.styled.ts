@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import { colors } from '@styles/theme/colors';
 
-import { HeaderProps } from './HeaderProps';
+import { HeaderTransientProps } from './Header.types';
 
 import HIDHomeLogo from '@assets/icons/svgs/logos/HID-home-logo.svg?react';
 
-export const HeaderContainer = styled.header<HeaderProps>`
+export const HeaderContainer = styled.header<HeaderTransientProps>`
   position: fixed;
   top: 0;
   z-index: 100;
@@ -31,7 +31,7 @@ export const HeaderContainer = styled.header<HeaderProps>`
   transition: background-color 0.5s ease;
 `;
 
-export const StyledHIDHomeLogo = styled(HIDHomeLogo)<HeaderProps>`
+export const StyledHIDHomeLogo = styled(HIDHomeLogo)<HeaderTransientProps>`
   width: 90px;
   height: 17.4px;
 

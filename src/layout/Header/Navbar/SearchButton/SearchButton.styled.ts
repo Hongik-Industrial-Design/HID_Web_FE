@@ -1,12 +1,9 @@
 import styled from 'styled-components';
 import { colors } from '@styles/theme/colors';
 
-import MagnifyLens from '@assets/icons/svgs/search/circle.svg?react';
+import { SearchButtonTransientProps } from '../Navbar.types';
 
-type SearchButtonProps = {
-  $isHomePage: boolean;
-  $scrolled: boolean;
-};
+import MagnifyLens from '@assets/icons/svgs/search/circle.svg?react';
 
 export const IconContainer = styled.div`
   display: flex;
@@ -17,7 +14,9 @@ export const IconContainer = styled.div`
   cursor: pointer;
 `;
 
-export const StyledMagnifyLens = styled(MagnifyLens)<SearchButtonProps>`
+export const StyledMagnifyLens = styled(
+  MagnifyLens
+)<SearchButtonTransientProps>`
   stroke: ${({ $isHomePage }) =>
     $isHomePage
       ? `${colors.HID_Grayscale[0]}`
@@ -29,7 +28,7 @@ export const StyledMagnifyLens = styled(MagnifyLens)<SearchButtonProps>`
   transition: stroke 0.3s ease;
 `;
 
-export const MagnifyHandle = styled.div<SearchButtonProps>`
+export const MagnifyHandle = styled.div<SearchButtonTransientProps>`
   width: 8px;
   height: 2px;
 

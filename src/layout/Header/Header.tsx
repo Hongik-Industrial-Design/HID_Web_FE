@@ -1,30 +1,31 @@
 import { JSX } from 'react/jsx-runtime';
 import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router';
+import { Link, Location, useLocation } from 'react-router';
+
+import { HeaderProps } from './Header.types';
 
 import Navbar from './Navbar/Navbar';
-import Dropdown from './Navbar/Dropdown/Dropdown';
+import Dropdown from './Dropdown/Dropdown';
 
 import * as S from './Header.styled';
 
-const Header = ({ isNavbarHovered, handleNavbarHover }): JSX.Element => {
-  const location = useLocation();
+const Header = ({
+  isNavbarHovered,
+  handleNavbarHover,
+}: HeaderProps): JSX.Element => {
+  const location: Location = useLocation();
   const isHomePage = location.pathname === '/';
 
-  const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const [scrollPosition, setScrollPosition] = useState(0);
+  const [isDropdownOpen, setDropdownOpen] = useState<boolean>(false);
+  const [scrollPosition, setScrollPosition] = useState<number>(0);
 
   // HomePage의 배너 이미지 이후부터 dynamic styling 가능하게끔 scrollPosition 계산
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollPosition(window.scrollY);
-    };
+    const handleScroll = () => setScrollPosition(window.scrollY);
 
     window.addEventListener('scroll', handleScroll);
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Dropdown 렌더링 시 Scroll 제어
@@ -41,13 +42,8 @@ const Header = ({ isNavbarHovered, handleNavbarHover }): JSX.Element => {
   }, [isNavbarHovered, isDropdownOpen]);
 
   // Dropdown 컨테이너 hover시 Dropdown 컴포넌트 유지 (for better UX)
-  const enterDropdown = () => {
-    setDropdownOpen(true);
-  };
-
-  const leaveDropdown = () => {
-    setDropdownOpen(false);
-  };
+  const enterDropdown = () => setDropdownOpen(true);
+  const leaveDropdown = () => setDropdownOpen(false);
 
   // IntersectionObserver를 사용한 방식
   // const targetRef = useRef(null);
