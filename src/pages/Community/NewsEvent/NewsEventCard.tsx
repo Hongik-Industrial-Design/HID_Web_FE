@@ -1,5 +1,7 @@
 import { JSX } from 'react/jsx-runtime';
 
+import { NewsEventCardProps } from '../Community.types';
+
 import * as S from './NewsEventCard.styled';
 
 const NewsEventCard = ({
@@ -8,7 +10,7 @@ const NewsEventCard = ({
   deadline,
   title,
   category,
-}): JSX.Element => {
+}: NewsEventCardProps): JSX.Element => {
   return (
     <S.NewsEventCardContainer href={route}>
       <S.CardThumbnail src={imageURL} alt={title} />
