@@ -3,7 +3,17 @@ import { Link } from 'react-router';
 
 import * as S from './GoToList.styled';
 
-const GoToList = ({ isHovered, onMouseEnter, onMouseLeave }): JSX.Element => {
+type GoToListProps = {
+  isHovered: boolean;
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
+};
+
+const GoToList = ({
+  isHovered,
+  onMouseEnter,
+  onMouseLeave,
+}: GoToListProps): JSX.Element => {
   return (
     <Link to="/graduation">
       <S.ButtonContainer
