@@ -55,6 +55,10 @@ const NoticeSection = (): JSX.Element => {
     fetchAndSortNoticeData();
   }, [currentPage]);
 
+  const handleCurrentPage = (page: number) => {
+    setCurrentPage(page);
+  };
+
   // Clip Icon 클릭 시 첨부 파일 다운로드 logic
   const handleDownload = (postID: number) => {
     // 다운로드할 파일의 게시물 filtering
@@ -165,7 +169,7 @@ const NoticeSection = (): JSX.Element => {
         <S.PaginationWrapper>
           <Pagination
             currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
+            handleCurrentPage={handleCurrentPage}
             totalPages={noticeData?.totalPages}
             isPreview={true}
           />
