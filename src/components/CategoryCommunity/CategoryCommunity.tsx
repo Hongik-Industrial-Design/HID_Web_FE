@@ -3,10 +3,18 @@ import { useState } from 'react';
 
 import * as S from './CategoryCommunity.styled';
 
-const CategoryCommunity = ({ categoryList, ScrollToTopRef }): JSX.Element => {
-  const [selectedOption, setSelectedOption] = useState(categoryList[0]);
+type CategoryCommunityProps = {
+  categoryList: string[];
+  ScrollToTopRef: React.RefObject<HTMLDivElement | null>;
+};
 
-  const handleFilterOption = (filterOption) => {
+const CategoryCommunity = ({
+  categoryList,
+  ScrollToTopRef,
+}: CategoryCommunityProps): JSX.Element => {
+  const [selectedOption, setSelectedOption] = useState<string>(categoryList[0]);
+
+  const handleFilterOption = (filterOption: string) => {
     setSelectedOption(filterOption);
 
     if (ScrollToTopRef.current) {

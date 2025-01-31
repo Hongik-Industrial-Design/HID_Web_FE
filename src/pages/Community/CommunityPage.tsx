@@ -15,7 +15,7 @@ const CommunityPage = (): JSX.Element => {
     NewsEventCardInfo[]
   >([]);
 
-  const newsEventTopRef = useRef(null);
+  const newsEventTopRef = useRef<HTMLDivElement | null>(null);
 
   const NewsEventCategory = ['All', 'Recruit', 'Award', 'Alumni'];
 
