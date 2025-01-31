@@ -5,7 +5,15 @@ import { BreadscrumbArrow } from '@icons/BreadscrumbArrow';
 
 import * as S from './Breadscrumb.styled';
 
-const Breadscrumb = ({ paths, currentPage }): JSX.Element => {
+type BreadscrumbProps = {
+  paths: {
+    content: string;
+    path: string;
+  }[];
+  currentPage: string;
+};
+
+const Breadscrumb = ({ paths, currentPage }: BreadscrumbProps): JSX.Element => {
   return (
     <S.BreadscrumbContainer>
       {paths.map((path, index) => (
