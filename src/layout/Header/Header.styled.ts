@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 import { colors } from '@styles/theme/colors';
 
+import { HeaderTransientProps } from './Header.types';
+
 import HIDHomeLogo from '@assets/icons/svgs/logos/HID-home-logo.svg?react';
 
-export const HeaderContainer = styled.header`
+export const HeaderContainer = styled.header<HeaderTransientProps>`
   position: fixed;
   top: 0;
   z-index: 100;
@@ -23,13 +25,13 @@ export const HeaderContainer = styled.header`
   background-color: ${({ $isHomePage, $scrolled }) =>
     $isHomePage && $scrolled && '#ebebeb4d'};
 
-  background-color: ${({ $isHovered, $dropdownOpen }) =>
-    ($isHovered || $dropdownOpen) && `${colors.HID_Grayscale[0]}`};
+  background-color: ${({ $isNavbarHovered, $isDropdownOpen }) =>
+    ($isNavbarHovered || $isDropdownOpen) && `${colors.HID_Grayscale[0]}`};
 
   transition: background-color 0.5s ease;
 `;
 
-export const StyledHIDHomeLogo = styled(HIDHomeLogo)`
+export const StyledHIDHomeLogo = styled(HIDHomeLogo)<HeaderTransientProps>`
   width: 90px;
   height: 17.4px;
 
@@ -44,9 +46,9 @@ export const StyledHIDHomeLogo = styled(HIDHomeLogo)`
     fill: ${({ $isHomePage, $scrolled }) =>
       $isHomePage && $scrolled && `${colors.HID_Grayscale[800]}`};
 
-    fill: ${({ $isHomePage, $isHovered, $dropdownOpen }) =>
+    fill: ${({ $isHomePage, $isNavbarHovered, $isDropdownOpen }) =>
       $isHomePage &&
-      ($isHovered || $dropdownOpen) &&
+      ($isNavbarHovered || $isDropdownOpen) &&
       `${colors.HID_Grayscale[800]}`};
 
     transition: fill 0.3s ease;
@@ -59,9 +61,9 @@ export const StyledHIDHomeLogo = styled(HIDHomeLogo)`
     fill: ${({ $isHomePage, $scrolled }) =>
       $isHomePage && $scrolled && `${colors.HID_Navy[900]}`};
 
-    fill: ${({ $isHomePage, $isHovered, $dropdownOpen }) =>
+    fill: ${({ $isHomePage, $isNavbarHovered, $isDropdownOpen }) =>
       $isHomePage &&
-      ($isHovered || $dropdownOpen) &&
+      ($isNavbarHovered || $isDropdownOpen) &&
       `${colors.HID_Navy[900]}`};
 
     transition: fill 0.3s ease;

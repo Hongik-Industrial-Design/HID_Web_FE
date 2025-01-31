@@ -1,155 +1,150 @@
-import {
-  AwardsSection,
-  BiographySection,
-  BoldDivider,
-  CareerContainer,
-  CareerEntry,
-  DegreeSection,
-  DetailsContainer,
-  DetailsDescriptionBox,
-  DetailsDescriptionText,
-  DetailSectionTitle,
-  EventYearBox,
-  MajorSection,
-  SubtleDivider,
-  WorksSection,
-} from './ProfessorDetails.styled';
+import { JSX } from 'react/jsx-runtime';
 
-const ProfessorDetails = ({ professorDetails }) => {
+import * as T from './Professor.types';
+
+import * as S from './ProfessorDetails.styled';
+
+type ProfessorDetailProps = {
+  professorDetails: T.professorDetails;
+};
+
+const ProfessorDetails = ({
+  professorDetails,
+}: ProfessorDetailProps): JSX.Element => {
   return (
-    <DetailsContainer>
+    <S.DetailsContainer>
       {/* Major Section */}
-      <MajorSection>
-        <DetailSectionTitle>Major</DetailSectionTitle>
-        <BoldDivider />
-        <DetailsDescriptionBox>
-          <DetailsDescriptionText>
+      <S.MajorSection>
+        <S.DetailSectionTitle>Major</S.DetailSectionTitle>
+        <S.BoldDivider />
+        <S.DetailsDescriptionBox>
+          <S.DetailsDescriptionText>
             {professorDetails?.major}
-          </DetailsDescriptionText>
-          <SubtleDivider />
-        </DetailsDescriptionBox>
-      </MajorSection>
+          </S.DetailsDescriptionText>
+          <S.SubtleDivider />
+        </S.DetailsDescriptionBox>
+      </S.MajorSection>
 
       {/* Degree Section */}
       {professorDetails?.degrees && (
-        <DegreeSection>
-          <DetailSectionTitle>Degree</DetailSectionTitle>
-          <BoldDivider />
-          <CareerContainer>
-            {professorDetails?.degrees.map((degree) => (
-              <CareerEntry key={degree.id}>
-                <EventYearBox>
+        <S.DegreeSection>
+          <S.DetailSectionTitle>Degree</S.DetailSectionTitle>
+          <S.BoldDivider />
+          <S.CareerContainer>
+            {professorDetails.degrees.map((degree: T.Degree) => (
+              <S.CareerEntry key={degree.id}>
+                <S.EventYearBox>
                   <p>{degree.year}</p>
-                  <SubtleDivider />
-                </EventYearBox>
-                <DetailsDescriptionBox>
-                  <DetailsDescriptionText>
+                  <S.SubtleDivider />
+                </S.EventYearBox>
+                <S.DetailsDescriptionBox>
+                  <S.DetailsDescriptionText>
                     {degree.degree}
-                  </DetailsDescriptionText>
-                  <SubtleDivider />
-                </DetailsDescriptionBox>
-              </CareerEntry>
+                  </S.DetailsDescriptionText>
+                  <S.SubtleDivider />
+                </S.DetailsDescriptionBox>
+              </S.CareerEntry>
             ))}
-          </CareerContainer>
-        </DegreeSection>
+          </S.CareerContainer>
+        </S.DegreeSection>
       )}
 
       {/* Biography Section */}
       {professorDetails?.biography && (
-        <BiographySection>
-          <DetailSectionTitle>Biography</DetailSectionTitle>
-          <BoldDivider />
-          <CareerContainer>
-            {professorDetails?.biography.map((career) => (
-              <CareerEntry key={career.id}>
-                <EventYearBox>
-                  <p>{career.yearRange}</p>
-                  <SubtleDivider />
-                </EventYearBox>
-                <DetailsDescriptionBox>
-                  <DetailsDescriptionText>
-                    {career.position}
-                  </DetailsDescriptionText>
-                  <SubtleDivider />
-                </DetailsDescriptionBox>
-              </CareerEntry>
+        <S.BiographySection>
+          <S.DetailSectionTitle>Biography</S.DetailSectionTitle>
+          <S.BoldDivider />
+          <S.CareerContainer>
+            {professorDetails.biography.map((biography: T.Biography) => (
+              <S.CareerEntry key={biography.id}>
+                <S.EventYearBox>
+                  <p>{biography.yearRange}</p>
+                  <S.SubtleDivider />
+                </S.EventYearBox>
+                <S.DetailsDescriptionBox>
+                  <S.DetailsDescriptionText>
+                    {biography.position}
+                  </S.DetailsDescriptionText>
+                  <S.SubtleDivider />
+                </S.DetailsDescriptionBox>
+              </S.CareerEntry>
             ))}
-          </CareerContainer>
-        </BiographySection>
+          </S.CareerContainer>
+        </S.BiographySection>
       )}
 
       {/* Awards Section */}
       {professorDetails?.awards && (
-        <AwardsSection>
-          <DetailSectionTitle>Awards</DetailSectionTitle>
-          <BoldDivider />
-          <CareerContainer>
-            {professorDetails?.awards.map((career) => (
-              <CareerEntry key={career.id}>
-                <EventYearBox>
-                  <p>{career.year}</p>
-                  <SubtleDivider />
-                </EventYearBox>
-                <DetailsDescriptionBox>
-                  <DetailsDescriptionText>
-                    {career.award}
-                  </DetailsDescriptionText>
-                  <SubtleDivider />
-                </DetailsDescriptionBox>
-              </CareerEntry>
+        <S.AwardsSection>
+          <S.DetailSectionTitle>Awards</S.DetailSectionTitle>
+          <S.BoldDivider />
+          <S.CareerContainer>
+            {professorDetails.awards.map((award: T.Award) => (
+              <S.CareerEntry key={award.id}>
+                <S.EventYearBox>
+                  <p>{award.year}</p>
+                  <S.SubtleDivider />
+                </S.EventYearBox>
+                <S.DetailsDescriptionBox>
+                  <S.DetailsDescriptionText>
+                    {award.award}
+                  </S.DetailsDescriptionText>
+                  <S.SubtleDivider />
+                </S.DetailsDescriptionBox>
+              </S.CareerEntry>
             ))}
-          </CareerContainer>
-        </AwardsSection>
+          </S.CareerContainer>
+        </S.AwardsSection>
       )}
 
       {/* Publications Section */}
       {professorDetails?.publications && (
-        <AwardsSection>
-          <DetailSectionTitle>Publications</DetailSectionTitle>
-          <BoldDivider />
-          <CareerContainer>
-            {professorDetails?.publications.map((publication) => (
-              <CareerEntry key={publication.id}>
-                <EventYearBox>
+        <S.AwardsSection>
+          <S.DetailSectionTitle>Publications</S.DetailSectionTitle>
+          <S.BoldDivider />
+          <S.CareerContainer>
+            {professorDetails.publications.map((publication: T.Publication) => (
+              <S.CareerEntry key={publication.id}>
+                <S.EventYearBox>
                   <p>{publication.year}</p>
-                  <SubtleDivider />
-                </EventYearBox>
-                <DetailsDescriptionBox>
-                  <DetailsDescriptionText>
+                  <S.SubtleDivider />
+                </S.EventYearBox>
+                <S.DetailsDescriptionBox>
+                  <S.DetailsDescriptionText>
                     {publication.title}
-                  </DetailsDescriptionText>
-                  <SubtleDivider />
-                </DetailsDescriptionBox>
-              </CareerEntry>
+                  </S.DetailsDescriptionText>
+                  <S.SubtleDivider />
+                </S.DetailsDescriptionBox>
+              </S.CareerEntry>
             ))}
-          </CareerContainer>
-        </AwardsSection>
+          </S.CareerContainer>
+        </S.AwardsSection>
       )}
 
       {/* Works Section */}
       {professorDetails?.works && (
-        <WorksSection>
-          <DetailSectionTitle>Works</DetailSectionTitle>
-          <BoldDivider />
-          <CareerContainer>
-            {professorDetails?.works.map((career) => (
-              <CareerEntry key={career.id}>
-                <EventYearBox>
+        <S.WorksSection>
+          <S.DetailSectionTitle>Works</S.DetailSectionTitle>
+          <S.BoldDivider />
+          <S.CareerContainer>
+            {professorDetails.works.map((career: T.Career) => (
+              <S.CareerEntry key={career.id}>
+                <S.EventYearBox>
                   <p>{career.yearRange}</p>
-                  <SubtleDivider />
-                </EventYearBox>
-                <DetailsDescriptionBox>
-                  <DetailsDescriptionText>
+                  <S.SubtleDivider />
+                </S.EventYearBox>
+                <S.DetailsDescriptionBox>
+                  <S.DetailsDescriptionText>
                     {career.project}
-                  </DetailsDescriptionText>
-                  <SubtleDivider />
-                </DetailsDescriptionBox>
-              </CareerEntry>
+                  </S.DetailsDescriptionText>
+                  <S.SubtleDivider />
+                </S.DetailsDescriptionBox>
+              </S.CareerEntry>
             ))}
-          </CareerContainer>
-        </WorksSection>
+          </S.CareerContainer>
+        </S.WorksSection>
       )}
-    </DetailsContainer>
+    </S.DetailsContainer>
   );
 };
 

@@ -1,6 +1,6 @@
 import { css, CSSProp } from 'styled-components';
 
-type Typography = {
+export type Typography = {
   [key: string]: CSSProp;
 };
 

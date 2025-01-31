@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { colors } from '@styles/theme/colors';
 
-export const BreadscrumbContainer = styled.div`
+export const BreadscrumbContainer = styled.div<{ $facultyPage?: boolean }>`
   display: inline-flex;
   align-items: center;
   gap: 8px;

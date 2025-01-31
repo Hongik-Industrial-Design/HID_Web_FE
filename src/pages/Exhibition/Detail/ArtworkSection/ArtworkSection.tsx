@@ -1,11 +1,23 @@
-import { ArtworkSectionContainer } from './ArtworkSection.styled';
+import { JSX } from 'react/jsx-runtime';
+
+import { MediaInfos } from '../Artwork.types';
 
 import ArtworkImages from '@pages/Exhibition/Detail/ArtworkSection/ArtworkImages/ArtworkImages';
 import VideoPlayer from '@pages/Exhibition/Detail/ArtworkSection/VideoPlayer/VideoPlayer';
 
-const ArtworkSection = ({ fetchedData, currentPage }) => {
+import * as S from './ArtworkSection.styled';
+
+interface ArtworkSectionProps {
+  fetchedData?: MediaInfos;
+  currentPage: number;
+}
+
+const ArtworkSection = ({
+  fetchedData,
+  currentPage,
+}: ArtworkSectionProps): JSX.Element => {
   return (
-    <ArtworkSectionContainer>
+    <S.ArtworkSectionContainer>
       <VideoPlayer
         videoData={fetchedData?.videos || []}
         currentPage={currentPage}
@@ -14,7 +26,7 @@ const ArtworkSection = ({ fetchedData, currentPage }) => {
         detailImages={fetchedData?.images || []}
         currentPage={currentPage}
       />
-    </ArtworkSectionContainer>
+    </S.ArtworkSectionContainer>
   );
 };
 

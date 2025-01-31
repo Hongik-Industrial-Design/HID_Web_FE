@@ -1,22 +1,25 @@
+import { JSX } from 'react/jsx-runtime';
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 
-import {
-  ButtonContainer,
-  LeftArrowButton,
-  RightArrowButton,
-  StyledLeftArrow,
-  StyledRightArrow,
-} from './NextPrevious.styled';
+import * as S from './NextPrevious.styled';
 
-const NextPrevious = ({ currentPage, totalPages }) => {
+type NextPreviousProps = {
+  currentPage: number;
+  totalPages: number;
+};
+
+const NextPrevious = ({
+  currentPage,
+  totalPages,
+}: NextPreviousProps): JSX.Element => {
   console.log('Current page: ', currentPage);
   console.log('Total pages: ', totalPages);
 
+  const navigate = useNavigate();
+
   const [previousHovered, setPreviousHovered] = useState(false);
   const [nextHovered, setNextHovered] = useState(false);
-
-  const navigate = useNavigate();
 
   const handlePreviousClick = () => {
     if (currentPage > 1) {
@@ -47,24 +50,24 @@ const NextPrevious = ({ currentPage, totalPages }) => {
   };
 
   return (
-    <ButtonContainer>
-      <LeftArrowButton
+    <S.ButtonContainer>
+      <S.LeftArrowButton
         onMouseEnter={handlePreviousButtonHover}
         onMouseLeave={handlePreviousButtonLeave}
         onClick={handlePreviousClick}
         disabled={currentPage === 1}
       >
-        <StyledLeftArrow $isHovered={previousHovered} />
-      </LeftArrowButton>
-      <RightArrowButton
+        <S.StyledLeftArrow $isHovered={previousHovered} />
+      </S.LeftArrowButton>
+      <S.RightArrowButton
         onMouseEnter={handleNextButtonHover}
         onMouseLeave={handleNextButtonLeave}
         onClick={handleNextClick}
         disabled={currentPage === totalPages}
       >
-        <StyledRightArrow $isHovered={nextHovered} />
-      </RightArrowButton>
-    </ButtonContainer>
+        <S.StyledRightArrow $isHovered={nextHovered} />
+      </S.RightArrowButton>
+    </S.ButtonContainer>
   );
 };
 

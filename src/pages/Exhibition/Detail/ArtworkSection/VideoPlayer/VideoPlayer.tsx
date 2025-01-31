@@ -1,20 +1,23 @@
+import { JSX } from 'react/jsx-runtime';
 import { useEffect, useRef, useState } from 'react';
-
-import {
-  BlurScreen,
-  FullScreenButton,
-  PlayButton,
-  Video,
-  VideoContainer,
-} from './VideoPlayer.styled';
 
 import playButton from '@assets/icons/svgs/video-player/play_fill-white.svg';
 import fullScreenButton from '@assets/icons/svgs/video-player/full-screen_white.svg';
 
-const VideoPlayer = ({ videoData, currentPage }) => {
-  const videoRef = useRef(null);
+import * as S from './VideoPlayer.styled';
 
-  const [isPlaying, setIsPlaying] = useState(false);
+interface VideoPlayerProps {
+  videoData: { id: number; url: string }[];
+  currentPage: number;
+}
+
+const VideoPlayer = ({
+  videoData,
+  currentPage,
+}: VideoPlayerProps): JSX.Element => {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
 
   useEffect(() => {
     if (videoRef.current) {
@@ -25,12 +28,14 @@ const VideoPlayer = ({ videoData, currentPage }) => {
   }, [currentPage, videoData]);
 
   const handleVideoClick = () => {
-    if (isPlaying) {
-      videoRef.current.pause();
-      setIsPlaying(false);
-    } else {
-      videoRef.current.play();
-      setIsPlaying(true);
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        videoRef.current.play();
+        setIsPlaying(true);
+      }
     }
   };
 
@@ -42,22 +47,20 @@ const VideoPlayer = ({ videoData, currentPage }) => {
   };
 
   const handleFullScreen = () => {
-    if (!document.fullscreenElement) {
-      if (videoRef.current.requestFullScreen) {
-        console.log(videoRef.current.requestFullScreen);
-        videoRef.current.requestFullScreen();
-      } else if (videoRef.current.webkitRequestFullscreen) {
-        videoRef.current.webkitRequestFullscreen();
-      } else if (videoRef.current.msRequestFullscreen) {
-        videoRef.current.msRequestFullscreen();
+    const videoElement = videoRef.current as HTMLVideoElement & {
+      webkitRequestFullscreen?: () => void;
+      msRequestFullscreen?: () => void;
+    };
+
+    if (!document.fullscreenElement && videoRef.current) {
+      if (videoElement.webkitRequestFullscreen) {
+        videoElement.webkitRequestFullscreen();
+      } else if (videoElement.msRequestFullscreen) {
+        videoElement.msRequestFullscreen();
       }
     } else {
       if (document.exitFullscreen) {
         document.exitFullscreen();
-      } else if (document.webkitExitFullscreen) {
-        document.webkitExitFullscreen();
-      } else if (document.msExitFullscreen) {
-        document.msExitFullscreen();
       }
     }
   };
@@ -65,28 +68,28 @@ const VideoPlayer = ({ videoData, currentPage }) => {
   return (
     <>
       {videoData?.map((video) => (
-        <VideoContainer key={video.id}>
-          <Video ref={videoRef} onClick={handleVideoClick}>
+        <S.VideoContainer key={video.id}>
+          <S.Video ref={videoRef} onClick={handleVideoClick}>
             <source
               src={`/Graduation-Exhibition/${currentPage}/${video?.url}`}
               type="video/mp4"
             />
-          </Video>
+          </S.Video>
 
-          <BlurScreen $isPlaying={isPlaying} />
+          <S.BlurScreen $isPlaying={isPlaying} />
 
-          <PlayButton onClick={handlePlay} $isPlaying={isPlaying}>
+          <S.PlayButton onClick={handlePlay} $isPlaying={isPlaying}>
             <img src={playButton} alt="Play-Button" className="play" />
-          </PlayButton>
+          </S.PlayButton>
 
-          <FullScreenButton onClick={handleFullScreen}>
+          <S.FullScreenButton onClick={handleFullScreen}>
             <img
               src={fullScreenButton}
               alt="Full-Screen-Button"
               className="full-screen"
             />
-          </FullScreenButton>
-        </VideoContainer>
+          </S.FullScreenButton>
+        </S.VideoContainer>
       ))}
     </>
   );

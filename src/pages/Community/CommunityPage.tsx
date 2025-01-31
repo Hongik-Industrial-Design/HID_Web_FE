@@ -1,16 +1,21 @@
 import axios from 'axios';
+import { JSX } from 'react/jsx-runtime';
 import { useEffect, useRef, useState } from 'react';
 
-import * as S from './CommunityPage.styled';
+import { NewsEventCardInfo } from './Community.types';
 
 import NoticeSection from './Notice/NoticeSection';
 import CategoryCommunity from '@components/CategoryCommunity/CategoryCommunity';
 import NewsEventCard from './NewsEvent/NewsEventCard';
 
-const CommunityPage = () => {
-  const [newsEventCardInfos, setNewsEventCardInfos] = useState([]);
+import * as S from './CommunityPage.styled';
 
-  const newsEventTopRef = useRef(null);
+const CommunityPage = (): JSX.Element => {
+  const [newsEventCardInfos, setNewsEventCardInfos] = useState<
+    NewsEventCardInfo[]
+  >([]);
+
+  const newsEventTopRef = useRef<HTMLDivElement | null>(null);
 
   const NewsEventCategory = ['All', 'Recruit', 'Award', 'Alumni'];
 

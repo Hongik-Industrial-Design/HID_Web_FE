@@ -22,7 +22,7 @@ export const Video = styled.video`
   border-radius: 2px;
 `;
 
-export const BlurScreen = styled.div`
+export const BlurScreen = styled.div<{ $isPlaying: boolean }>`
   ${({ $isPlaying }) =>
     $isPlaying
       ? 'opacity: 0; z-index: -1;'
@@ -39,7 +39,7 @@ export const BlurScreen = styled.div`
   background-color: rgba(217, 217, 217, 0.4);
 `;
 
-export const PlayButton = styled.button`
+export const PlayButton = styled.button<{ $isPlaying: boolean }>`
   ${({ $isPlaying }) =>
     $isPlaying
       ? 'opacity : 0; z-index: -1; cursor: default;'

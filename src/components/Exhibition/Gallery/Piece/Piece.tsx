@@ -1,30 +1,38 @@
+import { JSX } from 'react/jsx-runtime';
 import { useState } from 'react';
-
-import OverlayInfos from './Overlay/OverlayInfos';
-import { PieceContainer, PieceImage } from './Piece.styled';
 import { motion } from 'framer-motion';
 
-const Piece = ({ pieceName, pieceInfos, goToDetailPage }) => {
-  const [isHovered, setIsHovered] = useState(false);
+import { PieceProps } from '@components/Exhibition/Gallery.types';
+
+import OverlayInfos from './Overlay/OverlayInfos';
+
+import * as S from './Piece.styled';
+
+const Piece = ({
+  pieceName,
+  pieceInfos,
+  goToDetailPage,
+}: PieceProps): JSX.Element => {
+  const [isPieceHovered, setIsPieceHovered] = useState<boolean>(false);
 
   return (
     <motion.div
       layout
       animate={{ opacity: 1 }}
       initial={{ opacity: 0 }}
-      exit={{ opactiy: 0 }}
+      exit={{ opacity: 0 }}
     >
-      <PieceContainer
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+      <S.PieceContainer
+        onMouseEnter={() => setIsPieceHovered(true)}
+        onMouseLeave={() => setIsPieceHovered(false)}
         onClick={goToDetailPage}
       >
-        <PieceImage
+        <S.PieceImage
           src={`/Exhibition-Thumbnail/${pieceName}`}
           alt={pieceName}
         />
-        <OverlayInfos pieceInfos={pieceInfos} isHovered={isHovered} />
-      </PieceContainer>
+        <OverlayInfos pieceInfos={pieceInfos} isPieceHovered={isPieceHovered} />
+      </S.PieceContainer>
     </motion.div>
   );
 };

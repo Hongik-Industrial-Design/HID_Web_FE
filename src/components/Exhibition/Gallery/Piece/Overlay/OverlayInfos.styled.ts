@@ -1,12 +1,12 @@
-import { colors } from '@styles/theme/colors';
 import styled from 'styled-components';
+import { colors } from '@styles/theme/colors';
 
-export const OverlayContainer = styled.div`
+export const OverlayContainer = styled.div<{ $isPieceHovered: boolean }>`
   width: 100%;
   height: 100%;
 
   background: ${colors.HID_Navy[900]};
-  opacity: ${({ $isHovered }) => ($isHovered ? 0.5 : 0)};
+  opacity: ${({ $isPieceHovered }) => ($isPieceHovered ? 0.5 : 0)};
   border-radius: 2px;
 
   position: absolute;

@@ -1,18 +1,27 @@
+import { JSX } from 'react/jsx-runtime';
 import { AnimatePresence } from 'framer-motion';
+
+import { FacultyInfos } from '../FacultyList.types';
 
 import ProfessorCard from './ProfessorCard/ProfessorCard';
 
-import { FacultyGalleryGrid } from './FacultyGallery.styled';
+import * as S from './FacultyGallery.styled';
 
-const FacultyGallery = ({ categorizedFaculty }) => {
+interface FacultyGalleryProps {
+  categorizedFaculty: FacultyInfos[];
+}
+
+const FacultyGallery = ({
+  categorizedFaculty,
+}: FacultyGalleryProps): JSX.Element => {
   return (
-    <FacultyGalleryGrid>
+    <S.FacultyGalleryGrid>
       <AnimatePresence>
-        {categorizedFaculty.map((professor) => (
+        {categorizedFaculty.map((professor: FacultyInfos) => (
           <ProfessorCard key={professor.id} professorInfo={professor} />
         ))}
       </AnimatePresence>
-    </FacultyGalleryGrid>
+    </S.FacultyGalleryGrid>
   );
 };
 

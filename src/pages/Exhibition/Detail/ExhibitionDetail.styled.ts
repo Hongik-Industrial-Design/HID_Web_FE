@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const DetailPageContainer = styled.div`
+export const ExhibitionDetailContainer = styled.div`
   width: 100%;
 
   /* margin: 0 auto; */

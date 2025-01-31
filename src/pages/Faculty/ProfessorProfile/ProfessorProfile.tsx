@@ -1,28 +1,34 @@
 import axios from 'axios';
+import { JSX } from 'react/jsx-runtime';
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useParams } from 'react-router';
 
-import ProfessorDetails from './ProfessorDetails';
+import { openNewTab } from '@utils/openNewTab';
 
-import * as S from './ProfessorProfile.styled';
+import { ProfessorInfos } from './Professor.types';
+
+import ProfessorDetails from './ProfessorDetails';
+import { BreadscrumbArrow } from '@icons/BreadscrumbArrow';
 
 import { BreadscrumbContainer } from '@components/Breadscrumb/Breadscrumb.styled';
+import * as S from './ProfessorProfile.styled';
 
-import forwardArrow from '@assets/icons/svgs/arrows/forward-arrow_triangle.svg';
+type RouteParams = {
+  id: string;
+};
 
-const ProfessorProfile = () => {
-  const [professorInfo, setProfessorInfo] = useState({});
+const ProfessorProfile = (): JSX.Element => {
+  const [professorInfo, setProfessorInfo] = useState<ProfessorInfos>(
+    {} as ProfessorInfos
+  );
 
-  const [emailHover, setEmailHover] = useState(false);
+  const [emailHover, setEmailHover] = useState<boolean>(false);
 
-  const { id } = useParams();
+  const { id } = useParams<RouteParams>();
+  const safeID = id ?? '1'; // 타입 안정성을 위해 null/undefined일 경우, 기본 값 지정
 
   const location = useLocation();
   const currentPath = location.pathname;
-
-  const openNewTab = (url) => {
-    window.open(url, '_blank', 'noopener,noreferrer');
-  };
 
   // Fetching Professor Infos & extracting individual professor info
   useEffect(() => {
@@ -34,7 +40,7 @@ const ProfessorProfile = () => {
 
         // URL id와 일치하는 professor를 찾아서 저장
         const selectedProfessor = fetchedProfessorInfos.find(
-          (professor) => professor.id === parseInt(id)
+          (professor: ProfessorInfos) => professor.id === parseInt(safeID)
         );
 
         console.log(selectedProfessor);
@@ -47,7 +53,7 @@ const ProfessorProfile = () => {
     };
 
     fetchProfessorInfo();
-  }, [id]); // id가 변경될 때마다 데이터를 다시 가져옴
+  }, [safeID]); // id가 변경될 때마다 데이터를 다시 가져옴
 
   return (
     <S.ProfessorProfileWrapper>
@@ -59,11 +65,7 @@ const ProfessorProfile = () => {
           <Link to="/faculty">
             <span>Faculty</span>
           </Link>
-          <img
-            src={forwardArrow}
-            alt="forward-arrow"
-            className="forward-arrow"
-          />
+          <BreadscrumbArrow />
           <span className="current-page">Professor</span>
         </BreadscrumbContainer>
       </S.ProfessorProfileHeader>
