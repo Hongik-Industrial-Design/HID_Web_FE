@@ -2,7 +2,17 @@ import { JSX } from 'react/jsx-runtime';
 
 import * as S from './ScrollButton.styled';
 
-const ScrollButton = ({ arrowType, onClick, isScrolled }): JSX.Element => {
+type ScrollButtonProps = {
+  arrowType: 'left' | 'right';
+  onClick: () => void;
+  isScrolled: boolean;
+};
+
+const ScrollButton = ({
+  arrowType,
+  onClick,
+  isScrolled,
+}: ScrollButtonProps): JSX.Element => {
   return (
     <S.ScrollContainer
       onClick={onClick}
