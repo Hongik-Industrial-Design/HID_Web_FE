@@ -1,6 +1,35 @@
 import { css, CSSProp } from 'styled-components';
 
-export type Typography = {
+export type TypographyList = {
+  Header1: CSSProp;
+  Header1_KO: CSSProp;
+  Header2: CSSProp;
+  Header2_KO: CSSProp;
+  Header3: CSSProp;
+  Header4: CSSProp;
+  Title1: CSSProp;
+  Title2: CSSProp;
+  Title3: CSSProp;
+  Title4: CSSProp;
+  Title5: CSSProp;
+  Title6: CSSProp;
+  SubTitle1: CSSProp;
+  SubTitle2: CSSProp;
+  Headline1: CSSProp;
+  Headline2: CSSProp;
+  Body1: CSSProp;
+  Body2: CSSProp;
+  Body2_KO: CSSProp;
+  Body3: CSSProp;
+  Body3_KO: CSSProp;
+  Body4: CSSProp;
+  Caption1: CSSProp;
+  Caption2: CSSProp;
+  Caption3: CSSProp;
+  Hint: CSSProp;
+};
+
+type Typography = {
   [key: string]: CSSProp;
 };
 

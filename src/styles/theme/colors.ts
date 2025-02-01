@@ -1,8 +1,37 @@
-export type Colors = {
+export type ColorPaletteList = {
+  HID_Navy: {
+    900: string;
+    800: string;
+    700: string;
+    600: string;
+    500: string;
+    400: string;
+    300: string;
+    200: string;
+    100: string;
+    50: string;
+  };
+  HID_Grayscale: {
+    900: string;
+    800: string;
+    700: string;
+    600: string;
+    500: string;
+    400: string;
+    300: string;
+    200: string;
+    100: string;
+    50: string;
+    0: string;
+  };
+  HID_YellowDot: string;
+};
+
+type Colors = {
   [key: number]: string;
 };
 
-export type ColorPalette = {
+type ColorPalette = {
   HID_Navy: Colors;
   HID_Grayscale: Colors;
   HID_YellowDot: string;
