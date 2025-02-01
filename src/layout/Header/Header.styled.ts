@@ -15,7 +15,7 @@ export const HeaderContainer = styled.header<HeaderTransientProps>`
 
   width: 100%;
   height: 70px;
-  padding: 0 15.8rem;
+  padding: 0 10.8rem 0 15.8rem;
 
   background-color: ${({ $isHomePage }) =>
     $isHomePage ? '#1A1A1A3d' : '#ebebeb3d'};
@@ -25,6 +25,8 @@ export const HeaderContainer = styled.header<HeaderTransientProps>`
 
   background-color: ${({ $isNavbarHovered, $isDropdownOpen, theme }) =>
     ($isNavbarHovered || $isDropdownOpen) && theme.colors.HID_Grayscale[0]};
+
+  backdrop-filter: blur(4px);
 
   transition: background-color 0.3s ease;
 `;

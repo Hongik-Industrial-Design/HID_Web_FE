@@ -1,59 +1,79 @@
 import styled from 'styled-components';
-import { colors } from '@styles/theme/colors';
 
 import { HeaderTransientProps } from '../Header.types';
+import { Link } from 'react-router';
 
-export const NavItemsContainer = styled.ul<HeaderTransientProps>`
+export const NavbarContainer = styled.ul<HeaderTransientProps>`
+  width: fit-content;
   height: 100%;
 
   display: flex;
   align-items: center;
-  gap: 48px;
 
-  color: ${({ $isHomePage }) =>
+  color: ${({ $isHomePage, theme }) =>
     $isHomePage
-      ? `${colors.HID_Grayscale[0]}`
-      : `${colors.HID_Grayscale[800]}`};
+      ? theme.colors.HID_Grayscale[0]
+      : theme.colors.HID_Grayscale[800]};
 
-  color: ${({ $isHomePage, $scrolled }) =>
-    $isHomePage && $scrolled && `${colors.HID_Grayscale[800]}`};
+  color: ${({ $isHomePage, $scrolled, theme }) =>
+    $isHomePage && $scrolled && theme.colors.HID_Grayscale[800]};
 
-  color: ${({ $isHomePage, $isNavbarHovered, $isDropdownOpen }) =>
+  color: ${({ $isHomePage, $isNavbarHovered, $isDropdownOpen, theme }) =>
     $isHomePage &&
     ($isNavbarHovered || $isDropdownOpen) &&
-    `${colors.HID_Grayscale[800]}`};
+    theme.colors.HID_Grayscale[800]};
 
   transition: color 0.3s ease;
-
-  a {
-    height: 100%;
-  }
 `;
 
 export const NavItem = styled.li<{ $currentPage?: boolean }>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
 
+  width: fit-content;
   height: 100%;
+  text-align: center;
 
-  font-weight: ${({ $currentPage }) => ($currentPage ? 600 : 300)};
-  color: ${({ $currentPage }) => $currentPage && `${colors.HID_Navy[900]}`};
+  font-size: 1.8rem;
+  font-weight: ${({ $currentPage }) => ($currentPage ? 700 : 300)};
+  color: ${({ $currentPage, theme }) =>
+    $currentPage && theme.colors.HID_Navy[900]};
+
+  transition: font-weight 0.12s ease;
 
   cursor: pointer;
-
-  position: relative;
 
   &::after {
     content: '';
     position: absolute;
     left: 50%;
-    bottom: -4px;
+    bottom: 0;
     transform: translateX(-50%);
-    width: ${({ $currentPage }) => ($currentPage ? '40px' : '0')};
+
+    width: ${({ $currentPage }) => ($currentPage ? '45px' : '0')};
     height: 4px;
+
     border-radius: 10px;
-    background-color: ${colors.HID_Navy[900]};
-    transition: width 0.3s ease;
+    background-color: ${({ theme }) => theme.colors.HID_Navy[900]};
+    transition: width 0.24s ease;
   }
+`;
+
+export const NavItemLink = styled(Link)`
+  width: fit-content;
+  height: 100%;
+  padding: 0 2.4rem;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const SearchButton = styled.button`
+  width: fit-content;
+  height: 100%;
+  padding: 0 2.4rem;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 `;
