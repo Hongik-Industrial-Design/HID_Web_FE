@@ -1,11 +1,8 @@
 import styled from 'styled-components';
 
 export const TopLevelContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+  width: 100vw;
   min-height: 100vh;
 `;
 
-export const Contents = styled.main`
-  flex-grow: 1;
-`;
+export const Contents = styled.main``;
