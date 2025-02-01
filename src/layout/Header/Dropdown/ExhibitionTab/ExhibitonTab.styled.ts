@@ -23,7 +23,7 @@ export const ExhibitionTabContainer = styled.div<DropdownTransientProps>`
 export const Title = styled.h2`
   margin-bottom: 40px;
 
-  ${({ theme }) => theme.fontStyles.Header2}
+  ${({ theme }) => theme.fontStyles.Header2} // 어차피 UI 통으로 수정해야함
   color: ${colors.HID_Grayscale[800]};
 
   span {

@@ -58,14 +58,12 @@ export const ContentHeader = styled.div`
 `;
 
 export const ArtworkTitle = styled.h2`
-  ${({ theme }) => theme.fontStyles.Header2}
+  ${({ theme }) => theme.fontStyles.Title2}
   color: ${colors.HID_Grayscale[800]};
 `;
 
 export const ArtworkSubTitle = styled.h3`
-  ${({ theme }) => theme.fontStyles.Title2}
-  font-weight: 400;
-
+  ${({ theme }) => theme.fontStyles.SubTitle2}
   color: ${colors.HID_Grayscale[900]};
 `;
 
@@ -80,7 +78,7 @@ export const AuthorUnit = styled.div`
   align-items: center;
   gap: 8px;
 
-  ${({ theme }) => theme.fontStyles.Body3}
+  ${({ theme }) => theme.fontStyles.Body2}
   color: ${colors.HID_Grayscale[500]};
 
   .divider {
@@ -99,7 +97,7 @@ export const ArtworkDescription = styled.div`
 
   width: 656px;
 
-  ${({ theme }) => theme.fontStyles.Body2}
+  ${({ theme }) => theme.fontStyles.Body3}
   color: ${colors.HID_Grayscale[700]};
 `;
 

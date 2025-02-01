@@ -13,8 +13,6 @@ export const ContactPageContainer = styled.div`
 
 export const Title = styled.h1`
   ${({ theme }) => theme.fontStyles.Header1}
-  letter-spacing: -0.28px;
-
   color: ${colors.HID_Grayscale[800]};
 
   span {

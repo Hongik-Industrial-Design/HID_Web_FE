@@ -24,7 +24,6 @@ export const IntroductionText = styled.div`
   width: 595px;
 
   ${({ theme }) => theme.fontStyles.Header1};
-  letter-spacing: -0.28px;
 
   span {
     color: #ffc700;
