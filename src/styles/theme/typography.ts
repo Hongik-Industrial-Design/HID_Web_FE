@@ -1,6 +1,6 @@
 import { css, CSSProp } from 'styled-components';
 
-export type TypographyList = {
+export type Typography = {
   Header1: CSSProp;
   Header1_KO: CSSProp;
   Header2: CSSProp;
@@ -27,10 +27,6 @@ export type TypographyList = {
   Caption2: CSSProp;
   Caption3: CSSProp;
   Hint: CSSProp;
-};
-
-type Typography = {
-  [key: string]: CSSProp;
 };
 
 const CommonFontstyles = css`

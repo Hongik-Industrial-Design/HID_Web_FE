@@ -1,9 +1,10 @@
 import { JSX } from 'react/jsx-runtime';
 import { useEffect, useState } from 'react';
-import { Link, Location, useLocation } from 'react-router';
+import { Location, useLocation } from 'react-router';
 
 import { HeaderProps } from './Header.types';
 
+import { HeaderHIDLogo } from '@icons/HIDLogo';
 import Navbar from './Navbar/Navbar';
 import Dropdown from './Dropdown/Dropdown';
 
@@ -76,14 +77,15 @@ const Header = ({
         $isHomePage={isHomePage}
         $scrolled={scrollPosition > 1056}
       >
-        <Link to="/">
-          <S.StyledHIDHomeLogo
+        <S.HomeLogo to="/">
+          <HeaderHIDLogo
             $isHomePage={isHomePage}
             $scrolled={scrollPosition > 1056}
             $isNavbarHovered={isNavbarHovered}
             $isDropdownOpen={isDropdownOpen}
           />
-        </Link>
+        </S.HomeLogo>
+
         <Navbar
           isNavbarHovered={isNavbarHovered}
           handleNavbarHover={handleNavbarHover}

@@ -1,9 +1,7 @@
 import styled from 'styled-components';
-import { colors } from '@styles/theme/colors';
+import { Link } from 'react-router';
 
 import { HeaderTransientProps } from './Header.types';
-
-import HIDHomeLogo from '@assets/icons/svgs/logos/HID-home-logo.svg?react';
 
 export const HeaderContainer = styled.header<HeaderTransientProps>`
   position: fixed;
@@ -13,59 +11,29 @@ export const HeaderContainer = styled.header<HeaderTransientProps>`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 4.8rem;
 
   width: 100%;
-  height: 50px;
-
-  padding: 0 158px;
+  height: 70px;
+  padding: 0 15.8rem;
 
   background-color: ${({ $isHomePage }) =>
-    $isHomePage ? '#1A1A1A4D' : '#ebebeb4d'};
+    $isHomePage ? '#1A1A1A3d' : '#ebebeb3d'};
 
   background-color: ${({ $isHomePage, $scrolled }) =>
-    $isHomePage && $scrolled && '#ebebeb4d'};
+    $isHomePage && $scrolled && '#ebebeb3d'};
 
-  background-color: ${({ $isNavbarHovered, $isDropdownOpen }) =>
-    ($isNavbarHovered || $isDropdownOpen) && `${colors.HID_Grayscale[0]}`};
+  background-color: ${({ $isNavbarHovered, $isDropdownOpen, theme }) =>
+    ($isNavbarHovered || $isDropdownOpen) && theme.colors.HID_Grayscale[0]};
 
-  transition: background-color 0.5s ease;
+  transition: background-color 0.3s ease;
 `;
 
-export const StyledHIDHomeLogo = styled(HIDHomeLogo)<HeaderTransientProps>`
-  width: 90px;
-  height: 17.4px;
+export const HomeLogo = styled(Link)`
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 
-  cursor: pointer;
-
-  path {
-    fill: ${({ $isHomePage }) =>
-      $isHomePage
-        ? `${colors.HID_Grayscale[0]}`
-        : `${colors.HID_Grayscale[800]}`};
-
-    fill: ${({ $isHomePage, $scrolled }) =>
-      $isHomePage && $scrolled && `${colors.HID_Grayscale[800]}`};
-
-    fill: ${({ $isHomePage, $isNavbarHovered, $isDropdownOpen }) =>
-      $isHomePage &&
-      ($isNavbarHovered || $isDropdownOpen) &&
-      `${colors.HID_Grayscale[800]}`};
-
-    transition: fill 0.3s ease;
-  }
-
-  #Vector_2 {
-    fill: ${({ $isHomePage }) =>
-      $isHomePage ? `${colors.HID_Grayscale[0]}` : `${colors.HID_Navy[900]}`};
-
-    fill: ${({ $isHomePage, $scrolled }) =>
-      $isHomePage && $scrolled && `${colors.HID_Navy[900]}`};
-
-    fill: ${({ $isHomePage, $isNavbarHovered, $isDropdownOpen }) =>
-      $isHomePage &&
-      ($isNavbarHovered || $isDropdownOpen) &&
-      `${colors.HID_Navy[900]}`};
-
-    transition: fill 0.3s ease;
-  }
+  width: fit-content;
+  height: fit-content;
 `;
