@@ -11,7 +11,7 @@ export const CategoryContainer = styled.div<{ $currentPath: string }>`
 `;
 
 export const DetailedMajor = styled.p<{ $isSelected: boolean }>`
-  max-width: 12rem;
+  min-width: 15rem;
   white-space: nowrap;
 
   ${({ theme }) => theme.fontStyles.Title4}

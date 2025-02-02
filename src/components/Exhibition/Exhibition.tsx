@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 import { GalleryInfos } from './Gallery.types';
 
-import Category from './Category/Category';
+import Category from '../Category/Category';
 import Gallery from './Gallery/ExhibitionGallery';
 
 import * as S from './Exhibition.styled';
