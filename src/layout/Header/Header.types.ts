@@ -5,7 +5,7 @@ export type HeaderTransientProps = {
   $scrolled: boolean;
 };
 
-export type HeaderProps = {
-  isNavbarHovered: boolean;
-  handleNavbarHover: () => void;
-};
+// export type HeaderProps = {
+//   isNavbarHovered: boolean;
+//   handleNavbarHover: () => void;
+// };

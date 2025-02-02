@@ -1,12 +1,11 @@
 export type DropdownProps = {
-  isNavbarHovered: boolean;
+  hoveredOption: string;
   isDropdownOpen: boolean;
   enterDropdown: () => void;
   leaveDropdown: () => void;
 };
 
-export type ExhibitionTabProps = {
-  exhibitonType: string;
+export type GraduationTabProps = {
   timeline: number[];
   isNavbarHovered: boolean;
   isDropdownOpen: boolean;

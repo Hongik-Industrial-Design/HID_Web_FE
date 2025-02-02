@@ -9,7 +9,8 @@ import * as S from './Navbar.styled';
 
 const Navbar = ({
   isNavbarHovered,
-  handleNavbarHover,
+  enterNavbar,
+  leaveNavbar,
   isDropdownOpen,
   isHomePage,
   scrolled,
@@ -26,49 +27,33 @@ const Navbar = ({
     >
       <S.NavItem
         $currentPage={currentPath.startsWith('/community')}
-        // onMouseEnter={() => handleNavbarHover()}
-        // onMouseLeave={() => handleNavbarHover()}
+        onMouseEnter={() => enterNavbar('community')}
+        onMouseLeave={() => leaveNavbar()}
       >
         <S.NavItemLink to="/community">Community</S.NavItemLink>
       </S.NavItem>
 
       <S.NavItem
         $currentPage={currentPath.startsWith('/graduation')}
-        onMouseEnter={() => handleNavbarHover()}
-        onMouseLeave={() => handleNavbarHover()}
+        onMouseEnter={() => enterNavbar('graduation')}
+        onMouseLeave={() => leaveNavbar()}
       >
         <S.NavItemLink to="/graduation">Graduation Exhibition</S.NavItemLink>
       </S.NavItem>
 
-      <S.NavItem
-        $currentPage={currentPath.startsWith('/student')}
-        // onMouseEnter={() => setIsHovered(true)}
-        // onMouseLeave={() => setIsHovered(false)}
-      >
+      <S.NavItem $currentPage={currentPath.startsWith('/student')}>
         <S.NavItemLink to="/student">Student Exhibition</S.NavItemLink>
       </S.NavItem>
 
-      <S.NavItem
-        $currentPage={currentPath.startsWith('/course-track')}
-        // $isActive={activeTab === "CourseTrack"}
-        // onClick={() => setActiveTab("CourseTrack")}
-      >
+      <S.NavItem $currentPage={currentPath.startsWith('/course-track')}>
         <S.NavItemLink to="/course-track">CourseTrack</S.NavItemLink>
       </S.NavItem>
 
-      <S.NavItem
-        $currentPage={currentPath.startsWith('/faculty')}
-        // $isActive={activeMenu === "Faculty"}
-        // onClick={() => setActiveMenu("Faculty")}
-      >
+      <S.NavItem $currentPage={currentPath.startsWith('/faculty')}>
         <S.NavItemLink to="/faculty">Faculty</S.NavItemLink>
       </S.NavItem>
 
-      <S.NavItem
-        $currentPage={currentPath.startsWith('/contact')}
-        // $isActive={activeTab === "Contact"}
-        // onClick={() => setActiveTab("Contact")}
-      >
+      <S.NavItem $currentPage={currentPath.startsWith('/contact')}>
         <S.NavItemLink to="/contact">Contact</S.NavItemLink>
       </S.NavItem>
 

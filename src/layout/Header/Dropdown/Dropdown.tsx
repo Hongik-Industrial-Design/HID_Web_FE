@@ -4,12 +4,12 @@ import { useEffect, useState } from 'react';
 
 import { DropdownProps } from './Dropdown.types';
 
-import ExhibitionTab from './ExhibitionTab/ExhibitionTab';
+import GraduationTab from './Graduation/GraduationTab';
 
 import * as S from './Dropdown.styled';
 
 const Dropdown = ({
-  isNavbarHovered,
+  hoveredOption,
   isDropdownOpen,
   enterDropdown,
   leaveDropdown,
@@ -20,14 +20,7 @@ const Dropdown = ({
     const fetchTimelineData = async () => {
       try {
         const response = await axios.get('/data/timeline.json');
-        const timelineData = response.data;
-
-        console.log(timelineData);
-
-        const reorderedData = reverseArray(timelineData);
-        console.log(reorderedData);
-
-        setTimeline(reorderedData);
+        setTimeline(response.data);
       } catch (error) {
         console.error('Error occured: ', error);
       }
@@ -36,26 +29,21 @@ const Dropdown = ({
     fetchTimelineData();
   }, []);
 
-  const reverseArray = (arr: number[]): number[] => {
-    return [...arr].reverse();
-  };
-
   return (
     <>
       <S.DropdownBackground
-        $isNavbarHovered={isNavbarHovered}
+        $isNavbarHovered={hoveredOption !== ''}
         $isDropdownOpen={isDropdownOpen}
       />
       <S.DropdownContainer
-        $isNavbarHovered={isNavbarHovered}
+        $isNavbarHovered={hoveredOption !== ''}
         $isDropdownOpen={isDropdownOpen}
         onMouseEnter={enterDropdown}
         onMouseLeave={leaveDropdown}
       >
-        <ExhibitionTab
-          exhibitonType={'Graduation'}
+        <GraduationTab
           timeline={timeline}
-          isNavbarHovered={isNavbarHovered}
+          isNavbarHovered={hoveredOption === 'graduation'}
           isDropdownOpen={isDropdownOpen}
         />
       </S.DropdownContainer>
