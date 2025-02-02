@@ -6,7 +6,7 @@ export const HeaderHIDLogo = styled(HIDlogo)<{
   $isHomePage: boolean;
   $scrolled: boolean;
   $isNavbarHovered: boolean;
-  $isDropdownOpen: boolean;
+  $isDropdownHover: boolean;
 }>`
   width: 100px;
   height: fit-content;
@@ -22,9 +22,9 @@ export const HeaderHIDLogo = styled(HIDlogo)<{
     fill: ${({ $isHomePage, $scrolled, theme }) =>
       $isHomePage && $scrolled && theme.colors.HID_Grayscale[800]};
 
-    fill: ${({ $isHomePage, $isNavbarHovered, $isDropdownOpen, theme }) =>
+    fill: ${({ $isHomePage, $isNavbarHovered, $isDropdownHover, theme }) =>
       $isHomePage &&
-      ($isNavbarHovered || $isDropdownOpen) &&
+      ($isNavbarHovered || $isDropdownHover) &&
       theme.colors.HID_Grayscale[800]};
 
     transition: fill 0.3s ease;
@@ -37,9 +37,9 @@ export const HeaderHIDLogo = styled(HIDlogo)<{
     fill: ${({ $isHomePage, $scrolled, theme }) =>
       $isHomePage && $scrolled && theme.colors.HID_Navy[900]};
 
-    fill: ${({ $isHomePage, $isNavbarHovered, $isDropdownOpen, theme }) =>
+    fill: ${({ $isHomePage, $isNavbarHovered, $isDropdownHover, theme }) =>
       $isHomePage &&
-      ($isNavbarHovered || $isDropdownOpen) &&
+      ($isNavbarHovered || $isDropdownHover) &&
       theme.colors.HID_Navy[900]};
 
     transition: fill 0.3s ease;

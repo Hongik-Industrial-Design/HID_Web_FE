@@ -1,30 +1,24 @@
 import styled from 'styled-components';
-import { colors } from '@styles/theme/colors';
 
-import { DropdownTransientProps } from '../Dropdown.types';
-
-export const ExhibitionTabContainer = styled.div<DropdownTransientProps>`
-  position: fixed;
-  top: 70px;
-  z-index: -1;
-  z-index: ${({ $isNavbarHovered, $isDropdownOpen }) =>
-    ($isNavbarHovered || $isDropdownOpen) && 100};
-
+export const GraduationTabContainer = styled.div<{
+  $isRendered: boolean;
+  $isActive: boolean;
+}>`
   width: 100%;
-  min-height: fit-content;
+  height: fit-content;
   padding: 3.2rem 15.8rem 4rem;
 
   display: flex;
 
-  background-color: ${colors.HID_Grayscale[0]};
+  background-color: ${({ theme }) => theme.colors.HID_Grayscale[0]};
+
+  opacity: ${({ $isRendered, $isActive }) =>
+    $isRendered || $isActive ? 1 : 0};
 
   transition: opacity 0.4s ease-in-out;
-
-  opacity: ${({ $isNavbarHovered, $isDropdownOpen }) =>
-    $isNavbarHovered || $isDropdownOpen ? 1 : 0};
 `;
 
-export const ExhibitionPreview = styled.section`
+export const GraduationPreview = styled.section`
   flex: 1;
 
   width: fit-content;

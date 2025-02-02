@@ -7,23 +7,26 @@ import exhibitionLogo from '@assets/icons/svgs/logos/2024_newnormal.svg';
 import * as S from './GraduationTab.styled';
 
 const GraduationTab = ({
-  timeline,
-  isNavbarHovered,
-  isDropdownOpen,
+  isRendered,
+  isActive,
+  enterDropdown,
+  leaveDropdown,
 }: GraduationTabProps): JSX.Element => {
   const exhibitionInfos = {
     title: 'New Normal',
     description:
       'Cheems is a modular console that uses generative AI to enable players to create games. It responds to the rising trend of players wanting to shape their own gaming experiences.',
-    timeline: timeline,
+    timeline: [2025, 2024, 2023, 2021, 2020],
   };
 
   return (
-    <S.ExhibitionTabContainer
-      $isNavbarHovered={isNavbarHovered}
-      $isDropdownOpen={isDropdownOpen}
+    <S.GraduationTabContainer
+      $isRendered={isRendered}
+      $isActive={isActive}
+      onMouseEnter={() => enterDropdown('graduation')}
+      onMouseLeave={() => leaveDropdown()}
     >
-      <S.ExhibitionPreview>
+      <S.GraduationPreview>
         <S.ExhibitionLogoContainer>
           <S.ExhibitionLogo src={exhibitionLogo} alt="2024 New Normal" />
         </S.ExhibitionLogoContainer>
@@ -34,8 +37,8 @@ const GraduationTab = ({
             {exhibitionInfos.description}
           </S.ExhibitionDescription>
         </S.ExhibitionInfos>
-      </S.ExhibitionPreview>
-    </S.ExhibitionTabContainer>
+      </S.GraduationPreview>
+    </S.GraduationTabContainer>
   );
 };
 

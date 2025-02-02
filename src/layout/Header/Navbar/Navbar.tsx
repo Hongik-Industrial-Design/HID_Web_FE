@@ -11,7 +11,7 @@ const Navbar = ({
   isNavbarHovered,
   enterNavbar,
   leaveNavbar,
-  isDropdownOpen,
+  isDropdownHover,
   isHomePage,
   scrolled,
 }: NavbarProps): JSX.Element => {
@@ -21,7 +21,7 @@ const Navbar = ({
   return (
     <S.NavbarContainer
       $isNavbarHovered={isNavbarHovered}
-      $isDropdownOpen={isDropdownOpen}
+      $isDropdownHover={isDropdownHover}
       $isHomePage={isHomePage}
       $scrolled={scrolled}
     >
@@ -45,10 +45,6 @@ const Navbar = ({
         <S.NavItemLink to="/student">Student Exhibition</S.NavItemLink>
       </S.NavItem>
 
-      <S.NavItem $currentPage={currentPath.startsWith('/course-track')}>
-        <S.NavItemLink to="/course-track">CourseTrack</S.NavItemLink>
-      </S.NavItem>
-
       <S.NavItem $currentPage={currentPath.startsWith('/faculty')}>
         <S.NavItemLink to="/faculty">Faculty</S.NavItemLink>
       </S.NavItem>
@@ -62,6 +58,10 @@ const Navbar = ({
           <MagnifyGlassIcon $isHomePage={isHomePage} $scrolled={scrolled} />
         </S.SearchButton>
       </S.NavItem>
+
+      {/* <S.NavItem $currentPage={currentPath.startsWith('/course-track')}>
+        <S.NavItemLink to="/course-track">CourseTrack</S.NavItemLink>
+      </S.NavItem> */}
     </S.NavbarContainer>
   );
 };

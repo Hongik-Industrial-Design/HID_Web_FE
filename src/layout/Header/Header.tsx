@@ -4,9 +4,12 @@ import { Location, useLocation } from 'react-router';
 import { create } from 'zustand';
 import { combine } from 'zustand/middleware';
 
+import { HoveredOption } from './Navbar/Navbar.types';
+import { HoveredDropdown } from '@layout/Dropdown/Dropdown.types';
+
 import { HeaderHIDLogo } from '@icons/HIDLogo';
 import Navbar from './Navbar/Navbar';
-import Dropdown from './Dropdown/Dropdown';
+import Dropdown from '../Dropdown/Dropdown';
 
 import * as S from './Header.styled';
 
@@ -33,7 +36,7 @@ const Header = (): JSX.Element => {
     (state) => state.setNavbarOption
   );
 
-  const enterNavbarOption = (option: string) => {
+  const enterNavbarOption = (option: HoveredOption) => {
     setHoveredNavbarOption(option);
   };
 
@@ -41,14 +44,15 @@ const Header = (): JSX.Element => {
     setHoveredNavbarOption('');
   };
 
-  const [isDropdownOpen, setDropdownOpen] = useState<boolean>(false);
-  const [scrollPosition, setScrollPosition] = useState<number>(0);
+  const [hoveredDropdown, setHoveredDropdown] = useState<HoveredDropdown>('');
 
   // Dropdown 컨테이너 hover시 Dropdown 컴포넌트 유지 (for better UX)
-  const enterDropdown = () => setDropdownOpen(true);
-  const leaveDropdown = () => setDropdownOpen(false);
+  const enterDropdown = (type: HoveredDropdown) => setHoveredDropdown(type);
+  const leaveDropdown = () => setHoveredDropdown('');
 
   // HomePage의 배너 이미지 이후부터 dynamic styling 가능하게끔 scrollPosition 계산
+  const [scrollPosition, setScrollPosition] = useState<number>(0);
+
   useEffect(() => {
     const handleScroll = () => setScrollPosition(window.scrollY);
 
@@ -59,7 +63,7 @@ const Header = (): JSX.Element => {
 
   // Dropdown 렌더링 시 Scroll 제어
   useEffect(() => {
-    if (hoveredNavbarOption !== '' || isDropdownOpen) {
+    if (hoveredNavbarOption !== '' || hoveredDropdown) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
@@ -68,7 +72,7 @@ const Header = (): JSX.Element => {
     return () => {
       document.body.style.overflow = '';
     };
-  }, [hoveredNavbarOption, isDropdownOpen]);
+  }, [hoveredNavbarOption, hoveredDropdown]);
 
   // IntersectionObserver를 사용한 방식
   // const targetRef = useRef(null);
@@ -98,7 +102,7 @@ const Header = (): JSX.Element => {
       <S.HeaderContainer
         $isHomePage={isHomePage}
         $isNavbarHovered={hoveredNavbarOption !== ''}
-        $isDropdownOpen={isDropdownOpen}
+        $isDropdownHover={hoveredDropdown !== ''}
         $scrolled={scrollPosition > 1056}
       >
         <S.HomeLogo to="/">
@@ -106,7 +110,7 @@ const Header = (): JSX.Element => {
             $isHomePage={isHomePage}
             $scrolled={scrollPosition > 1056}
             $isNavbarHovered={hoveredNavbarOption !== ''}
-            $isDropdownOpen={isDropdownOpen}
+            $isDropdownHover={hoveredDropdown !== ''}
           />
         </S.HomeLogo>
 
@@ -115,15 +119,15 @@ const Header = (): JSX.Element => {
           isNavbarHovered={hoveredNavbarOption !== ''}
           enterNavbar={enterNavbarOption}
           leaveNavbar={leaveNavbarOption}
-          isDropdownOpen={isDropdownOpen}
+          isDropdownHover={hoveredDropdown !== ''}
           scrolled={scrollPosition > 1056}
         />
       </S.HeaderContainer>
       <Dropdown
         hoveredOption={hoveredNavbarOption}
-        isDropdownOpen={isDropdownOpen}
         enterDropdown={enterDropdown}
         leaveDropdown={leaveDropdown}
+        hoveredDropdown={hoveredDropdown}
       />
     </>
   );

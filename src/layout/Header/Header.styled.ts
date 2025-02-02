@@ -23,12 +23,12 @@ export const HeaderContainer = styled.header<HeaderTransientProps>`
   background-color: ${({ $isHomePage, $scrolled }) =>
     $isHomePage && $scrolled && '#ebebeb3d'};
 
-  background-color: ${({ $isNavbarHovered, $isDropdownOpen, theme }) =>
-    ($isNavbarHovered || $isDropdownOpen) && theme.colors.HID_Grayscale[0]};
+  background-color: ${({ $isNavbarHovered, $isDropdownHover, theme }) =>
+    ($isNavbarHovered || $isDropdownHover) && theme.colors.HID_Grayscale[0]};
 
   backdrop-filter: blur(4px);
 
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease-in-out;
 `;
 
 export const HomeLogo = styled(Link)`
