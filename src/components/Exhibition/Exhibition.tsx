@@ -10,20 +10,22 @@ import Gallery from './Gallery/Gallery';
 import * as S from './Exhibition.styled';
 
 const Exhibition = (): JSX.Element => {
-  const [pieces, setPieces] = useState<GalleryInfos[]>([]);
+  const [pieces, setPieces] = useState<GalleryInfos[]>([]); // All Pieces
   const [categorizedPieces, setCategorizedPieces] = useState<GalleryInfos[]>(
     []
   );
+  const [categoryList, setCategoryList] = useState<string[]>([]);
 
   // Fetching Dummy Gallery Image
   useEffect(() => {
     const fetchGalleryImage = async () => {
       try {
         const response = await axios.get('/data/gallery.json');
-        const galleryThumbnails = response.data;
+        const galleryData = response.data;
 
-        setPieces(galleryThumbnails);
-        setCategorizedPieces(galleryThumbnails);
+        setCategoryList(galleryData.categoryList);
+        setPieces(galleryData.gallery);
+        setCategorizedPieces(galleryData.gallery);
       } catch (error) {
         console.error('Fetching Error: ', error);
       }
@@ -48,7 +50,10 @@ const Exhibition = (): JSX.Element => {
   return (
     <S.ExhibitionContainer>
       <S.StickyContainer>
-        <Category handleFilter={handleFilterPieces} />
+        <Category
+          categoryList={categoryList}
+          handleFilter={handleFilterPieces}
+        />
       </S.StickyContainer>
       <Gallery pieces={categorizedPieces} />
     </S.ExhibitionContainer>

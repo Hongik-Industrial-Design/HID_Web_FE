@@ -4,62 +4,30 @@ import { useLocation } from 'react-router';
 import * as S from './Category.styled';
 
 type CategoryProps = {
+  categoryList: string[];
   handleFilter: (category: string) => void;
 };
 
-const Category = ({ handleFilter }: CategoryProps) => {
-  const [isSelected, setIsSelected] = useState('All');
+const Category = ({ categoryList, handleFilter }: CategoryProps) => {
+  const [isSelected, setIsSelected] = useState<string>('All');
 
   const location = useLocation();
   const currentPath = location.pathname;
 
   return (
     <S.CategoryContainer $currentPath={currentPath}>
-      <S.DetailedMajor
-        $isSelected={isSelected === 'All'}
-        onClick={() => {
-          setIsSelected('All');
-          handleFilter('All');
-        }}
-      >
-        All
-      </S.DetailedMajor>
-      <S.DetailedMajor
-        $isSelected={isSelected === 'Smart Mobility'}
-        onClick={() => {
-          setIsSelected('Smart Mobility');
-          handleFilter('Smart Mobility');
-        }}
-      >
-        Smart Mobility
-      </S.DetailedMajor>
-      <S.DetailedMajor
-        $isSelected={isSelected === 'Spatial'}
-        onClick={() => {
-          setIsSelected('Spatial');
-          handleFilter('Spatial');
-        }}
-      >
-        Spatial
-      </S.DetailedMajor>
-      <S.DetailedMajor
-        $isSelected={isSelected === 'Product'}
-        onClick={() => {
-          setIsSelected('Product');
-          handleFilter('Product');
-        }}
-      >
-        Product
-      </S.DetailedMajor>
-      <S.DetailedMajor
-        $isSelected={isSelected === 'Interaction'}
-        onClick={() => {
-          setIsSelected('Interaction');
-          handleFilter('Interaction');
-        }}
-      >
-        Interaction
-      </S.DetailedMajor>
+      {categoryList.map((category, index) => (
+        <S.DetailedMajor
+          key={index}
+          $isSelected={isSelected === category}
+          onClick={() => {
+            setIsSelected(category);
+            handleFilter(category);
+          }}
+        >
+          {category}
+        </S.DetailedMajor>
+      ))}
     </S.CategoryContainer>
   );
 };
