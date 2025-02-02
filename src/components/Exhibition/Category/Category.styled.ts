@@ -17,8 +17,7 @@ export const DetailedMajor = styled.p<{ $isSelected: boolean }>`
   max-width: 144px;
   white-space: nowrap;
 
-  ${({ theme }) => theme.fontStyles.Title2}
-  font-weight: 400;
+  ${({ theme }) => theme.fontStyles.Title4}
 
   cursor: pointer;
 

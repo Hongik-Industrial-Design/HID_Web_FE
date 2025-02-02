@@ -16,7 +16,7 @@ export const DetailSectionTitle = styled.h2`
 `;
 
 export const DetailsDescriptionText = styled.p`
-  ${({ theme }) => theme.fontStyles.Body3}
+  ${({ theme }) => theme.fontStyles.Body2}
   color: ${colors.HID_Grayscale[700]};
 `;
 

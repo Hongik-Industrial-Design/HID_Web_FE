@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { colors } from '@styles/theme/colors';
 
-import nextArrow from '@assets/icons/svgs/notice/nextpage-arrow.svg?react';
+import nextArrow from '@assets/svgs/notice/nextpage-arrow.svg?react';
 
 export const PaginationContainer = styled.div`
   display: flex;

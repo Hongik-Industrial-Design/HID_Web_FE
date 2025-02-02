@@ -43,7 +43,7 @@ export const FeatureCardInfo = styled.div`
 `;
 
 export const FeatureCardDate = styled.div`
-  ${({ theme }) => theme.fontStyles.Headline}
+  ${({ theme }) => theme.fontStyles.Headline1}
   color: ${colors.HID_Grayscale[400]};
 `;
 
@@ -53,9 +53,7 @@ export const FeatureCardContents = styled.div`
   gap: 16px;
 
   .title {
-    ${({ theme }) => theme.fontStyles.Header2};
-    font-weight: 600;
-    letter-spacing: -0.28px;
+    ${({ theme }) => theme.fontStyles.Title3};
 
     color: ${colors.HID_Grayscale[900]};
   }

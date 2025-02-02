@@ -1,8 +1,8 @@
 import { JSX } from 'react/jsx-runtime';
 import { useEffect, useRef, useState } from 'react';
 
-import playButton from '@assets/icons/svgs/video-player/play_fill-white.svg';
-import fullScreenButton from '@assets/icons/svgs/video-player/full-screen_white.svg';
+import playButton from '@assets/svgs/video-player/play_fill-white.svg';
+import fullScreenButton from '@assets/svgs/video-player/full-screen_white.svg';
 
 import * as S from './VideoPlayer.styled';
 

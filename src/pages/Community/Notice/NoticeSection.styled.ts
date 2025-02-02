@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { colors } from '@styles/theme/colors';
 
-import clipIcon from '@assets/icons/svgs/notice/paper-clip.svg?react';
-import alarmIcon from '@assets/icons/svgs/notice/alarm.svg?react';
+import clipIcon from '@assets/svgs/notice/paper-clip.svg?react';
+import alarmIcon from '@assets/svgs/notice/alarm.svg?react';
 
 export const NoticeCategoryContainer = styled.div`
   display: flex;
@@ -37,7 +37,6 @@ export const NoticeHeader = styled.div`
 
 export const NoticeTitle = styled.h2`
   ${({ theme }) => theme.fontStyles.Header1}
-  letter-spacing: -0.28px;
   color: ${colors.HID_Grayscale[800]};
 
   span {

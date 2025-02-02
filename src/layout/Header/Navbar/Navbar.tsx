@@ -1,80 +1,68 @@
 import { JSX } from 'react/jsx-runtime';
-import { Link, useLocation } from 'react-router';
+import { Location, useLocation } from 'react-router';
 
 import { NavbarProps } from './Navbar.types';
 
-import SearchButton from './SearchButton/SearchButton';
+import { MagnifyGlassIcon } from '@icons/Search';
 
 import * as S from './Navbar.styled';
 
 const Navbar = ({
   isNavbarHovered,
-  handleNavbarHover,
-  isDropdownOpen,
+  enterNavbar,
+  leaveNavbar,
+  isDropdownHover,
   isHomePage,
   scrolled,
 }: NavbarProps): JSX.Element => {
-  const location = useLocation();
+  const location: Location = useLocation();
   const currentPath = location.pathname;
 
   return (
-    <S.NavItemsContainer
+    <S.NavbarContainer
       $isNavbarHovered={isNavbarHovered}
-      $isDropdownOpen={isDropdownOpen}
+      $isDropdownHover={isDropdownHover}
       $isHomePage={isHomePage}
       $scrolled={scrolled}
     >
-      <Link to="/faculty">
-        <S.NavItem
-          $currentPage={currentPath.startsWith('/faculty')}
-          // $isActive={activeMenu === "Faculty"}
-          // onClick={() => setActiveMenu("Faculty")}
-        >
-          Faculty
-        </S.NavItem>
-      </Link>
-      <Link to="/graduation">
-        <S.NavItem
-          $currentPage={currentPath.startsWith('/graduation')}
-          onMouseEnter={() => handleNavbarHover()}
-          onMouseLeave={() => handleNavbarHover()}
-        >
-          Graduation Exhibition
-        </S.NavItem>
-      </Link>
       <S.NavItem
-      // $currentPage={currentPath.startsWith("/student")}
-      // onMouseEnter={() => setIsHovered(true)}
-      // onMouseLeave={() => setIsHovered(false)}
+        $currentPage={currentPath.startsWith('/community')}
+        onMouseEnter={() => enterNavbar('community')}
+        onMouseLeave={() => leaveNavbar()}
       >
-        Student Exhibition
+        <S.NavItemLink to="/community">Community</S.NavItemLink>
       </S.NavItem>
+
       <S.NavItem
-      // $isActive={activeTab === "CourseTrack"}
-      // onClick={() => setActiveTab("CourseTrack")}
+        $currentPage={currentPath.startsWith('/graduation')}
+        onMouseEnter={() => enterNavbar('graduation')}
+        onMouseLeave={() => leaveNavbar()}
       >
-        CourseTrack
+        <S.NavItemLink to="/graduation">Graduation Exhibition</S.NavItemLink>
       </S.NavItem>
-      <Link to="/community">
-        <S.NavItem
-          $currentPage={currentPath.startsWith('/community')}
-          onMouseEnter={() => handleNavbarHover()}
-          onMouseLeave={() => handleNavbarHover()}
-        >
-          Community
-        </S.NavItem>
-      </Link>
-      <Link to="/contact">
-        <S.NavItem
-          $currentPage={currentPath.startsWith('/contact')}
-          // $isActive={activeTab === "Contact"}
-          // onClick={() => setActiveTab("Contact")}
-        >
-          Contact
-        </S.NavItem>
-      </Link>
-      <SearchButton isHomePage={isHomePage} scrolled={scrolled} />
-    </S.NavItemsContainer>
+
+      <S.NavItem $currentPage={currentPath.startsWith('/student')}>
+        <S.NavItemLink to="/student">Student Exhibition</S.NavItemLink>
+      </S.NavItem>
+
+      <S.NavItem $currentPage={currentPath.startsWith('/faculty')}>
+        <S.NavItemLink to="/faculty">Faculty</S.NavItemLink>
+      </S.NavItem>
+
+      <S.NavItem $currentPage={currentPath.startsWith('/contact')}>
+        <S.NavItemLink to="/contact">Contact</S.NavItemLink>
+      </S.NavItem>
+
+      <S.NavItem>
+        <S.SearchButton>
+          <MagnifyGlassIcon $isHomePage={isHomePage} $scrolled={scrolled} />
+        </S.SearchButton>
+      </S.NavItem>
+
+      {/* <S.NavItem $currentPage={currentPath.startsWith('/course-track')}>
+        <S.NavItemLink to="/course-track">CourseTrack</S.NavItemLink>
+      </S.NavItem> */}
+    </S.NavbarContainer>
   );
 };
 
