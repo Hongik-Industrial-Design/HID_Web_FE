@@ -29,3 +29,9 @@ export const GalleryContainer = styled.div`
   grid-template-rows: auto;
   gap: 2.4rem;
 `;
+
+export const PaginationSection = styled.section`
+  width: fit-content;
+  height: fit-content;
+  margin-top: 3.2rem;
+`;

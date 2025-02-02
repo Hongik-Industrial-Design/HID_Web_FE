@@ -1,4 +1,5 @@
 import { JSX } from 'react/jsx-runtime';
+import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { AnimatePresence } from 'framer-motion';
 
@@ -6,6 +7,7 @@ import { GalleryInfos } from '../Gallery.types';
 
 import SearchBar from '@components/SearchBar/SearchBar';
 import Piece from './Piece/Piece';
+import Pagination from '@components/Pagination/Pagination';
 
 import * as S from './ExhibitionGallery.styled';
 
@@ -20,10 +22,19 @@ const ExhibitionGallery = ({
 }: GalleryProps): JSX.Element => {
   const navigate = useNavigate();
 
-  // Routing to individual pieces
-  const goToDetailPage = (id: number) => {
-    navigate(`/graduation/work/${id}`);
-  };
+  const [currentPage, setCurrentPage] = useState<number>(1);
+
+  const totalPages = Math.ceil(pieces.length / 9);
+
+  const handleCurrentPage = (page: number) => setCurrentPage(page);
+
+  // 페이지네이션 작품 리스트 계산 Logic
+  const paginatedPieces = useMemo(() => {
+    const startIndex = (currentPage - 1) * 9;
+    return pieces.slice(startIndex, currentPage * 9);
+  }, [currentPage, pieces]);
+
+  const goToDetailPage = (id: number) => navigate(`/graduation/work/${id}`);
 
   return (
     <S.GalleryWrapper>
@@ -33,7 +44,7 @@ const ExhibitionGallery = ({
       </S.GalleryHeader>
       <S.GalleryContainer>
         <AnimatePresence>
-          {pieces.map((piece) => (
+          {paginatedPieces.map((piece) => (
             <Piece
               key={piece.id}
               pieceName={piece.thumbnail}
@@ -43,6 +54,13 @@ const ExhibitionGallery = ({
           ))}
         </AnimatePresence>
       </S.GalleryContainer>
+      <S.PaginationSection>
+        <Pagination
+          currentPage={currentPage}
+          handleCurrentPage={handleCurrentPage}
+          totalPages={totalPages}
+        />
+      </S.PaginationSection>
     </S.GalleryWrapper>
   );
 };

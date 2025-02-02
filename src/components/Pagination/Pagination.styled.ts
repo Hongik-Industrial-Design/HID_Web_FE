@@ -1,32 +1,26 @@
 import styled, { css } from 'styled-components';
-import { colors } from '@styles/theme/colors';
 
 import nextArrow from '@assets/svgs/notice/nextpage-arrow.svg?react';
 
 export const PaginationContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 18px;
-
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-  letter-spacing: -0.28px;
+  gap: 2.4rem;
 `;
 
 export const PageButton = styled.button<{ $currentPage: boolean }>`
-  min-width: 15px;
+  min-width: 1.5rem;
+
+  ${({ theme }) => theme.fontStyles.SubTitle2};
+  font-size: 2.2rem;
+  color: ${({ theme }) => theme.colors.HID_Grayscale[500]};
 
   ${({ $currentPage }) =>
-    $currentPage
-      ? css`
-          color: ${colors.HID_Navy[900]};
-          font-weight: 600;
-        `
-      : css`
-          color: ${colors.HID_Grayscale[500]};
-        `};
+    $currentPage &&
+    css`
+      color: ${({ theme }) => theme.colors.HID_Navy[900]};
+      font-weight: 600;
+    `};
 
   &:hover {
     transform: scale(1.1);
@@ -39,8 +33,8 @@ export const PageButton = styled.button<{ $currentPage: boolean }>`
 `;
 
 export const NextArrow = styled(nextArrow)`
-  width: 15px;
-  height: 15px;
+  width: 1.5rem;
+  height: 1.5rem;
 
   cursor: pointer;
 
