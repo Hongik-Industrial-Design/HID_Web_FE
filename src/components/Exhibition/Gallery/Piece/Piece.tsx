@@ -15,16 +15,20 @@ const Piece = ({
 }: PieceProps): JSX.Element => {
   const [isPieceHovered, setIsPieceHovered] = useState<boolean>(false);
 
+  const handleMouseEnter = () => setIsPieceHovered(true);
+  const handleMouseLeave = () => setIsPieceHovered(false);
+
   return (
     <motion.div
       layout
       animate={{ opacity: 1 }}
       initial={{ opacity: 0 }}
       exit={{ opacity: 0 }}
+      style={{ height: 'fit-content' }}
     >
       <S.PieceContainer
-        onMouseEnter={() => setIsPieceHovered(true)}
-        onMouseLeave={() => setIsPieceHovered(false)}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         onClick={goToDetailPage}
       >
         <S.PieceImage
