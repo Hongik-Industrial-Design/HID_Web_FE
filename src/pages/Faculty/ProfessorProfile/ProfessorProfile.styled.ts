@@ -22,7 +22,6 @@ export const ProfessorProfileHeader = styled.div`
 
 export const ProfessorProfilePageTitle = styled.div`
   ${({ theme }) => theme.fontStyles.Header1}
-  letter-spacing: -0.28px;
 
   span {
     color: ${colors.HID_YellowDot};

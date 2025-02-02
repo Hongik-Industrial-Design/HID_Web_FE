@@ -40,9 +40,7 @@ export const ProfessorOverlay = styled.div<{ $isThumbnailHovered: boolean }>`
   background-color: #09287a80;
 
   .name {
-    ${({ theme }) => theme.fontStyles.Display}
-    font-weight: 600;
-
+    ${({ theme }) => theme.fontStyles.Title3} // Title3
     color: ${colors.HID_Grayscale[0]};
   }
 

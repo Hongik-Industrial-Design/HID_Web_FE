@@ -30,7 +30,7 @@ export const CardInfos = styled.div`
   background-color: ${colors.HID_Grayscale[0]};
 
   .date {
-    ${({ theme }) => theme.fontStyles.Caption}
+    ${({ theme }) => theme.fontStyles.Headline2}
     color: ${colors.HID_Grayscale[400]};
   }
 
@@ -51,7 +51,7 @@ export const CardInfos = styled.div`
     padding: 4px 6px;
     border-radius: 2px;
 
-    ${({ theme }) => theme.fontStyles.Caption}
+    ${({ theme }) => theme.fontStyles.Headline2}
     color: ${colors.HID_Navy[900]};
     background-color: ${colors.HID_Navy[50]};
   }

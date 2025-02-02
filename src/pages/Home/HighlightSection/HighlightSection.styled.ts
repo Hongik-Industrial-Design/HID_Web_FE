@@ -5,5 +5,7 @@ export const HighlightSectionContainer = styled.div`
 
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 2.4rem;
+
+  overflow-x: scroll;
 `;

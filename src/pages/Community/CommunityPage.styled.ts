@@ -52,6 +52,7 @@ export const BoldDivider = styled.div`
 
 export const NewsEventTitle = styled.div`
   ${({ theme }) => theme.fontStyles.Header1}
+
   color: ${colors.HID_Grayscale[800]};
 
   .dot {

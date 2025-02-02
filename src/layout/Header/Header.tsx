@@ -1,25 +1,58 @@
 import { JSX } from 'react/jsx-runtime';
 import { useEffect, useState } from 'react';
-import { Link, Location, useLocation } from 'react-router';
+import { Location, useLocation } from 'react-router';
+import { create } from 'zustand';
+import { combine } from 'zustand/middleware';
 
-import { HeaderProps } from './Header.types';
+import { HoveredOption } from './Navbar/Navbar.types';
+import { HoveredDropdown } from '@layout/Dropdown/Dropdown.types';
 
+import { HeaderHIDLogo } from '@icons/HIDLogo';
 import Navbar from './Navbar/Navbar';
-import Dropdown from './Dropdown/Dropdown';
+import Dropdown from '../Dropdown/Dropdown';
 
 import * as S from './Header.styled';
 
-const Header = ({
-  isNavbarHovered,
-  handleNavbarHover,
-}: HeaderProps): JSX.Element => {
+// Navbar Hover 전역 상태 관리 (Zustand)
+const useDropdownStore = create(
+  combine({ navbarOption: '' }, (set) => {
+    return {
+      setNavbarOption: (option: string) => {
+        set(() => ({
+          navbarOption: option,
+        }));
+      },
+    };
+  })
+);
+
+const Header = (): JSX.Element => {
   const location: Location = useLocation();
   const isHomePage = location.pathname === '/';
 
-  const [isDropdownOpen, setDropdownOpen] = useState<boolean>(false);
-  const [scrollPosition, setScrollPosition] = useState<number>(0);
+  // Navbar Hover 전역 상태 관리 (Zustand)
+  const hoveredNavbarOption = useDropdownStore((state) => state.navbarOption);
+  const setHoveredNavbarOption = useDropdownStore(
+    (state) => state.setNavbarOption
+  );
+
+  const enterNavbarOption = (option: HoveredOption) => {
+    setHoveredNavbarOption(option);
+  };
+
+  const leaveNavbarOption = () => {
+    setHoveredNavbarOption('');
+  };
+
+  const [hoveredDropdown, setHoveredDropdown] = useState<HoveredDropdown>('');
+
+  // Dropdown 컨테이너 hover시 Dropdown 컴포넌트 유지 (for better UX)
+  const enterDropdown = (type: HoveredDropdown) => setHoveredDropdown(type);
+  const leaveDropdown = () => setHoveredDropdown('');
 
   // HomePage의 배너 이미지 이후부터 dynamic styling 가능하게끔 scrollPosition 계산
+  const [scrollPosition, setScrollPosition] = useState<number>(0);
+
   useEffect(() => {
     const handleScroll = () => setScrollPosition(window.scrollY);
 
@@ -30,7 +63,7 @@ const Header = ({
 
   // Dropdown 렌더링 시 Scroll 제어
   useEffect(() => {
-    if (isNavbarHovered || isDropdownOpen) {
+    if (hoveredNavbarOption !== '' || hoveredDropdown) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
@@ -39,11 +72,7 @@ const Header = ({
     return () => {
       document.body.style.overflow = '';
     };
-  }, [isNavbarHovered, isDropdownOpen]);
-
-  // Dropdown 컨테이너 hover시 Dropdown 컴포넌트 유지 (for better UX)
-  const enterDropdown = () => setDropdownOpen(true);
-  const leaveDropdown = () => setDropdownOpen(false);
+  }, [hoveredNavbarOption, hoveredDropdown]);
 
   // IntersectionObserver를 사용한 방식
   // const targetRef = useRef(null);
@@ -71,32 +100,34 @@ const Header = ({
   return (
     <>
       <S.HeaderContainer
-        $isNavbarHovered={isNavbarHovered}
-        $isDropdownOpen={isDropdownOpen}
         $isHomePage={isHomePage}
+        $isNavbarHovered={hoveredNavbarOption !== ''}
+        $isDropdownHover={hoveredDropdown !== ''}
         $scrolled={scrollPosition > 1056}
       >
-        <Link to="/">
-          <S.StyledHIDHomeLogo
+        <S.HomeLogo to="/">
+          <HeaderHIDLogo
             $isHomePage={isHomePage}
             $scrolled={scrollPosition > 1056}
-            $isNavbarHovered={isNavbarHovered}
-            $isDropdownOpen={isDropdownOpen}
+            $isNavbarHovered={hoveredNavbarOption !== ''}
+            $isDropdownHover={hoveredDropdown !== ''}
           />
-        </Link>
+        </S.HomeLogo>
+
         <Navbar
-          isNavbarHovered={isNavbarHovered}
-          handleNavbarHover={handleNavbarHover}
-          isDropdownOpen={isDropdownOpen}
           isHomePage={isHomePage}
+          isNavbarHovered={hoveredNavbarOption !== ''}
+          enterNavbar={enterNavbarOption}
+          leaveNavbar={leaveNavbarOption}
+          isDropdownHover={hoveredDropdown !== ''}
           scrolled={scrollPosition > 1056}
         />
       </S.HeaderContainer>
       <Dropdown
-        isNavbarHovered={isNavbarHovered}
-        isDropdownOpen={isDropdownOpen}
+        hoveredOption={hoveredNavbarOption}
         enterDropdown={enterDropdown}
         leaveDropdown={leaveDropdown}
+        hoveredDropdown={hoveredDropdown}
       />
     </>
   );
