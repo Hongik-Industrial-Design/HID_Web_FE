@@ -1,5 +1,4 @@
 import { JSX } from 'react/jsx-runtime';
-// import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { AnimatePresence } from 'framer-motion';
 
@@ -11,9 +10,13 @@ import * as S from './ExhibitionGallery.styled';
 
 interface GalleryProps {
   pieces: GalleryInfos[];
+  exhibitionYear: string;
 }
 
-const ExhibitionGallery = ({ pieces }: GalleryProps): JSX.Element => {
+const ExhibitionGallery = ({
+  pieces,
+  exhibitionYear,
+}: GalleryProps): JSX.Element => {
   const navigate = useNavigate();
 
   // Routing to individual pieces
@@ -22,18 +25,23 @@ const ExhibitionGallery = ({ pieces }: GalleryProps): JSX.Element => {
   };
 
   return (
-    <S.GalleryContainer>
-      <AnimatePresence>
-        {pieces.map((piece) => (
-          <Piece
-            key={piece.id}
-            pieceName={piece.thumbnail}
-            pieceInfos={piece.credit}
-            goToDetailPage={() => goToDetailPage(piece.id)}
-          />
-        ))}
-      </AnimatePresence>
-    </S.GalleryContainer>
+    <S.GalleryWrapper>
+      <S.GalleryHeader>
+        <S.ExhbitionYear>{exhibitionYear}</S.ExhbitionYear>
+      </S.GalleryHeader>
+      <S.GalleryContainer>
+        <AnimatePresence>
+          {pieces.map((piece) => (
+            <Piece
+              key={piece.id}
+              pieceName={piece.thumbnail}
+              pieceInfos={piece.credit}
+              goToDetailPage={() => goToDetailPage(piece.id)}
+            />
+          ))}
+        </AnimatePresence>
+      </S.GalleryContainer>
+    </S.GalleryWrapper>
   );
 };
 

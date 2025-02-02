@@ -15,6 +15,7 @@ const Exhibition = (): JSX.Element => {
     []
   );
   const [categoryList, setCategoryList] = useState<string[]>([]);
+  const [exhibitionYear, setExhibitionYear] = useState<string>('');
 
   // Fetching Dummy Gallery Image
   useEffect(() => {
@@ -23,6 +24,7 @@ const Exhibition = (): JSX.Element => {
         const response = await axios.get('/data/gallery.json');
         const galleryData = response.data;
 
+        setExhibitionYear(galleryData.year);
         setCategoryList(galleryData.categoryList);
         setPieces(galleryData.gallery);
         setCategorizedPieces(galleryData.gallery);
@@ -55,7 +57,8 @@ const Exhibition = (): JSX.Element => {
           handleFilter={handleFilterPieces}
         />
       </S.StickyContainer>
-      <Gallery pieces={categorizedPieces} />
+
+      <Gallery pieces={categorizedPieces} exhibitionYear={exhibitionYear} />
     </S.ExhibitionContainer>
   );
 };
