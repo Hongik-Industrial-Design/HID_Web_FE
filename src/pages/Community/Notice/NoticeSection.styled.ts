@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { colors } from '@styles/theme/colors';
 
-import clipIcon from '@assets/icons/svgs/notice/paper-clip.svg?react';
-import alarmIcon from '@assets/icons/svgs/notice/alarm.svg?react';
+import clipIcon from '@assets/svgs/notice/paper-clip.svg?react';
+import alarmIcon from '@assets/svgs/notice/alarm.svg?react';
 
 export const NoticeCategoryContainer = styled.div`
   display: flex;

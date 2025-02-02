@@ -2,7 +2,7 @@ import { JSX } from 'react/jsx-runtime';
 
 import { GraduationTabProps } from '../Dropdown.types';
 
-import exhibitionLogo from '@assets/icons/svgs/logos/2024_newnormal.svg';
+import exhibitionLogo from '@assets/svgs/logos/2024_newnormal.svg';
 
 import * as S from './GraduationTab.styled';
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import HIDlogo from '@assets/icons/svgs/logos/HID-logo.svg?react';
+import HIDlogo from '@assets/svgs/logos/HID-logo.svg?react';
 
 export const HeaderHIDLogo = styled(HIDlogo)<{
   $isHomePage: boolean;

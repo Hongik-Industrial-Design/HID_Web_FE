@@ -2,7 +2,7 @@ import { JSX } from 'react/jsx-runtime';
 
 import { openNewTab } from '@utils/openNewTab';
 
-import FooterLogo from '@assets/icons/svgs/logos/footer-logo.svg';
+import FooterLogo from '@assets/svgs/logos/footer-logo.svg';
 
 import * as S from './Footer.styled';
 

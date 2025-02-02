@@ -2,8 +2,8 @@ import { JSX } from 'react/jsx-runtime';
 
 import OverviewSection from './OverviewSection/OverviewSection';
 
-import homeBanner from '@assets/images/banners/home-banner.jpg';
-import homeBannerLogo from '@assets/icons/svgs/logos/homebanner-logo.svg';
+import homeBanner from '@assets/images//home-banner.jpg';
+import homeBannerLogo from '@assets/svgs/logos/homebanner-logo.svg';
 
 import * as S from './HomePage.styled';
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import magnifyGlass from '@assets/icons/svgs/search/maginfy-glass.svg?react';
+import magnifyGlass from '@assets/svgs/search/maginfy-glass.svg?react';
 
 export const MagnifyGlassIcon = styled(magnifyGlass)<{
   $isHomePage: boolean;
