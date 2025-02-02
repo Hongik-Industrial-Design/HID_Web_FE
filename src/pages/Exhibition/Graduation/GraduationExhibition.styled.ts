@@ -13,4 +13,5 @@ export const BannerFrame = styled(motion.div)`
 
 export const GraduationBanner = styled.img`
   width: 100%;
+  height: fit-content;
 `;
