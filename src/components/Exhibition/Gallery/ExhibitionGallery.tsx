@@ -4,6 +4,7 @@ import { AnimatePresence } from 'framer-motion';
 
 import { GalleryInfos } from '../Gallery.types';
 
+import SearchBar from '@components/SearchBar/SearchBar';
 import Piece from './Piece/Piece';
 
 import * as S from './ExhibitionGallery.styled';
@@ -28,6 +29,7 @@ const ExhibitionGallery = ({
     <S.GalleryWrapper>
       <S.GalleryHeader>
         <S.ExhbitionYear>{exhibitionYear}</S.ExhbitionYear>
+        <SearchBar placeholder="Search by student name" />
       </S.GalleryHeader>
       <S.GalleryContainer>
         <AnimatePresence>
