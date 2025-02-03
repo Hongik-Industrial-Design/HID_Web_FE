@@ -49,18 +49,21 @@ const ExhibitionDetail = (): JSX.Element => {
   }, []);
 
   return (
-    <S.ExhibitionDetailContainer>
-      <HeroSection
-        fetchedData={individualArtworkInfos?.heroSection}
-        totalPages={totalPages}
-        currentPage={currentPage}
-      />
-      <ArtworkSection
-        fetchedData={individualArtworkInfos?.media}
-        currentPage={currentPage}
-      />
+    <S.ExhibitionDetailWrapper>
+      <S.ExhibitionDetailContainer>
+        <HeroSection
+          fetchedData={individualArtworkInfos?.heroSection}
+          totalPages={totalPages}
+          currentPage={currentPage}
+        />
+        <ArtworkSection
+          fetchedData={individualArtworkInfos?.media}
+          currentPage={currentPage}
+        />
+      </S.ExhibitionDetailContainer>
+      <S.WhiteSpace />
       <TeamMembersSection membersData={individualArtworkInfos?.authorInfos} />
-    </S.ExhibitionDetailContainer>
+    </S.ExhibitionDetailWrapper>
   );
 };
 

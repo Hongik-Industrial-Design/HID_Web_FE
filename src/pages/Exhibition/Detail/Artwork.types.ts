@@ -38,6 +38,7 @@ export interface AuthorInfos {
   name: string;
   specialty: string;
   profileImage: string;
+  email: string;
 }
 
 export interface ArtworkInfo {

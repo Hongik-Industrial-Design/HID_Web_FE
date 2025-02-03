@@ -65,13 +65,15 @@
         "id": 1,
         "name": "Alex Kim",
         "specialty": "Interaction/UI Design",
-        "profileImage": "Alex Kim.jpg"
+        "profileImage": "Alex Kim.jpg",
+        "email": "hongik1010@gmail.com"
       },
       {
         "id": 2,
         "name": "Jordan Park",
         "specialty": "UX/UI Designer, Product Designer",
-        "profileImage": "Jordan Park.jpg"
+        "profileImage": "Jordan Park.jpg",
+        "email": "hongik1010@gmail.com"
       }
     ]
   },
@@ -147,13 +149,15 @@
         "id": 1,
         "name": "Alex Kim",
         "specialty": "Interaction/UI Design",
-        "profileImage": "Alex Kim.jpg"
+        "profileImage": "Alex Kim.jpg",
+        "email": "hongik1010@gmail.com"
       },
       {
         "id": 2,
         "name": "Jordan Park",
         "specialty": "UX/UI Designer, Product Designer",
-        "profileImage": "Jordan Park.jpg"
+        "profileImage": "Jordan Park.jpg",
+        "email": "hongik1010@gmail.com"
       }
     ]
   },

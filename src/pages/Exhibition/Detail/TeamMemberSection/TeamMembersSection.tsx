@@ -2,7 +2,7 @@ import { JSX } from 'react/jsx-runtime';
 
 import MemberCard from './MemberCard/MemberCard';
 
-import { TeamMembersContainer } from './TeamMemberSection.styled';
+import * as S from './TeamMemberSection.styled';
 import { AuthorInfos } from '../Artwork.types';
 
 interface TeamMemberSectionProps {
@@ -13,11 +13,16 @@ const TeamMembersSection = ({
   membersData,
 }: TeamMemberSectionProps): JSX.Element => {
   return (
-    <TeamMembersContainer>
-      {membersData?.map((teamMember) => (
-        <MemberCard key={teamMember.id} teamMember={teamMember} />
-      ))}
-    </TeamMembersContainer>
+    <S.TeamMembersSection>
+      <S.Title>
+        Participants<span>.</span>
+      </S.Title>
+      <S.TeamMembersContainer>
+        {membersData?.map((teamMember) => (
+          <MemberCard key={teamMember.id} teamMember={teamMember} />
+        ))}
+      </S.TeamMembersContainer>
+    </S.TeamMembersSection>
   );
 };
 
