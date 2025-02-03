@@ -2,9 +2,9 @@ import { JSX } from 'react/jsx-runtime';
 import { useState } from 'react';
 
 import { HeroSectionInfos } from '../Artwork.types';
-import { openNewTab } from '@utils/openNewTab';
 
 import Breadscrumb from '@components/Breadscrumb/Breadscrumb';
+import SocialIcon from '@components/SocialIcon/SocialIcon';
 import GoToList from '@components/GoToList/GoToList';
 import NextPrevious from '@components/NextPrevious/NextPrevious';
 
@@ -38,51 +38,70 @@ const HeroSection = ({
         ]}
         currentPage="View Detail"
       />
+
+      {/* Thumbnail */}
       <S.ThumbnailContainer>
-        <S.TinyThumbnailContainer>
+        <S.TinyThumbnailList>
           {fetchedData?.thumbnails?.tinyImages.map((tinyImage) => (
-            <img
-              key={tinyImage.id}
-              src={`/Graduation-Exhibition/${currentPage}/${tinyImage.url}`}
-              alt="tiny-image_1"
-              className="secondary"
-            />
+            <S.TinyThumbnailItem key={tinyImage.id}>
+              <S.TinyThumbnail
+                src={`/Graduation-Exhibition/${currentPage}/${tinyImage.url}`}
+                alt="tiny-thumbnail"
+              />
+            </S.TinyThumbnailItem>
           ))}
-        </S.TinyThumbnailContainer>
-        <img
-          src={`/Graduation-Exhibition/${currentPage}/${fetchedData?.thumbnails?.primary.url}`}
-          alt="primary-thumbnail"
-          className="primary"
-        />
+        </S.TinyThumbnailList>
+        <S.PrimartThumbnailFrame>
+          <S.PrimaryThumbnail
+            src={`/Graduation-Exhibition/${currentPage}/${fetchedData?.thumbnails.primary.url}`}
+            alt="primary-thumbnail"
+          />
+        </S.PrimartThumbnailFrame>
       </S.ThumbnailContainer>
+
+      {/* Content Area */}
       <S.ContentArea>
+        {/* Header */}
         <S.ContentHeader>
           <S.ArtworkTitle>{fetchedData?.title}</S.ArtworkTitle>
           <S.ArtworkSubTitle>{fetchedData?.subtitle}</S.ArtworkSubTitle>
           <S.AuthorContainer>
-            {fetchedData?.authors.map((author) => (
+            {fetchedData?.authors.map((author, index) => (
               <S.AuthorUnit key={author.id}>
-                <p>{author.name}</p>
-                <span className="divider" />
+                <S.AuthorName>{author.name}</S.AuthorName>
+                {index !== fetchedData.authors.length - 1 && ( // 마지막 사람 뒤에만 Divider 렌더링 X
+                  <S.AuthorDivider />
+                )}
               </S.AuthorUnit>
             ))}
           </S.AuthorContainer>
         </S.ContentHeader>
-        <S.ArtworkDescription>
-          <div>{fetchedData?.description_en}</div>
-          <div>{fetchedData?.description_ko}</div>
-        </S.ArtworkDescription>
+
+        {/* Description */}
+        <S.ArtworkDescriptionSection>
+          <S.DescriptionEnglish>
+            {fetchedData?.description_en}
+          </S.DescriptionEnglish>
+          <S.DescriptionKorean>
+            {fetchedData?.description_ko}
+          </S.DescriptionKorean>
+        </S.ArtworkDescriptionSection>
+
+        {/* Footer */}
         <S.ContentFooter>
-          <S.SocialIcons>
+          <S.SocialIconList>
             {fetchedData?.social.map((sns) => (
-              <img
-                key={sns.id}
-                src={`/Social-Icons/${sns.service}_transparent.svg`}
-                className="icon"
-                onClick={() => openNewTab(`${sns.linkInfo}`)}
-              />
+              <S.SocialIconItem key={sns.id}>
+                <S.SocialIconLink
+                  href={sns.linkInfo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <SocialIcon service={sns.service} />
+                </S.SocialIconLink>
+              </S.SocialIconItem>
             ))}
-          </S.SocialIcons>
+          </S.SocialIconList>
           <S.RoutingArea>
             <GoToList
               isHovered={gotToListHovered}

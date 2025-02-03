@@ -1,127 +1,171 @@
 import styled from 'styled-components';
-import { colors } from '@styles/theme/colors';
 
-export const HeroSectionContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 160px;
-
+export const HeroSectionContainer = styled.section`
   position: relative;
 
   width: 100%;
+  height: fit-content;
+  padding-top: 25.7rem;
+  margin-bottom: 13.4rem;
 
-  padding-top: 257px;
-  margin-bottom: 134px;
-`;
-
-export const ThumbnailContainer = styled.div`
   display: flex;
-  gap: 27px;
-
-  flex-shrink: 0;
-
-  .secondary {
-    width: 100%;
-    height: 179px;
-
-    border: 1px solid ${colors.HID_Grayscale[200]};
-  }
-
-  .primary {
-    width: 582px;
-    height: 582px;
-
-    border-radius: 2px;
-    border: 1px solid ${colors.HID_Grayscale[200]};
-  }
+  justify-content: center;
+  gap: 16rem;
 `;
 
-export const TinyThumbnailContainer = styled.div`
-  width: 179px;
+// Thumbnail
+export const ThumbnailContainer = styled.section`
+  width: fit-content;
+  height: fit-content;
+
+  display: flex;
+  gap: 2.7rem;
+`;
+
+export const TinyThumbnailList = styled.ul`
+  width: 17.9rem;
+  height: fit-content;
 
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 2.4rem;
 `;
 
-export const ContentArea = styled.div`
+export const TinyThumbnailItem = styled.li`
+  width: 100%;
+  height: fit-content;
+
+  border: 1px solid ${({ theme }) => theme.colors.HID_Grayscale[200]};
+`;
+
+export const TinyThumbnail = styled.img`
+  width: 100%;
+  height: fit-content;
+`;
+
+export const PrimartThumbnailFrame = styled.div`
+  width: fit-content;
+  height: 58.3rem;
+
+  border-radius: 2px;
+  border: 1px solid ${({ theme }) => theme.colors.HID_Grayscale[200]};
+`;
+
+export const PrimaryThumbnail = styled.img`
+  height: 100%;
+`;
+
+// Content Area
+export const ContentArea = styled.section`
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  gap: 4.8rem;
 `;
 
-export const ContentHeader = styled.div`
-  display: inline-flex;
+// Header (Title & Author)
+export const ContentHeader = styled.section`
+  width: fit-content;
+  height: fit-content;
+
+  display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 24px;
+  gap: 2.4rem;
 `;
 
+// Title
 export const ArtworkTitle = styled.h2`
   ${({ theme }) => theme.fontStyles.Title2}
-  color: ${colors.HID_Grayscale[800]};
+  color: ${({ theme }) => theme.colors.HID_Grayscale[800]};
 `;
 
 export const ArtworkSubTitle = styled.h3`
   ${({ theme }) => theme.fontStyles.SubTitle2}
-  color: ${colors.HID_Grayscale[900]};
+  color: ${({ theme }) => theme.colors.HID_Grayscale[900]};
 `;
 
-export const AuthorContainer = styled.div`
+// Author
+export const AuthorContainer = styled.ul`
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.8rem;
 `;
 
-export const AuthorUnit = styled.div`
+export const AuthorUnit = styled.li`
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.8rem;
+`;
 
+export const AuthorName = styled.span`
   ${({ theme }) => theme.fontStyles.Body2}
-  color: ${colors.HID_Grayscale[500]};
-
-  .divider {
-    display: inline-block;
-    width: 1px;
-    height: 14px;
-    background-color: ${colors.HID_Grayscale[300]};
-  }
+  color: ${({ theme }) => theme.colors.HID_Grayscale[500]};
 `;
 
-export const ArtworkDescription = styled.div`
+export const AuthorDivider = styled.div`
+  width: 0.1rem;
+  height: 1.6rem;
+  background-color: ${({ theme }) => theme.colors.HID_Grayscale[300]};
+`;
+
+// Description
+export const ArtworkDescriptionSection = styled.section`
+  width: 65.6rem;
+  height: fit-content;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 24px;
+  gap: 3.6rem;
+`;
 
-  width: 656px;
-
+export const DescriptionEnglish = styled.p`
   ${({ theme }) => theme.fontStyles.Body3}
-  color: ${colors.HID_Grayscale[700]};
+  color: ${({ theme }) => theme.colors.HID_Grayscale[700]};
 `;
 
-export const ContentFooter = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 219px;
+export const DescriptionKorean = styled.p`
+  ${({ theme }) => theme.fontStyles.Body3_KO}
+  color: ${({ theme }) => theme.colors.HID_Grayscale[700]};
+`;
 
+// Footer
+export const ContentFooter = styled.section`
+  width: 100%;
   margin-top: auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
-export const SocialIcons = styled.div`
-  display: inline-flex;
-  gap: 8px;
+export const SocialIconList = styled.ul`
+  width: fit-content;
+  height: fit-content;
 
-  .icon {
-    width: 40px;
-    height: 40px;
+  display: flex;
+  gap: 1.6rem;
+`;
 
-    cursor: pointer;
-  }
+export const SocialIconItem = styled.li`
+  width: fit-content;
+  height: fit-content;
+`;
+
+export const SocialIconLink = styled.a`
+  width: 4rem;
+  height: 4rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const SocialIcon = styled.img`
+  width: 70%;
 `;
 
 export const RoutingArea = styled.div`
   display: flex;
-  gap: 32px;
+  gap: 3.2rem;
 `;
