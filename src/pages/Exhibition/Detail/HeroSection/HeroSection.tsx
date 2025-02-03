@@ -4,9 +4,9 @@ import { useState } from 'react';
 import { HeroSectionInfos } from '../Artwork.types';
 
 import Breadscrumb from '@components/Breadscrumb/Breadscrumb';
-import SocialIcon from '@components/SocialIcon/SocialIcon';
 import GoToList from '@components/GoToList/GoToList';
 import NextPrevious from '@components/NextPrevious/NextPrevious';
+import { BehanceLogo, InstagramLogo } from '@icons/SocialIcon';
 
 import * as S from './HeroSection.styled';
 
@@ -16,15 +16,33 @@ interface HeroSectionProps {
   currentPage: number;
 }
 
+type SocialIconHovered = {
+  Behance: boolean;
+  Instagram: boolean;
+};
+
 const HeroSection = ({
   fetchedData,
   totalPages,
   currentPage,
 }: HeroSectionProps): JSX.Element => {
   const [gotToListHovered, setGoToListHovered] = useState<boolean>(false);
+  const [isSocialIconHovered, setIsSocialIconHovered] =
+    useState<SocialIconHovered>({
+      Behance: false,
+      Instagram: false,
+    });
 
   const handleGoToListEnter = () => setGoToListHovered(true);
   const handleGoToListLeave = () => setGoToListHovered(false);
+
+  const handleSocialIconEnter = (service: keyof typeof isSocialIconHovered) => {
+    setIsSocialIconHovered((prev) => ({ ...prev, [service]: true }));
+  };
+
+  const handleSocialIconLeave = (service: keyof typeof isSocialIconHovered) => {
+    setIsSocialIconHovered((prev) => ({ ...prev, [service]: false }));
+  };
 
   return (
     <S.HeroSectionContainer>
@@ -89,19 +107,34 @@ const HeroSection = ({
 
         {/* Footer */}
         <S.ContentFooter>
+          {/* Social Icon */}
           <S.SocialIconList>
-            {fetchedData?.social.map((sns) => (
-              <S.SocialIconItem key={sns.id}>
-                <S.SocialIconLink
-                  href={sns.linkInfo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <SocialIcon service={sns.service} />
-                </S.SocialIconLink>
-              </S.SocialIconItem>
-            ))}
+            <S.SocialIconItem>
+              <S.SocialIconLink
+                href={fetchedData?.social[0].linkInfo}
+                target="_blank"
+                rel="noopener noreferrer"
+                onMouseEnter={handleSocialIconEnter.bind(null, 'Behance')}
+                onMouseLeave={handleSocialIconLeave.bind(null, 'Behance')}
+              >
+                <BehanceLogo $isHovered={isSocialIconHovered.Behance} />
+              </S.SocialIconLink>
+            </S.SocialIconItem>
+
+            <S.SocialIconItem>
+              <S.SocialIconLink
+                href={fetchedData?.social[1].linkInfo}
+                target="_blank"
+                rel="noopener noreferrer"
+                onMouseEnter={handleSocialIconEnter.bind(null, 'Instagram')}
+                onMouseLeave={handleSocialIconLeave.bind(null, 'Instagram')}
+              >
+                <InstagramLogo $isHovered={isSocialIconHovered.Instagram} />
+              </S.SocialIconLink>
+            </S.SocialIconItem>
           </S.SocialIconList>
+
+          {/* Routing Area */}
           <S.RoutingArea>
             <GoToList
               isHovered={gotToListHovered}

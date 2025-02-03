@@ -13,9 +13,11 @@ export interface ThumbnailInfos {
   tinyImages: { id: number; url: string }[];
 }
 
+type SocialService = 'Behance' | 'Instagram';
+
 export interface SocialInfos {
   id: number;
-  service: string;
+  service: SocialService;
   linkInfo: string;
 }
 

@@ -23,21 +23,15 @@
         ]
       },
       "social": [
-        { "id": 1, "service": "Mail", "linkInfo": "keaikim77@gmail.com" },
         {
-          "id": 2,
-          "service": "Instagram",
-          "linkInfo": "https://www.instagram.com/"
-        },
-        {
-          "id": 3,
+          "id": 1,
           "service": "Behance",
           "linkInfo": "https://www.behance.net/"
         },
         {
-          "id": 4,
-          "service": "Linkedin",
-          "linkInfo": "https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit"
+          "id": 2,
+          "service": "Instagram",
+          "linkInfo": "https://www.instagram.com/"
         }
       ]
     },

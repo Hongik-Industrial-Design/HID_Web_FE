@@ -144,7 +144,7 @@ export const SocialIconList = styled.ul`
   height: fit-content;
 
   display: flex;
-  gap: 1.6rem;
+  gap: 1.8rem;
 `;
 
 export const SocialIconItem = styled.li`
@@ -159,6 +159,14 @@ export const SocialIconLink = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  border-radius: 4px;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  transition: transform 0.2s ease;
 `;
 
 export const SocialIcon = styled.img`
