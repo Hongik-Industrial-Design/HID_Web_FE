@@ -2,10 +2,7 @@ import styled from 'styled-components';
 
 export const ExhibitionDetailContainer = styled.div`
   width: 100%;
-
-  /* margin: 0 auto; */
-  padding: 0 158px;
-
-  margin-top: 54px;
-  margin-bottom: 150px;
+  height: fit-content;
+  padding: 0 15.8rem;
+  margin-top: 7rem;
 `;

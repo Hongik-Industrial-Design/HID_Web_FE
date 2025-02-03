@@ -11,7 +11,7 @@ import TeamMembersSection from './TeamMemberSection/TeamMembersSection';
 
 import * as S from './ExhibitionDetail.styled';
 
-const DetailPage = (): JSX.Element => {
+const ExhibitionDetail = (): JSX.Element => {
   const [artworkInfos, setArtworkInfos] = useState<ArtworkInfo[]>([]);
   const [totalPages, setTotalPages] = useState<number>(0);
 
@@ -64,4 +64,4 @@ const DetailPage = (): JSX.Element => {
   );
 };
 
-export default DetailPage;
+export default ExhibitionDetail;
