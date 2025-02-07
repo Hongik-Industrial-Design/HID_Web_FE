@@ -74,6 +74,34 @@
         "specialty": "UX/UI Designer, Product Designer",
         "profileImage": "Jordan Park.jpg",
         "email": "hongik1010@gmail.com"
+      },
+      {
+        "id": 3,
+        "name": "Alex Kim",
+        "specialty": "Interaction/UI Design",
+        "profileImage": "Alex Kim.jpg",
+        "email": "hongik1010@gmail.com"
+      },
+      {
+        "id": 4,
+        "name": "Jordan Park",
+        "specialty": "UX/UI Designer, Product Designer",
+        "profileImage": "Jordan Park.jpg",
+        "email": "hongik1010@gmail.com"
+      },
+      {
+        "id": 5,
+        "name": "Alex Kim",
+        "specialty": "Interaction/UI Design",
+        "profileImage": "Alex Kim.jpg",
+        "email": "hongik1010@gmail.com"
+      },
+      {
+        "id": 6,
+        "name": "Jordan Park",
+        "specialty": "UX/UI Designer, Product Designer",
+        "profileImage": "Jordan Park.jpg",
+        "email": "hongik1010@gmail.com"
       }
     ]
   },
