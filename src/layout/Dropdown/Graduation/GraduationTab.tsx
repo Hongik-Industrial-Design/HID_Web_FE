@@ -49,6 +49,8 @@ const GraduationTab = ({
               <S.ExhibitonLink href={`/graduation/${year}`}>
                 <S.ExhibitionPoster
                   src={`/Dropdown-Poster/${year}_DD_Thumbnail.jpg`}
+                  alt={`${year}_DD_Thumbnail`}
+                  $isHovered={hoveredYear === year}
                 />
               </S.ExhibitonLink>
               <S.OverlappedYearContainer $isHovered={hoveredYear === year}>

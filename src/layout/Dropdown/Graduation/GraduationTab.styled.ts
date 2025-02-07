@@ -71,10 +71,12 @@ export const ExhibitionDescription = styled.p`
   color:${({ theme }) => theme.colors.HID_Grayscale[700]};
 `;
 
-export const ExhibitionPosterContainer = styled.section``;
+export const ExhibitionPosterContainer = styled.section`
+  flex-grow: 1;
+`;
 
 export const ExhibitonPosterList = styled.ul`
-  flex-grow: 1;
+  width: 100%;
 
   display: flex;
   align-items: center;
@@ -96,9 +98,20 @@ export const ExhibitonLink = styled.a`
   height: fit-content;
 `;
 
-export const ExhibitionPoster = styled.img`
+export const ExhibitionPoster = styled.img<{ $isHovered: boolean }>`
   width: 100%;
   height: 24rem;
+
+  ${({ $isHovered }) =>
+    $isHovered
+      ? css`
+          filter: saturate(100%);
+          transition: filter 0.25s ease-in-out;
+        `
+      : css`
+          filter: saturate(0%);
+          transition: filter 0.2s ease-out;
+        `}
 `;
 
 export const OverlappedYearContainer = styled.div<{ $isHovered: boolean }>`
