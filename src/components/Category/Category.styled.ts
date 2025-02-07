@@ -4,6 +4,7 @@ export const CategoryContainer = styled.div<{ $currentPath: string }>`
   position: sticky;
   top: ${({ $currentPath }) => $currentPath === '/faculty' && '253px'};
   top: ${({ $currentPath }) => $currentPath === '/graduation' && '15%'};
+  top: ${({ $currentPath }) => $currentPath === '/student' && '15%'};
 
   display: inline-flex;
   flex-direction: column;

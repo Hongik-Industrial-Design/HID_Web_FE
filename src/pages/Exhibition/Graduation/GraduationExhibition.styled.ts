@@ -15,3 +15,9 @@ export const GraduationBanner = styled.img`
   width: 100%;
   height: fit-content;
 `;
+
+export const GraduationExhibitonGalleryContainer = styled.div`
+  width: 100%;
+  height: fit-content;
+  padding: 11.7rem 0 8.4rem 0;
+`;
