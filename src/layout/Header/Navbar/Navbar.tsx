@@ -27,6 +27,7 @@ const Navbar = ({
     >
       <S.NavItem
         $currentPage={currentPath.startsWith('/community')}
+        $disableHighlightBar={isNavbarHovered || isDropdownHover}
         onMouseEnter={() => enterNavbar('community')}
         onMouseLeave={() => leaveNavbar()}
       >
@@ -35,13 +36,17 @@ const Navbar = ({
 
       <S.NavItem
         $currentPage={currentPath.startsWith('/graduation')}
+        $disableHighlightBar={isNavbarHovered || isDropdownHover}
         onMouseEnter={() => enterNavbar('graduation')}
         onMouseLeave={() => leaveNavbar()}
       >
         <S.NavItemLink to="/graduation">Graduation Exhibition</S.NavItemLink>
       </S.NavItem>
 
-      <S.NavItem $currentPage={currentPath.startsWith('/student')}>
+      <S.NavItem
+        $currentPage={currentPath.startsWith('/student')}
+        $disableHighlightBar={isNavbarHovered || isDropdownHover}
+      >
         <S.NavItemLink to="/student">Student Exhibition</S.NavItemLink>
       </S.NavItem>
 
