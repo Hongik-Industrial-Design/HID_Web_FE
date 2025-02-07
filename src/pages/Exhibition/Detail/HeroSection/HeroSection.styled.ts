@@ -62,7 +62,6 @@ export const ContentArea = styled.section`
 
   display: flex;
   flex-direction: column;
-  gap: 4.8rem;
 `;
 
 // Header (Title & Author)
@@ -115,6 +114,7 @@ export const AuthorDivider = styled.div`
 export const ArtworkDescriptionSection = styled.section`
   width: fit-content;
   height: fit-content;
+  margin: 4.8rem 0 4rem 0;
 
   display: flex;
   flex-direction: column;
@@ -130,6 +130,16 @@ export const DescriptionEnglish = styled.p`
 export const DescriptionKorean = styled.p`
   ${({ theme }) => theme.fontStyles.Body3_KO}
   color: ${({ theme }) => theme.colors.HID_Grayscale[700]};
+`;
+
+// Keyword
+export const KeywordContainer = styled.section`
+  width: 100%;
+  height: fit-content;
+
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
 `;
 
 // Footer
