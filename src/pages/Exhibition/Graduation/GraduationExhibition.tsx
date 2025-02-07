@@ -26,7 +26,9 @@ export const GraduationExhibition = (): JSX.Element => {
         <S.GraduationBanner src={graduationBanner} alt="graduation-banner" />
       </S.BannerFrame>
 
-      <Exhibition />
+      <S.GraduationExhibitonGalleryContainer>
+        <Exhibition />
+      </S.GraduationExhibitonGalleryContainer>
     </S.GraduationExhibitionContainer>
   );
 };
