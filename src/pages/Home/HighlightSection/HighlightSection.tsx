@@ -1,6 +1,4 @@
-import axios from 'axios';
 import { JSX } from 'react/jsx-runtime';
-import { useEffect, useState } from 'react';
 
 import { HighlightCard } from './Highlight.types';
 
@@ -8,29 +6,18 @@ import FeatureCard from '../FeatureCard/FeatureCard';
 
 import * as S from './HighlightSection.styled';
 
-const HighlightSection = (): JSX.Element => {
-  const [highlights, setHighlights] = useState<HighlightCard[]>([]);
+type HighlightSectionProps = {
+  cardContainerRef: React.RefObject<HTMLDivElement | null>;
+  highlightData: HighlightCard[];
+};
 
-  // Fetching highlight section data
-  useEffect(() => {
-    const fetchHighlightData = async () => {
-      try {
-        const response = await axios.get('/data/highlights.json');
-        const highlightData = response.data;
-        console.log(highlightData);
-
-        setHighlights(highlightData);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchHighlightData();
-  }, []);
-
+const HighlightSection = ({
+  cardContainerRef,
+  highlightData,
+}: HighlightSectionProps): JSX.Element => {
   return (
-    <S.HighlightSectionContainer>
-      {highlights.map((highlight) => (
+    <S.HighlightSectionContainer ref={cardContainerRef}>
+      {highlightData.map((highlight) => (
         <FeatureCard key={highlight.id} cardData={highlight} />
       ))}
     </S.HighlightSectionContainer>

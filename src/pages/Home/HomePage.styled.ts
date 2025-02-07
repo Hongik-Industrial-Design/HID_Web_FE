@@ -1,16 +1,10 @@
 import styled from 'styled-components';
 
-export const BannerContainer = styled.div`
+export const HomePageContainer = styled.div`
   width: 100%;
-  position: relative;
+  height: fit-content;
 `;
 
 export const BannerImage = styled.img`
   width: 100%;
-`;
-
-export const BannerLogo = styled.img`
-  position: absolute;
-  bottom: 157px;
-  right: 157px;
 `;
