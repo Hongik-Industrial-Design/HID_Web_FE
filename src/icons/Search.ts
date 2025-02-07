@@ -20,3 +20,19 @@ export const MagnifyGlassIcon = styled(magnifyGlass)<{
     transition: fill 0.3s ease;
   }
 `;
+
+export const SmallSearchIcon = styled(magnifyGlass)<{ $isFocused: boolean }>`
+  width: 1.4rem;
+  height: fit-content;
+
+  cursor: pointer;
+
+  path {
+    fill: ${({ theme }) => theme.colors.HID_Grayscale[500]};
+
+    fill: ${({ $isFocused, theme }) =>
+      $isFocused && theme.colors.HID_Navy[900]};
+
+    transition: fill 0.2s ease-in-out;
+  }
+`;

@@ -1,5 +1,4 @@
 import { JSX } from 'react/jsx-runtime';
-import { Link } from 'react-router';
 
 import * as S from './GoToList.styled';
 
@@ -15,15 +14,12 @@ const GoToList = ({
   onMouseLeave,
 }: GoToListProps): JSX.Element => {
   return (
-    <Link to="/graduation">
-      <S.ButtonContainer
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-      >
-        <S.StyledLeftArrow $isHovered={isHovered} />
+    <S.GoToListLink to="/graduation">
+      <S.GoToListButton onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+        <S.LeftArrowIcon $isHovered={isHovered} />
         <S.GoToListText $isHovered={isHovered}>Go To List</S.GoToListText>
-      </S.ButtonContainer>
-    </Link>
+      </S.GoToListButton>
+    </S.GoToListLink>
   );
 };
 

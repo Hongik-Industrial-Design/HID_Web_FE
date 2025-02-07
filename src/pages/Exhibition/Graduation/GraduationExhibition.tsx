@@ -1,5 +1,4 @@
 import { JSX } from 'react/jsx-runtime';
-import { motion } from 'framer-motion';
 
 import Exhibition from '@components/Exhibition/Exhibition';
 
@@ -10,22 +9,22 @@ import * as S from './GraduationExhibition.styled';
 export const GraduationExhibition = (): JSX.Element => {
   return (
     <S.GraduationExhibitionContainer>
-      <motion.div
+      <S.BannerFrame
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{
-          duration: 0.2,
+          duration: 0.1,
           ease: [0, 0.71, 0.2, 1.01],
           scale: {
             type: 'spring',
-            damping: 14,
+            damping: 15,
             stiffness: 100,
             restDelta: 0.001,
           },
         }}
       >
-        <S.GraduationBannerImg src={graduationBanner} alt="main-banner-img" />
-      </motion.div>
+        <S.GraduationBanner src={graduationBanner} alt="graduation-banner" />
+      </S.BannerFrame>
 
       <Exhibition />
     </S.GraduationExhibitionContainer>

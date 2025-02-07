@@ -1,26 +1,28 @@
-import styled from 'styled-components';
-import { colors } from '@styles/theme/colors';
+import styled, { css } from 'styled-components';
+import { Link } from 'react-router';
 
-import LeftArrow from '@assets/svgs/arrows/left-arrow_full.svg?react';
+import leftArrow from '@assets/svgs/arrows/left-arrow_full.svg?react';
 
-export const ButtonContainer = styled.div`
+export const GoToListLink = styled(Link)``;
+
+export const GoToListButton = styled.button`
+  position: relative;
+
+  width: fit-content;
+  height: fit-content;
+  padding: 0.8rem 1.6rem;
+
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 0.4rem;
 
-  position: relative;
-
-  height: 40px;
-  padding: 8px 16px;
-
-  background-color: #d2d2d7a3;
   border-radius: 100px;
+  background-color: rgba(210, 210, 215, 0.64);
 
   transition:
     background-color 0.4s,
     transform 0.15s;
-
-  cursor: pointer;
 
   &:hover {
     background-color: transparent;
@@ -54,28 +56,36 @@ export const ButtonContainer = styled.div`
   }
 
   &:active::after {
-    background-color: ${colors.HID_Navy[900]};
+    background-color: ${({ theme }) => theme.colors.HID_Navy[900]};
   }
 `;
 
-export const GoToListText = styled.div<{ $isHovered: boolean }>`
-  color: ${({ $isHovered }) =>
-    $isHovered ? `${colors.HID_Grayscale[0]}` : '#0000008F'};
+export const GoToListText = styled.span<{ $isHovered: boolean }>`
+  color: ${({ $isHovered, theme }) =>
+    $isHovered ? `${theme.colors.HID_Grayscale[0]}` : '#0000008F'};
 
   transition: color 0.4s;
 
-  font-style: normal;
-  font-size: 14px;
+  ${({ theme }) => theme.fontStyles.Headline2}
   font-weight: 600;
-  line-height: 22px;
+
+  white-space: nowrap;
 `;
 
-export const StyledLeftArrow = styled(LeftArrow)<{ $isHovered: boolean }>`
-  width: 24px;
-  height: 24px;
+export const LeftArrowIcon = styled(leftArrow)<{ $isHovered: boolean }>`
+  width: 1.4rem;
+  height: fit-content;
 
-  fill: ${({ $isHovered }) =>
-    $isHovered ? `${colors.HID_Grayscale[0]}` : '#0000008F'};
+  path {
+    ${({ $isHovered }) =>
+      $isHovered &&
+      css`
+        fill: ${({ theme }) => theme.colors.HID_Grayscale[0]};
+        fill-opacity: 1;
+      `};
 
-  transition: fill 0.5s;
+    transition:
+      fill 0.3s ease,
+      fill-opacity 0.3s ease;
+  }
 `;

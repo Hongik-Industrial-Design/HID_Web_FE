@@ -80,6 +80,7 @@ a {
 
 // 7. 이미지 및 미디어 요소 초기화
 img {
+  display: block;
   -webkit-user-drag: none;
 }
 
@@ -110,6 +111,7 @@ textarea {
 
 button,
 input {
+  outline: none;
   overflow: visible;
 }
 

@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 import { FacultyInfos } from './FacultyList.types';
 
-import Category from '@components/Exhibition/Category/Category';
+import Category from '@components/Category/Category';
 import FacultyGallery from './FacultyGallery/FacultyGallery';
 
 import * as S from './FacultyList.styled';
@@ -14,6 +14,7 @@ const FacultyList = (): JSX.Element => {
   const [categorizedFaculty, setCategorizedFaculty] = useState<FacultyInfos[]>(
     []
   );
+  const [majorList, setMajorList] = useState<string[]>([]);
 
   useEffect(() => {
     const fetchFacultyList = async () => {
@@ -21,10 +22,9 @@ const FacultyList = (): JSX.Element => {
         const response = await axios.get('/data/faculty.json');
         const facultyInfo = response.data;
 
-        console.log(facultyInfo);
-
-        setFacultyList(facultyInfo);
-        setCategorizedFaculty(facultyInfo);
+        setMajorList(facultyInfo.majorList);
+        setFacultyList(facultyInfo.faculty);
+        setCategorizedFaculty(facultyInfo.faculty);
       } catch (error) {
         console.error('Error occured: ', error);
       }
@@ -48,7 +48,7 @@ const FacultyList = (): JSX.Element => {
   return (
     <S.FacultyListPageWrapper>
       <S.CategoryStickyContainer>
-        <Category handleFilter={handleFilterFaculty} />
+        <Category categoryList={majorList} handleFilter={handleFilterFaculty} />
       </S.CategoryStickyContainer>
 
       <S.FacultyListContainer>
