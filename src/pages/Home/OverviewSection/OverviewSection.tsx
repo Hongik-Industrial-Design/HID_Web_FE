@@ -37,6 +37,7 @@ const OverviewSection = (): JSX.Element => {
 
     const scrollAmount =
       cardContainerRef.current.scrollWidth / highlights.length;
+
     return scrollAmount;
   };
 

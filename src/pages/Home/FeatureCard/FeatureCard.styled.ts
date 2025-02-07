@@ -9,7 +9,6 @@ export const FeatureCardLink = styled(Link)`
 export const FeatureCardContainer = styled.div`
   width: 49.8rem;
   height: fit-content;
-  padding-right: 2.8rem;
 
   display: flex;
   flex-direction: column;
