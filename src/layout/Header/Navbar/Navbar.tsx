@@ -15,6 +15,8 @@ const Navbar = ({
   isHomePage,
   scrolled,
 }: NavbarProps): JSX.Element => {
+  const timeline = [2025, 2024, 2023, 2022, 2021];
+
   const location: Location = useLocation();
   const currentPath = location.pathname;
 
@@ -40,7 +42,9 @@ const Navbar = ({
         onMouseEnter={() => enterNavbar('graduation')}
         onMouseLeave={() => leaveNavbar()}
       >
-        <S.NavItemLink to="/graduation">Graduation Exhibition</S.NavItemLink>
+        <S.NavItemLink to={`/graduation/${timeline[1]}`}>
+          Graduation Exhibition
+        </S.NavItemLink>
       </S.NavItem>
 
       <S.NavItem
