@@ -46,7 +46,7 @@ export const TinyThumbnail = styled.img`
 
 export const PrimartThumbnailFrame = styled.div`
   width: fit-content;
-  height: 58.3rem;
+  height: 65.4rem;
 
   border-radius: 2px;
   border: 1px solid ${({ theme }) => theme.colors.HID_Grayscale[200]};

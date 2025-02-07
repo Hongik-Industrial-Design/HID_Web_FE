@@ -61,7 +61,6 @@ const ExhibitionDetail = (): JSX.Element => {
           currentPage={currentPage}
         />
       </S.ExhibitionDetailContainer>
-      <S.WhiteSpace />
       <TeamMembersSection membersData={individualArtworkInfos?.authorInfos} />
     </S.ExhibitionDetailWrapper>
   );

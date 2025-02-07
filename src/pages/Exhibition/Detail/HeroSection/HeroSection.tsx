@@ -48,7 +48,7 @@ const HeroSection = ({
     <S.HeroSectionContainer>
       {/* Thumbnail */}
       <S.ThumbnailContainer>
-        <S.TinyThumbnailList>
+        {/* <S.TinyThumbnailList>
           {fetchedData?.thumbnails?.tinyImages.map((tinyImage) => (
             <S.TinyThumbnailItem key={tinyImage.id}>
               <S.TinyThumbnail
@@ -57,7 +57,7 @@ const HeroSection = ({
               />
             </S.TinyThumbnailItem>
           ))}
-        </S.TinyThumbnailList>
+        </S.TinyThumbnailList> */}
         <S.PrimartThumbnailFrame>
           <S.PrimaryThumbnail
             src={`/Graduation-Exhibition/${currentPage}/${fetchedData?.thumbnails.primary.url}`}
