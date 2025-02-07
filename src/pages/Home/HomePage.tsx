@@ -3,19 +3,15 @@ import { JSX } from 'react/jsx-runtime';
 import OverviewSection from './OverviewSection/OverviewSection';
 
 import homeBanner from '@assets/images//home-banner.jpg';
-import homeBannerLogo from '@assets/svgs/logos/homebanner-logo.svg';
 
 import * as S from './HomePage.styled';
 
 const HomePage = (): JSX.Element => {
   return (
-    <>
-      <S.BannerContainer>
-        <S.BannerImage src={homeBanner} alt="home-banner" />
-        <S.BannerLogo src={homeBannerLogo} alt="home-banner-logo" />
-      </S.BannerContainer>
+    <S.HomePageContainer>
+      <S.BannerImage src={homeBanner} alt="home-banner" />
       <OverviewSection />
-    </>
+    </S.HomePageContainer>
   );
 };
 
