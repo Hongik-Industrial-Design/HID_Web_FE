@@ -1,69 +1,56 @@
 import styled from 'styled-components';
-import { colors } from '@styles/theme/colors';
+import { Link } from 'react-router';
+
+export const FeatureCardLink = styled(Link)`
+  width: fit-content;
+  height: fit-content;
+`;
 
 export const FeatureCardContainer = styled.div`
-  width: 632px;
+  width: 49.8rem;
+  height: fit-content;
 
   display: flex;
   flex-direction: column;
+  align-items: center;
 
-  cursor: pointer;
+  border-radius: 2px;
 `;
 
 export const FeatureCardImage = styled.img`
   width: 100%;
-  height: 632px;
+  height: fit-content;
 
-  border-radius: 2px 2px 0 0;
-  border: 1px solid ${colors.HID_Grayscale[200]};
+  border: 1px solid ${({ theme }) => theme.colors.HID_Grayscale[200]};
 `;
 
 export const FeatureCardInfoContainer = styled.div`
   width: 100%;
-  padding: 32px;
-  padding-bottom: 48px;
+  padding: 3.2rem 3.2rem 4.8rem 3.2rem;
 
-  background-color: ${colors.HID_Grayscale[0]};
-  border-radius: 0 0 2px 2px;
+  background-color: ${({ theme }) => theme.colors.HID_Grayscale[0]};
 `;
 
 export const FeatureCardInfo = styled.div`
   width: 100%;
-  padding: 8px;
+  padding: 0.8rem;
 
   display: flex;
   flex-direction: column;
-  gap: 8px;
-
-  .title {
-  }
-
-  .description {
-  }
+  gap: 0.8rem;
 `;
 
-export const FeatureCardDate = styled.div`
+export const FeatureCardDate = styled.span`
   ${({ theme }) => theme.fontStyles.Headline1}
-  color: ${colors.HID_Grayscale[400]};
+  color: ${({ theme }) => theme.colors.HID_Grayscale[400]};
 `;
 
-export const FeatureCardContents = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+export const FeatureCardTitle = styled.h3`
+  ${({ theme }) => theme.fontStyles.Title3}
+  color: ${({ theme }) => theme.colors.HID_Grayscale[900]};
+`;
 
-  .title {
-    ${({ theme }) => theme.fontStyles.Title3};
-
-    color: ${colors.HID_Grayscale[900]};
-  }
-
-  .description {
-    font-style: normal;
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 32px;
-
-    color: ${colors.HID_Grayscale[700]};
-  }
+export const FeatureCardDescription = styled.p`
+  ${({ theme }) => theme.fontStyles.Body1}
+  color: ${({ theme }) => theme.colors.HID_Grayscale[700]};
 `;

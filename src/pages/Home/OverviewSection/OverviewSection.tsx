@@ -10,8 +10,7 @@ const OverviewSection = (): JSX.Element => {
     <S.OverviewContainer>
       <S.OverviewHeader>
         <S.IntroductionText>
-          About
-          <br />
+          About <br />
           Hongik Industrial Design<span>.</span>
         </S.IntroductionText>
         <NextPrevious />

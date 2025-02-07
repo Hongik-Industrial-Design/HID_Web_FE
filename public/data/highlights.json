@@ -22,5 +22,29 @@
     "description": "Lorem ipsum dolor sit amet consectetur. Amet eget a hendrerit molestie urna.",
     "imageUrl": "event.jpg",
     "route": "/"
+  },
+  {
+    "id": 4,
+    "title": "2024 Exhibition",
+    "date": "2024.04.06",
+    "description": "Lorem ipsum dolor sit amet consectetur. Amet eget a hendrerit molestie urna.",
+    "imageUrl": "exhibition.jpg",
+    "route": "/graduation"
+  },
+  {
+    "id": 5,
+    "title": "2024 Plan",
+    "date": "2024.04.05",
+    "description": "Lorem ipsum dolor sit amet consectetur. Amet eget a hendrerit molestie urna.",
+    "imageUrl": "plan.jpg",
+    "route": "/"
+  },
+  {
+    "id": 6,
+    "title": "Event",
+    "date": "2024.04.01",
+    "description": "Lorem ipsum dolor sit amet consectetur. Amet eget a hendrerit molestie urna.",
+    "imageUrl": "event.jpg",
+    "route": "/"
   }
 ]
