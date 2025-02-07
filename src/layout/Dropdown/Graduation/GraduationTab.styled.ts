@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { Link } from 'react-router';
 
 export const GraduationTabContainer = styled.div<{
   $isRendered: boolean;
@@ -17,32 +18,6 @@ export const GraduationTabContainer = styled.div<{
   transition: opacity 0.4s ease-in-out;
 `;
 
-export const GraduationPreview = styled.section`
-  width: 50%;
-  min-height: fit-content;
-
-  display: flex;
-  align-items: center;
-  gap: 4rem;
-`;
-
-export const ExhibitionLogoContainer = styled.div`
-  width: fit-content;
-  height: fit-content;
-  padding: 7.2rem 4.2rem;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  border-radius: 2px;
-  background-color: #acb6c7;
-`;
-
-export const ExhibitionLogo = styled.img`
-  user-select: none;
-`;
-
 export const ExhibitionInfos = styled.section`
   width: 50%;
   height: fit-content;
@@ -53,14 +28,6 @@ export const ExhibitionInfos = styled.section`
   justify-content: center;
 `;
 
-export const InfoDivider = styled.div`
-  width: 4rem;
-  height: 1px;
-  margin: 3.2rem 0 2.4rem 0;
-
-  background-color: ${({ theme }) => theme.colors.HID_Grayscale[800]};
-`;
-
 export const ExhibitionTitle = styled.h3`
   ${({ theme }) => theme.fontStyles.Title3}
   color: ${({ theme }) => theme.colors.HID_Grayscale[800]};
@@ -69,6 +36,14 @@ export const ExhibitionTitle = styled.h3`
 export const ExhibitionDescription = styled.p`
   ${({ theme }) => theme.fontStyles.Body4}
   color:${({ theme }) => theme.colors.HID_Grayscale[700]};
+`;
+
+export const InfoDivider = styled.div`
+  width: 4rem;
+  height: 1px;
+  margin: 3.2rem 0 2.4rem 0;
+
+  background-color: ${({ theme }) => theme.colors.HID_Grayscale[800]};
 `;
 
 export const ExhibitionPosterContainer = styled.section`
@@ -93,14 +68,14 @@ export const ExhibitonPosterItem = styled.li`
   overflow-y: hidden;
 `;
 
-export const ExhibitonLink = styled.a`
+export const ExhibitonLink = styled(Link)`
   width: 100%;
   height: fit-content;
 `;
 
 export const ExhibitionPoster = styled.img<{ $isHovered: boolean }>`
   width: 100%;
-  height: 24rem;
+  height: fit-content;
 
   ${({ $isHovered }) =>
     $isHovered
@@ -121,7 +96,8 @@ export const OverlappedYearContainer = styled.div<{ $isHovered: boolean }>`
 
   width: 100%;
   height: fit-content;
-  padding: 1.6rem 6.6rem;
+  padding: 1.6rem 0;
+  text-align: center;
 
   background-color: rgba(9, 40, 122, 0.32);
   backdrop-filter: blur(20px);
