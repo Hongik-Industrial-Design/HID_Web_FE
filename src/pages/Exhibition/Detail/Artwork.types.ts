@@ -6,6 +6,7 @@ export interface HeroSectionInfos {
   description_ko: string;
   thumbnails: ThumbnailInfos;
   social: SocialInfos[];
+  keywords?: string[];
 }
 
 export interface ThumbnailInfos {

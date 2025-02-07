@@ -9,6 +9,7 @@ import NextPrevious from '@components/NextPrevious/NextPrevious';
 import { BehanceLogo, InstagramLogo } from '@icons/SocialIcon';
 
 import * as S from './HeroSection.styled';
+import Keyword from '@components/Keyword/Keyword';
 
 interface HeroSectionProps {
   fetchedData?: HeroSectionInfos;
@@ -103,6 +104,13 @@ const HeroSection = ({
             {fetchedData?.description_ko}
           </S.DescriptionKorean>
         </S.ArtworkDescriptionSection>
+
+        {/* Keyword */}
+        <S.KeywordContainer>
+          {fetchedData?.keywords?.map((keyword, index) => (
+            <Keyword key={index} keyword={keyword} />
+          ))}
+        </S.KeywordContainer>
 
         {/* Footer */}
         <S.ContentFooter>
