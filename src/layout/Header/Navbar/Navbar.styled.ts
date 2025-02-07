@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { HeaderTransientProps } from '../Header.types';
 import { Link } from 'react-router';
@@ -26,7 +26,10 @@ export const NavbarContainer = styled.ul<HeaderTransientProps>`
   transition: color 0.3s ease;
 `;
 
-export const NavItem = styled.li<{ $currentPage?: boolean }>`
+export const NavItem = styled.li<{
+  $currentPage?: boolean;
+  $disableHighlightBar?: boolean;
+}>`
   position: relative;
 
   width: fit-content;
@@ -55,6 +58,17 @@ export const NavItem = styled.li<{ $currentPage?: boolean }>`
     border-radius: 10px;
     background-color: ${({ theme }) => theme.colors.HID_Navy[900]};
     transition: width 0.24s ease;
+
+    ${({ $disableHighlightBar }) =>
+      $disableHighlightBar
+        ? css`
+            opacity: 0;
+            transition: opacity 0.15s ease-in-out;
+          `
+        : css`
+            opacity: 1;
+            transition: opacity 0.2s ease-in;
+          `}; // Dropdown 렌더링 시 언마운트
   }
 `;
 
