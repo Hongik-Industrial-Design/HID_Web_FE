@@ -9,8 +9,7 @@ export const VideoContainer = styled.div`
   align-items: center; */
 
   position: relative;
-
-  margin-bottom: 64px;
+  margin-bottom: 2.4rem;
 `;
 
 export const Video = styled.video`

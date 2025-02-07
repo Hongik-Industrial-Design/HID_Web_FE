@@ -46,17 +46,6 @@ const HeroSection = ({
 
   return (
     <S.HeroSectionContainer>
-      <Breadscrumb
-        paths={[
-          {
-            content: 'Graduation Exhibition',
-            path: '/graduation',
-          },
-          { content: '2024', path: '/graduation' },
-        ]}
-        currentPage="View Detail"
-      />
-
       {/* Thumbnail */}
       <S.ThumbnailContainer>
         <S.TinyThumbnailList>
@@ -79,6 +68,16 @@ const HeroSection = ({
 
       {/* Content Area */}
       <S.ContentArea>
+        <Breadscrumb
+          paths={[
+            {
+              content: 'Graduation Exhibition',
+              path: '/graduation',
+            },
+            { content: '2024', path: '/graduation' },
+          ]}
+          currentPage="View Detail"
+        />
         {/* Header */}
         <S.ContentHeader>
           <S.ArtworkTitle>{fetchedData?.title}</S.ArtworkTitle>

@@ -5,6 +5,7 @@ export const HeroSectionContainer = styled.section`
 
   width: 100%;
   height: fit-content;
+  padding: 0 15.8rem;
   padding-top: 25.7rem;
   margin-bottom: 13.4rem;
 
@@ -57,6 +58,8 @@ export const PrimaryThumbnail = styled.img`
 
 // Content Area
 export const ContentArea = styled.section`
+  position: relative; // BreadScrumb의 포지셔닝을 위함
+
   display: flex;
   flex-direction: column;
   gap: 4.8rem;
