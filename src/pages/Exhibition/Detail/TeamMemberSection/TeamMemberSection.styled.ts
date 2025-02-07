@@ -46,13 +46,13 @@ export const InteractiveTeamMemberSection = styled(motion.div)<{
   $isRunning: boolean;
   $isDragging: boolean;
 }>`
-  width: 100vw;
+  width: 100%;
   height: fit-content;
 
   display: flex;
   align-items: center;
 
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
 
   cursor: grab;
   cursor: -webkit-grab;
