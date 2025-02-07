@@ -113,7 +113,7 @@ export const AuthorDivider = styled.div`
 
 // Description
 export const ArtworkDescriptionSection = styled.section`
-  width: 65.6rem;
+  width: fit-content;
   height: fit-content;
 
   display: flex;
@@ -140,6 +140,7 @@ export const ContentFooter = styled.section`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 3.6rem;
 `;
 
 export const SocialIconList = styled.ul`

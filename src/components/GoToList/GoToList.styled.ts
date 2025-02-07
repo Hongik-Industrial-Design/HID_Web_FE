@@ -68,6 +68,8 @@ export const GoToListText = styled.span<{ $isHovered: boolean }>`
 
   ${({ theme }) => theme.fontStyles.Headline2}
   font-weight: 600;
+
+  white-space: nowrap;
 `;
 
 export const LeftArrowIcon = styled(leftArrow)<{ $isHovered: boolean }>`

@@ -23,6 +23,8 @@ export const BreadscrumbContainer = styled.div<{ $facultyPage?: boolean }>`
   .current-page {
     font-weight: 500;
     color: ${({ theme }) => theme.colors.HID_Navy[900]};
+
+    white-space: nowrap;
   }
 `;
 
