@@ -1,15 +1,18 @@
 import axios from 'axios';
 import { JSX } from 'react/jsx-runtime';
 import { useEffect, useState } from 'react';
+import { Location, useLocation } from 'react-router';
 
 import { GalleryInfos } from './Gallery.types';
 
 import Category from '../Category/Category';
-import Gallery from './Gallery/ExhibitionGallery';
+import ExhibitonGallery from './Gallery/ExhibitionGallery';
 
 import * as S from './Exhibition.styled';
 
 const Exhibition = (): JSX.Element => {
+  const location: Location = useLocation();
+
   const [pieces, setPieces] = useState<GalleryInfos[]>([]); // All Pieces
   const [categorizedPieces, setCategorizedPieces] = useState<GalleryInfos[]>(
     []
@@ -57,8 +60,22 @@ const Exhibition = (): JSX.Element => {
           handleFilter={handleFilterPieces}
         />
       </S.StickyContainer>
-
-      <Gallery pieces={categorizedPieces} exhibitionYear={exhibitionYear} />
+      {location.pathname === '/student' ? (
+        <S.StudentExhibitionGalleryContainer>
+          <S.StudentExhibitionGalleryTitle>
+            Student Exhibiton<span>.</span>
+          </S.StudentExhibitionGalleryTitle>
+          <ExhibitonGallery
+            pieces={categorizedPieces}
+            exhibitionYear={exhibitionYear}
+          />
+        </S.StudentExhibitionGalleryContainer>
+      ) : (
+        <ExhibitonGallery
+          pieces={categorizedPieces}
+          exhibitionYear={exhibitionYear}
+        />
+      )}
     </S.ExhibitionContainer>
   );
 };
