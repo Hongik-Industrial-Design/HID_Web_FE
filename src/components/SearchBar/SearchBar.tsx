@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import * as S from './SearchBar.styled';
+
 import { SmallSearchIcon } from '@icons/Search';
+
+import * as S from './SearchBar.styled';
 
 type SearchBarProps = {
   placeholder: string;
