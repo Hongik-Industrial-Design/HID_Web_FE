@@ -1,5 +1,4 @@
-import styled from 'styled-components';
-import { colors } from '@styles/theme/colors';
+import styled, { css } from 'styled-components';
 
 export const CategoryContainer = styled.div<{ $currentPath: string }>`
   position: sticky;
@@ -8,23 +7,26 @@ export const CategoryContainer = styled.div<{ $currentPath: string }>`
 
   display: inline-flex;
   flex-direction: column;
-  gap: 24px;
-
-  margin-left: 158px;
+  gap: 3.2rem;
 `;
 
 export const DetailedMajor = styled.p<{ $isSelected: boolean }>`
-  max-width: 144px;
+  min-width: 15rem;
   white-space: nowrap;
 
   ${({ theme }) => theme.fontStyles.Title4}
+  font-weight: 500;
+  color: ${({ theme }) => theme.colors.HID_Grayscale[500]};
 
   cursor: pointer;
 
-  color: ${({ $isSelected }) =>
-    $isSelected ? `${colors.HID_Navy[900]}` : `${colors.HID_Grayscale[500]}`};
-  font-weight: ${({ $isSelected }) => ($isSelected ? 600 : 400)};
+  ${({ $isSelected }) =>
+    $isSelected &&
+    css`
+      color: ${({ theme }) => theme.colors.HID_Navy[900]};
+      font-weight: 700;
+    `}
+
   transition:
-    font-weight 0.12s ease,
-    color 0.12s ease;
+    font-weight 0.12s ease, color 0.12s ease;
 `;

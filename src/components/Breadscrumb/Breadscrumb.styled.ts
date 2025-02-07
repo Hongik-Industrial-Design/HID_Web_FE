@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { colors } from '@styles/theme/colors';
 
 export const BreadscrumbContainer = styled.div<{ $facultyPage?: boolean }>`
   display: inline-flex;
@@ -8,8 +7,9 @@ export const BreadscrumbContainer = styled.div<{ $facultyPage?: boolean }>`
 
   position: absolute;
   position: ${({ $facultyPage }) => $facultyPage && 'static'};
-  top: 102px;
+  top: -28%;
   right: 0; // HeroSection content 오른쪽 끝이랑 일치하게끔!
+  transform: translateY(-50%);
 
   font-style: normal;
   font-size: 14px;
@@ -17,12 +17,14 @@ export const BreadscrumbContainer = styled.div<{ $facultyPage?: boolean }>`
 
   span {
     font-weight: 300;
-    color: ${colors.HID_Grayscale[500]};
+    color: ${({ theme }) => theme.colors.HID_Grayscale[500]};
   }
 
   .current-page {
     font-weight: 500;
-    color: ${colors.HID_Navy[900]};
+    color: ${({ theme }) => theme.colors.HID_Navy[900]};
+
+    white-space: nowrap;
   }
 `;
 
@@ -37,7 +39,7 @@ export const BreadScrumbUnit = styled.div`
     font-weight: 300;
     line-height: 14px;
 
-    color: ${colors.HID_Grayscale[500]};
+    color: ${({ theme }) => theme.colors.HID_Grayscale[500]};
 
     white-space: nowrap;
     cursor: pointer;

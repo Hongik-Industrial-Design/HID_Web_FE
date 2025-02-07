@@ -6,7 +6,7 @@ export const ArtworkImageContainer = styled.div`
 
   display: flex;
   flex-direction: column;
-  gap: 64px;
+  gap: 0.8rem;
 
   flex-shrink: 0;
 `;

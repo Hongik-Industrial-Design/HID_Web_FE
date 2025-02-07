@@ -7,7 +7,7 @@ type PaginationProps = {
   currentPage: number;
   handleCurrentPage: (page: number) => void;
   totalPages: number | undefined;
-  isPreview: boolean;
+  isPreview?: boolean;
 };
 
 const Pagination = ({

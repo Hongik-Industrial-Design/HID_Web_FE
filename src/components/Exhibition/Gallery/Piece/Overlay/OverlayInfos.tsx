@@ -9,12 +9,12 @@ const OverlayInfos = ({
   isPieceHovered,
 }: OverlayInfosProps): JSX.Element => {
   return (
-    <S.OverlayContainer $isPieceHovered={isPieceHovered}>
-      <div className="credit">
-        <div className="title">{pieceInfos.title}</div>
-        <div className="author">{pieceInfos.author}</div>
-      </div>
-    </S.OverlayContainer>
+    <S.OverlayInfosContainer $isPieceHovered={isPieceHovered}>
+      <S.PieceInfos>
+        <S.PieceTitle>{pieceInfos.title}</S.PieceTitle>
+        <S.PieceSubTitle>{pieceInfos.author}</S.PieceSubTitle>
+      </S.PieceInfos>
+    </S.OverlayInfosContainer>
   );
 };
 

@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
-export const ExhibitionDetailContainer = styled.div`
+export const ExhibitionDetailWrapper = styled.div`
   width: 100%;
+  height: fit-content;
+  margin-top: 7rem;
+`;
 
-  /* margin: 0 auto; */
-  padding: 0 158px;
-
-  margin-top: 54px;
-  margin-bottom: 150px;
+export const ExhibitionDetailContainer = styled.section`
+  width: 100%;
+  height: fit-content;
 `;
