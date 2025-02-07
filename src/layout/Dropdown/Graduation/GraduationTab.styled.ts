@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const GraduationTabContainer = styled.div<{
   $isRendered: boolean;
@@ -6,7 +6,6 @@ export const GraduationTabContainer = styled.div<{
 }>`
   width: 100%;
   height: fit-content;
-  padding: 3.2rem 15.8rem 4rem;
 
   display: flex;
 
@@ -19,9 +18,7 @@ export const GraduationTabContainer = styled.div<{
 `;
 
 export const GraduationPreview = styled.section`
-  flex: 1;
-
-  width: fit-content;
+  width: 50%;
   min-height: fit-content;
 
   display: flex;
@@ -46,9 +43,10 @@ export const ExhibitionLogo = styled.img`
   user-select: none;
 `;
 
-export const ExhibitionInfos = styled.div`
-  width: 35.5rem;
-  height: 100%;
+export const ExhibitionInfos = styled.section`
+  width: 50%;
+  height: fit-content;
+  padding: 4rem 1.6rem 0 15.8rem;
 
   display: flex;
   flex-direction: column;
@@ -71,4 +69,69 @@ export const ExhibitionTitle = styled.h3`
 export const ExhibitionDescription = styled.p`
   ${({ theme }) => theme.fontStyles.Body4}
   color:${({ theme }) => theme.colors.HID_Grayscale[700]};
+`;
+
+export const ExhibitionPosterContainer = styled.section``;
+
+export const ExhibitonPosterList = styled.ul`
+  flex-grow: 1;
+
+  display: flex;
+  align-items: center;
+`;
+
+export const ExhibitonPosterItem = styled.li`
+  position: relative;
+
+  flex: 1;
+
+  width: 100%;
+  height: fit-content;
+
+  overflow-y: hidden;
+`;
+
+export const ExhibitonLink = styled.a`
+  width: 100%;
+  height: fit-content;
+`;
+
+export const ExhibitionPoster = styled.img`
+  width: 100%;
+  height: 24rem;
+`;
+
+export const OverlappedYearContainer = styled.div<{ $isHovered: boolean }>`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: fit-content;
+  padding: 1.6rem 6.6rem;
+
+  background-color: rgba(9, 40, 122, 0.32);
+  backdrop-filter: blur(20px);
+
+  ${({ $isHovered }) =>
+    $isHovered
+      ? css`
+          opacity: 1;
+          trasnform: translateY(0);
+          transition:
+            opacity 0.2s ease-in-out,
+            transform 0.2s ease-in-out;
+        `
+      : css`
+          opacity: 0;
+          transform: translateY(100%);
+          transition:
+            opacity 0.2s ease-out,
+            transform 0.2s ease-out;
+        `}
+`;
+
+export const ExhibitionYear = styled.span`
+  ${({ theme }) => theme.fontStyles.Title4}
+  color: ${({ theme }) => theme.colors.HID_Grayscale[0]};
 `;

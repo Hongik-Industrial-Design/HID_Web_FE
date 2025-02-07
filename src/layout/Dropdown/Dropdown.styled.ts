@@ -26,7 +26,7 @@ export const DropdownContainer = styled.div<{
   $isActive: boolean;
 }>`
   position: fixed;
-  top: 70px;
+  top: 66px;
   z-index: 1;
 
   width: 100%;
