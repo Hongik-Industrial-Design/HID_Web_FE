@@ -1,6 +1,5 @@
 import { JSX } from 'react/jsx-runtime';
 import { useState } from 'react';
-import { useNavigate } from 'react-router';
 import { motion } from 'framer-motion';
 
 import { FacultyInfos } from '../../FacultyList.types';
@@ -12,13 +11,10 @@ type ProfessorCardProps = {
 };
 
 const ProfessorCard = ({ professorInfo }: ProfessorCardProps): JSX.Element => {
-  const [thumbnailHovered, setThumbnailHovered] = useState(false);
+  const [isThumbnailHovered, setIsThumbnailHovered] = useState<boolean>(false);
 
-  const navigate = useNavigate();
-
-  const goToProfessorProfile = (id: string) => {
-    navigate(`/faculty/${id}`);
-  };
+  const handleThumbnailHover = () => setIsThumbnailHovered(true);
+  const handleThumbnailLeave = () => setIsThumbnailHovered(false);
 
   return (
     <motion.div
@@ -27,20 +23,21 @@ const ProfessorCard = ({ professorInfo }: ProfessorCardProps): JSX.Element => {
       initial={{ opacity: 0 }}
       exit={{ opacity: 0 }}
     >
-      <S.ProfessorContainer
-        onClick={() => goToProfessorProfile(professorInfo.id)}
-        onMouseEnter={() => setThumbnailHovered(true)}
-        onMouseLeave={() => setThumbnailHovered(false)}
-      >
-        <S.ProfessorThumbnail
-          src={`/Faculty/${professorInfo.thumbnail}`}
-          alt={professorInfo.info.name}
-        />
-        <S.ProfessorOverlay $isThumbnailHovered={thumbnailHovered}>
-          <h2 className="name">{professorInfo.info.name}</h2>
-          <h3 className="major">{professorInfo.info.major}</h3>
-        </S.ProfessorOverlay>
-      </S.ProfessorContainer>
+      <S.ProfessorCardLink to={`/faculty/${professorInfo.id}`}>
+        <S.ProfessorContainer
+          onMouseEnter={handleThumbnailHover}
+          onMouseLeave={handleThumbnailLeave}
+        >
+          <S.ProfessorThumbnail
+            src={`/Faculty/${professorInfo.thumbnail}`}
+            alt={professorInfo.info.name}
+          />
+          <S.ProfessorOverlay $isThumbnailHovered={isThumbnailHovered}>
+            <S.OverlayName>{professorInfo.info.name}</S.OverlayName>
+            <S.OverlayMajor>{professorInfo.info.major}</S.OverlayMajor>
+          </S.ProfessorOverlay>
+        </S.ProfessorContainer>
+      </S.ProfessorCardLink>
     </motion.div>
   );
 };

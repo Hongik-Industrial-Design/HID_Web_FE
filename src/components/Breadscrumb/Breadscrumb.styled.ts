@@ -1,15 +1,21 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const BreadscrumbContainer = styled.div<{ $facultyPage?: boolean }>`
   display: inline-flex;
   align-items: center;
   gap: 8px;
 
-  position: absolute;
-  position: ${({ $facultyPage }) => $facultyPage && 'static'};
-  top: -28%;
-  right: 0; // HeroSection content 오른쪽 끝이랑 일치하게끔!
-  transform: translateY(-50%);
+  ${({ $facultyPage }) =>
+    $facultyPage
+      ? css`
+          position: static;
+        `
+      : css`
+          position: absolute;
+          top: -28%;
+          right: 0; // HeroSection content 오른쪽 끝이랑 일치하게끔!
+          transform: translateY(-50%);
+        `};
 
   font-style: normal;
   font-size: 14px;
