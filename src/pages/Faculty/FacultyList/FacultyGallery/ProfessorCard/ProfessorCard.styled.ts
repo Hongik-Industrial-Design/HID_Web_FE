@@ -1,26 +1,47 @@
-import styled from 'styled-components';
-import { colors } from '@styles/theme/colors';
+import styled, { css } from 'styled-components';
+import { Link } from 'react-router';
+
+export const ProfessorCardLink = styled(Link)`
+  width: fit-content;
+  height: fit-content;
+`;
 
 export const ProfessorContainer = styled.div`
-  width: 404px;
-  height: 405px;
-
   position: relative;
 
-  cursor: pointer;
+  width: fit-content;
+  height: fit-content;
 `;
 
 export const ProfessorThumbnail = styled.img`
-  width: 100%;
-  height: 100%;
+  width: clamp(32rem, 21vw, 40.4rem);
+  height: fit-content;
 
   border-radius: 2px;
-  border: 1px solid ${colors.HID_Grayscale[200]};
+  border: 1px solid ${({ theme }) => theme.colors.HID_Grayscale[200]};
+
+  @media (max-width: 1080px) {
+    width: clamp(24rem, 30vw, 32rem);
+  }
 `;
 
 export const ProfessorOverlay = styled.div<{ $isThumbnailHovered: boolean }>`
-  opacity: ${({ $isThumbnailHovered }) => ($isThumbnailHovered ? 1 : 0)};
-  transition: opacity 0.3s ease-out;
+  ${({ $isThumbnailHovered }) =>
+    $isThumbnailHovered
+      ? css`
+          opacity: 1;
+          backdrop-filter: blur(1px);
+          transition:
+            opacity 0.2s ease-out,
+            backdrop-filter 0.1s ease-in;
+        `
+      : css`
+          opacity: 0;
+          backdrop-filter: blur(0px);
+          transition:
+            opacity 0.15s ease-out,
+            backdrop-filter 0.1s ease-out;
+        `};
 
   position: absolute;
   top: 0;
@@ -33,23 +54,18 @@ export const ProfessorOverlay = styled.div<{ $isThumbnailHovered: boolean }>`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 4px;
+  gap: 0.4rem;
 
   border-radius: 2px;
+  background-color: rgba(9, 40, 122, 0.5);
+`;
 
-  background-color: #09287a80;
+export const OverlayName = styled.h3`
+  ${({ theme }) => theme.fontStyles.Title3}
+  color: ${({ theme }) => theme.colors.HID_Grayscale[0]};
+`;
 
-  .name {
-    ${({ theme }) => theme.fontStyles.Title3} // Title3
-    color: ${colors.HID_Grayscale[0]};
-  }
-
-  .major {
-    font-style: normal;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 32px;
-
-    color: ${colors.HID_Grayscale[100]};
-  }
+export const OverlayMajor = styled.span`
+  ${({ theme }) => theme.fontStyles.SubTitle1}
+  color: ${({ theme }) => theme.colors.HID_Grayscale[100]};
 `;

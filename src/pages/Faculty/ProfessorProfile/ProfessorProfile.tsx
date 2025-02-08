@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { JSX } from 'react/jsx-runtime';
 import { useEffect, useState } from 'react';
-import { Link, useLocation, useParams } from 'react-router';
+import { Link, Location, useLocation, useParams } from 'react-router';
 
 import { openNewTab } from '@utils/openNewTab';
 
@@ -12,6 +12,7 @@ import { BreadscrumbArrow } from '@icons/BreadscrumbArrow';
 
 import { BreadscrumbContainer } from '@components/Breadscrumb/Breadscrumb.styled';
 import * as S from './ProfessorProfile.styled';
+import Drawer from '@components/Drawer/Drawer';
 
 type RouteParams = {
   id: string;
@@ -22,12 +23,24 @@ const ProfessorProfile = (): JSX.Element => {
     {} as ProfessorInfos
   );
 
-  const [emailHover, setEmailHover] = useState<boolean>(false);
+  const [isEmailHovered, setIsEmailHovered] = useState<boolean>(false);
+  const [isDrawerButtonHovered, setIsDrawerButtonHovered] =
+    useState<boolean>(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
+
+  const handleDrawerOpen = () => setIsDrawerOpen(true);
+  const handleDrawerClose = () => setIsDrawerOpen(false);
+
+  const handleEmailHover = () => setIsEmailHovered(true);
+  const handleEmailLeave = () => setIsEmailHovered(false);
+
+  const handleDrawerButtonHover = () => setIsDrawerButtonHovered(true);
+  const handleDrawerButtonLeave = () => setIsDrawerButtonHovered(false);
 
   const { id } = useParams<RouteParams>();
   const safeID = id ?? '1'; // 타입 안정성을 위해 null/undefined일 경우, 기본 값 지정
 
-  const location = useLocation();
+  const location: Location = useLocation();
   const currentPath = location.pathname;
 
   // Fetching Professor Infos & extracting individual professor info
@@ -57,10 +70,13 @@ const ProfessorProfile = (): JSX.Element => {
 
   return (
     <S.ProfessorProfileWrapper>
+      {/* Header */}
       <S.ProfessorProfileHeader>
         <S.ProfessorProfilePageTitle>
           Professor<span>.</span>
         </S.ProfessorProfilePageTitle>
+
+        {/* BreadScrumb */}
         <BreadscrumbContainer $facultyPage={currentPath.startsWith('/faculty')}>
           <Link to="/faculty">
             <span>Faculty</span>
@@ -69,6 +85,8 @@ const ProfessorProfile = (): JSX.Element => {
           <span className="current-page">Professor</span>
         </BreadscrumbContainer>
       </S.ProfessorProfileHeader>
+
+      {/* Main Section */}
       <S.ProfessorProfileMainSection>
         <S.ProfileStickyContainer>
           <S.ProfileContainer>
@@ -76,33 +94,54 @@ const ProfessorProfile = (): JSX.Element => {
               src={`/ProfessorProfile/${professorInfo.image}`}
               alt={professorInfo.name}
             />
-            <S.ProfileName>
-              <h3 className="name">{professorInfo.name}</h3>
-              <div className="role">
-                <p className="title">{professorInfo.title},</p>
-                <p className="specialty">{professorInfo.specialization}</p>
-              </div>
-            </S.ProfileName>
-            <S.ProfileEmail
-              onClick={() =>
-                openNewTab(`mailto: ${professorInfo.contact.email}`)
-              }
-              onMouseEnter={() => setEmailHover(true)}
-              onMouseLeave={() => setEmailHover(false)}
-              $emailHovered={emailHover}
-            >
-              {professorInfo.contact?.email}
-            </S.ProfileEmail>
-            {professorInfo.description && (
+            <S.ProfessorInfos>
+              <S.ProfessorNameContainer>
+                <S.ProfessorName>{professorInfo.name}</S.ProfessorName>
+                <S.ProfessorDrawerButton
+                  onClick={handleDrawerOpen}
+                  onMouseEnter={handleDrawerButtonHover}
+                  onMouseLeave={handleDrawerButtonLeave}
+                  $isHovered={isDrawerButtonHovered}
+                >
+                  Detail info
+                </S.ProfessorDrawerButton>
+              </S.ProfessorNameContainer>
+              <S.ProfessorType>
+                <S.ProfessorRole>{professorInfo.title},</S.ProfessorRole>
+                <S.ProfessorMajor>
+                  {professorInfo.specialization}
+                </S.ProfessorMajor>
+              </S.ProfessorType>
+              <S.ProfileEmail
+                onClick={() =>
+                  openNewTab(`mailto: ${professorInfo.contact.email}`)
+                }
+                onMouseEnter={handleEmailHover}
+                onMouseLeave={handleEmailLeave}
+                $emailHovered={isEmailHovered}
+              >
+                {professorInfo.contact?.email}
+              </S.ProfileEmail>
+            </S.ProfessorInfos>
+            {/* {professorInfo.description && (
               <S.ProfileDescription>
                 {professorInfo.description}
               </S.ProfileDescription>
-            )}
+            )} */}
           </S.ProfileContainer>
         </S.ProfileStickyContainer>
 
+        {/* Professor Details */}
         <ProfessorDetails professorDetails={professorInfo.details} />
       </S.ProfessorProfileMainSection>
+
+      {/* Drawer */}
+      <Drawer
+        isOpen={isDrawerOpen}
+        handleDrawerClose={handleDrawerClose}
+        professorName={professorInfo.name}
+        professorBrief={professorInfo.description}
+      />
     </S.ProfessorProfileWrapper>
   );
 };

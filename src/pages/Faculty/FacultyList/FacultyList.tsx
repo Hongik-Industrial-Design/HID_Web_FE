@@ -55,7 +55,6 @@ const FacultyList = (): JSX.Element => {
         <S.FacultyPageTitle>
           Faculty<span>.</span>
         </S.FacultyPageTitle>
-
         <FacultyGallery categorizedFaculty={categorizedFaculty} />
       </S.FacultyListContainer>
     </S.FacultyListPageWrapper>
