@@ -5,6 +5,7 @@ export type Typography = {
   Header1_KO: CSSProp;
   Header2: CSSProp;
   Header2_KO: CSSProp;
+  Header2_Search: CSSProp;
   Header3: CSSProp;
   Header4: CSSProp;
   Title1: CSSProp;
@@ -79,6 +80,13 @@ export const fontStyles: Typography = {
   Header2_KO: css`
     ${KoreanFont}
     font-size: clamp(2.4rem, 1.6vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.0028em;
+  `,
+  Header2_Search: css`
+    ${CommonFontstyles}
+    font-size: clamp(3.2rem, 2vw, 4rem);
     font-weight: 700;
     line-height: 1.25;
     letter-spacing: -0.0028em;

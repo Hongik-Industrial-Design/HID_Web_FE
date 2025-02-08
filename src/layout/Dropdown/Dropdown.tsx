@@ -6,22 +6,26 @@ import GraduationTab from './Graduation/GraduationTab';
 import CommunityTab from './Community/CommunityTab';
 
 import * as S from './Dropdown.styled';
+import SearchTab from './Search/SearchTab';
 
 const Dropdown = ({
   hoveredOption,
   hoveredDropdown,
   enterDropdown,
   leaveDropdown,
+  isSearchTabOpened,
+  handleSearchTab,
 }: DropdownProps): JSX.Element => {
   return (
     <>
       <S.DropdownBackground
-        $isRendered={hoveredOption !== ''}
-        $isActive={hoveredDropdown !== ''}
+        $isRendered={hoveredOption !== '' || isSearchTabOpened}
+        $isActive={hoveredDropdown !== '' || isSearchTabOpened}
+        onClick={handleSearchTab}
       />
       <S.DropdownContainer
-        $isRendered={hoveredOption !== ''}
-        $isActive={hoveredDropdown !== ''}
+        $isRendered={hoveredOption !== '' || isSearchTabOpened}
+        $isActive={hoveredDropdown !== '' || isSearchTabOpened}
       >
         {(hoveredOption === 'graduation' ||
           hoveredDropdown === 'graduation') && (
@@ -41,6 +45,10 @@ const Dropdown = ({
           />
         )}
       </S.DropdownContainer>
+      {/* SearchTab */}
+      {hoveredOption === '' && hoveredDropdown === '' && isSearchTabOpened && (
+        <SearchTab />
+      )}
     </>
   );
 };

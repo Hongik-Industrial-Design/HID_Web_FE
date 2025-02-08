@@ -5,6 +5,8 @@ export type DropdownProps = {
   hoveredDropdown: string;
   enterDropdown: (type: HoveredDropdown) => void;
   leaveDropdown: () => void;
+  isSearchTabOpened: boolean;
+  handleSearchTab: () => void;
 };
 
 export type GraduationTabProps = {

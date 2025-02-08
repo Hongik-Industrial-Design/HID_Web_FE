@@ -18,9 +18,15 @@ export const NavbarContainer = styled.ul<HeaderTransientProps>`
   color: ${({ $isHomePage, $scrolled, theme }) =>
     $isHomePage && $scrolled && theme.colors.HID_Grayscale[800]};
 
-  color: ${({ $isHomePage, $isNavbarHovered, $isDropdownHover, theme }) =>
+  color: ${({
+    $isHomePage,
+    $isNavbarHovered,
+    $isDropdownHover,
+    $isSearchTabOpened,
+    theme,
+  }) =>
     $isHomePage &&
-    ($isNavbarHovered || $isDropdownHover) &&
+    ($isNavbarHovered || $isDropdownHover || $isSearchTabOpened) &&
     theme.colors.HID_Grayscale[800]};
 
   transition: color 0.3s ease;

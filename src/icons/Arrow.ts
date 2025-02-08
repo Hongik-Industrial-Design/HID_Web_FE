@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 
 import leftArrow from '@assets/svgs/arrows/left-arrow.svg?react';
 import rightArrow from '@assets/svgs/arrows/right-arrow.svg?react';
+import linkRightArrow from '@assets/svgs/arrows/link-right-arrow.svg?react';
 
 // NextPrevious & SliderNavigation 컴포넌트 내 Arrow Icon
 export const LeftArrow = styled(leftArrow)<{ $isHovered: boolean }>`
@@ -32,4 +33,10 @@ export const RightArrow = styled(rightArrow)<{ $isHovered: boolean }>`
   }
 
   z-index: 10; // 애니메이션을 위한 포지셔닝
+`;
+
+// SearchTab 내 KeywordSuggestion 내 LinkArrow Icon
+export const LinkRightArrowIcon = styled(linkRightArrow)`
+  width: 1.6rem;
+  height: fit-content;
 `;
