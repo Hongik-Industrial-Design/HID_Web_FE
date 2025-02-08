@@ -1,144 +1,136 @@
-import styled from 'styled-components';
-import { colors } from '@styles/theme/colors';
+import styled, { css } from 'styled-components';
 
 export const ProfessorProfileWrapper = styled.div`
   width: 100%;
-  margin-top: 121px;
-  padding: 0 158px;
-  padding-bottom: 239px;
+  padding: 6.8rem 15.8rem 18.5rem 15.8rem;
+  margin-top: 70px;
 
   display: flex;
   flex-direction: column;
-  gap: 64px;
-
-  /* padding: 0 158px 239px 158px; */
+  gap: 6.4rem;
 `;
 
-export const ProfessorProfileHeader = styled.div`
+export const ProfessorProfileHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 4.8rem;
 `;
 
-export const ProfessorProfilePageTitle = styled.div`
+export const ProfessorProfilePageTitle = styled.h1`
   ${({ theme }) => theme.fontStyles.Header1}
+  color: ${({ theme }) => theme.colors.HID_Grayscale[800]};
 
   span {
-    color: ${colors.HID_YellowDot};
+    color: ${({ theme }) => theme.colors.HID_YellowDot};
   }
 `;
 
-export const ProfessorProfileMainSection = styled.div`
+export const ProfessorProfileMainSection = styled.main`
   width: 100%;
+  height: fit-content;
 
   display: flex;
-  /* justify-content: space-between; */
-  gap: 206px;
+  gap: 20.6rem;
 `;
 
 export const ProfileStickyContainer = styled.div`
-  width: 450px;
-
-  flex-shrink: 0;
-
   position: relative;
+
+  width: fit-content;
+  min-height: 100vh; // Sticky 효과를 위해 최소 높이 설정
 `;
 
-export const ProfileContainer = styled.div`
-  width: 100%;
-
-  display: inline-flex;
-  flex-direction: column;
-
+export const ProfileContainer = styled.section`
   position: sticky;
   top: 10%;
+
+  width: 45rem;
+  height: fit-content;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3.6rem;
 `;
 
 export const ProfileImage = styled.img`
   width: 100%;
+  height: fit-content;
 
-  border: 1px solid ${colors.HID_Grayscale[200]};
   border-radius: 2px;
+  border: 1px solid ${({ theme }) => theme.colors.HID_Grayscale[200]};
 `;
 
-export const ProfileName = styled.div`
-  margin-top: 64px;
+export const ProfessorInfos = styled.section`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const ProfessorType = styled.div`
+  width: fit-content;
+  height: fit-content;
+  margin-top: 2.4rem;
 
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 0.4rem;
+`;
 
-  font-style: normal;
+export const ProfessorName = styled.h1`
+  ${({ theme }) => theme.fontStyles.Title1}
+  color: ${({ theme }) => theme.colors.HID_Grayscale[800]};
+`;
 
-  .name {
-    height: 40px;
+const roleMajorStyles = css`
+  width: fit-content;
+  height: fit-content;
 
-    font-size: 40px;
-    font-weight: 600;
-    line-height: 40px;
+  ${({ theme }) => theme.fontStyles.Body1}
+  color: ${({ theme }) => theme.colors.HID_Grayscale[900]};
+`;
 
-    color: ${colors.HID_Grayscale[800]};
-  }
+export const ProfessorRole = styled.span`
+  ${roleMajorStyles}
+`;
 
-  .role {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 3px;
-  }
-
-  .title {
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 32px;
-
-    color: ${colors.HID_Grayscale[900]};
-  }
-
-  .specialty {
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 32px;
-
-    color: ${colors.HID_Grayscale[900]};
-  }
+export const ProfessorMajor = styled.span`
+  ${roleMajorStyles}
 `;
 
 export const ProfileEmail = styled.a<{ $emailHovered: boolean }>`
-  align-self: flex-start;
-
-  margin-top: 26px;
-
-  font-style: normal;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 32px;
-
-  color: ${colors.HID_Navy[900]};
-
   position: relative;
+
+  width: fit-content;
+  height: fit-content;
+  margin-top: 2.8rem;
+
+  ${({ theme }) => theme.fontStyles.Body1}
+  color: ${({ theme }) => theme.colors.HID_Navy[900]};
 
   &::after {
     content: '';
+    width: ${({ $emailHovered }) => ($emailHovered ? '100%' : 0)};
     height: 3px;
+
     position: absolute;
     bottom: -7px;
     left: 50%;
     transform: translateX(-50%);
-    width: ${({ $emailHovered }) => ($emailHovered ? '100%' : 0)};
-    background-color: ${colors.HID_Navy[200]};
-    transition: width 0.3s ease;
+
+    border-radius: 2px;
+    background-color: ${({ theme }) => theme.colors.HID_Navy[200]};
+    transition: width 0.25s ease;
   }
 `;
 
 export const ProfileDescription = styled.p`
   width: 100%;
-  margin-top: 80px;
+  height: fit-content;
 
   font-style: normal;
   font-size: 24px;
   font-weight: 400;
   line-height: 32px;
 
-  color: ${colors.HID_Grayscale[700]};
+  color: ${({ theme }) => theme.colors.HID_Grayscale[700]};
 `;

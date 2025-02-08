@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 import { colors } from '@styles/theme/colors';
 
-export const DetailsContainer = styled.div`
+export const DetailsContainer = styled.section`
+  width: fit-content;
+  height: fit-content;
+
   display: flex;
   flex-direction: column;
   flex-grow: 1;
