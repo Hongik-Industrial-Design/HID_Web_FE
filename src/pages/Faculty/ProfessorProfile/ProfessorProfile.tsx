@@ -12,6 +12,7 @@ import { BreadscrumbArrow } from '@icons/BreadscrumbArrow';
 
 import { BreadscrumbContainer } from '@components/Breadscrumb/Breadscrumb.styled';
 import * as S from './ProfessorProfile.styled';
+import Drawer from '@components/Drawer/Drawer';
 
 type RouteParams = {
   id: string;
@@ -25,6 +26,10 @@ const ProfessorProfile = (): JSX.Element => {
   const [isEmailHovered, setIsEmailHovered] = useState<boolean>(false);
   const [isDrawerButtonHovered, setIsDrawerButtonHovered] =
     useState<boolean>(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
+
+  const handleDrawerOpen = () => setIsDrawerOpen(true);
+  const handleDrawerClose = () => setIsDrawerOpen(false);
 
   const handleEmailHover = () => setIsEmailHovered(true);
   const handleEmailLeave = () => setIsEmailHovered(false);
@@ -93,6 +98,7 @@ const ProfessorProfile = (): JSX.Element => {
               <S.ProfessorNameContainer>
                 <S.ProfessorName>{professorInfo.name}</S.ProfessorName>
                 <S.ProfessorDrawerButton
+                  onClick={handleDrawerOpen}
                   onMouseEnter={handleDrawerButtonHover}
                   onMouseLeave={handleDrawerButtonLeave}
                   $isHovered={isDrawerButtonHovered}
@@ -128,6 +134,14 @@ const ProfessorProfile = (): JSX.Element => {
         {/* Professor Details */}
         <ProfessorDetails professorDetails={professorInfo.details} />
       </S.ProfessorProfileMainSection>
+
+      {/* Drawer */}
+      <Drawer
+        isOpen={isDrawerOpen}
+        handleDrawerClose={handleDrawerClose}
+        professorName={professorInfo.name}
+        professorBrief={professorInfo.description}
+      />
     </S.ProfessorProfileWrapper>
   );
 };
