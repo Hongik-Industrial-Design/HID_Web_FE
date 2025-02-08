@@ -41,4 +41,11 @@ export const SmallSearchIcon = styled(magnifyGlass)<{ $isFocused: boolean }>`
 `;
 
 // GNB 내 SearchTab에 사용
-export const SearchIcon = styled(magnifyGlass)``;
+export const SearchIcon = styled(magnifyGlass)`
+  width: 2.4rem;
+  height: fit-content;
+
+  path {
+    fill: ${({ theme }) => theme.colors.HID_Grayscale[500]};
+  }
+`;
