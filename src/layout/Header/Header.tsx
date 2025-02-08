@@ -15,11 +15,16 @@ import * as S from './Header.styled';
 
 // Navbar Hover 전역 상태 관리 (Zustand)
 const useDropdownStore = create(
-  combine({ navbarOption: '' }, (set) => {
+  combine({ navbarOption: '', isSearchTabOpened: false }, (set) => {
     return {
       setNavbarOption: (option: string) => {
         set(() => ({
           navbarOption: option,
+        }));
+      },
+      setSearchTabOpened: (isOpened: boolean) => {
+        set(() => ({
+          isSearchTabOpened: isOpened,
         }));
       },
     };
@@ -44,11 +49,29 @@ const Header = (): JSX.Element => {
     setHoveredNavbarOption('');
   };
 
+  // GNB 내 SearchTab 전역 상태 관리 (Zustand)
+  const isSearchTabOpened = useDropdownStore(
+    (state) => state.isSearchTabOpened
+  );
+
+  const setSearchTabOpened = useDropdownStore(
+    (state) => state.setSearchTabOpened
+  );
+
+  const handleSearchTab = () => setSearchTabOpened(!isSearchTabOpened);
+
   const [hoveredDropdown, setHoveredDropdown] = useState<HoveredDropdown>('');
 
   // Dropdown 컨테이너 hover시 Dropdown 컴포넌트 유지 (for better UX)
-  const enterDropdown = (type: HoveredDropdown) => setHoveredDropdown(type);
-  const leaveDropdown = () => setHoveredDropdown('');
+  const enterDropdown = (type: HoveredDropdown) => {
+    setHoveredDropdown(type);
+    setSearchTabOpened(false); // SearchTab 닫기
+  };
+
+  const leaveDropdown = () => {
+    setHoveredDropdown('');
+    setSearchTabOpened(false); // SearchTab 닫기
+  };
 
   // HomePage의 배너 이미지 이후부터 dynamic styling 가능하게끔 scrollPosition 계산
   const [scrollPosition, setScrollPosition] = useState<number>(0);
@@ -103,6 +126,7 @@ const Header = (): JSX.Element => {
         $isHomePage={isHomePage}
         $isNavbarHovered={hoveredNavbarOption !== ''}
         $isDropdownHover={hoveredDropdown !== ''}
+        $isSearchTabOpened={isSearchTabOpened}
         $scrolled={scrollPosition > 1056}
       >
         <S.HomeLogo to="/">
@@ -111,6 +135,7 @@ const Header = (): JSX.Element => {
             $scrolled={scrollPosition > 1056}
             $isNavbarHovered={hoveredNavbarOption !== ''}
             $isDropdownHover={hoveredDropdown !== ''}
+            $isSearchTabOpened={isSearchTabOpened}
           />
         </S.HomeLogo>
 
@@ -120,6 +145,8 @@ const Header = (): JSX.Element => {
           enterNavbar={enterNavbarOption}
           leaveNavbar={leaveNavbarOption}
           isDropdownHover={hoveredDropdown !== ''}
+          isSearchTabOpened={isSearchTabOpened}
+          handleSearchTab={handleSearchTab}
           scrolled={scrollPosition > 1056}
         />
       </S.HeaderContainer>
@@ -128,6 +155,8 @@ const Header = (): JSX.Element => {
         enterDropdown={enterDropdown}
         leaveDropdown={leaveDropdown}
         hoveredDropdown={hoveredDropdown}
+        isSearchTabOpened={isSearchTabOpened}
+        handleSearchTab={handleSearchTab}
       />
     </>
   );

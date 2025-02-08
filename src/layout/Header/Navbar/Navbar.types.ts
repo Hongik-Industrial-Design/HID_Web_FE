@@ -5,6 +5,8 @@ export type NavbarProps = {
   enterNavbar: (option: HoveredOption) => void;
   leaveNavbar: () => void;
   isDropdownHover: boolean;
+  isSearchTabOpened: boolean;
+  handleSearchTab: () => void;
   isHomePage: boolean;
   scrolled: boolean;
 };

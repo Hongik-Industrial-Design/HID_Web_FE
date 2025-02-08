@@ -23,8 +23,14 @@ export const HeaderContainer = styled.header<HeaderTransientProps>`
   background-color: ${({ $isHomePage, $scrolled }) =>
     $isHomePage && $scrolled && '#ebebeb3d'};
 
-  background-color: ${({ $isNavbarHovered, $isDropdownHover, theme }) =>
-    ($isNavbarHovered || $isDropdownHover) && theme.colors.HID_Grayscale[0]};
+  background-color: ${({
+    $isNavbarHovered,
+    $isDropdownHover,
+    $isSearchTabOpened,
+    theme,
+  }) =>
+    ($isNavbarHovered || $isDropdownHover || $isSearchTabOpened) &&
+    theme.colors.HID_Grayscale[0]};
 
   backdrop-filter: blur(4px);
 
