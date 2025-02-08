@@ -10,6 +10,7 @@ export const ProfessorProfileWrapper = styled.div`
   gap: 6.4rem;
 `;
 
+// Header
 export const ProfessorProfileHeader = styled.header`
   display: flex;
   justify-content: space-between;
@@ -26,6 +27,7 @@ export const ProfessorProfilePageTitle = styled.h1`
   }
 `;
 
+// Main Section
 export const ProfessorProfileMainSection = styled.main`
   width: 100%;
   height: fit-content;
@@ -76,9 +78,88 @@ export const ProfessorType = styled.div`
   gap: 0.4rem;
 `;
 
+export const ProfessorNameContainer = styled.div`
+  width: 100%;
+  height: fit-content;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 export const ProfessorName = styled.h1`
   ${({ theme }) => theme.fontStyles.Title1}
   color: ${({ theme }) => theme.colors.HID_Grayscale[800]};
+`;
+
+export const ProfessorDrawerButton = styled.button<{
+  $isHovered: boolean;
+}>`
+  position: relative;
+
+  width: fit-content;
+  height: fit-content;
+  padding: 0.8rem 1.6rem;
+
+  border-radius: 100px;
+  border: 1px solid ${({ theme }) => theme.colors.HID_Navy[900]};
+
+  ${({ theme }) => theme.fontStyles.Body2}
+  color: ${({ theme }) => theme.colors.HID_Navy[900]};
+
+  overflow: hidden;
+
+  ${({ $isHovered }) =>
+    $isHovered
+      ? css`
+          border-color: #7488c8;
+          color: ${({ theme }) => theme.colors.HID_Grayscale[0]};
+          transition: all 0.15s ease-in-out;
+        `
+      : css`
+          border-color: ${({ theme }) => theme.colors.HID_Navy[900]};
+          color: ${({ theme }) => theme.colors.HID_Navy[900]};
+          transition: all 0.15s ease-out;
+        `}
+
+  &:active {
+    border-color: ${({ theme }) => theme.colors.HID_Navy[900]};
+    color: ${({ theme }) => theme.colors.HID_Grayscale[0]};
+    transform: scale(0.99);
+
+    transition:
+      transform 0.1s ease-out,
+      border-color 0.1s ease-out,
+      color 0.1s ease-out;
+  }
+
+  // Background Animation
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-color: #7488c8;
+
+    ${({ $isHovered }) =>
+      $isHovered
+        ? css`
+            transform: translateY(0);
+            transition: transform 0.15s ease-in-out;
+          `
+        : css`
+            transform: translateY(100%);
+            transition: transform 0.15s ease-out;
+          `}
+  }
+
+  &:active::after {
+    background-color: ${({ theme }) => theme.colors.HID_Navy[900]};
+    transition: background-color 0.1s ease-out;
+  }
 `;
 
 const roleMajorStyles = css`
@@ -121,16 +202,4 @@ export const ProfileEmail = styled.a<{ $emailHovered: boolean }>`
     background-color: ${({ theme }) => theme.colors.HID_Navy[200]};
     transition: width 0.25s ease;
   }
-`;
-
-export const ProfileDescription = styled.p`
-  width: 100%;
-  height: fit-content;
-
-  font-style: normal;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 32px;
-
-  color: ${({ theme }) => theme.colors.HID_Grayscale[700]};
 `;

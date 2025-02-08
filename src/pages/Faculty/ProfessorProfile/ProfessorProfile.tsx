@@ -23,9 +23,14 @@ const ProfessorProfile = (): JSX.Element => {
   );
 
   const [isEmailHovered, setIsEmailHovered] = useState<boolean>(false);
+  const [isDrawerButtonHovered, setIsDrawerButtonHovered] =
+    useState<boolean>(false);
 
   const handleEmailHover = () => setIsEmailHovered(true);
   const handleEmailLeave = () => setIsEmailHovered(false);
+
+  const handleDrawerButtonHover = () => setIsDrawerButtonHovered(true);
+  const handleDrawerButtonLeave = () => setIsDrawerButtonHovered(false);
 
   const { id } = useParams<RouteParams>();
   const safeID = id ?? '1'; // 타입 안정성을 위해 null/undefined일 경우, 기본 값 지정
@@ -85,7 +90,16 @@ const ProfessorProfile = (): JSX.Element => {
               alt={professorInfo.name}
             />
             <S.ProfessorInfos>
-              <S.ProfessorName>{professorInfo.name}</S.ProfessorName>
+              <S.ProfessorNameContainer>
+                <S.ProfessorName>{professorInfo.name}</S.ProfessorName>
+                <S.ProfessorDrawerButton
+                  onMouseEnter={handleDrawerButtonHover}
+                  onMouseLeave={handleDrawerButtonLeave}
+                  $isHovered={isDrawerButtonHovered}
+                >
+                  Detail info
+                </S.ProfessorDrawerButton>
+              </S.ProfessorNameContainer>
               <S.ProfessorType>
                 <S.ProfessorRole>{professorInfo.title},</S.ProfessorRole>
                 <S.ProfessorMajor>
