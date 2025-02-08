@@ -12,6 +12,8 @@ const Navbar = ({
   enterNavbar,
   leaveNavbar,
   isDropdownHover,
+  isSearchTabOpened,
+  handleSearchTab,
   isHomePage,
   scrolled,
 }: NavbarProps): JSX.Element => {
@@ -25,6 +27,7 @@ const Navbar = ({
       $isNavbarHovered={isNavbarHovered}
       $isDropdownHover={isDropdownHover}
       $isHomePage={isHomePage}
+      $isSearchTabOpened={isSearchTabOpened}
       $scrolled={scrolled}
     >
       <S.NavItem
@@ -63,8 +66,12 @@ const Navbar = ({
       </S.NavItem>
 
       <S.NavItem>
-        <S.SearchButton>
-          <MagnifyGlassIcon $isHomePage={isHomePage} $scrolled={scrolled} />
+        <S.SearchButton onClick={handleSearchTab}>
+          <MagnifyGlassIcon
+            $isHomePage={isHomePage}
+            $scrolled={scrolled}
+            $isSearchTabOpened={isSearchTabOpened}
+          />
         </S.SearchButton>
       </S.NavItem>
 
