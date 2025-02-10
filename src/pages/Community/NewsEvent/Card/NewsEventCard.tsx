@@ -2,6 +2,8 @@ import { JSX } from 'react/jsx-runtime';
 
 import { NewsEventCardProps } from '../../Community.types';
 
+import PostTypeBox from '@components/PostTypeBox/PostTypeBox';
+
 import * as S from './NewsEventCard.styled';
 
 const NewsEventCard = ({
@@ -12,12 +14,12 @@ const NewsEventCard = ({
   category,
 }: NewsEventCardProps): JSX.Element => {
   return (
-    <S.NewsEventCardContainer href={route}>
+    <S.NewsEventCardContainer to={route}>
       <S.CardThumbnail src={imageURL} alt={title} />
       <S.CardInfos>
-        <span className="date">{deadline}</span>
-        <span className="title">{title}</span>
-        <span className="category">{category}</span>
+        <S.CardDate>{deadline}</S.CardDate>
+        <S.CardTitle>{title}</S.CardTitle>
+        <PostTypeBox type={category} />
       </S.CardInfos>
     </S.NewsEventCardContainer>
   );

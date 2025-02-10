@@ -1,57 +1,48 @@
 import styled from 'styled-components';
+import { Link } from 'react-router';
 
-export const NewsEventCardContainer = styled.a`
-  width: 302px;
-  border-radius: 2px;
+export const NewsEventCardContainer = styled(Link)`
+  width: 29.8rem;
+  height: fit-content;
 
   display: flex;
   flex-direction: column;
-
-  border: 1px solid ${({ theme }) => theme.colors.HID_Grayscale[200]};
 `;
 
 export const CardThumbnail = styled.img`
   width: 100%;
-  height: 300px;
+  height: 29.9rem;
 
-  border-bottom: 1px solid ${({ theme }) => theme.colors.HID_Grayscale[200]};
+  border-radius: 2px 2px 0 0;
 `;
 
 export const CardInfos = styled.div`
-  flex-grow: 1;
   width: 100%;
-  padding: 12px;
+  padding: 1.2rem;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+
+  border-radius: 0 0 2px 2px;
+  border-top: 1px solid ${({ theme }) => theme.colors.HID_Grayscale[50]};
 
   background-color: ${({ theme }) => theme.colors.HID_Grayscale[0]};
+`;
 
-  .date {
-    ${({ theme }) => theme.fontStyles.Headline2}
-    color: ${({ theme }) => theme.colors.HID_Grayscale[400]};
-  }
+export const CardDate = styled.span`
+  width: fit-content;
+  height: fit-content;
+  margin-bottom: 0.4rem;
 
-  .title {
-    margin-top: 5px;
-    margin-bottom: 12px;
+  ${({ theme }) => theme.fontStyles.Headline2}
+  color: ${({ theme }) => theme.colors.HID_Grayscale[400]};
+`;
 
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 26px;
+export const CardTitle = styled.span`
+  width: fit-content;
+  height: fit-content;
+  margin-bottom: 1.2rem;
 
-    color: ${({ theme }) => theme.colors.HID_Grayscale[900]};
-  }
-
-  .category {
-    width: fit-content;
-    padding: 4px 6px;
-    border-radius: 2px;
-
-    ${({ theme }) => theme.fontStyles.Headline2}
-    color: ${({ theme }) => theme.colors.HID_Navy[900]};
-    background-color: ${({ theme }) => theme.colors.HID_Navy[50]};
-  }
+  ${({ theme }) => theme.fontStyles.Title5}
+  color: ${({ theme }) => theme.colors.HID_Grayscale[900]};
 `;
