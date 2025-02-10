@@ -1,35 +1,42 @@
 import styled, { css } from 'styled-components';
-import { colors } from '@styles/theme/colors';
 
-export const CategoryContainer = styled.div`
+export const CategoryContainer = styled.aside`
+  width: fit-content;
+  height: fit-content;
+`;
+
+export const FilterOptionList = styled.ul`
   min-width: 110px;
 
   position: sticky;
-  top: 100px;
+  top: 10%;
 
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 32px;
+  gap: 3.2rem;
 `;
 
-export const FilterOption = styled.span<{ $selectedOption: boolean }>`
-  font-size: 22px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 100%;
+export const FilterOption = styled.li`
+  width: fit-content;
+  height: fit-content;
+`;
 
-  color: ${colors.HID_Grayscale[500]};
+export const FilterOptionButton = styled.button<{ $selectedOption: boolean }>`
+  width: fit-content;
+  height: fit-content;
+
+  ${({ theme }) => theme.fontStyles.Title4}
+  color: ${({ theme }) => theme.colors.HID_Grayscale[500]};
 
   ${({ $selectedOption }) =>
     $selectedOption &&
     css`
-      color: ${colors.HID_Navy[900]};
-      font-weight: 600;
+      color: ${({ theme }) => theme.colors.HID_Navy[900]};
+      font-weight: 700;
     `}
 
-  transition: color 0.1s ease-in-out;
+  transition: font-weight 0.12s ease, color 0.12s ease;
 
   white-space: nowrap;
-  cursor: pointer;
 `;

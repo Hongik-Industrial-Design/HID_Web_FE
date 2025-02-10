@@ -1,24 +1,23 @@
 import styled from 'styled-components';
-import { colors } from '@styles/theme/colors';
 
 export const CommunityPageContainer = styled.div`
   width: 100%;
-  padding-left: 158px;
-  padding-right: 161px;
-  margin-top: 125px;
-  margin-bottom: 233px;
+  height: fit-content;
+  padding: 0 15.8rem 31.9rem 15.8rem; // Scroll Top UX 고려해 padding-top 분리
+  margin-top: 70px;
 
   display: flex;
   flex-direction: column;
-  gap: 120px;
 `;
 
 // News & Event Section
-export const NewsEventWrapper = styled.div`
+export const NewsEventWrapper = styled.section`
   width: 100%;
+  height: fit-content;
+  padding-top: 14.8rem;
 
   display: flex;
-  gap: 180px;
+  gap: 23.3rem;
 `;
 
 export const NewsEventCategoryContainer = styled.div`
@@ -26,7 +25,7 @@ export const NewsEventCategoryContainer = styled.div`
   margin: 100px 0;
 `;
 
-export const NewsEventContainer = styled.div`
+export const NewsEventContainer = styled.section`
   width: 100%;
   min-width: 1080px;
   max-width: 1520px;
@@ -47,16 +46,15 @@ export const NewsEventTitleSection = styled.div`
 export const BoldDivider = styled.div`
   width: 100%;
   height: 4px;
-  background-color: ${colors.HID_Grayscale[800]};
+  background-color: ${({ theme }) => theme.colors.HID_Grayscale[800]};
 `;
 
 export const NewsEventTitle = styled.div`
   ${({ theme }) => theme.fontStyles.Header1}
-
-  color: ${colors.HID_Grayscale[800]};
+  color: ${({ theme }) => theme.colors.HID_Grayscale[800]};
 
   .dot {
-    color: ${colors.HID_YellowDot};
+    color: ${({ theme }) => theme.colors.HID_YellowDot};
   }
 `;
 

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { colors } from '@styles/theme/colors';
 
 export const NewsEventCardContainer = styled.a`
   width: 302px;
@@ -8,14 +7,14 @@ export const NewsEventCardContainer = styled.a`
   display: flex;
   flex-direction: column;
 
-  border: 1px solid ${colors.HID_Grayscale[200]};
+  border: 1px solid ${({ theme }) => theme.colors.HID_Grayscale[200]};
 `;
 
 export const CardThumbnail = styled.img`
   width: 100%;
   height: 300px;
 
-  border-bottom: 1px solid ${colors.HID_Grayscale[200]};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.HID_Grayscale[200]};
 `;
 
 export const CardInfos = styled.div`
@@ -27,11 +26,11 @@ export const CardInfos = styled.div`
   flex-direction: column;
   justify-content: center;
 
-  background-color: ${colors.HID_Grayscale[0]};
+  background-color: ${({ theme }) => theme.colors.HID_Grayscale[0]};
 
   .date {
     ${({ theme }) => theme.fontStyles.Headline2}
-    color: ${colors.HID_Grayscale[400]};
+    color: ${({ theme }) => theme.colors.HID_Grayscale[400]};
   }
 
   .title {
@@ -43,7 +42,7 @@ export const CardInfos = styled.div`
     font-weight: 600;
     line-height: 26px;
 
-    color: ${colors.HID_Grayscale[900]};
+    color: ${({ theme }) => theme.colors.HID_Grayscale[900]};
   }
 
   .category {
@@ -52,7 +51,7 @@ export const CardInfos = styled.div`
     border-radius: 2px;
 
     ${({ theme }) => theme.fontStyles.Headline2}
-    color: ${colors.HID_Navy[900]};
-    background-color: ${colors.HID_Navy[50]};
+    color: ${({ theme }) => theme.colors.HID_Navy[900]};
+    background-color: ${({ theme }) => theme.colors.HID_Navy[50]};
   }
 `;

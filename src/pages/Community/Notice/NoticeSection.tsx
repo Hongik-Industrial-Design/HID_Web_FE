@@ -111,20 +111,20 @@ const NoticeSection = (): JSX.Element => {
           <S.NoticeTitle>
             Notice<span>.</span>
           </S.NoticeTitle>
-          <div className="bold-divider"></div>
+          <S.BoldDivider />
         </S.NoticeHeader>
 
         {/* 제목, 공지 일자, 작성자, 첨부파일 */}
         <S.NoticeBoard>
           <S.BoardHeaderContainer>
-            <S.NoticeBoardRow>
+            <S.NoticeBoardHeaderRow>
               <S.BoardTitle>제목</S.BoardTitle>
               <S.NoticeBoardCredit>
-                <S.UploadDate>공지 일자</S.UploadDate>
-                <S.Author>작성자</S.Author>
-                <S.Attatchment>첨부 파일</S.Attatchment>
+                <S.UploadDateTitle>공지 일자</S.UploadDateTitle>
+                <S.AuthorTitle>작성자</S.AuthorTitle>
+                <S.AttatchmentTitle>첨부 파일</S.AttatchmentTitle>
               </S.NoticeBoardCredit>
-            </S.NoticeBoardRow>
+            </S.NoticeBoardHeaderRow>
             <S.ThinDivider />
           </S.BoardHeaderContainer>
 
@@ -132,15 +132,22 @@ const NoticeSection = (): JSX.Element => {
           {noticeData &&
             pagePosts?.map((notice) => (
               <S.BoardHeaderContainer key={notice.id}>
-                <S.NoticeBoardRow>
-                  <S.PostTitleContainer href={`/notice/${notice.id}`}>
-                    {notice.important && (
-                      <S.ImportantText>
-                        <S.AlarmIcon />
-                        <span>중요!</span>
-                      </S.ImportantText>
-                    )}
-                    <S.PostTitle>{notice.title}</S.PostTitle>
+                <S.NoticeBoardPostRow>
+                  <S.PostTitleContainer>
+                    <S.PostLink href={`/notice/${notice.id}`}>
+                      {notice.important && (
+                        <>
+                          <S.ImportantBox>
+                            <S.AlarmIconBox>
+                              <S.AlarmIcon />
+                            </S.AlarmIconBox>
+                            중요!
+                          </S.ImportantBox>
+                          <S.TinyDivider />
+                        </>
+                      )}
+                      <S.PostTitle>{notice.title}</S.PostTitle>
+                    </S.PostLink>
                   </S.PostTitleContainer>
                   <S.NoticeBoardCredit>
                     <S.UploadDate>{notice.credit.postDate}</S.UploadDate>
@@ -159,7 +166,7 @@ const NoticeSection = (): JSX.Element => {
                       )}
                     </S.ClipIconContainer>
                   </S.NoticeBoardCredit>
-                </S.NoticeBoardRow>
+                </S.NoticeBoardPostRow>
                 <S.ThinDivider />
               </S.BoardHeaderContainer>
             ))}

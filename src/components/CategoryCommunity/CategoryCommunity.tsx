@@ -27,15 +27,18 @@ const CategoryCommunity = ({
 
   return (
     <S.CategoryContainer>
-      {categoryList.map((filterOption, index) => (
-        <S.FilterOption
-          key={index}
-          onClick={() => handleFilterOption(filterOption)}
-          $selectedOption={filterOption === selectedOption}
-        >
-          {filterOption}
-        </S.FilterOption>
-      ))}
+      <S.FilterOptionList>
+        {categoryList.map((filterOption, index) => (
+          <S.FilterOption key={index}>
+            <S.FilterOptionButton
+              onClick={() => handleFilterOption(filterOption)}
+              $selectedOption={filterOption === selectedOption}
+            >
+              {filterOption}
+            </S.FilterOptionButton>
+          </S.FilterOption>
+        ))}
+      </S.FilterOptionList>
     </S.CategoryContainer>
   );
 };

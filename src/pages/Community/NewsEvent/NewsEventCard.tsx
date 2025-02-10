@@ -23,12 +23,4 @@ const NewsEventCard = ({
   );
 };
 
-// NewsEventCard.propTypes = {
-//   route: PropTypes.string.isRequired,
-//   imageURL: PropTypes.string.isRequired,
-//   deadline: PropTypes.string.isRequired,
-//   title: PropTypes.string.isRequired,
-//   category: PropTypes.string.isRequired,
-// };
-
 export default NewsEventCard;
