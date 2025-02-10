@@ -1,5 +1,5 @@
 import { JSX } from 'react/jsx-runtime';
-import { Link } from 'react-router';
+import { Link, Location, useLocation } from 'react-router';
 
 import { BreadscrumbArrow } from '@icons/BreadscrumbArrow';
 
@@ -14,8 +14,15 @@ type BreadscrumbProps = {
 };
 
 const Breadscrumb = ({ paths, currentPage }: BreadscrumbProps): JSX.Element => {
+  const location: Location = useLocation();
+
+  const detailPagePaths = ['/community/notice', '/community/news-event'];
+  const isDetailPage = detailPagePaths.some((path) =>
+    location.pathname.includes(path)
+  );
+
   return (
-    <S.BreadscrumbContainer>
+    <S.BreadscrumbContainer $isDetailPage={isDetailPage}>
       {paths.map((path, index) => (
         <S.BreadScrumbUnit key={index}>
           <Link to={path.path}>

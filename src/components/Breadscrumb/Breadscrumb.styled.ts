@@ -1,20 +1,23 @@
 import styled, { css } from 'styled-components';
 
-export const BreadscrumbContainer = styled.div<{ $facultyPage?: boolean }>`
+export const BreadscrumbContainer = styled.div<{
+  $facultyPage?: boolean;
+  $isDetailPage?: boolean;
+}>`
   display: inline-flex;
   align-items: center;
   gap: 8px;
 
-  ${({ $facultyPage }) =>
-    $facultyPage
+  ${({ $facultyPage, $isDetailPage }) =>
+    $facultyPage || $isDetailPage
       ? css`
           position: static;
         `
       : css`
           position: absolute;
-          top: -28%;
-          right: 0; // HeroSection content 오른쪽 끝이랑 일치하게끔!
+          right: 0;
           transform: translateY(-50%);
+          top: -28%;
         `};
 
   font-style: normal;
