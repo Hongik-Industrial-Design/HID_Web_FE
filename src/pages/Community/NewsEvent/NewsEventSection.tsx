@@ -8,6 +8,7 @@ import CategoryCommunity from '@components/CategoryCommunity/CategoryCommunity';
 import NewsEventCard from './Card/NewsEventCard';
 
 import * as S from './NewsEventSection.styled';
+import ViewDetail from '@components/ViewDetail/ViewDetail';
 
 const NewsEventSection = (): JSX.Element => {
   const NewsEventCategory = ['All', 'Recruit', 'Award', 'Alumni'];
@@ -42,27 +43,31 @@ const NewsEventSection = (): JSX.Element => {
           ScrollToTopRef={newsEventTopRef}
         />
       </S.NewsEventCategoryContainer>
+
+      {/* 게시글 Section */}
       <S.NewsEventContainer>
         <S.NewsEventTitleSection>
           <S.NewsEventTitle>
             News & Events<span>.</span>
           </S.NewsEventTitle>
-          <S.NewsEventCardGridContainer>
-            <S.BoldDivider />
-            <S.NewsEventCardGrid>
-              {newsEventCardInfos.map((card) => (
+          <ViewDetail route={'/community/news-event'} />
+        </S.NewsEventTitleSection>
+        <S.BoldDivider />
+        <S.NewsEventCardGridContainer>
+          <S.NewsEventCardGrid>
+            {newsEventCardInfos.map((card) => (
+              <S.NewsEventCardItem key={card.id}>
                 <NewsEventCard
-                  key={card.id}
                   route={`/news-event/${card.id}`}
                   imageURL={card.imgURL}
                   deadline={card.deadline}
                   title={card.title}
                   category={card.category}
                 />
-              ))}
-            </S.NewsEventCardGrid>
-          </S.NewsEventCardGridContainer>
-        </S.NewsEventTitleSection>
+              </S.NewsEventCardItem>
+            ))}
+          </S.NewsEventCardGrid>
+        </S.NewsEventCardGridContainer>
       </S.NewsEventContainer>
     </S.NewsEventWrapper>
   );

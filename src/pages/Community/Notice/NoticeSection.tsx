@@ -116,7 +116,7 @@ const NoticeSection = (): JSX.Element => {
             <S.NoticeTitle>
               Notice<span>.</span>
             </S.NoticeTitle>
-            <ViewDetail detailLink={'/community/notice'} />
+            <ViewDetail route={'/community/notice'} />
           </S.NoticeTitleContainer>
           <S.BoldDivider />
         </S.NoticeHeader>
