@@ -40,7 +40,7 @@ const NewsEventSection = (): JSX.Element => {
       <S.NewsEventCategoryContainer>
         <CategoryCommunity
           categoryList={NewsEventCategory}
-          ScrollToTopRef={newsEventTopRef}
+          scrollToTopRef={newsEventTopRef}
         />
       </S.NewsEventCategoryContainer>
 

@@ -1,5 +1,15 @@
 import styled, { css } from 'styled-components';
 
+export const NoticeListWrapper = styled.div`
+  width: 100%;
+  height: fit-content;
+  margin-top: 70px;
+  padding: 0 15.8rem 23.2rem 15.8rem;
+
+  display: flex;
+  gap: 23.3rem;
+`;
+
 export const NoticeCategoryContainer = styled.section`
   width: 100%;
   height: fit-content;
@@ -22,7 +32,6 @@ export const NoticeContainer = styled.section`
 `;
 
 // 게시판 Header
-
 export const NoticeHeader = styled.section`
   width: 100%;
   height: fit-content;

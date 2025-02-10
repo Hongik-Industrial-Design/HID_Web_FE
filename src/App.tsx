@@ -9,6 +9,7 @@ import GraduationExhibition from '@pages/Exhibition/Graduation/GraduationExhibit
 import StudentExhibiton from '@pages/Exhibition/Student/StudentExhibition';
 import ExhibitionDetail from '@pages/Exhibition/Detail/ExhibitionDetail';
 import CommunityPage from '@pages/Community/CommunityPage';
+import NoticeList from '@pages/Community/Notice/List/NoticeList';
 import ContactPage from '@pages/Contact/ContactPage';
 
 function App() {
@@ -33,7 +34,11 @@ function App() {
           <Route path="work/:id" element={<ExhibitionDetail />} />
         </Route>
 
-        <Route path="community" element={<CommunityPage />} />
+        <Route path="community">
+          <Route index element={<CommunityPage />} />
+          <Route path="notice" element={<NoticeList />} />
+        </Route>
+
         <Route path="contact" element={<ContactPage />} />
       </Route>
     </Routes>

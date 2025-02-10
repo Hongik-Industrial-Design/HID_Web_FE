@@ -66,7 +66,7 @@ const NoticeSection = (): JSX.Element => {
       <S.CategoryStickyContainer>
         <CategoryCommunity
           categoryList={noticeCategory}
-          ScrollToTopRef={noticeTopRef}
+          scrollToTopRef={noticeTopRef}
         />
       </S.CategoryStickyContainer>
       <S.NoticeContainer>
