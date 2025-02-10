@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import { NoticeInfos, NoticePostInfo } from '../Community.types';
 
 import CategoryCommunity from '@components/CategoryCommunity/CategoryCommunity';
+import ViewDetail from '@components/ViewDetail/ViewDetail';
 import ImportantBox from '@components/ImportantBox/ImportantBox';
 import AuthorBox from '@components/AuthorBox/AuthorBox';
 import Pagination from '@components/Pagination/Pagination';
@@ -111,9 +112,12 @@ const NoticeSection = (): JSX.Element => {
       </S.CategoryStickyContainer>
       <S.NoticeContainer>
         <S.NoticeHeader>
-          <S.NoticeTitle>
-            Notice<span>.</span>
-          </S.NoticeTitle>
+          <S.NoticeTitleContainer>
+            <S.NoticeTitle>
+              Notice<span>.</span>
+            </S.NoticeTitle>
+            <ViewDetail detailLink={'/community/notice'} />
+          </S.NoticeTitleContainer>
           <S.BoldDivider />
         </S.NoticeHeader>
 

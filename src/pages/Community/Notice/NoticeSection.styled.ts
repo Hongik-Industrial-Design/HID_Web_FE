@@ -22,6 +22,7 @@ export const NoticeContainer = styled.section`
 `;
 
 // 게시판 Header
+
 export const NoticeHeader = styled.section`
   width: 100%;
   height: fit-content;
@@ -29,6 +30,15 @@ export const NoticeHeader = styled.section`
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
+`;
+
+export const NoticeTitleContainer = styled.div`
+  width: 100%;
+  height: fit-content;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 `;
 
 export const BoldDivider = styled.div`
