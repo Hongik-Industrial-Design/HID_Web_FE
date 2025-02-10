@@ -52,7 +52,7 @@ const NewsEventSection = (): JSX.Element => {
           </S.NewsEventTitle>
           <ViewDetail route={'/community/news-event'} />
         </S.NewsEventTitleSection>
-        <S.BoldDivider />
+        {/* <S.BoldDivider /> */}
         <S.NewsEventCardGridContainer>
           <S.NewsEventCardGrid>
             {newsEventCardInfos.map((card) => (

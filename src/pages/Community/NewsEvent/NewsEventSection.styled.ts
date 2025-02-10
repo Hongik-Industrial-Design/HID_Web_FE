@@ -24,7 +24,7 @@ export const NewsEventContainer = styled.section`
 export const NewsEventTitleSection = styled.section`
   width: 100%;
   height: fit-content;
-  margin: 0 1.6rem 3.2rem 0;
+  margin-bottom: 4.8rem;
 
   display: flex;
   justify-content: space-between;
