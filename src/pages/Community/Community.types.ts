@@ -1,19 +1,13 @@
-export interface NewsEventCardInfo {
-  id: number;
-  deadline: string;
-  title: string;
-  category: string;
-  imgURL: string;
-}
+export type NoticeAuthor = 'TA' | 'Council';
+export type NewsEventType = 'Recruit' | 'Award' | 'Alumni';
 
-type Author = 'TA' | 'Council';
 export interface NoticePostInfo {
   id: number;
   title: string;
   important: boolean;
   credit: {
     postDate: string;
-    author: Author;
+    author: NoticeAuthor;
     attatchment: {
       url: string;
       name: string;
@@ -29,10 +23,18 @@ export interface NoticeInfos {
   totalItems: number;
 }
 
+export interface NewsEventCardInfo {
+  id: number;
+  deadline: string;
+  title: string;
+  category: NewsEventType;
+  imgURL: string;
+}
+
 export interface NewsEventCardProps {
   route: string;
   imageURL: string;
   deadline: string;
   title: string;
-  category: string;
+  category: NewsEventType;
 }

@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-export const PostTypeBoxContainer = styled.div`
+export const PostTypeBoxContainer = styled.div<{ $isNotice: boolean }>`
   width: fit-content;
   height: fit-content;
-  padding: 0.4rem 1.6rem;
+  padding: 0.4rem 1.4rem;
 
   display: flex;
   justify-content: center;
@@ -11,6 +11,9 @@ export const PostTypeBoxContainer = styled.div`
 
   border-radius: 2px;
 
-  background-color: #e7eaf5;
+  ${({ $isNotice, theme }) =>
+    $isNotice ? theme.fontStyles.Body3 : theme.fontStyles.Headline2}
+
   color: ${({ theme }) => theme.colors.HID_Navy[900]};
+  background-color: #e7eaf5;
 `;

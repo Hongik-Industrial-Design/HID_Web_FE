@@ -7,7 +7,7 @@ import { NoticeInfos, NoticePostInfo } from '../Community.types';
 import CategoryCommunity from '@components/CategoryCommunity/CategoryCommunity';
 import ViewDetail from '@components/ViewDetail/ViewDetail';
 import ImportantBox from '@components/ImportantBox/ImportantBox';
-import AuthorBox from '@components/AuthorBox/AuthorBox';
+import PostTypeBox from '@components/PostTypeBox/PostTypeBox';
 import Pagination from '@components/Pagination/Pagination';
 import { ClipIcon } from '@icons/Clip';
 
@@ -154,7 +154,7 @@ const NoticeSection = (): JSX.Element => {
                   <S.NoticeBoardCredit>
                     <S.UploadDate>{notice.credit.postDate}</S.UploadDate>
                     <S.AuthorBoxArea>
-                      <AuthorBox author={notice.credit.author} />
+                      <PostTypeBox type={notice.credit.author} />
                     </S.AuthorBoxArea>
                     <S.ClipIconContainer>
                       {notice.credit.attatchment ? (
