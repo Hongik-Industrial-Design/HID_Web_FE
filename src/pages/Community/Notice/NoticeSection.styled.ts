@@ -1,7 +1,5 @@
 import styled, { css } from 'styled-components';
 
-import clipIcon from '@assets/svgs/notice/paper-clip.svg?react';
-
 export const NoticeCategoryContainer = styled.section`
   width: 100%;
   height: fit-content;
@@ -196,16 +194,13 @@ export const ClipIconContainer = styled.div`
 `;
 
 export const ClipIconButton = styled.button`
-  width: fit-content;
-  height: fit-content;
-  padding: 0.2rem;
+  width: 2.4rem;
+  height: 2.4rem;
 
   display: flex;
   justify-content: center;
   align-items: center;
 `;
-
-export const ClipIcon = styled(clipIcon)``;
 
 // 게시글 하단 Divider (Unit)
 export const ThinDivider = styled.div`

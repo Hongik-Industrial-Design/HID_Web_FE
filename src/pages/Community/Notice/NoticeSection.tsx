@@ -6,10 +6,11 @@ import { NoticeInfos, NoticePostInfo } from '../Community.types';
 
 import CategoryCommunity from '@components/CategoryCommunity/CategoryCommunity';
 import ImportantBox from '@components/ImportantBox/ImportantBox';
+import AuthorBox from '@components/AuthorBox/AuthorBox';
 import Pagination from '@components/Pagination/Pagination';
+import { ClipIcon } from '@icons/Clip';
 
 import * as S from './NoticeSection.styled';
-import AuthorBox from '@components/AuthorBox/AuthorBox';
 
 const NoticeSection = (): JSX.Element => {
   const noticeTopRef = useRef<HTMLDivElement | null>(null);
@@ -156,7 +157,7 @@ const NoticeSection = (): JSX.Element => {
                         <S.ClipIconButton
                           onClick={() => handleDownload(notice.id)}
                         >
-                          <S.ClipIcon />
+                          <ClipIcon />
                         </S.ClipIconButton>
                       ) : (
                         '-'
