@@ -4,8 +4,9 @@ import { useEffect, useRef, useState } from 'react';
 
 import { NoticeInfos, NoticePostInfo } from '../Community.types';
 
-import Pagination from '@components/Pagination/Pagination';
 import CategoryCommunity from '@components/CategoryCommunity/CategoryCommunity';
+import ImportantBox from '@components/ImportantBox/ImportantBox';
+import Pagination from '@components/Pagination/Pagination';
 
 import * as S from './NoticeSection.styled';
 
@@ -137,12 +138,7 @@ const NoticeSection = (): JSX.Element => {
                     <S.PostLink href={`/notice/${notice.id}`}>
                       {notice.important && (
                         <>
-                          <S.ImportantBox>
-                            <S.AlarmIconBox>
-                              <S.AlarmIcon />
-                            </S.AlarmIconBox>
-                            중요!
-                          </S.ImportantBox>
+                          <ImportantBox />
                           <S.TinyDivider />
                         </>
                       )}

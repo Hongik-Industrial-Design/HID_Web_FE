@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 
 import clipIcon from '@assets/svgs/notice/paper-clip.svg?react';
-import alarmIcon from '@assets/svgs/notice/alarm.svg?react';
 
 export const NoticeCategoryContainer = styled.section`
   width: 100%;
@@ -146,39 +145,7 @@ export const PostLink = styled.a`
   gap: 0.8rem;
 `;
 
-// 중요 공지 표시 (추후 컴포넌트로 분리)
-export const ImportantBox = styled.div`
-  width: fit-content;
-  height: fit-content;
-  padding: 0.4rem;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  border-radius: 2px;
-
-  ${({ theme }) => theme.fontStyles.Body3_KO}
-  font-weight: 500;
-  color: ${({ theme }) => theme.colors.HID_Grayscale[800]};
-  background-color: #ffe7e6;
-`;
-
-export const AlarmIconBox = styled.div`
-  width: 2.4rem;
-  height: 2.4rem;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const AlarmIcon = styled(alarmIcon)`
-  path {
-    fill: #ff0000;
-  }
-`;
-
+// 중요 공지 Box 우측 Divider
 export const TinyDivider = styled.div`
   width: 1px;
   height: 1.4rem;
