@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import leftArrow from '@assets/svgs/arrows/left-arrow.svg?react';
 import rightArrow from '@assets/svgs/arrows/right-arrow.svg?react';
 import linkRightArrow from '@assets/svgs/arrows/link-right-arrow.svg?react';
+import downArrow from '@assets/svgs/arrows/down-arrow.svg?react';
 
 // NextPrevious & SliderNavigation 컴포넌트 내 Arrow Icon
 export const LeftArrow = styled(leftArrow)<{ $isHovered: boolean }>`
@@ -39,4 +40,21 @@ export const RightArrow = styled(rightArrow)<{ $isHovered: boolean }>`
 export const LinkRightArrowIcon = styled(linkRightArrow)`
   width: 1.6rem;
   height: fit-content;
+`;
+
+// 게시글 상세 페이지 내 첨부파일 컴포넌트 화살표 아이콘
+export const DownArrowIcon = styled(downArrow)<{ $isDropdownOpen: boolean }>`
+  width: 1.4rem;
+  height: fit-content;
+
+  ${({ $isDropdownOpen }) =>
+    $isDropdownOpen
+      ? css`
+          transform: rotate(180deg);
+          transition: transform 0.24s ease-in-out;
+        `
+      : css`
+          transform: rotate(0deg);
+          transition: transform 0.24s ease-out;
+        `}
 `;

@@ -17,6 +17,7 @@ export type Typography = {
   SubTitle1: CSSProp;
   SubTitle2: CSSProp;
   Headline1: CSSProp;
+  Headline1_KO: CSSProp;
   Headline2: CSSProp;
   Body1: CSSProp;
   Body2: CSSProp;
@@ -157,6 +158,12 @@ export const fontStyles: Typography = {
   `,
   Headline1: css`
     ${CommonFontstyles}
+    font-size: clamp(1.2rem, 1.2vw, 2rem);
+    font-weight: 400;
+    line-height: 1.2;
+  `,
+  Headline1_KO: css`
+    ${KoreanFont}
     font-size: clamp(1.2rem, 1.2vw, 2rem);
     font-weight: 400;
     line-height: 1.2;

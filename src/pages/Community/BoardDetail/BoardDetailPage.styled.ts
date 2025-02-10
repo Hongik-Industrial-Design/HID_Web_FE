@@ -14,6 +14,7 @@ export const BreadScrumbSection = styled.section`
   text-align: right;
 `;
 
+// Board Detail Header
 export const BoardDetailHeaderContainer = styled.section`
   width: 100%;
   height: fit-content;
@@ -82,4 +83,21 @@ export const BoldDivider = styled.div`
   height: 0.4rem;
 
   background-color: ${({ theme }) => theme.colors.HID_Grayscale[800]};
+`;
+
+// Article Section
+export const AritcleSectionContainer = styled.section`
+  width: 100%;
+  height: fit-content;
+  padding: 2.4rem 0 8rem;
+`;
+
+// Attachment Section
+export const AttachmentContainer = styled.section`
+  width: 100%;
+  height: fit-content;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 `;
