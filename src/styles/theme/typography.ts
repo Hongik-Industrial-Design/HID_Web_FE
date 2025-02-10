@@ -133,11 +133,13 @@ export const fontStyles: Typography = {
   Title5: css`
     ${CommonFontstyles}
     font-size: clamp(1.4rem, 1vw, 1.8rem);
+    font-weight: 600;
     line-height: 1.4;
   `,
   Title6: css`
     ${CommonFontstyles}
     font-size: clamp(1.2rem, 0.8vw, 1.6rem);
+    font-weight: 700;
     line-height: 1;
   `,
   SubTitle1: css`
