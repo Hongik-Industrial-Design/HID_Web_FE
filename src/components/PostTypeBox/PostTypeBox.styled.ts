@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const AuthorBoxContainer = styled.div`
+export const PostTypeBoxContainer = styled.div`
   width: fit-content;
   height: fit-content;
   padding: 0.4rem 1.6rem;
