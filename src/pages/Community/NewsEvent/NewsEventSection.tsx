@@ -5,10 +5,10 @@ import { useEffect, useRef, useState } from 'react';
 import { NewsEventCardInfo } from '../Community.types';
 
 import CategoryCommunity from '@components/CategoryCommunity/CategoryCommunity';
+import ViewDetail from '@components/ViewDetail/ViewDetail';
 import NewsEventCard from './Card/NewsEventCard';
 
 import * as S from './NewsEventSection.styled';
-import ViewDetail from '@components/ViewDetail/ViewDetail';
 
 const NewsEventSection = (): JSX.Element => {
   const NewsEventCategory = ['All', 'Recruit', 'Award', 'Alumni'];

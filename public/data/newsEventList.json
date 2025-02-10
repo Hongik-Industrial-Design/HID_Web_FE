@@ -1,0 +1,216 @@
+{
+  "cardInfos": [
+    {
+      "id": 1,
+      "deadline": "2024.04.22",
+      "title": "Samsung Design Membership",
+      "category": "Recruit",
+      "imgURL": "/NewsEvent/example-1.jpg"
+    },
+    {
+      "id": 2,
+      "deadline": "2024.04.28",
+      "title": "LG Recruit 2024",
+      "category": "Recruit",
+      "imgURL": "/NewsEvent/example-2.jpg"
+    },
+    {
+      "id": 3,
+      "deadline": "2024.04.29",
+      "title": "Hyundai Motor Group",
+      "category": "Recruit",
+      "imgURL": "/NewsEvent/example-3.jpg"
+    },
+    {
+      "id": 4,
+      "deadline": "2024.04.30",
+      "title": "Red Dot Design Award 2024",
+      "category": "Award",
+      "imgURL": "/NewsEvent/example-4.jpg"
+    },
+    {
+      "id": 5,
+      "deadline": "2024.04.30",
+      "title": "Red Dot Design Award 2024",
+      "category": "Alumni",
+      "imgURL": "/NewsEvent/example-4.jpg"
+    },
+    {
+      "id": 6,
+      "deadline": "2024.04.22",
+      "title": "Samsung Design Membership",
+      "category": "Recruit",
+      "imgURL": "/NewsEvent/example-1.jpg"
+    },
+    {
+      "id": 7,
+      "deadline": "2024.04.28",
+      "title": "LG Recruit 2024",
+      "category": "Recruit",
+      "imgURL": "/NewsEvent/example-2.jpg"
+    },
+    {
+      "id": 8,
+      "deadline": "2024.04.29",
+      "title": "Hyundai Motor Group",
+      "category": "Recruit",
+      "imgURL": "/NewsEvent/example-3.jpg"
+    },
+    {
+      "id": 9,
+      "deadline": "2024.04.30",
+      "title": "Red Dot Design Award 2024",
+      "category": "Award",
+      "imgURL": "/NewsEvent/example-4.jpg"
+    },
+    {
+      "id": 10,
+      "deadline": "2024.04.30",
+      "title": "Red Dot Design Award 2024",
+      "category": "Alumni",
+      "imgURL": "/NewsEvent/example-4.jpg"
+    },
+    {
+      "id": 11,
+      "deadline": "2024.04.22",
+      "title": "Samsung Design Membership",
+      "category": "Recruit",
+      "imgURL": "/NewsEvent/example-1.jpg"
+    },
+    {
+      "id": 12,
+      "deadline": "2024.04.28",
+      "title": "LG Recruit 2024",
+      "category": "Recruit",
+      "imgURL": "/NewsEvent/example-2.jpg"
+    },
+    {
+      "id": 13,
+      "deadline": "2024.04.29",
+      "title": "Hyundai Motor Group",
+      "category": "Recruit",
+      "imgURL": "/NewsEvent/example-3.jpg"
+    },
+    {
+      "id": 14,
+      "deadline": "2024.04.30",
+      "title": "Red Dot Design Award 2024",
+      "category": "Award",
+      "imgURL": "/NewsEvent/example-4.jpg"
+    },
+    {
+      "id": 15,
+      "deadline": "2024.04.30",
+      "title": "Red Dot Design Award 2024",
+      "category": "Alumni",
+      "imgURL": "/NewsEvent/example-4.jpg"
+    },
+    {
+      "id": 16,
+      "deadline": "2024.04.22",
+      "title": "Samsung Design Membership",
+      "category": "Recruit",
+      "imgURL": "/NewsEvent/example-1.jpg"
+    },
+    {
+      "id": 17,
+      "deadline": "2024.04.28",
+      "title": "LG Recruit 2024",
+      "category": "Recruit",
+      "imgURL": "/NewsEvent/example-2.jpg"
+    },
+    {
+      "id": 18,
+      "deadline": "2024.04.29",
+      "title": "Hyundai Motor Group",
+      "category": "Recruit",
+      "imgURL": "/NewsEvent/example-3.jpg"
+    },
+    {
+      "id": 19,
+      "deadline": "2024.04.30",
+      "title": "Red Dot Design Award 2024",
+      "category": "Award",
+      "imgURL": "/NewsEvent/example-4.jpg"
+    },
+    {
+      "id": 20,
+      "deadline": "2024.04.30",
+      "title": "Red Dot Design Award 2024",
+      "category": "Alumni",
+      "imgURL": "/NewsEvent/example-4.jpg"
+    },
+    {
+      "id": 21,
+      "deadline": "2024.04.22",
+      "title": "Samsung Design Membership",
+      "category": "Recruit",
+      "imgURL": "/NewsEvent/example-1.jpg"
+    },
+    {
+      "id": 22,
+      "deadline": "2024.04.28",
+      "title": "LG Recruit 2024",
+      "category": "Recruit",
+      "imgURL": "/NewsEvent/example-2.jpg"
+    },
+    {
+      "id": 23,
+      "deadline": "2024.04.29",
+      "title": "Hyundai Motor Group",
+      "category": "Recruit",
+      "imgURL": "/NewsEvent/example-3.jpg"
+    },
+    {
+      "id": 24,
+      "deadline": "2024.04.30",
+      "title": "Red Dot Design Award 2024",
+      "category": "Award",
+      "imgURL": "/NewsEvent/example-4.jpg"
+    },
+    {
+      "id": 25,
+      "deadline": "2024.04.30",
+      "title": "Red Dot Design Award 2024",
+      "category": "Alumni",
+      "imgURL": "/NewsEvent/example-4.jpg"
+    },
+    {
+      "id": 26,
+      "deadline": "2024.04.22",
+      "title": "Samsung Design Membership",
+      "category": "Recruit",
+      "imgURL": "/NewsEvent/example-1.jpg"
+    },
+    {
+      "id": 27,
+      "deadline": "2024.04.28",
+      "title": "LG Recruit 2024",
+      "category": "Recruit",
+      "imgURL": "/NewsEvent/example-2.jpg"
+    },
+    {
+      "id": 28,
+      "deadline": "2024.04.29",
+      "title": "Hyundai Motor Group",
+      "category": "Recruit",
+      "imgURL": "/NewsEvent/example-3.jpg"
+    },
+    {
+      "id": 29,
+      "deadline": "2024.04.30",
+      "title": "Red Dot Design Award 2024",
+      "category": "Award",
+      "imgURL": "/NewsEvent/example-4.jpg"
+    },
+    {
+      "id": 30,
+      "deadline": "2024.04.30",
+      "title": "Red Dot Design Award 2024",
+      "category": "Alumni",
+      "imgURL": "/NewsEvent/example-4.jpg"
+    }
+  ],
+  "pageSize": 12,
+  "totalPages": 3
+}

@@ -153,6 +153,6 @@ export const ThinDivider = styled.div`
 export const PaginationWrapper = styled.div`
   width: fit-content;
   height: fit-content;
+  padding-left: 0.8rem;
   margin-top: 4.8rem;
-  padding-left: 1.6rem;
 `;

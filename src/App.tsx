@@ -10,6 +10,7 @@ import StudentExhibiton from '@pages/Exhibition/Student/StudentExhibition';
 import ExhibitionDetail from '@pages/Exhibition/Detail/ExhibitionDetail';
 import CommunityPage from '@pages/Community/CommunityPage';
 import NoticeList from '@pages/Community/Notice/List/NoticeList';
+import NewsEventList from '@pages/Community/NewsEvent/List/NewsEventList';
 import ContactPage from '@pages/Contact/ContactPage';
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
         <Route path="community">
           <Route index element={<CommunityPage />} />
           <Route path="notice" element={<NoticeList />} />
+          <Route path="news-event" element={<NewsEventList />} />
         </Route>
 
         <Route path="contact" element={<ContactPage />} />
