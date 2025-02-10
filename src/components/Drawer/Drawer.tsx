@@ -1,3 +1,5 @@
+import { JSX } from 'react/jsx-runtime';
+
 import { CloseIcon } from '@icons/Close';
 
 import * as S from './Drawer.styled';
@@ -14,7 +16,7 @@ const Drawer = ({
   handleDrawerClose,
   professorName,
   professorBrief,
-}: DrawerProps) => {
+}: DrawerProps): JSX.Element => {
   return (
     <>
       <S.DrawerContainer $isOpen={isOpen}>

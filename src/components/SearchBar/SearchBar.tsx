@@ -1,3 +1,4 @@
+import { JSX } from 'react/jsx-runtime';
 import { useState } from 'react';
 
 import { SmallSearchIcon } from '@icons/Search';
@@ -8,7 +9,7 @@ type SearchBarProps = {
   placeholder: string;
 };
 
-const SearchBar = ({ placeholder }: SearchBarProps) => {
+const SearchBar = ({ placeholder }: SearchBarProps): JSX.Element => {
   const [query, setQuery] = useState<string>('');
   const [isFocused, setIsFocused] = useState<boolean>(false);
 
