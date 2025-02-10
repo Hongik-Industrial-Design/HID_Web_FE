@@ -1,6 +1,6 @@
 import { JSX } from 'react/jsx-runtime';
 
-import { NewsEventCardProps } from '../Community.types';
+import { NewsEventCardProps } from '../../Community.types';
 
 import * as S from './NewsEventCard.styled';
 
