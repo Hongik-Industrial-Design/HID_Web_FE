@@ -16,6 +16,11 @@ export const GraduationBanner = styled.img`
   height: fit-content;
 `;
 
+export const GraduationVideo = styled.video`
+  width: 100%;
+  height: fit-content;
+`;
+
 export const GraduationExhibitonGalleryContainer = styled.div`
   width: 100%;
   height: fit-content;

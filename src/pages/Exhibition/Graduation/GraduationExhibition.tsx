@@ -2,7 +2,8 @@ import { JSX } from 'react/jsx-runtime';
 
 import Exhibition from '@components/Exhibition/Exhibition';
 
-import graduationBanner from '@assets/images/graduation-banner.jpg';
+// import graduationBanner from '@assets/images/graduation-banner.jpg';
+import graduationVideo from '@assets/videos/2024-graduation-video.mp4';
 
 import * as S from './GraduationExhibition.styled';
 
@@ -23,7 +24,8 @@ export const GraduationExhibition = (): JSX.Element => {
           },
         }}
       >
-        <S.GraduationBanner src={graduationBanner} alt="graduation-banner" />
+        {/* <S.GraduationBanner src={graduationBanner} alt="graduation-banner" /> */}
+        <S.GraduationVideo src={graduationVideo} autoPlay loop muted />
       </S.BannerFrame>
 
       <S.GraduationExhibitonGalleryContainer>
