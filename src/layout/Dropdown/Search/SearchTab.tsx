@@ -1,3 +1,4 @@
+import { JSX } from 'react/jsx-runtime';
 import { useState } from 'react';
 
 import { SearchIcon } from '@icons/Search';
@@ -7,7 +8,7 @@ import Keyword from '@components/Keyword/Keyword';
 
 import * as S from './SearchTab.styled';
 
-const SearchTab = () => {
+const SearchTab = (): JSX.Element => {
   const keywordSuggestion = ['Service', 'Product', 'Company', 'Career'];
 
   const [query, setQuery] = useState<string>('');

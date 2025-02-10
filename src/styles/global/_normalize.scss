@@ -58,9 +58,8 @@ dd {
   margin: 0;
 }
 
-span {
-  user-select: none;
-  -webkit-user-select: none;
+input {
+  outline: none;
 }
 
 // 5. 리스트 스타일 정리
@@ -109,9 +108,7 @@ textarea {
   line-height: 1.15;
 }
 
-button,
 input {
-  outline: none;
   overflow: visible;
 }
 

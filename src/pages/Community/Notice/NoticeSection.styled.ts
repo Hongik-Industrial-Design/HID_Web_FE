@@ -1,195 +1,149 @@
-import styled from 'styled-components';
-import { colors } from '@styles/theme/colors';
+import styled, { css } from 'styled-components';
 
-import clipIcon from '@assets/svgs/notice/paper-clip.svg?react';
-import alarmIcon from '@assets/svgs/notice/alarm.svg?react';
+export const NoticeCategoryContainer = styled.section`
+  width: 100%;
+  height: fit-content;
+  padding-top: 6.8rem;
 
-export const NoticeCategoryContainer = styled.div`
   display: flex;
-  gap: 180px;
+  gap: 23.3rem;
 `;
 
 export const CategoryStickyContainer = styled.div`
   position: relative;
-  margin-top: 100px;
-  margin-bottom: 100px;
+  margin: 10rem 0;
 `;
 
-export const NoticeContainer = styled.div`
+export const NoticeContainer = styled.section`
+  flex-grow: 1;
+
   width: 100%;
-  min-width: 1080px;
-  max-width: 1520px;
+  height: fit-content;
 `;
 
-export const NoticeHeader = styled.div`
+// 게시판 Header
+
+export const NoticeHeader = styled.section`
   width: 100%;
+  height: fit-content;
 
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 3.2rem;
+`;
 
-  .bold-divider {
-    width: 100%;
-    height: 4px;
-    background-color: ${colors.HID_Grayscale[800]};
-  }
+export const NoticeTitleContainer = styled.div`
+  width: 100%;
+  height: fit-content;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+`;
+
+export const BoldDivider = styled.div`
+  width: 100%;
+  height: 4px;
+  background-color: ${({ theme }) => theme.colors.HID_Grayscale[800]};
 `;
 
 export const NoticeTitle = styled.h2`
   ${({ theme }) => theme.fontStyles.Header1}
-  color: ${colors.HID_Grayscale[800]};
+  color: ${({ theme }) => theme.colors.HID_Grayscale[800]};
 
   span {
-    color: ${colors.HID_YellowDot};
+    color: ${({ theme }) => theme.colors.HID_YellowDot};
   }
 `;
 
 // 게시판 Main
-export const NoticeBoard = styled.div`
+export const NoticeBoard = styled.section`
   width: 100%;
-  margin-top: 32px;
+  height: fit-content;
 
   display: flex;
   flex-direction: column;
-  gap: 32px;
 `;
 
-export const BoardHeaderContainer = styled.div`
+// Board Header
+export const BoardHeaderContainer = styled.section`
   width: 100%;
+  height: fit-content;
 
   display: flex;
   flex-direction: column;
-  gap: 32px;
 `;
 
-export const NoticeBoardRow = styled.div`
+export const NoticeBoardRowStyles = css`
   width: 100%;
+  height: fit-content;
+  padding-right: 4.4rem;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-  letter-spacing: -0.28px;
-  color: ${colors.HID_Grayscale[900]};
 
   white-space: nowrap;
 `;
 
-export const BoardTitle = styled.div`
-  width: 50%;
-  font-weight: 600;
+const BoardHeaderStyles = css`
+  ${({ theme }) => theme.fontStyles.Body3}
+  letter-spacing: -0.28px;
+  color: ${({ theme }) => theme.colors.HID_Grayscale[900]};
 `;
 
+export const NoticeBoardHeaderRow = styled.div`
+  ${NoticeBoardRowStyles}
+  margin: 2.8rem 0;
+
+  ${BoardHeaderStyles}
+`;
+
+// Title Header
+export const BoardTitle = styled.span`
+  width: 60%;
+  height: fit-content;
+
+  font-weight: 700;
+`;
+
+// Credit Header
 export const NoticeBoardCredit = styled.div`
-  width: 40%;
-  padding-right: 64px;
+  flex-grow: 1;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 42px;
 `;
 
-export const PostTitleContainer = styled.a`
-  width: 50%;
-
-  display: flex;
-  align-items: center;
-  gap: 6px;
-
-  font-weight: 600;
-`;
-
-export const PostTitle = styled.p`
-  font-weight: 400;
-
-  overflow: hidden;
-  text-overflow: ellipsis;
-  cursor: pointer;
-`;
-
-export const UploadDate = styled.div`
+export const creditWidthStyles = css`
   flex: 1;
   text-align: center;
 `;
 
-export const Author = styled.div`
-  flex: 1;
-  text-align: center;
+export const UploadDateTitle = styled.span`
+  ${creditWidthStyles}
 `;
 
-export const Attatchment = styled.div`
-  flex: 1;
-  text-align: center;
+export const AuthorTitle = styled.span`
+  ${creditWidthStyles}
 `;
 
-export const AuthorBox = styled.div`
-  flex: 1;
-
-  display: flex;
-  justify-content: center;
+export const AttatchmentTitle = styled.span`
+  ${creditWidthStyles}
 `;
 
-export const PostAuthor = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  padding: 4px 16px;
-  border-radius: 2px;
-  background-color: #e7eaf5;
-  color: ${colors.HID_Navy[900]};
-`;
-
-export const ClipIconContainer = styled.div`
-  flex: 1;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const ClipIconButton = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const ClipIcon = styled(clipIcon)`
-  cursor: pointer;
-`;
-
-export const ImportantText = styled.div`
-  display: flex;
-  align-items: center;
-
-  font-weight: 600;
-  padding: 4px;
-  border: 1px dashed ${colors.HID_Grayscale[200]};
-
-  /* span {
-    color: ${colors.HID_Navy[900]};
-  } */
-`;
-
-export const AlarmIcon = styled(alarmIcon)`
-  #alarm_2 {
-    fill: #e70000;
-  }
-`;
-
+// 게시글 하단 Divider (Unit)
 export const ThinDivider = styled.div`
   width: 100%;
   height: 1px;
 
-  background-color: ${colors.HID_Grayscale[200]};
+  background-color: ${({ theme }) => theme.colors.HID_Grayscale[200]};
 `;
 
 export const PaginationWrapper = styled.div`
-  margin-top: 48px;
-  padding-left: 16px;
+  width: fit-content;
+  height: fit-content;
+  margin-top: 4.8rem;
+  padding-left: 1.6rem;
 `;
