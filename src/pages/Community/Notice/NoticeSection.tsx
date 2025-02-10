@@ -5,22 +5,24 @@ import { useEffect, useRef, useState } from 'react';
 import { NoticeInfos, NoticePostInfo } from '../Community.types';
 
 import CategoryCommunity from '@components/CategoryCommunity/CategoryCommunity';
+import NoticeListItem from './Item/NoticeListItem';
 import ViewDetail from '@components/ViewDetail/ViewDetail';
-import ImportantBox from '@components/ImportantBox/ImportantBox';
-import PostTypeBox from '@components/PostTypeBox/PostTypeBox';
 import Pagination from '@components/Pagination/Pagination';
-import { ClipIcon } from '@icons/Clip';
 
 import * as S from './NoticeSection.styled';
 
 const NoticeSection = (): JSX.Element => {
+  const noticeCategory = ['All', 'College TA', 'Council'];
+
   const noticeTopRef = useRef<HTMLDivElement | null>(null);
 
   const [noticeData, setNoticeData] = useState<NoticeInfos | null>(null);
   const [pagePosts, setPagePosts] = useState<NoticePostInfo[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
 
-  const noticeCategory = ['All', 'College TA', 'Council'];
+  const handleCurrentPage = (page: number) => {
+    setCurrentPage(page);
+  };
 
   // Notice Data Fetching & Sorting (important: true 순으로 정렬)
   useEffect(() => {
@@ -59,49 +61,6 @@ const NoticeSection = (): JSX.Element => {
     fetchAndSortNoticeData();
   }, [currentPage]);
 
-  const handleCurrentPage = (page: number) => {
-    setCurrentPage(page);
-  };
-
-  // Clip Icon 클릭 시 첨부 파일 다운로드 logic
-  const handleDownload = (postID: number) => {
-    // 다운로드할 파일의 게시물 filtering
-
-    if (noticeData?.posts) {
-      const [targetPost] = noticeData.posts.filter(
-        (post) => post.id === postID
-      );
-      console.log(targetPost);
-
-      // 서버에 저장된 첨부 파일의 URL과 파일명
-      const fileURL = targetPost.credit?.attatchment.url;
-      console.log(fileURL);
-
-      const fileName = targetPost.credit?.attatchment.name;
-      console.log(fileName);
-
-      // FE Test를 위한 Blob 객체 사용 구현
-      const blob = new Blob([fileURL], { type: 'application/pdf' }); // Blob 객체 생성
-
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob); // Blob을 가리키는 URL 생성
-      link.download = fileName; // 파일명 설정
-      document.body.appendChild(link);
-      link.click(); // 다운로드 트리거
-      document.body.removeChild(link);
-      URL.revokeObjectURL(link.href); // 메모리 해제
-
-      /* // <a> 태그를 동적으로 생성하여 파일 다운로드를 Trigger (Content-Disposition: attatchment 서버에서 설정 필요)
-      const link = document.createElement("a");
-      link.href = fileURL;
-      link.download = fileName;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      */
-    }
-  };
-
   return (
     <S.NoticeCategoryContainer ref={noticeTopRef}>
       <S.CategoryStickyContainer>
@@ -139,36 +98,14 @@ const NoticeSection = (): JSX.Element => {
           {noticeData &&
             pagePosts?.map((notice) => (
               <S.BoardHeaderContainer key={notice.id}>
-                <S.NoticeBoardPostRow>
-                  <S.PostTitleContainer>
-                    <S.PostLink href={`/notice/${notice.id}`}>
-                      {notice.important && (
-                        <>
-                          <ImportantBox />
-                          <S.TinyDivider />
-                        </>
-                      )}
-                      <S.PostTitle>{notice.title}</S.PostTitle>
-                    </S.PostLink>
-                  </S.PostTitleContainer>
-                  <S.NoticeBoardCredit>
-                    <S.UploadDate>{notice.credit.postDate}</S.UploadDate>
-                    <S.AuthorBoxArea>
-                      <PostTypeBox type={notice.credit.author} />
-                    </S.AuthorBoxArea>
-                    <S.ClipIconContainer>
-                      {notice.credit.attatchment ? (
-                        <S.ClipIconButton
-                          onClick={() => handleDownload(notice.id)}
-                        >
-                          <ClipIcon />
-                        </S.ClipIconButton>
-                      ) : (
-                        '-'
-                      )}
-                    </S.ClipIconContainer>
-                  </S.NoticeBoardCredit>
-                </S.NoticeBoardPostRow>
+                <NoticeListItem
+                  id={notice.id}
+                  important={notice.important}
+                  title={notice.title}
+                  date={notice.credit.postDate}
+                  author={notice.credit.author}
+                  attatchment={notice.credit.attatchment}
+                />
                 <S.ThinDivider />
               </S.BoardHeaderContainer>
             ))}

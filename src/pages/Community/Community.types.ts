@@ -1,6 +1,14 @@
 export type NoticeAuthor = 'TA' | 'Council';
 export type NewsEventType = 'Recruit' | 'Award' | 'Alumni';
 
+export interface NoticeInfos {
+  posts: NoticePostInfo[];
+  totalPages: number;
+  currentPage: number;
+  pageSize: number;
+  totalItems: number;
+}
+
 export interface NoticePostInfo {
   id: number;
   title: string;
@@ -13,14 +21,6 @@ export interface NoticePostInfo {
       name: string;
     };
   };
-}
-
-export interface NoticeInfos {
-  posts: NoticePostInfo[];
-  totalPages: number;
-  currentPage: number;
-  pageSize: number;
-  totalItems: number;
 }
 
 export interface NewsEventCardInfo {
