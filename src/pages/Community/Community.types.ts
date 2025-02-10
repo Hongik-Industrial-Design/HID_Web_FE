@@ -6,13 +6,14 @@ export interface NewsEventCardInfo {
   imgURL: string;
 }
 
+type Author = 'TA' | 'Council';
 export interface NoticePostInfo {
   id: number;
   title: string;
   important: boolean;
   credit: {
     postDate: string;
-    author: string;
+    author: Author;
     attatchment: {
       url: string;
       name: string;

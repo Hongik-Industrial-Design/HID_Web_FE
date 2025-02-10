@@ -9,6 +9,7 @@ import ImportantBox from '@components/ImportantBox/ImportantBox';
 import Pagination from '@components/Pagination/Pagination';
 
 import * as S from './NoticeSection.styled';
+import AuthorBox from '@components/AuthorBox/AuthorBox';
 
 const NoticeSection = (): JSX.Element => {
   const noticeTopRef = useRef<HTMLDivElement | null>(null);
@@ -147,9 +148,9 @@ const NoticeSection = (): JSX.Element => {
                   </S.PostTitleContainer>
                   <S.NoticeBoardCredit>
                     <S.UploadDate>{notice.credit.postDate}</S.UploadDate>
-                    <S.AuthorBox>
-                      <S.PostAuthor>{notice.credit.author}</S.PostAuthor>
-                    </S.AuthorBox>
+                    <S.AuthorBoxArea>
+                      <AuthorBox author={notice.credit.author} />
+                    </S.AuthorBoxArea>
                     <S.ClipIconContainer>
                       {notice.credit.attatchment ? (
                         <S.ClipIconButton

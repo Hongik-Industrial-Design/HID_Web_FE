@@ -177,28 +177,13 @@ export const Attatchment = styled.span`
   ${creditWidthStyles}
 `;
 
-// Author Box (추후 컴포넌트 분리)
-export const AuthorBox = styled.div`
+// Author Box 영역
+export const AuthorBoxArea = styled.div`
   flex: 1;
 
   display: flex;
   justify-content: center;
   align-items: center;
-`;
-
-export const PostAuthor = styled.div`
-  width: fit-content;
-  height: fit-content;
-  padding: 0.4rem 1.6rem;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  border-radius: 2px;
-
-  background-color: #e7eaf5;
-  color: ${({ theme }) => theme.colors.HID_Navy[900]};
 `;
 
 // 첨부파일 영역
