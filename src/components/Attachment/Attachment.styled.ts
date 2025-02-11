@@ -58,18 +58,23 @@ export const AttachmentDropdownContainer = styled.div<{
   ${({ $isDropdownOpen }) =>
     $isDropdownOpen
       ? css`
+          z-index: 100;
           opacity: 1;
-          transition: opacity 0.3s ease;
+          transition:
+            opacity 0.3s ease,
+            z-index 0.3s ease;
         `
       : css`
+          z-index: -1;
           opacity: 0;
-          transition: opacity 0.3s ease-out;
+          transition:
+            opacity 0.3s ease-out,
+            z-index 0.3s ease-out;
         `}
 
   position: absolute;
   top: 160%;
   right: 0;
-  z-index: 10;
 
   width: fit-content;
   height: fit-content;

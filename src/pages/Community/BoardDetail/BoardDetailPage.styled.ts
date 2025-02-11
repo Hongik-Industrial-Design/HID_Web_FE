@@ -96,8 +96,51 @@ export const AritcleSectionContainer = styled.section`
 export const AttachmentContainer = styled.section`
   width: 100%;
   height: fit-content;
+  margin-bottom: 4rem;
 
   display: flex;
   justify-content: flex-end;
   align-items: center;
+`;
+
+// Content Section
+export const PostContentSection = styled.section`
+  width: 100%;
+  height: fit-content;
+  padding: 0 16rem;
+
+  @media (max-width: 1440px) {
+    padding: 0 10rem;
+  }
+
+  @media (max-width: 1080px) {
+    padding: 0 4rem;
+  }
+`;
+
+export const PostImageContainer = styled.div`
+  width: 100%;
+  height: fit-content;
+  margin-bottom: 3.2rem;
+`;
+
+export const PostImage = styled.img`
+  width: 100%;
+  height: fit-content;
+`;
+
+export const PostText = styled.p`
+  width: 100%;
+  height: fit-content;
+
+  ${({ theme }) => theme.fontStyles.Body3_KO};
+  color: ${({ theme }) => theme.colors.HID_Grayscale[900]};
+`;
+
+// Post Footer Divider
+export const PostFooterDivider = styled.div`
+  width: 100%;
+  height: 2px;
+
+  background-color: ${({ theme }) => theme.colors.HID_Grayscale[300]};
 `;

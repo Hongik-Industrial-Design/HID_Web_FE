@@ -4,9 +4,11 @@ import { NoticeAuthor } from '../Community.types';
 
 import Breadscrumb from '@components/Breadscrumb/Breadscrumb';
 import PostTypeBox from '@components/PostTypeBox/PostTypeBox';
+import Attachment from '@components/Attachment/Attachment';
 
 import * as S from './BoardDetailPage.styled';
-import Attachment from '@components/Attachment/Attachment';
+
+import postImage from '@assets/images/board-detail-example.jpg';
 
 // Mock Data
 const detailInfos = {
@@ -33,6 +35,9 @@ const detailInfos = {
       name: '부전공 신청 양식 모음.zip',
     },
   ],
+  image: postImage,
+  content:
+    '조사기간 : 2024. 11. 14.(목) ~ 2024. 11. 22.(금) 조사방법 : 네이버폼을 활용한 수요조사 추진 (https://naver.me/F9NGSC4o )',
 };
 
 const BoardDetailPage = (): JSX.Element => {
@@ -68,7 +73,20 @@ const BoardDetailPage = (): JSX.Element => {
             attachment={detailInfos.attachment}
           />
         </S.AttachmentContainer>
+
+        {/* Content Section */}
+        <S.PostContentSection>
+          <S.PostImageContainer>
+            <S.PostImage src={detailInfos.image} alt="Post Image Example" />
+          </S.PostImageContainer>
+          <S.PostText>
+            조사기간 : 2024. 11. 14.(목) ~ 2024. 11. 22.(금) <br />
+            조사방법 : 네이버폼을 활용한 수요조사 추진
+            (https://naver.me/F9NGSC4o)
+          </S.PostText>
+        </S.PostContentSection>
       </S.AritcleSectionContainer>
+      <S.PostFooterDivider />
     </S.BoardDetailPageContainer>
   );
 };
