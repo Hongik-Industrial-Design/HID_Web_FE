@@ -58,7 +58,7 @@ const NewsEventSection = (): JSX.Element => {
             {newsEventCardInfos.map((card) => (
               <S.NewsEventCardItem key={card.id}>
                 <NewsEventCard
-                  route={`/news-event/${card.id}`}
+                  route={`/community/news-event/${card.id}`}
                   imageURL={card.imgURL}
                   deadline={card.deadline}
                   title={card.title}

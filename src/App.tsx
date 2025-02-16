@@ -46,6 +46,7 @@ function App() {
 
           <Route path="news-event">
             <Route index element={<NewsEventList />} />
+            <Route path=":id" element={<BoardDetailPage />} />
           </Route>
         </Route>
 
