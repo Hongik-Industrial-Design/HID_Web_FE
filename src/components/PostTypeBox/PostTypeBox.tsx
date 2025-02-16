@@ -1,6 +1,6 @@
 import { JSX } from 'react/jsx-runtime';
 import { useEffect } from 'react';
-import { Location, useLocation } from 'react-router';
+import { Location, useLocation, useParams } from 'react-router';
 
 import { NewsEventType, NoticeAuthor } from '@pages/Community/Community.types';
 
@@ -12,10 +12,11 @@ type PostTypeBoxProps = {
 
 const PostTypeBox = ({ type }: PostTypeBoxProps): JSX.Element => {
   const location: Location = useLocation();
+  const { id } = useParams();
 
   const boardDetailPaths = ['/community/notice', '/community/news'];
-  const isBoardDetailPage = boardDetailPaths.some((path) =>
-    location.pathname.includes(path)
+  const isBoardDetailPage = boardDetailPaths.some(
+    (path) => location.pathname.includes(path) && !!id
   );
 
   const isNoticeAuthor = (

@@ -69,10 +69,10 @@ export const DownArrowIcon = styled(downArrow)<{ $isDropdownOpen: boolean }>`
     $isDropdownOpen
       ? css`
           transform: rotate(180deg);
-          transition: transform 0.24s ease-in-out;
+          transition: transform 0.26s ease-in-out;
         `
       : css`
           transform: rotate(0deg);
-          transition: transform 0.24s ease-out;
+          transition: transform 0.28s ease-out;
         `}
 `;
