@@ -1,5 +1,15 @@
 import styled, { css } from 'styled-components';
 
+export const NoticeListWrapper = styled.div`
+  width: 100%;
+  height: fit-content;
+  margin-top: 70px;
+  padding: 0 15.8rem 23.2rem 15.8rem;
+
+  display: flex;
+  gap: 23.3rem;
+`;
+
 export const NoticeCategoryContainer = styled.section`
   width: 100%;
   height: fit-content;
@@ -22,7 +32,6 @@ export const NoticeContainer = styled.section`
 `;
 
 // 게시판 Header
-
 export const NoticeHeader = styled.section`
   width: 100%;
   height: fit-content;
@@ -139,4 +148,11 @@ export const ThinDivider = styled.div`
   height: 1px;
 
   background-color: ${({ theme }) => theme.colors.HID_Grayscale[200]};
+`;
+
+export const PaginationWrapper = styled.div`
+  width: fit-content;
+  height: fit-content;
+  padding-left: 0.8rem;
+  margin-top: 4.8rem;
 `;

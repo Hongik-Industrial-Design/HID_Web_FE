@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-// News & Event Section
 export const NewsEventWrapper = styled.section`
   width: 100%;
   height: fit-content;
-  padding-top: 14.8rem;
+  margin-top: 70px;
+  padding: 6.8rem 15.8rem 11.4rem 15.8rem;
 
   display: flex;
   gap: 23.3rem;
@@ -57,12 +57,19 @@ export const NewsEventCardGridContainer = styled.section`
 
 export const NewsEventCardGrid = styled.ul`
   display: grid;
-  grid-template-rows: repeat(2, 1fr);
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 2.4rem 2.3rem;
 `;
 
 export const NewsEventCardItem = styled.li`
   width: fit-content;
   height: fit-content;
+`;
+
+export const PaginationContainer = styled.section`
+  width: 100%;
+  height: fit-content;
+  padding-left: 0.8rem;
+  margin-top: 4.8rem;
 `;

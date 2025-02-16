@@ -13,8 +13,8 @@ const NextPrevious = ({
   currentPage,
   totalPages,
 }: NextPreviousProps): JSX.Element => {
-  console.log('Current page: ', currentPage);
-  console.log('Total pages: ', totalPages);
+  // console.log('Current page: ', currentPage);
+  // console.log('Total pages: ', totalPages);
 
   const navigate = useNavigate();
 
@@ -33,21 +33,11 @@ const NextPrevious = ({
     }
   };
 
-  const handlePreviousButtonHover = () => {
-    setPreviousHovered(true);
-  };
+  const handlePreviousButtonHover = () => setPreviousHovered(true);
+  const handlePreviousButtonLeave = () => setPreviousHovered(false);
 
-  const handlePreviousButtonLeave = () => {
-    setPreviousHovered(false);
-  };
-
-  const handleNextButtonHover = () => {
-    setNextHovered(true);
-  };
-
-  const handleNextButtonLeave = () => {
-    setNextHovered(false);
-  };
+  const handleNextButtonHover = () => setNextHovered(true);
+  const handleNextButtonLeave = () => setNextHovered(false);
 
   return (
     <S.ButtonContainer>
