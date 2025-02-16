@@ -127,10 +127,10 @@ export const AttachmentFileItemLink = styled.a`
   &::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -0.1rem;
     left: 0;
     width: 100%;
-    height: 2px;
+    height: 0.2rem;
     background-color: ${({ theme }) => theme.colors.HID_Grayscale[800]};
   }
 

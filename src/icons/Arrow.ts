@@ -36,6 +36,24 @@ export const RightArrow = styled(rightArrow)<{ $isHovered: boolean }>`
   z-index: 10; // 애니메이션을 위한 포지셔닝
 `;
 
+// 게시글 상세 페이지 내 첨부파일 컴포넌트 화살표 아이콘
+const CommunityLeftRightArrowStyles = css`
+  width: 1rem;
+  height: fit-content;
+
+  path {
+    fill: ${({ theme }) => theme.colors.HID_Grayscale[0]};
+  }
+`;
+
+export const CommunityLeftArrow = styled(leftArrow)`
+  ${CommunityLeftRightArrowStyles}
+`;
+
+export const CommunityRightArrow = styled(rightArrow)`
+  ${CommunityLeftRightArrowStyles}
+`;
+
 // SearchTab 내 KeywordSuggestion 내 LinkArrow Icon
 export const LinkRightArrowIcon = styled(linkRightArrow)`
   width: 1.6rem;

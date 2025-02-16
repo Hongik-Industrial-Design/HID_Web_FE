@@ -141,6 +141,17 @@ export const PostText = styled.p`
 export const PostFooterDivider = styled.div`
   width: 100%;
   height: 2px;
+  margin-bottom: 3.2rem;
 
   background-color: ${({ theme }) => theme.colors.HID_Grayscale[300]};
+`;
+
+// Post Footer
+export const PostFooterContainer = styled.section`
+  width: 100%;
+  height: fit-content;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;

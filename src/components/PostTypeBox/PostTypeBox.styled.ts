@@ -16,7 +16,7 @@ export const PostTypeBoxContainer = styled.div<{
   ${({ $isNotice, $isBoardDetailPage }) =>
     $isBoardDetailPage
       ? css`
-          ${({ theme }) => theme.fontStyles.Body1}
+          ${({ theme }) => theme.fontStyles.Body3}
           padding: 0.6rem 2rem;
         `
       : $isNotice
