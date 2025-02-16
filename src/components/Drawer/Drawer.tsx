@@ -1,5 +1,7 @@
 import { JSX } from 'react/jsx-runtime';
 
+import useDisableScroll from '@hooks/useDisableScroll';
+
 import { CloseIcon } from '@icons/Close';
 
 import * as S from './Drawer.styled';
@@ -17,6 +19,8 @@ const Drawer = ({
   professorName,
   professorBrief,
 }: DrawerProps): JSX.Element => {
+  useDisableScroll(isOpen); // 스크롤 비활성화
+
   return (
     <>
       <S.DrawerContainer $isOpen={isOpen}>
