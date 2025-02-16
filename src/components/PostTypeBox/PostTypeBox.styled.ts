@@ -1,6 +1,9 @@
 import styled, { css } from 'styled-components';
 
-export const PostTypeBoxContainer = styled.div<{ $isNotice: boolean }>`
+export const PostTypeBoxContainer = styled.div<{
+  $isNotice: boolean;
+  $isBoardDetailPage: boolean;
+}>`
   width: fit-content;
   height: fit-content;
 
@@ -10,16 +13,21 @@ export const PostTypeBoxContainer = styled.div<{ $isNotice: boolean }>`
 
   border-radius: 2px;
 
-  ${({ $isNotice }) =>
-    $isNotice
+  ${({ $isNotice, $isBoardDetailPage }) =>
+    $isBoardDetailPage
       ? css`
-          ${({ theme }) => theme.fontStyles.Body3}
-          padding: 0.4rem 1.6rem;
+          ${({ theme }) => theme.fontStyles.Body1}
+          padding: 0.6rem 2rem;
         `
-      : css`
-          ${({ theme }) => theme.fontStyles.Body3}
-          padding: 0.4rem 1.4rem;
-        `}
+      : $isNotice
+        ? css`
+            ${({ theme }) => theme.fontStyles.Body3}
+            padding: 0.4rem 1.6rem;
+          `
+        : css`
+            ${({ theme }) => theme.fontStyles.Headline2}
+            padding: 0.4rem 1.4rem;
+          `}
 
   color: ${({ theme }) => theme.colors.HID_Navy[900]};
   background-color: #e7eaf5;

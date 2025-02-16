@@ -1,19 +1,28 @@
-import styled from 'styled-components';
-import { colors } from '@styles/theme/colors';
+import styled, { css } from 'styled-components';
 
 import leftArrow from '@assets/svgs/arrows/left-arrow.svg?react';
 import rightArrow from '@assets/svgs/arrows/right-arrow.svg?react';
 
-export const ButtonContainer = styled.div`
+export const ButtonContainer = styled.div<{ $isCommunity?: boolean }>`
+  width: fit-content;
+  height: fit-content;
+
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 2.4rem;
+
+  ${({ $isCommunity }) =>
+    $isCommunity &&
+    css`
+      width: 100%;
+      justify-content: space-between;
+    `};
 `;
 
 const BaseArrowButton = styled.button`
-  width: 40px;
-  height: 40px;
-  padding: 2px;
+  width: 4rem;
+  height: 4rem;
+  padding: 2rem;
 
   position: relative;
 
@@ -59,7 +68,7 @@ export const LeftArrowButton = styled(BaseArrowButton)`
   }
 
   &:active::before {
-    box-shadow: inset 0 40px 0 0 ${colors.HID_Navy[900]};
+    box-shadow: inset 0 40px 0 0 ${({ theme }) => theme.colors.HID_Navy[900]};
   }
 `;
 
@@ -74,20 +83,26 @@ export const RightArrowButton = styled(BaseArrowButton)`
   }
 
   &:active::before {
-    box-shadow: inset 0 40px 0 0 ${colors.HID_Navy[900]};
+    box-shadow: inset 0 40px 0 0 ${({ theme }) => theme.colors.HID_Navy[900]};
   }
 `;
 
 export const StyledLeftArrow = styled(leftArrow)<{ $isHovered: boolean }>`
-  fill: ${({ $isHovered }) =>
-    $isHovered ? `${colors.HID_Grayscale[0]}` : '#0000008f'};
+  path {
+    fill: ${({ $isHovered, theme }) =>
+      $isHovered ? theme.colors.HID_Grayscale[0] : '#0000008f'};
+
+    transition: fill 0.3s ease;
+  }
   z-index: 10;
-  transition: fill 0.3s ease;
 `;
 
 export const StyledRightArrow = styled(rightArrow)<{ $isHovered: boolean }>`
-  fill: ${({ $isHovered }) =>
-    $isHovered ? `${colors.HID_Grayscale[0]}` : '#0000008f'};
+  path {
+    fill: ${({ $isHovered, theme }) =>
+      $isHovered ? theme.colors.HID_Grayscale[0] : '#0000008f'};
+
+    transition: fill 0.3s ease;
+  }
   z-index: 10;
-  transition: fill 0.3s ease;
 `;

@@ -23,6 +23,12 @@ export interface NoticePostInfo {
   };
 }
 
+export interface NewsEventListInfo {
+  cardInfos: NewsEventCardInfo[];
+  totalPages: number;
+  pageSize: number;
+}
+
 export interface NewsEventCardInfo {
   id: number;
   deadline: string;

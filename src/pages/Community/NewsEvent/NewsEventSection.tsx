@@ -5,10 +5,10 @@ import { useEffect, useRef, useState } from 'react';
 import { NewsEventCardInfo } from '../Community.types';
 
 import CategoryCommunity from '@components/CategoryCommunity/CategoryCommunity';
+import ViewDetail from '@components/ViewDetail/ViewDetail';
 import NewsEventCard from './Card/NewsEventCard';
 
 import * as S from './NewsEventSection.styled';
-import ViewDetail from '@components/ViewDetail/ViewDetail';
 
 const NewsEventSection = (): JSX.Element => {
   const NewsEventCategory = ['All', 'Recruit', 'Award', 'Alumni'];
@@ -40,7 +40,7 @@ const NewsEventSection = (): JSX.Element => {
       <S.NewsEventCategoryContainer>
         <CategoryCommunity
           categoryList={NewsEventCategory}
-          ScrollToTopRef={newsEventTopRef}
+          scrollToTopRef={newsEventTopRef}
         />
       </S.NewsEventCategoryContainer>
 
@@ -52,13 +52,13 @@ const NewsEventSection = (): JSX.Element => {
           </S.NewsEventTitle>
           <ViewDetail route={'/community/news-event'} />
         </S.NewsEventTitleSection>
-        <S.BoldDivider />
+        {/* <S.BoldDivider /> */}
         <S.NewsEventCardGridContainer>
           <S.NewsEventCardGrid>
             {newsEventCardInfos.map((card) => (
               <S.NewsEventCardItem key={card.id}>
                 <NewsEventCard
-                  route={`/news-event/${card.id}`}
+                  route={`/community/news-event/${card.id}`}
                   imageURL={card.imgURL}
                   deadline={card.deadline}
                   title={card.title}

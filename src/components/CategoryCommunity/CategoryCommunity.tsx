@@ -5,20 +5,20 @@ import * as S from './CategoryCommunity.styled';
 
 type CategoryCommunityProps = {
   categoryList: string[];
-  ScrollToTopRef: React.RefObject<HTMLDivElement | null>;
+  scrollToTopRef: React.RefObject<HTMLDivElement | null>;
 };
 
 const CategoryCommunity = ({
   categoryList,
-  ScrollToTopRef,
+  scrollToTopRef,
 }: CategoryCommunityProps): JSX.Element => {
   const [selectedOption, setSelectedOption] = useState<string>(categoryList[0]);
 
   const handleFilterOption = (filterOption: string) => {
     setSelectedOption(filterOption);
 
-    if (ScrollToTopRef.current) {
-      ScrollToTopRef.current.scrollIntoView({
+    if (scrollToTopRef.current) {
+      scrollToTopRef.current.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
       });
