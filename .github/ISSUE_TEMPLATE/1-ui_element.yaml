@@ -1,0 +1,29 @@
+name: '🎨 UI 구현'
+description: 'UI 컴포넌트 또는 화면의 새로운 구현/수정 요청을 작성해주세요'
+title: '[UI]: '
+labels: ['UI', 'components']
+assignees:
+  - DefineXX
+
+body:
+  - type: markdown
+    attributes:
+      value: '### 🎨 UI 컴포넌트 또는 화면에 대한 설명을 입력하세요'
+
+  - type: textarea
+    id: implementation_details
+    attributes:
+      label: '🪄 UI Elements'
+      description: '구현해야 할 주요 UI 요소를 선택하세요'
+
+    validations:
+      required: true
+
+  - type: textarea
+    id: considerations
+    attributes:
+      label: '⚠️ Dependencies'
+      description: '라이브러리 사용 여부를 입력하세요'
+
+    validations:
+      required: true
