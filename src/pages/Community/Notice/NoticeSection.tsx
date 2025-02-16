@@ -7,7 +7,6 @@ import { NoticeInfos, NoticePostInfo } from '../Community.types';
 import CategoryCommunity from '@components/CategoryCommunity/CategoryCommunity';
 import NoticeListItem from './Item/NoticeListItem';
 import ViewDetail from '@components/ViewDetail/ViewDetail';
-import Pagination from '@components/Pagination/Pagination';
 
 import * as S from './NoticeSection.styled';
 
@@ -18,11 +17,6 @@ const NoticeSection = (): JSX.Element => {
 
   const [noticeData, setNoticeData] = useState<NoticeInfos | null>(null);
   const [pagePosts, setPagePosts] = useState<NoticePostInfo[]>([]);
-  const [currentPage, setCurrentPage] = useState<number>(1);
-
-  const handleCurrentPage = (page: number) => {
-    setCurrentPage(page);
-  };
 
   // Notice Data Fetching & Sorting (important: true 순으로 정렬)
   useEffect(() => {
@@ -36,7 +30,7 @@ const NoticeSection = (): JSX.Element => {
 
         // 데이터가 존재할 때, important: true 순으로 정렬
         if (noticeContent && noticeContent.posts) {
-          const indexOfLastPost = currentPage * noticeContent?.pageSize;
+          const indexOfLastPost = noticeContent?.pageSize;
           const indexOfFirstPost = indexOfLastPost - noticeContent?.pageSize;
 
           const noticePosts = noticeContent?.posts;
@@ -59,7 +53,7 @@ const NoticeSection = (): JSX.Element => {
     };
 
     fetchAndSortNoticeData();
-  }, [currentPage]);
+  }, []);
 
   return (
     <S.NoticeCategoryContainer ref={noticeTopRef}>
@@ -110,16 +104,6 @@ const NoticeSection = (): JSX.Element => {
               </S.BoardHeaderContainer>
             ))}
         </S.NoticeBoard>
-
-        {/* Pagination Component */}
-        <S.PaginationWrapper>
-          <Pagination
-            currentPage={currentPage}
-            handleCurrentPage={handleCurrentPage}
-            totalPages={noticeData?.totalPages}
-            isPreview={true}
-          />
-        </S.PaginationWrapper>
       </S.NoticeContainer>
     </S.NoticeCategoryContainer>
   );

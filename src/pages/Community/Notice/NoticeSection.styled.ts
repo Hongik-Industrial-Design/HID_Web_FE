@@ -140,10 +140,3 @@ export const ThinDivider = styled.div`
 
   background-color: ${({ theme }) => theme.colors.HID_Grayscale[200]};
 `;
-
-export const PaginationWrapper = styled.div`
-  width: fit-content;
-  height: fit-content;
-  margin-top: 4.8rem;
-  padding-left: 1.6rem;
-`;

@@ -61,7 +61,7 @@ const NoticeListItem = ({
   return (
     <S.NoticeBoardPostRow>
       <S.PostTitleContainer>
-        <S.PostLink to={`notice/${id}`}>
+        <S.PostLink to={`/community/notice/${id}`}>
           {important && (
             <>
               <ImportantBox />
