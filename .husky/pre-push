@@ -1,0 +1,11 @@
+# 현재 브랜치 이름 가져오기
+BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
+
+# 원격 브랜치 존재 여부 확인
+if ! git ls-remote --exit-code --heads origin "$BRANCH_NAME"; then
+  echo "🚀 원격 브랜치가 없습니다. 동일한 이름($BRANCH_NAME)으로 push합니다."
+  git push --set-upstream origin "$BRANCH_NAME"
+else
+  echo "✅ 원격 브랜치가 존재합니다. 일반 push 수행."
+  git push
+fi
