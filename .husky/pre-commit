@@ -1,0 +1,7 @@
+yarn lint-staged
+
+# .env 파일이 스테이징되었는지 확인
+if git diff --cached --name-only | grep -qE '(^|/)\.env$'; then
+  echo "🚨 .env 파일은 커밋할 수 없습니다!"
+  exit 1
+fi
