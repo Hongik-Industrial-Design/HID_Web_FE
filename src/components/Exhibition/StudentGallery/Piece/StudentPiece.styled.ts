@@ -1,15 +1,22 @@
 import styled from 'styled-components';
+import { Link } from 'react-router';
+import { motion } from 'framer-motion';
 
-export const PieceContainer = styled.div`
+export const PieceContainer = styled(motion.li)`
   width: fit-content;
   height: fit-content;
+`;
+
+export const PieceLink = styled(Link)`
+  width: fit-content;
+  height: fit-content;
+
+  display: block;
 
   position: relative;
 
   border-radius: 2px;
   border: 1px solid ${({ theme }) => theme.colors.HID_Grayscale[200]};
-
-  cursor: pointer;
 `;
 
 export const PieceImage = styled.img`

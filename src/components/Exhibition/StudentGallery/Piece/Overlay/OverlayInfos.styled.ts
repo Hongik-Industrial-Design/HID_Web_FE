@@ -13,9 +13,11 @@ export const OverlayInfosContainer = styled.div<{ $isPieceHovered: boolean }>`
   justify-content: center;
   align-items: center;
 
-  background-color: ${({ theme }) => theme.colors.HID_Navy[900]};
-  opacity: ${({ $isPieceHovered }) => ($isPieceHovered ? 0.5 : 0)};
+  background-color: rgba(9, 40, 122, 0.5);
+  opacity: ${({ $isPieceHovered }) => ($isPieceHovered ? 1 : 0)};
   border-radius: 2px;
+
+  pointer-events: none;
 
   transition: opacity 0.2s ease-in-out;
 `;
@@ -24,7 +26,7 @@ export const PieceInfos = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.4rem;
+  gap: 1.2rem;
 `;
 
 export const PieceTitle = styled.span`

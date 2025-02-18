@@ -20,7 +20,12 @@ export const ExhbitionYear = styled.h2`
   color: ${({ theme }) => theme.colors.HID_Grayscale[800]};
 `;
 
-export const GalleryContainer = styled.div`
+export const GallerySection = styled.section`
+  width: fit-content;
+  height: fit-content;
+`;
+
+export const GalleryList = styled.ul`
   width: fit-content;
   height: fit-content;
 

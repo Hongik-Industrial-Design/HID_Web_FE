@@ -1,6 +1,5 @@
 import { JSX } from 'react/jsx-runtime';
 import { useMemo, useState } from 'react';
-import { useNavigate } from 'react-router';
 import { AnimatePresence } from 'framer-motion';
 
 import { StudentPreviewInfos } from '../Exhibition.types';
@@ -20,8 +19,6 @@ const StudentExhibitionGallery = ({
   pieces,
   exhibitionYear,
 }: StudentExhibitionGalleryProps): JSX.Element => {
-  const navigate = useNavigate();
-
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   const totalPages = Math.ceil(pieces.length / 9);
@@ -34,27 +31,32 @@ const StudentExhibitionGallery = ({
     return pieces.slice(startIndex, currentPage * 9);
   }, [currentPage, pieces]);
 
-  const goToDetailPage = (id: number) => navigate(`/graduation/work/${id}`);
-
   return (
     <S.GalleryWrapper>
+      {/* Header */}
       <S.GalleryHeader>
         <S.ExhbitionYear>{exhibitionYear}</S.ExhbitionYear>
         <SearchBar placeholder="Search by student name" />
       </S.GalleryHeader>
-      <S.GalleryContainer>
-        <AnimatePresence>
-          {paginatedPieces.map((piece) => (
-            <Piece
-              key={piece.exhibitId}
-              title={piece.titleEn}
-              subTitle={piece.subTitleEn}
-              imageURL={piece.mainImgUrl}
-              goToDetailPage={() => goToDetailPage(piece.exhibitId)}
-            />
-          ))}
-        </AnimatePresence>
-      </S.GalleryContainer>
+
+      {/* Gallery */}
+      <S.GallerySection>
+        <S.GalleryList>
+          <AnimatePresence>
+            {paginatedPieces.map((piece) => (
+              <Piece
+                key={piece.exhibitId}
+                exhibitId={piece.exhibitId}
+                title={piece.titleEn}
+                subTitle={piece.subTitleEn}
+                imageURL={piece.mainImgUrl}
+              />
+            ))}
+          </AnimatePresence>
+        </S.GalleryList>
+      </S.GallerySection>
+
+      {/* Pagination */}
       <S.PaginationSection>
         <Pagination
           currentPage={currentPage}

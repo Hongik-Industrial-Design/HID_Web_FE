@@ -1,36 +1,41 @@
 import { JSX } from 'react/jsx-runtime';
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { Location, useLocation } from 'react-router';
 
 import { PieceProps } from '@components/Exhibition/Exhibition.types';
 
 import OverlayInfos from './Overlay/OverlayInfos';
 
-import * as S from './Piece.styled';
+import * as S from './StudentPiece.styled';
 
 const StudentPiece = ({
+  exhibitId,
   title,
   subTitle,
   imageURL,
-  goToDetailPage,
 }: PieceProps): JSX.Element => {
   const [isPieceHovered, setIsPieceHovered] = useState<boolean>(false);
 
   const handleMouseEnter = () => setIsPieceHovered(true);
   const handleMouseLeave = () => setIsPieceHovered(false);
 
+  const location: Location = useLocation();
+
+  const exhibitionType = location.pathname.includes('graduation')
+    ? 'graduation'
+    : 'student';
+
   return (
-    <motion.div
+    <S.PieceContainer
       layout
       animate={{ opacity: 1 }}
       initial={{ opacity: 0 }}
       exit={{ opacity: 0 }}
-      style={{ height: 'fit-content' }}
     >
-      <S.PieceContainer
+      <S.PieceLink
+        to={`/${exhibitionType}/${exhibitId}`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        onClick={goToDetailPage}
       >
         <S.PieceImage src={imageURL} alt={title} />
         <OverlayInfos
@@ -38,8 +43,8 @@ const StudentPiece = ({
           subTitle={subTitle}
           isPieceHovered={isPieceHovered}
         />
-      </S.PieceContainer>
-    </motion.div>
+      </S.PieceLink>
+    </S.PieceContainer>
   );
 };
 
