@@ -1,4 +1,4 @@
-export const graduationCategoryList = [
+export const GRADUATION_CATEGORY_LIST = [
   'All',
   'Smart Mobility',
   'Spatial',
@@ -7,7 +7,7 @@ export const graduationCategoryList = [
 ];
 
 // 추후 ALL -> All로 변경
-export const studentClubList = [
+export const STUDENT_CLUB_LIST = [
   'ALL',
   'Casttec',
   'DBZC',

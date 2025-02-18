@@ -1,8 +1,8 @@
 import { useLocation } from 'react-router';
 
 import {
-  graduationCategoryList,
-  studentClubList,
+  GRADUATION_CATEGORY_LIST,
+  STUDENT_CLUB_LIST,
 } from '@constants/exhibitionCategory';
 import { SelectStudentExhibition } from '@pages/Exhibition/Student/StudentExhibition';
 
@@ -17,12 +17,12 @@ const Category = ({ currentCategory, handleFilter }: CategoryProps) => {
   const location = useLocation();
   const currentPath = location.pathname;
 
-  const categoryList =
-    currentPath === '/student' ? studentClubList : graduationCategoryList;
+  const CATEGORY_LIST =
+    currentPath === '/student' ? STUDENT_CLUB_LIST : GRADUATION_CATEGORY_LIST;
 
   return (
     <S.CategoryContainer $currentPath={currentPath}>
-      {categoryList.map((category, index) => (
+      {CATEGORY_LIST.map((category, index) => (
         <S.DetailedMajor
           key={index}
           $isSelected={currentCategory === category}
