@@ -1,14 +1,13 @@
 import { JSX } from 'react/jsx-runtime';
 import { useState } from 'react';
-import { Location, useLocation } from 'react-router';
 
 import { PieceProps } from '@components/Exhibition/Exhibition.types';
 
 import OverlayInfos from './Overlay/OverlayInfos';
 
-import * as S from './StudentPiece.styled';
+import * as S from './Piece.styled';
 
-const StudentPiece = ({
+const Piece = ({
   exhibitId,
   title,
   subTitle,
@@ -19,12 +18,6 @@ const StudentPiece = ({
   const handleMouseEnter = () => setIsPieceHovered(true);
   const handleMouseLeave = () => setIsPieceHovered(false);
 
-  const location: Location = useLocation();
-
-  const exhibitionType = location.pathname.includes('graduation')
-    ? 'graduation'
-    : 'student';
-
   return (
     <S.PieceContainer
       layout
@@ -33,7 +26,7 @@ const StudentPiece = ({
       exit={{ opacity: 0 }}
     >
       <S.PieceLink
-        to={`/${exhibitionType}/${exhibitId}`}
+        to={`${exhibitId}`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
@@ -48,4 +41,4 @@ const StudentPiece = ({
   );
 };
 
-export default StudentPiece;
+export default Piece;

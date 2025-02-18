@@ -5,15 +5,18 @@ import Layout from '@layout/Layout';
 import HomePage from '@pages/Home/HomePage';
 import FacultyList from '@pages/Faculty/FacultyList/FacultyList';
 import ProfessorProfile from '@pages/Faculty/ProfessorProfile/ProfessorProfile';
+
 import GraduationExhibition from '@pages/Exhibition/Graduation/GraduationExhibition';
-import StudentExhibiton from '@pages/Exhibition/Student/StudentExhibition';
 import ExhibitionDetail from '@pages/Exhibition/Detail/ExhibitionDetail';
+import StudentExhibition from '@pages/Exhibition/Student/StudentExhibition';
+import StudentExhibitionDetail from '@pages/Exhibition/Student/Detail/StudentExhibitionDetail';
+
 import CommunityPage from '@pages/Community/CommunityPage';
 import NoticeList from '@pages/Community/Notice/List/NoticeList';
 import NewsEventList from '@pages/Community/NewsEvent/List/NewsEventList';
 import BoardDetailPage from '@pages/Community/BoardDetail/BoardDetailPage';
+
 import ContactPage from '@pages/Contact/ContactPage';
-import StudentExhibitionDetail from '@pages/Exhibition/Student/Detail/StudentExhibitionDetail';
 
 function App() {
   return (
@@ -33,8 +36,8 @@ function App() {
         </Route>
 
         <Route path="student">
-          <Route index element={<StudentExhibiton />} />
-          <Route path=":id" element={<StudentExhibitionDetail />} />
+          <Route path=":year" element={<StudentExhibition />}></Route>
+          <Route path=":year/:id" element={<StudentExhibitionDetail />} />
         </Route>
 
         <Route path="community">

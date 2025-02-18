@@ -8,17 +8,19 @@ import Category from '@components/Category/Category';
 import StudentExhibitionGallery from '@components/Exhibition/StudentGallery/StudentExhibitionGallery';
 
 import * as S from './StudentExhibition.styled';
+import { ARCHIVE_YEAR_LIST } from '@constants/archiveYear';
+import { STUDENT_CLUB_LIST } from '@constants/exhibitionCategory';
 
 export interface SelectStudentExhibition {
   year: string;
   club: string;
 }
 
-const StudentExhibiton = (): JSX.Element => {
+const StudentExhibition = (): JSX.Element => {
   const [selectedExhibition, setSelectedExhibition] =
     useState<SelectStudentExhibition>({
-      year: '2024',
-      club: 'ALL',
+      year: ARCHIVE_YEAR_LIST[1], // 추후 배열의 0번 index로 기본값 설정 (number -> string)
+      club: STUDENT_CLUB_LIST[0],
     });
 
   const handlePreviewFilter = (
@@ -94,4 +96,4 @@ const StudentExhibiton = (): JSX.Element => {
   );
 };
 
-export default StudentExhibiton;
+export default StudentExhibition;

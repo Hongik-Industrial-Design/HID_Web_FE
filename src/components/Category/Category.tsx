@@ -17,8 +17,9 @@ const Category = ({ currentCategory, handleFilter }: CategoryProps) => {
   const location = useLocation();
   const currentPath = location.pathname;
 
-  const CATEGORY_LIST =
-    currentPath === '/student' ? STUDENT_CLUB_LIST : GRADUATION_CATEGORY_LIST;
+  const CATEGORY_LIST = currentPath.includes('/student')
+    ? STUDENT_CLUB_LIST
+    : GRADUATION_CATEGORY_LIST;
 
   return (
     <S.CategoryContainer $currentPath={currentPath}>
