@@ -8,7 +8,7 @@ export const GRADUATION_CATEGORY_LIST = [
 
 // 추후 ALL -> All로 변경
 export const STUDENT_CLUB_LIST = [
-  'ALL',
+  'All',
   'Casttec',
   'DBZC',
   'Studio i',

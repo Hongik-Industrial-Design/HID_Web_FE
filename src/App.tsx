@@ -36,7 +36,7 @@ function App() {
         </Route>
 
         <Route path="student">
-          <Route path=":year" element={<StudentExhibition />}></Route>
+          <Route path=":year" element={<StudentExhibition />} />
           <Route path=":year/:id" element={<StudentExhibitionDetail />} />
         </Route>
 
