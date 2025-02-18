@@ -1,20 +1,18 @@
 import { JSX } from 'react/jsx-runtime';
 import { useState } from 'react';
 
-import { HeroSectionInfos } from '../Artwork.types';
+import { ArtworkInfos } from '../Artwork.types';
 
 import Breadscrumb from '@components/Breadscrumb/Breadscrumb';
 import Keyword from '@components/Keyword/Keyword';
 import GoToList from '@components/GoToList/GoToList';
-import NextPrevious from '@components/NextPrevious/NextPrevious';
+// import NextPrevious from '@components/NextPrevious/NextPrevious';
 import { BehanceLogo, InstagramLogo } from '@icons/SocialIcon';
 
-import * as S from './HeroSection.styled';
+import * as S from './StudentHeroSection.styled';
 
 interface HeroSectionProps {
-  fetchedData?: HeroSectionInfos;
-  totalPages: number;
-  currentPage: number;
+  artworkInfos: ArtworkInfos;
 }
 
 type SocialIconHovered = {
@@ -22,11 +20,17 @@ type SocialIconHovered = {
   Instagram: boolean;
 };
 
-const HeroSection = ({
-  fetchedData,
-  totalPages,
-  currentPage,
+const StudentHeroSection = ({
+  artworkInfos,
 }: HeroSectionProps): JSX.Element => {
+  // 추후에 서버로부터 받아온 데이터로 변경 필요
+  const KEYWORD_LIST = ['Service', 'Product', 'Future'];
+
+  const SOCIAL_LINK = {
+    Behance: 'https://www.behance.net/search/projects/hongik%20university',
+    Instagram: 'https://www.instagram.com/hongik.id.degreeshow/?__pwa=1',
+  };
+
   const [gotToListHovered, setGoToListHovered] = useState<boolean>(false);
   const [isSocialIconHovered, setIsSocialIconHovered] =
     useState<SocialIconHovered>({
@@ -49,20 +53,10 @@ const HeroSection = ({
     <S.HeroSectionContainer>
       {/* Thumbnail */}
       <S.ThumbnailContainer>
-        {/* <S.TinyThumbnailList>
-          {fetchedData?.thumbnails?.tinyImages.map((tinyImage) => (
-            <S.TinyThumbnailItem key={tinyImage.id}>
-              <S.TinyThumbnail
-                src={`/Graduation-Exhibition/${currentPage}/${tinyImage.url}`}
-                alt="tiny-thumbnail"
-              />
-            </S.TinyThumbnailItem>
-          ))}
-        </S.TinyThumbnailList> */}
         <S.PrimartThumbnailFrame>
           <S.PrimaryThumbnail
-            src={`/Graduation-Exhibition/${currentPage}/${fetchedData?.thumbnails.primary.url}`}
-            alt="primary-thumbnail"
+            src={artworkInfos.mainImgUrl}
+            alt={artworkInfos.titleKo}
           />
         </S.PrimartThumbnailFrame>
       </S.ThumbnailContainer>
@@ -72,22 +66,22 @@ const HeroSection = ({
         <Breadscrumb
           paths={[
             {
-              content: 'Graduation Exhibition',
-              path: '/graduation',
+              content: 'Student Exhibition',
+              path: '/student',
             },
-            { content: '2024', path: '/graduation' },
+            { content: '2024', path: '/student' },
           ]}
           currentPage="View Detail"
         />
         {/* Header */}
         <S.ContentHeader>
-          <S.ArtworkTitle>{fetchedData?.title}</S.ArtworkTitle>
-          <S.ArtworkSubTitle>{fetchedData?.subtitle}</S.ArtworkSubTitle>
+          <S.ArtworkTitle>{artworkInfos.titleEn}</S.ArtworkTitle>
+          <S.ArtworkSubTitle>{artworkInfos.subTitleEn}</S.ArtworkSubTitle>
           <S.AuthorContainer>
-            {fetchedData?.authors.map((author, index) => (
-              <S.AuthorUnit key={author.id}>
-                <S.AuthorName>{author.name}</S.AuthorName>
-                {index !== fetchedData.authors.length - 1 && ( // 마지막 사람 뒤에만 Divider 렌더링 X
+            {artworkInfos.artists?.map((artist, index) => (
+              <S.AuthorUnit key={artist.id}>
+                <S.AuthorName>{artist.nameEn}</S.AuthorName>
+                {index !== artworkInfos.artists.length - 1 && ( // 마지막 사람 뒤에만 Divider 렌더링 X
                   <S.AuthorDivider />
                 )}
               </S.AuthorUnit>
@@ -97,17 +91,14 @@ const HeroSection = ({
 
         {/* Description */}
         <S.ArtworkDescriptionSection>
-          <S.DescriptionEnglish>
-            {fetchedData?.description_en}
-          </S.DescriptionEnglish>
-          <S.DescriptionKorean>
-            {fetchedData?.description_ko}
-          </S.DescriptionKorean>
+          <S.DescriptionEnglish>{artworkInfos.textEn}</S.DescriptionEnglish>
+          <S.DescriptionKorean>{artworkInfos.textKo}</S.DescriptionKorean>
         </S.ArtworkDescriptionSection>
 
+        {/* 서버에서 데이터가 넘어오지 않음 (BE에 요청 필요) */}
         {/* Keyword */}
         <S.KeywordContainer>
-          {fetchedData?.keywords?.map((keyword, index) => (
+          {KEYWORD_LIST.map((keyword, index) => (
             <Keyword key={index} keyword={keyword} />
           ))}
         </S.KeywordContainer>
@@ -118,7 +109,7 @@ const HeroSection = ({
           <S.SocialIconList>
             <S.SocialIconItem>
               <S.SocialIconLink
-                href={fetchedData?.social[0].linkInfo}
+                href={SOCIAL_LINK.Behance}
                 target="_blank"
                 rel="noopener noreferrer"
                 onMouseEnter={handleSocialIconEnter.bind(null, 'Behance')}
@@ -130,7 +121,7 @@ const HeroSection = ({
 
             <S.SocialIconItem>
               <S.SocialIconLink
-                href={fetchedData?.social[1].linkInfo}
+                href={SOCIAL_LINK.Instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 onMouseEnter={handleSocialIconEnter.bind(null, 'Instagram')}
@@ -144,11 +135,14 @@ const HeroSection = ({
           {/* Routing Area */}
           <S.RoutingArea>
             <GoToList
+              route="/student"
               isHovered={gotToListHovered}
               onMouseEnter={handleGoToListEnter}
               onMouseLeave={handleGoToListLeave}
             />
-            <NextPrevious currentPage={currentPage} totalPages={totalPages} />
+
+            {/* 버튼 클릭 시 params 값 1 증가/감소 로직 필요 */}
+            {/* <NextPrevious currentPage={currentPage} totalPages={totalPages} /> */}
           </S.RoutingArea>
         </S.ContentFooter>
       </S.ContentArea>
@@ -156,4 +150,4 @@ const HeroSection = ({
   );
 };
 
-export default HeroSection;
+export default StudentHeroSection;
