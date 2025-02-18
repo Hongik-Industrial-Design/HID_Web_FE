@@ -7,6 +7,7 @@ import { fetchStudentExhibitionDetail } from '@api/exhibition';
 import { ArtworkInfos } from './Artwork.types';
 
 import StudentHeroSection from './HeroSection/StudentHeroSection';
+import StudentArtworkSection from './ArtworkSection/StudentArtworkSection';
 // import TeamMembersSection from './TeamMemberSection/TeamMembersSection';
 
 import * as S from './StudentExhibitionDetail.styled';
@@ -43,10 +44,7 @@ const StudentExhibitionDetail = (): JSX.Element => {
     <S.ExhibitionDetailWrapper>
       <S.ExhibitionDetailContainer>
         <StudentHeroSection artworkInfos={artworkInfos} />
-        {/* <ArtworkSection
-          fetchedData={individualArtworkInfos?.media}
-          currentPage={currentPage}
-        /> */}
+        <StudentArtworkSection artworkInfos={artworkInfos} />
       </S.ExhibitionDetailContainer>
       {/* <TeamMembersSection membersData={artworkInfos.artists} /> */}
     </S.ExhibitionDetailWrapper>

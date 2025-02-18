@@ -39,6 +39,7 @@ export interface ArtworkInfos {
   }[];
 }
 
+// 작품 작가 정보 타입 정의
 export interface AuthorInfos {
   id: number;
   name: string;
@@ -47,6 +48,7 @@ export interface AuthorInfos {
   email: string;
 }
 
+// Hero Section 타입 정의
 export interface HeroSectionInfos {
   title: string;
   subtitle: string;
@@ -58,6 +60,7 @@ export interface HeroSectionInfos {
   keywords?: string[];
 }
 
+// Hero Section 내 썸네일 정보 타입 정의
 export interface ThumbnailInfos {
   primary: { id: number; url: string };
   tinyImages: { id: number; url: string }[];
@@ -71,6 +74,7 @@ export interface SocialInfos {
   linkInfo: string;
 }
 
+// 이미지 및 비디오 타입 정의
 export interface MediaInfos {
   videos: {
     id: number;
