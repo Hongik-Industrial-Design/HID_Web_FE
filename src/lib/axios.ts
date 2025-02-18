@@ -1,7 +1,8 @@
 import axios from 'axios';
+import { ENV } from './env';
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL_HWISO,
+  baseURL: ENV.API_BASE_URL_HWISO,
   headers: {
     'Content-Type': 'application/json',
   },
