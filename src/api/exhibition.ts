@@ -15,7 +15,7 @@ export const fetchStudentExhibitionPreview = async (
   const response = await exhibitionAPI.get('/exhibits/previews/clubs', {
     params,
   });
-  console.log('학생 전시 Preview 데이터: ', response.data);
+  // console.log('학생 전시 Preview 데이터: ', response.data);
 
   return validateResponse(
     Schemas.StudentExhibitionPreviewSchema,
@@ -27,10 +27,7 @@ export const fetchStudentExhibitionDetail = async (
   exhibitId: number
 ): Promise<Schemas.StudentExhibitionDetail> => {
   const response = await exhibitionAPI.get(`/exhibits/${exhibitId}`);
-  console.log('학생 전시 Detail 데이터: ', response.data);
+  // console.log('학생 전시 Detail 데이터: ', response.data);
 
-  return validateResponse(
-    Schemas.StudentExhibitionDetailSchema,
-    response.data.data
-  );
+  return validateResponse(Schemas.StudentExhibitionDetailSchema, response.data);
 };
