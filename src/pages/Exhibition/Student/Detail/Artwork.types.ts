@@ -1,3 +1,52 @@
+// 학생 전시 상세 정보 API 응답 데이터 타입 정의
+export interface ArtworkInfos {
+  exhibitId: number;
+  exhibitType: string;
+  year: string;
+  major: string | null;
+  club: string;
+  mainImgUrl: string;
+
+  subImgs: {
+    subImgUrl: string;
+    position: number;
+  }[];
+
+  detailImgs: {
+    detailImgUrl: string;
+    position: number;
+  }[];
+
+  titleKo: string;
+  titleEn: string;
+  subTitleKo: string;
+  subTitleEn: string;
+  textKo: string;
+  textEn: string;
+  videoUrl: string | null;
+
+  artists: {
+    id: number;
+    artistUUID: string;
+    profileImgUrl: string;
+    nameKo: string;
+    nameEn: string;
+    role: string;
+    email: string;
+    instagramUrl: string | null;
+    behanceUrl: string | null;
+    linkedinUrl: string | null;
+  }[];
+}
+
+export interface AuthorInfos {
+  id: number;
+  name: string;
+  specialty: string;
+  profileImage: string;
+  email: string;
+}
+
 export interface HeroSectionInfos {
   title: string;
   subtitle: string;
@@ -32,19 +81,4 @@ export interface MediaInfos {
     url: string;
     caption: string;
   }[];
-}
-
-export interface AuthorInfos {
-  id: number;
-  name: string;
-  specialty: string;
-  profileImage: string;
-  email: string;
-}
-
-export interface ArtworkInfo {
-  id: number;
-  heroSection: HeroSectionInfos;
-  media: MediaInfos;
-  authorInfos: AuthorInfos[];
 }

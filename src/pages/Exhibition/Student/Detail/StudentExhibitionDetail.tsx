@@ -1,67 +1,54 @@
-import axios from 'axios';
 import { JSX } from 'react/jsx-runtime';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 
-import { ArtworkInfo } from './Artwork.types';
+import { fetchStudentExhibitionDetail } from '@api/exhibition';
 
-import HeroSection from '@pages/Exhibition/Detail/HeroSection/HeroSection';
-import ArtworkSection from '@pages/Exhibition/Detail/ArtworkSection/ArtworkSection';
-import TeamMembersSection from './TeamMemberSection/TeamMembersSection';
+import { ArtworkInfos } from './Artwork.types';
+
+import StudentHeroSection from './HeroSection/StudentHeroSection';
+// import TeamMembersSection from './TeamMemberSection/TeamMembersSection';
 
 import * as S from './StudentExhibitionDetail.styled';
 
 const StudentExhibitionDetail = (): JSX.Element => {
-  const [artworkInfos, setArtworkInfos] = useState<ArtworkInfo[]>([]);
-  const [totalPages, setTotalPages] = useState<number>(0);
-
-  // Extract URL id value & parse string into a number
-  const { id } = useParams();
-  const currentPage = id ? parseInt(id) : 1;
-
-  // Find corresponding Artwork matched with URL id
-  const individualArtworkInfos = artworkInfos.find(
-    (artwork) => artwork.id === currentPage
+  const [artworkInfos, setArtworkInfos] = useState<ArtworkInfos>(
+    {} as ArtworkInfos
   );
 
-  console.log('Individual Artwork Infos: ', individualArtworkInfos);
+  // URL 내 params 추출 (API 요청시에 필요)
+  const { id } = useParams();
+  const exhibitId = parseInt(id ? id : '');
 
   // Fetching Entire Artwork Infos
   useEffect(() => {
-    const fetchArtworkInfos = async () => {
+    const getStudentExhibitionDetail = async () => {
       try {
-        const response = await axios.get('/data/artwork.json');
-        const entireArtworkInfos = response.data;
+        const artworkInfos = await fetchStudentExhibitionDetail(exhibitId);
+        console.log(
+          `타입 검증 후 작품 ID: ${exhibitId}의 상세 정보: `,
+          artworkInfos
+        );
 
-        console.log('Artwork List: ', entireArtworkInfos);
-        console.log('Exhibition Total Pages: ', entireArtworkInfos.length);
-
-        setArtworkInfos(entireArtworkInfos);
-
-        // Number of Artworks (artworkInfos is populated, calculate totalPages)
-        setTotalPages(entireArtworkInfos.length);
+        setArtworkInfos(artworkInfos);
       } catch (error) {
         console.error('Error occured: ', error);
       }
     };
 
-    fetchArtworkInfos();
-  }, []);
+    getStudentExhibitionDetail();
+  }, [exhibitId]);
 
   return (
     <S.ExhibitionDetailWrapper>
       <S.ExhibitionDetailContainer>
-        <HeroSection
-          fetchedData={individualArtworkInfos?.heroSection}
-          totalPages={totalPages}
-          currentPage={currentPage}
-        />
-        <ArtworkSection
+        <StudentHeroSection artworkInfos={artworkInfos} />
+        {/* <ArtworkSection
           fetchedData={individualArtworkInfos?.media}
           currentPage={currentPage}
-        />
+        /> */}
       </S.ExhibitionDetailContainer>
-      <TeamMembersSection membersData={individualArtworkInfos?.authorInfos} />
+      {/* <TeamMembersSection membersData={artworkInfos.artists} /> */}
     </S.ExhibitionDetailWrapper>
   );
 };
