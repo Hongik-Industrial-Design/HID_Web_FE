@@ -5,7 +5,7 @@ import { AnimatePresence } from 'framer-motion';
 import { StudentPreviewInfos } from '../Exhibition.types';
 
 import SearchBar from '@components/SearchBar/SearchBar';
-import Piece from './Piece/Piece';
+import Piece from './Piece/StudentPiece';
 import Pagination from '@components/Pagination/Pagination';
 
 import * as S from './StudentExhibitionGallery.styled';
