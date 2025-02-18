@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { colors } from '@styles/theme/colors';
 
 export const VideoContainer = styled.div`
   width: 100%;
@@ -17,7 +16,7 @@ export const Video = styled.video`
   height: 100%;
   object-fit: cover;
 
-  border: 1px solid ${colors.HID_Grayscale[200]};
+  border: 1px solid ${({ theme }) => theme.colors.HID_Grayscale[200]};
   border-radius: 2px;
 `;
 
@@ -56,7 +55,7 @@ export const PlayButton = styled.button<{ $isPlaying: boolean }>`
   left: 50%;
   transform: translate(-50%, -50%);
 
-  background-color: ${colors.HID_Grayscale[900]};
+  background-color: ${({ theme }) => theme.colors.HID_Grayscale[900]};
 
   .play {
     width: 56px;
@@ -79,7 +78,7 @@ export const FullScreenButton = styled.button`
 
   border-radius: 3px;
 
-  background-color: ${colors.HID_Grayscale[900]};
+  background-color: ${({ theme }) => theme.colors.HID_Grayscale[900]};
 
   .full-screen {
     width: 32px;
