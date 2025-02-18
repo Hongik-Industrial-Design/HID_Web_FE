@@ -1,31 +1,36 @@
-import { useState } from 'react';
 import { useLocation } from 'react-router';
+
+import {
+  graduationCategoryList,
+  studentClubList,
+} from '@constants/exhibitionCategory';
+import { SelectStudentExhibition } from '@pages/Exhibition/Student/StudentExhibition';
 
 import * as S from './Category.styled';
 
 type CategoryProps = {
-  categoryList: string[];
-  handleFilter: (category: string) => void;
+  currentCategory: string;
+  handleFilter: (key: keyof SelectStudentExhibition, club: string) => void;
 };
 
-const Category = ({ categoryList, handleFilter }: CategoryProps) => {
-  const [isSelected, setIsSelected] = useState<string>('All');
-
+const Category = ({ currentCategory, handleFilter }: CategoryProps) => {
   const location = useLocation();
   const currentPath = location.pathname;
+
+  const categoryList =
+    currentPath === '/student' ? studentClubList : graduationCategoryList;
 
   return (
     <S.CategoryContainer $currentPath={currentPath}>
       {categoryList.map((category, index) => (
         <S.DetailedMajor
           key={index}
-          $isSelected={isSelected === category}
-          onClick={() => {
-            setIsSelected(category);
-            handleFilter(category);
-          }}
+          $isSelected={currentCategory === category}
+          onClick={() => handleFilter('club', category)}
         >
-          {category}
+          <S.CategoryButton $isSelected={currentCategory === category}>
+            {category}
+          </S.CategoryButton>
         </S.DetailedMajor>
       ))}
     </S.CategoryContainer>
