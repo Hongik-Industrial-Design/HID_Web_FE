@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const CategoryContainer = styled.div<{ $currentPath: string }>`
+export const CategoryContainer = styled.ul<{ $currentPath: string }>`
   position: sticky;
   top: ${({ $currentPath }) => $currentPath === '/faculty' && '18%'};
   top: ${({ $currentPath }) => $currentPath === '/graduation' && '15%'};
@@ -11,15 +11,21 @@ export const CategoryContainer = styled.div<{ $currentPath: string }>`
   gap: 3.2rem;
 `;
 
-export const DetailedMajor = styled.p<{ $isSelected: boolean }>`
+export const DetailedMajor = styled.li<{ $isSelected: boolean }>`
+  width: fit-content;
   min-width: 15rem;
+  height: fit-content;
+`;
+
+export const CategoryButton = styled.button<{ $isSelected: boolean }>`
+  width: fit-content;
+  height: fit-content;
+
   white-space: nowrap;
 
   ${({ theme }) => theme.fontStyles.Title4}
   font-weight: 500;
   color: ${({ theme }) => theme.colors.HID_Grayscale[500]};
-
-  cursor: pointer;
 
   ${({ $isSelected }) =>
     $isSelected &&

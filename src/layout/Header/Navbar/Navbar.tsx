@@ -1,6 +1,8 @@
 import { JSX } from 'react/jsx-runtime';
 import { Location, useLocation } from 'react-router';
 
+import { ARCHIVE_YEAR_LIST } from '@constants/archiveYear';
+
 import { NavbarProps } from './Navbar.types';
 
 import { MagnifyGlassIcon } from '@icons/Search';
@@ -54,7 +56,10 @@ const Navbar = ({
         $currentPage={currentPath.startsWith('/student')}
         $disableHighlightBar={isNavbarHovered || isDropdownHover}
       >
-        <S.NavItemLink to="/student">Student Exhibition</S.NavItemLink>
+        {/* 추후 0번 index로 기본값 설정 (BE 테스트 기본값 때문에 1번 index로 임시 설정) */}
+        <S.NavItemLink to={`/student/${ARCHIVE_YEAR_LIST[1]}`}>
+          Student Exhibition
+        </S.NavItemLink>
       </S.NavItem>
 
       <S.NavItem $currentPage={currentPath.startsWith('/faculty')}>
