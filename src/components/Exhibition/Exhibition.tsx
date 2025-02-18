@@ -3,7 +3,7 @@ import { JSX } from 'react/jsx-runtime';
 import { useEffect, useState } from 'react';
 import { Location, useLocation } from 'react-router';
 
-import { GalleryInfos } from './Gallery.types';
+import { GalleryInfos } from './Exhibition.types';
 
 import Category from '../Category/Category';
 import ExhibitonGallery from './Gallery/ExhibitionGallery';

@@ -8,9 +8,10 @@ import OverlayInfos from './Overlay/OverlayInfos';
 
 import * as S from './Piece.styled';
 
-const Piece = ({
-  pieceName,
-  pieceInfos,
+const StudentPiece = ({
+  title,
+  subTitle,
+  imageURL,
   goToDetailPage,
 }: PieceProps): JSX.Element => {
   const [isPieceHovered, setIsPieceHovered] = useState<boolean>(false);
@@ -31,14 +32,15 @@ const Piece = ({
         onMouseLeave={handleMouseLeave}
         onClick={goToDetailPage}
       >
-        <S.PieceImage
-          src={`/Exhibition-Thumbnail/${pieceName}`}
-          alt={pieceName}
+        <S.PieceImage src={imageURL} alt={title} />
+        <OverlayInfos
+          title={title}
+          subTitle={subTitle}
+          isPieceHovered={isPieceHovered}
         />
-        <OverlayInfos pieceInfos={pieceInfos} isPieceHovered={isPieceHovered} />
       </S.PieceContainer>
     </motion.div>
   );
 };
 
-export default Piece;
+export default StudentPiece;

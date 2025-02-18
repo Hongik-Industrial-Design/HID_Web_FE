@@ -3,23 +3,23 @@ import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { AnimatePresence } from 'framer-motion';
 
-import { GalleryInfos } from '../Exhibition.types';
+import { StudentPreviewInfos } from '../Exhibition.types';
 
 import SearchBar from '@components/SearchBar/SearchBar';
 import Piece from './Piece/Piece';
 import Pagination from '@components/Pagination/Pagination';
 
-import * as S from './ExhibitionGallery.styled';
+import * as S from './StudentExhibitionGallery.styled';
 
-interface GalleryProps {
-  pieces: GalleryInfos[];
+interface StudentExhibitionGalleryProps {
+  pieces: StudentPreviewInfos[];
   exhibitionYear: string;
 }
 
-const ExhibitionGallery = ({
+const StudentExhibitionGallery = ({
   pieces,
   exhibitionYear,
-}: GalleryProps): JSX.Element => {
+}: StudentExhibitionGalleryProps): JSX.Element => {
   const navigate = useNavigate();
 
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -46,10 +46,11 @@ const ExhibitionGallery = ({
         <AnimatePresence>
           {paginatedPieces.map((piece) => (
             <Piece
-              key={piece.id}
-              pieceName={piece.thumbnail}
-              pieceInfos={piece.credit}
-              goToDetailPage={() => goToDetailPage(piece.id)}
+              key={piece.exhibitId}
+              title={piece.titleEn}
+              subTitle={piece.subTitleEn}
+              imageURL={piece.mainImgUrl}
+              goToDetailPage={() => goToDetailPage(piece.exhibitId)}
             />
           ))}
         </AnimatePresence>
@@ -65,4 +66,4 @@ const ExhibitionGallery = ({
   );
 };
 
-export default ExhibitionGallery;
+export default StudentExhibitionGallery;

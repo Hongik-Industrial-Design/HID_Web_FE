@@ -1,0 +1,47 @@
+// 학생 전시 Category 타입 정의
+export type studentClub =
+  | 'ALL'
+  | 'Casttec'
+  | 'DBZC'
+  | 'Studio i'
+  | 'Interaction';
+
+// 전시 API 응답 데이터 필드 형식 정의 (졸업, 학생 전시 공통)
+export interface PieceProps {
+  title: string;
+  subTitle: string;
+  imageURL: string;
+  goToDetailPage: () => void;
+}
+
+export interface OverlayProps {
+  title: string;
+  subTitle: string;
+  isPieceHovered: boolean;
+}
+
+// 학생 전시 API response 타입
+export interface StudentPreviewInfos {
+  exhibitId: number;
+  club: string;
+  mainImgUrl: string;
+  titleKo: string;
+  titleEn: string;
+  subTitleKo: string;
+  subTitleEn: string;
+}
+
+export interface GalleryInfos {
+  id: number;
+  category: string;
+  thumbnail: string;
+  credit: {
+    title: string;
+    author: string;
+  };
+}
+
+export interface IndicatorProps {
+  handleScroll: () => void;
+  width: string;
+}
