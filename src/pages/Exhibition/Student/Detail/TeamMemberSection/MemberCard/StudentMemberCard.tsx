@@ -3,9 +3,9 @@ import { useRef, useState } from 'react';
 import { MotionValue } from 'framer-motion';
 import { useRafLoop } from 'react-use';
 
-import { AuthorInfos } from '../../Artwork.types';
+import { AuthorInfos } from '../../StudentArtwork.types';
 
-import * as S from './MemberCard.styled';
+import * as S from './StudentMemberCard.styled';
 
 interface MemberCardProps {
   teamMember: AuthorInfos;
@@ -50,14 +50,14 @@ const MemberCard = ({
     <S.MemberCardContainer>
       <S.ProfileImageFrame>
         <S.ProfileImage
-          src={`/members/${teamMember.name}.jpg`}
-          alt={teamMember.name}
+          src={teamMember.profileImgUrl}
+          alt={teamMember.nameKo}
         />
       </S.ProfileImageFrame>
       <S.MemberInfo>
-        <S.MemberName>{teamMember.name}</S.MemberName>
+        <S.MemberName>{teamMember.nameEn}</S.MemberName>
         <S.Divider />
-        <S.MemberMajor>{teamMember.specialty}</S.MemberMajor>
+        <S.MemberMajor>{teamMember.role}</S.MemberMajor>
         <S.MemberEmail
           $emailHovered={isEmailHovered}
           onMouseEnter={handleEmailHover}

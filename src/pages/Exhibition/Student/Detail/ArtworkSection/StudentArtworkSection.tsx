@@ -1,6 +1,6 @@
 import { JSX } from 'react/jsx-runtime';
 
-import { ArtworkInfos } from '../Artwork.types';
+import { ArtworkInfos } from '../StudentArtwork.types';
 
 // import StudentVideoPlayer from './VideoPlayer/StudentVideoPlayer';
 import StudentArtworkImages from './ArtworkImages/StudentArtworkImages';

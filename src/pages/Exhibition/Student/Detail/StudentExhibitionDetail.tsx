@@ -4,11 +4,11 @@ import { useParams } from 'react-router';
 
 import { fetchStudentExhibitionDetail } from '@api/exhibition';
 
-import { ArtworkInfos } from './Artwork.types';
+import { ArtworkInfos } from './StudentArtwork.types';
 
 import StudentHeroSection from './HeroSection/StudentHeroSection';
 import StudentArtworkSection from './ArtworkSection/StudentArtworkSection';
-// import TeamMembersSection from './TeamMemberSection/TeamMembersSection';
+import StudentTeamMemberSection from './TeamMemberSection/StudentTeamMemberSection';
 
 import * as S from './StudentExhibitionDetail.styled';
 
@@ -46,7 +46,7 @@ const StudentExhibitionDetail = (): JSX.Element => {
         <StudentHeroSection artworkInfos={artworkInfos} />
         <StudentArtworkSection artworkInfos={artworkInfos} />
       </S.ExhibitionDetailContainer>
-      {/* <TeamMembersSection membersData={artworkInfos.artists} /> */}
+      <StudentTeamMemberSection membersData={artworkInfos.artists} />
     </S.ExhibitionDetailWrapper>
   );
 };

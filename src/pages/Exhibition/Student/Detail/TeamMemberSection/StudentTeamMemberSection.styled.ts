@@ -20,7 +20,7 @@ export const TeamMemberSectionHeader = styled(motion.section)`
   gap: 3.6rem;
 `;
 
-export const Title = styled.h1`
+export const TeamMemberSectionTitle = styled.h1`
   ${({ theme }) => theme.fontStyles.Header1};
   color: ${({ theme }) => theme.colors.HID_Grayscale[800]};
 

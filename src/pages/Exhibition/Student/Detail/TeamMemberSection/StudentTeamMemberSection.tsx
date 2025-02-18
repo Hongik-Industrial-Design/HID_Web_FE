@@ -3,15 +3,15 @@ import { useEffect, useRef, useState } from 'react';
 import { PanInfo, useSpring, useTransform } from 'framer-motion';
 import { useRafLoop, useWindowSize } from 'react-use';
 
-import { AuthorInfos } from '../Artwork.types';
+import { AuthorInfos } from '../StudentArtwork.types';
 
+import MemberCard from './MemberCard/StudentMemberCard';
 import { PlayPauseIcon } from '@icons/PlayPause';
-import MemberCard from './MemberCard/MemberCard';
 
-import * as S from './TeamMemberSection.styled';
+import * as S from './StudentTeamMemberSection.styled';
 
 interface TeamMemberSectionProps {
-  membersData?: AuthorInfos[];
+  membersData: AuthorInfos[];
 }
 
 const animationFactor = {
@@ -20,7 +20,7 @@ const animationFactor = {
   dragFactor: 1.2,
 };
 
-const TeamMembersSection = ({
+const StudentTeamMemberSection = ({
   membersData,
 }: TeamMemberSectionProps): JSX.Element => {
   const [isRunning, setIsRunning] = useState<boolean>(false);
@@ -127,13 +127,15 @@ const TeamMembersSection = ({
   return (
     <S.TeamMembersSection>
       <S.TeamMemberSectionHeader>
-        <S.Title>
+        <S.TeamMemberSectionTitle>
           Participants<span>.</span>
-        </S.Title>
+        </S.TeamMemberSectionTitle>
         <S.PlayPauseButton onClick={handlePlayPause}>
           <PlayPauseIcon />
         </S.PlayPauseButton>
       </S.TeamMemberSectionHeader>
+
+      {/* 작가 프로필 Section */}
       <S.InteractiveTeamMemberSection
         ref={marquee}
         style={{ skewX }}
@@ -151,7 +153,7 @@ const TeamMembersSection = ({
         <S.TeamMembersContainer ref={cards}>
           {membersData?.map((teamMember) => (
             <MemberCard
-              key={teamMember.id}
+              key={teamMember.artistUUID}
               teamMember={teamMember}
               speed={speed}
               isRunning={isRunning}
@@ -163,4 +165,4 @@ const TeamMembersSection = ({
   );
 };
 
-export default TeamMembersSection;
+export default StudentTeamMemberSection;

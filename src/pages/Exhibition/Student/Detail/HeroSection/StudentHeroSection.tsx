@@ -1,7 +1,7 @@
 import { JSX } from 'react/jsx-runtime';
 import { useState } from 'react';
 
-import { ArtworkInfos } from '../Artwork.types';
+import { ArtworkInfos } from '../StudentArtwork.types';
 
 import Breadscrumb from '@components/Breadscrumb/Breadscrumb';
 import Keyword from '@components/Keyword/Keyword';
