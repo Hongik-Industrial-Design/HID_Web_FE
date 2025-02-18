@@ -13,6 +13,7 @@ import NoticeList from '@pages/Community/Notice/List/NoticeList';
 import NewsEventList from '@pages/Community/NewsEvent/List/NewsEventList';
 import BoardDetailPage from '@pages/Community/BoardDetail/BoardDetailPage';
 import ContactPage from '@pages/Contact/ContactPage';
+import StudentExhibitionDetail from '@pages/Exhibition/Student/Detail/StudentExhibitionDetail';
 
 function App() {
   return (
@@ -33,7 +34,7 @@ function App() {
 
         <Route path="student">
           <Route index element={<StudentExhibiton />} />
-          <Route path=":id" element={<ExhibitionDetail />} />
+          <Route path=":id" element={<StudentExhibitionDetail />} />
         </Route>
 
         <Route path="community">
