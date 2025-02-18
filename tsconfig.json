@@ -33,6 +33,7 @@
       "@layout/*": ["src/layout/*"],
       "@lib/*": ["src/lib/*"],
       "@pages/*": ["src/pages/*"],
+      "@schemas/*": ["src/schemas/*"],
       "@styles/*": ["src/styles/*"],
       "@utils/*": ["src/utils/*"]
     }

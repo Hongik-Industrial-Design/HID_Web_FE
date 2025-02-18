@@ -20,6 +20,7 @@ export default defineConfig({
       '@layout': path.resolve(__dirname, './src/layout'),
       '@lib': path.resolve(__dirname, './src/lib'),
       '@pages': path.resolve(__dirname, './src/pages'),
+      '@schemas': path.resolve(__dirname, './src/schemas'),
       '@styles': path.resolve(__dirname, './src/styles'),
       '@utils': path.resolve(__dirname, './src/utils'),
     },
