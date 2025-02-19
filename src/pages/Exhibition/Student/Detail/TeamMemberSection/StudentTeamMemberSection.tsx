@@ -37,7 +37,7 @@ const StudentTeamMemberSection = ({
   const rect = useRef<DOMRect>(new DOMRect());
 
   const { width, height } = useWindowSize();
-  console.log(width, height);
+  // console.log(width, height);
 
   useEffect(() => {
     if (!cards.current) return;

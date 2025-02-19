@@ -21,14 +21,14 @@ const StudentExhibitionGallery = ({
 }: StudentExhibitionGalleryProps): JSX.Element => {
   const [currentPage, setCurrentPage] = useState<number>(1);
 
-  const totalPages = Math.ceil(pieces.length / 9);
+  const totalPages = Math.ceil(pieces?.length / 9);
 
   const handleCurrentPage = (page: number) => setCurrentPage(page);
 
   // 페이지네이션 작품 리스트 계산 Logic
   const paginatedPieces = useMemo(() => {
     const startIndex = (currentPage - 1) * 9;
-    return pieces.slice(startIndex, currentPage * 9);
+    return pieces?.slice(startIndex, currentPage * 9);
   }, [currentPage, pieces]);
 
   return (
@@ -43,7 +43,7 @@ const StudentExhibitionGallery = ({
       <S.GallerySection>
         <S.GalleryList>
           <AnimatePresence>
-            {paginatedPieces.map((piece) => (
+            {paginatedPieces?.map((piece) => (
               <Piece
                 key={piece.exhibitId}
                 exhibitId={piece.exhibitId}
