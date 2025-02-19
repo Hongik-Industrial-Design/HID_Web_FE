@@ -1,8 +1,7 @@
 import { JSX } from 'react/jsx-runtime';
-import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 
-import { fetchStudentExhibitionDetail } from '@api/exhibition';
+import { useStudentExhibitionDetailQuery } from '@api/query/studentExhibitionQuery';
 
 import { ArtworkInfos } from './StudentArtwork.types';
 
@@ -13,40 +12,39 @@ import StudentTeamMemberSection from './TeamMemberSection/StudentTeamMemberSecti
 import * as S from './StudentExhibitionDetail.styled';
 
 const StudentExhibitionDetail = (): JSX.Element => {
-  const [artworkInfos, setArtworkInfos] = useState<ArtworkInfos>(
-    {} as ArtworkInfos
-  );
+  //   const [artworkInfos, setArtworkInfos] = useState<ArtworkInfos>(
+  //     {} as ArtworkInfos
+  //   );
 
   // URL 내 params 추출 (API 요청시에 필요)
-  const { id } = useParams();
+  const { id, year } = useParams();
   const exhibitId = parseInt(id ? id : '');
+  const exhibtionYear = year ? year : '';
 
-  // Fetching Entire Artwork Infos
-  useEffect(() => {
-    const getStudentExhibitionDetail = async () => {
-      try {
-        const artworkInfos = await fetchStudentExhibitionDetail(exhibitId);
-        console.log(
-          `타입 검증 후 작품 ID: ${exhibitId}의 상세 정보: `,
-          artworkInfos
-        );
-
-        setArtworkInfos(artworkInfos);
-      } catch (error) {
-        console.error('Error occured: ', error);
-      }
-    };
-
-    getStudentExhibitionDetail();
-  }, [exhibitId]);
+  // 학생 전시 상세 정보 데이터 Fetching (Tanstack Query 적용F)
+  const {
+    status,
+    data: artworkInfos = {} as ArtworkInfos,
+    error,
+    isFetching,
+  } = useStudentExhibitionDetailQuery(exhibtionYear, exhibitId);
 
   return (
     <S.ExhibitionDetailWrapper>
-      <S.ExhibitionDetailContainer>
-        <StudentHeroSection artworkInfos={artworkInfos} />
-        <StudentArtworkSection artworkInfos={artworkInfos} />
-      </S.ExhibitionDetailContainer>
-      <StudentTeamMemberSection membersData={artworkInfos.artists} />
+      {status === 'pending' ? (
+        <span>Loading...</span>
+      ) : status === 'error' ? (
+        <span>Error: {error.message}</span>
+      ) : (
+        <>
+          <S.ExhibitionDetailContainer>
+            <StudentHeroSection artworkInfos={artworkInfos} />
+            <StudentArtworkSection artworkInfos={artworkInfos} />
+          </S.ExhibitionDetailContainer>
+          <StudentTeamMemberSection membersData={artworkInfos.artists} />
+          {isFetching && <span>Background Updating...</span>}
+        </>
+      )}
     </S.ExhibitionDetailWrapper>
   );
 };

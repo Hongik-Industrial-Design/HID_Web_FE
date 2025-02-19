@@ -1,5 +1,9 @@
-import { fetchStudentExhibitionPreview } from '@api/exhibition';
 import { useQuery } from '@tanstack/react-query';
+
+import {
+  fetchStudentExhibitionDetail,
+  fetchStudentExhibitionPreview,
+} from '@api/exhibition';
 
 const STUDENT_QUERY_KEYS = {
   preview: (year: string) => ['Student', year],
@@ -11,6 +15,18 @@ export const useStudentExhbitionPreviewQuery = (year: string, club: string) => {
     queryKey: STUDENT_QUERY_KEYS.preview(year),
     queryFn: () => fetchStudentExhibitionPreview(year, club),
     staleTime: 1000 * 10, // 10초 (Testing)
+    gcTime: 1000 * 60, // 1분 (Testing)
+  });
+};
+
+export const useStudentExhibitionDetailQuery = (
+  year: string,
+  exhibitId: number
+) => {
+  return useQuery({
+    queryKey: STUDENT_QUERY_KEYS.detail(year, exhibitId),
+    queryFn: () => fetchStudentExhibitionDetail(exhibitId),
+    staleTime: 1000 * 3, // 3초 (Testing)
     gcTime: 1000 * 60, // 1분 (Testing)
   });
 };
