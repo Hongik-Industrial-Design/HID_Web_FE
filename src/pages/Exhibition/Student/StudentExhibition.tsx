@@ -1,15 +1,15 @@
 import { JSX } from 'react/jsx-runtime';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
-import { fetchStudentExhibitionPreview } from '@api/exhibition';
-import { StudentExhibitionPreview } from '@schemas/exhibition';
+import { useStudentExhbitionPreviewQuery } from '@api/query/studentExhibitionQuery';
 
 import Category from '@components/Category/Category';
 import StudentExhibitionGallery from '@components/Exhibition/StudentGallery/StudentExhibitionGallery';
 
-import * as S from './StudentExhibition.styled';
 import { ARCHIVE_YEAR_LIST } from '@constants/archiveYear';
 import { STUDENT_CLUB_LIST } from '@constants/exhibitionCategory';
+
+import * as S from './StudentExhibition.styled';
 
 export interface SelectStudentExhibition {
   year: string;
@@ -20,7 +20,7 @@ const StudentExhibition = (): JSX.Element => {
   const [selectedExhibition, setSelectedExhibition] =
     useState<SelectStudentExhibition>({
       year: ARCHIVE_YEAR_LIST[1], // 추후 배열의 0번 index로 기본값 설정 (number -> string)
-      club: STUDENT_CLUB_LIST[0].toUpperCase(),
+      club: STUDENT_CLUB_LIST[0],
     });
 
   const handlePreviewFilter = (
@@ -32,32 +32,18 @@ const StudentExhibition = (): JSX.Element => {
       [key]: club,
     }));
 
-  const [previews, setPreviews] = useState<StudentExhibitionPreview>([]);
-  // const [filteredPreviews, setFilteredPreviews] =
-  //   useState<StudentExhibitionPreview>([]);
+  // Fetching Student Exhibition Preview Data (Tanstack Query 적용)
+  const {
+    status,
+    data: previews = [],
+    isFetching,
+    error,
+  } = useStudentExhbitionPreviewQuery(
+    selectedExhibition.year,
+    selectedExhibition.club.toUpperCase()
+  );
 
-  // Fetching Student Exhibition Preview Data
-  useEffect(() => {
-    const getStudentExhibitionPreview = async () => {
-      try {
-        const studentPreview = await fetchStudentExhibitionPreview(
-          selectedExhibition.year,
-          selectedExhibition.club
-        );
-        console.log(
-          '타입 검증 후의 학생 전시 Preview 데이터: ',
-          studentPreview
-        );
-
-        setPreviews(studentPreview);
-        // setFilteredPreviews(studentPreview);
-      } catch (error) {
-        console.error('학생 전시 데이터 가져오기 실패: ', error);
-      }
-    };
-
-    getStudentExhibitionPreview();
-  }, [selectedExhibition]);
+  // console.log('Tanstack Query 적용 후의 학생 전시 Preview 데이터: ', previews);
 
   // // Client Side Filtering Logic (애니메이션 구체화 시 사용 - 백엔드와 로직 상의 필요)
   // const handlePreviewFilter = (category: string) => {
@@ -86,10 +72,19 @@ const StudentExhibition = (): JSX.Element => {
             Student Exhibiton<span>.</span>
           </S.StudentExhibitionGalleryTitle>
 
-          <StudentExhibitionGallery
-            pieces={previews}
-            exhibitionYear={selectedExhibition.year}
-          />
+          {status === 'pending' ? (
+            <span>Loading...</span>
+          ) : status === 'error' ? (
+            <span>Error: {error.message}</span>
+          ) : (
+            <>
+              <StudentExhibitionGallery
+                pieces={previews}
+                exhibitionYear={selectedExhibition.year}
+              />
+              <span>{isFetching ? 'Background Updating...' : ''}</span>
+            </>
+          )}
         </S.StudentExhibitionGalleryContainer>
       </S.ExhibitionContainer>
     </S.StudentExhibitionContainer>
