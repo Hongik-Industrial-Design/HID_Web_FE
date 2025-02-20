@@ -30,12 +30,18 @@ const Piece = ({
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <S.PieceImage src={imageURL} alt={title} />
-        <OverlayInfos
-          title={title}
-          subTitle={subTitle}
-          isPieceHovered={isPieceHovered}
-        />
+        <S.PieceOverlayContainer>
+          <S.OverlayBackgroundTop $isThumbnailHovered={isPieceHovered} />
+
+          <S.PieceImage src={imageURL} alt={title} />
+          <OverlayInfos
+            title={title}
+            subTitle={subTitle}
+            isPieceHovered={isPieceHovered}
+          />
+
+          <S.OverlayBackgroundBottom $isThumbnailHovered={isPieceHovered} />
+        </S.PieceOverlayContainer>
       </S.PieceLink>
     </S.PieceContainer>
   );
