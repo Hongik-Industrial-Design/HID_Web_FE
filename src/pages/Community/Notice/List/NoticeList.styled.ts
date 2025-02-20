@@ -66,7 +66,7 @@ export const NoticeTitle = styled.h2`
 `;
 
 // 게시판 Main
-export const NoticeBoard = styled.section`
+export const NoticeBoard = styled.ul`
   width: 100%;
   height: fit-content;
 

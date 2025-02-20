@@ -1,64 +1,37 @@
-import axios from 'axios';
 import { JSX } from 'react/jsx-runtime';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
+import { useNoticeListQuery } from '@api/query/communityQuery';
 import { NOTICE_CATEGORY } from '@constants/communityCategory';
-import { NoticeInfos, NoticePostInfo } from '../../Community.types';
+
+import { NoticePostInfo } from '@pages/Community/Community.types';
 
 import CategoryCommunity from '@components/CategoryCommunity/CategoryCommunity';
 import NoticeListItem from '../Item/NoticeListItem';
 import SearchBar from '@components/SearchBar/SearchBar';
 import Pagination from '@components/Pagination/Pagination';
+import Loading from '@components/Loading/Loading';
 
 import * as S from './NoticeList.styled';
 
 const NoticeList = (): JSX.Element => {
   const noticeTopRef = useRef<HTMLDivElement | null>(null);
 
-  const [noticeData, setNoticeData] = useState<NoticeInfos | null>(null);
-  const [pagePosts, setPagePosts] = useState<NoticePostInfo[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
 
-  const handleCurrentPage = (page: number) => {
-    setCurrentPage(page);
-  };
+  const handleCurrentPage = (page: number) => setCurrentPage(page);
 
-  // Notice Data Fetching & Sorting (important: true 순으로 정렬)
-  useEffect(() => {
-    const fetchAndSortNoticeData = async () => {
-      try {
-        const response = await axios.get('/data/noticeList.json');
-        const noticeContent = response.data;
-        console.log(noticeContent);
+  const { status, data, error } = useNoticeListQuery(currentPage - 1, 10); // 서버 측에서 page 시작값을 0으로 설정해놔서 임시로 -1 처리
 
-        setNoticeData(noticeContent);
+  const noticeList = data ? (data.content as NoticePostInfo[]) : [];
+  console.log('공지사항 목록 조회 API 응답 데이터: ', noticeList);
 
-        // 데이터가 존재할 때, important: true 순으로 정렬
-        if (noticeContent && noticeContent.posts) {
-          const indexOfLastPost = currentPage * noticeContent?.pageSize;
-          const indexOfFirstPost = indexOfLastPost - noticeContent?.pageSize;
+  // 중요 공지사항 우선순위 정렬
+  const importantAscendingNoticeList = [...noticeList].sort((a, b) => {
+    return Number(b.important) - Number(a.important);
+  });
 
-          const noticePosts = noticeContent?.posts;
-          console.log(noticePosts);
-
-          const sortedbyImportant = [...noticePosts].sort((a, b) => {
-            return b.important - a.important;
-          });
-
-          const currentPosts = sortedbyImportant?.slice(
-            indexOfFirstPost,
-            indexOfLastPost
-          );
-
-          setPagePosts(currentPosts);
-        }
-      } catch (error) {
-        console.error('Notice Data Fetching Error', error);
-      }
-    };
-
-    fetchAndSortNoticeData();
-  }, [currentPage]);
+  const totalPages = data ? data.totalPages : 0;
 
   return (
     <S.NoticeListWrapper>
@@ -81,45 +54,52 @@ const NoticeList = (): JSX.Element => {
           </S.NoticeHeader>
 
           {/* 제목, 공지 일자, 작성자, 첨부파일 */}
-          <S.NoticeBoard>
-            <S.BoardHeaderContainer>
-              <S.NoticeBoardHeaderRow>
-                <S.BoardTitle>제목</S.BoardTitle>
-                <S.NoticeBoardCredit>
-                  <S.UploadDateTitle>공지 일자</S.UploadDateTitle>
-                  <S.AuthorTitle>작성자</S.AuthorTitle>
-                  <S.AttatchmentTitle>첨부 파일</S.AttatchmentTitle>
-                </S.NoticeBoardCredit>
-              </S.NoticeBoardHeaderRow>
-              <S.ThinDivider />
-            </S.BoardHeaderContainer>
+          <S.BoardHeaderContainer>
+            <S.NoticeBoardHeaderRow>
+              <S.BoardTitle>제목</S.BoardTitle>
+              <S.NoticeBoardCredit>
+                <S.UploadDateTitle>공지 일자</S.UploadDateTitle>
+                <S.AuthorTitle>작성자</S.AuthorTitle>
+                <S.AttatchmentTitle>첨부 파일</S.AttatchmentTitle>
+              </S.NoticeBoardCredit>
+            </S.NoticeBoardHeaderRow>
+            <S.ThinDivider />
+          </S.BoardHeaderContainer>
 
-            {/* 게시글 목록 */}
-            {noticeData &&
-              pagePosts?.map((notice) => (
-                <S.BoardHeaderContainer key={notice.id}>
+          {/* 게시글 목록 */}
+          {status === 'pending' ? (
+            <S.NoticeBoard>
+              <Loading />
+            </S.NoticeBoard>
+          ) : status === 'error' ? (
+            <span>Error: {error?.message}</span>
+          ) : (
+            <>
+              {/* 공지사항 목록 */}
+              {importantAscendingNoticeList?.map((notice) => (
+                <S.NoticeBoard key={notice.id}>
                   <NoticeListItem
                     id={notice.id}
                     important={notice.important}
                     title={notice.title}
-                    date={notice.credit.postDate}
-                    author={notice.credit.author}
-                    attatchment={notice.credit.attatchment}
+                    createdDate={notice.createdDate}
+                    author={notice.author}
+                    attachmentUrls={notice.attachmentUrls}
                   />
                   <S.ThinDivider />
-                </S.BoardHeaderContainer>
+                </S.NoticeBoard>
               ))}
-          </S.NoticeBoard>
-
-          {/* Pagination Component */}
-          <S.PaginationWrapper>
-            <Pagination
-              currentPage={currentPage}
-              handleCurrentPage={handleCurrentPage}
-              totalPages={noticeData?.totalPages}
-              isPreview={true}
-            />
-          </S.PaginationWrapper>
+              {/* Pagination */}
+              <S.PaginationWrapper>
+                <Pagination
+                  currentPage={currentPage}
+                  handleCurrentPage={handleCurrentPage}
+                  totalPages={totalPages}
+                  isPreview={true}
+                />
+              </S.PaginationWrapper>
+            </>
+          )}
         </S.NoticeContainer>
       </S.NoticeCategoryContainer>
     </S.NoticeListWrapper>
