@@ -19,9 +19,3 @@ export interface NewsEventCardInfo {
   title: string;
   category: NewsEventType;
 }
-
-export interface NewsEventListInfo {
-  cardInfos: NewsEventCardInfo[];
-  totalPages: number;
-  pageSize: number;
-}

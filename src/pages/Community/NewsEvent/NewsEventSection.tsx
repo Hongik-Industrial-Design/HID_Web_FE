@@ -44,8 +44,8 @@ const NewsEventSection = ({
               <S.NewsEventCardItem key={card.id}>
                 <NewsEventCard
                   route={`news-event/${card.id}`}
-                  imageURL={card.thumbnailUrl}
-                  deadline={card.createdDate}
+                  thumbnailUrl={card.thumbnailUrl}
+                  createdDate={card.createdDate}
                   title={card.title}
                   category={card.category}
                 />
