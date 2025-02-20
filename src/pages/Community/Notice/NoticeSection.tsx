@@ -1,8 +1,7 @@
-import axios from 'axios';
 import { JSX } from 'react/jsx-runtime';
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 
-import { NoticeInfos, NoticePostInfo } from '../Community.types';
+import { NoticePostInfo } from '../Community.types';
 
 import CategoryCommunity from '@components/CategoryCommunity/CategoryCommunity';
 import NoticeListItem from './Item/NoticeListItem';
@@ -10,50 +9,16 @@ import ViewDetail from '@components/ViewDetail/ViewDetail';
 
 import * as S from './NoticeSection.styled';
 
-const NoticeSection = (): JSX.Element => {
+interface NoticeSectionProps {
+  noticeBoardData: NoticePostInfo[];
+}
+
+const NoticeSection = ({
+  noticeBoardData,
+}: NoticeSectionProps): JSX.Element => {
   const noticeCategory = ['All', 'College TA', 'Council'];
 
   const noticeTopRef = useRef<HTMLDivElement | null>(null);
-
-  const [noticeData, setNoticeData] = useState<NoticeInfos | null>(null);
-  const [pagePosts, setPagePosts] = useState<NoticePostInfo[]>([]);
-
-  // Notice Data Fetching & Sorting (important: true 순으로 정렬)
-  useEffect(() => {
-    const fetchAndSortNoticeData = async () => {
-      try {
-        const response = await axios.get('/data/notice.json');
-        const noticeContent = response.data;
-        console.log(noticeContent);
-
-        setNoticeData(noticeContent);
-
-        // 데이터가 존재할 때, important: true 순으로 정렬
-        if (noticeContent && noticeContent.posts) {
-          const indexOfLastPost = noticeContent?.pageSize;
-          const indexOfFirstPost = indexOfLastPost - noticeContent?.pageSize;
-
-          const noticePosts = noticeContent?.posts;
-          console.log(noticePosts);
-
-          const sortedbyImportant = [...noticePosts].sort((a, b) => {
-            return b.important - a.important;
-          });
-
-          const currentPosts = sortedbyImportant?.slice(
-            indexOfFirstPost,
-            indexOfLastPost
-          );
-
-          setPagePosts(currentPosts);
-        }
-      } catch (error) {
-        console.error('Notice Data Fetching Error', error);
-      }
-    };
-
-    fetchAndSortNoticeData();
-  }, []);
 
   return (
     <S.NoticeCategoryContainer ref={noticeTopRef}>
@@ -69,7 +34,7 @@ const NoticeSection = (): JSX.Element => {
             <S.NoticeTitle>
               Notice<span>.</span>
             </S.NoticeTitle>
-            <ViewDetail route={'/community/notice'} />
+            <ViewDetail route={'notice'} />
           </S.NoticeTitleContainer>
           <S.BoldDivider />
         </S.NoticeHeader>
@@ -89,20 +54,19 @@ const NoticeSection = (): JSX.Element => {
           </S.BoardHeaderContainer>
 
           {/* 게시글 목록 */}
-          {noticeData &&
-            pagePosts?.map((notice) => (
-              <S.BoardHeaderContainer key={notice.id}>
-                <NoticeListItem
-                  id={notice.id}
-                  important={notice.important}
-                  title={notice.title}
-                  date={notice.credit.postDate}
-                  author={notice.credit.author}
-                  attatchment={notice.credit.attatchment}
-                />
-                <S.ThinDivider />
-              </S.BoardHeaderContainer>
-            ))}
+          {noticeBoardData?.map((notice) => (
+            <S.BoardHeaderContainer key={notice.id}>
+              <NoticeListItem
+                id={notice.id}
+                important={notice.important}
+                title={notice.title}
+                createdDate={notice.createdDate}
+                author={notice.author}
+                attachmentUrls={notice.attachmentUrls}
+              />
+              <S.ThinDivider />
+            </S.BoardHeaderContainer>
+          ))}
         </S.NoticeBoard>
       </S.NoticeContainer>
     </S.NoticeCategoryContainer>

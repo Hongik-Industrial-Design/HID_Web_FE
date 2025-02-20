@@ -8,7 +8,7 @@ export const exhibitionAPI = axios.create({
   },
 });
 
-export const CommunityFacultyAPI = axios.create({
+export const communityAPI = axios.create({
   baseURL: ENV.API_BASE_URL_JUNBO,
   headers: {
     'Content-Type': 'application/json',
