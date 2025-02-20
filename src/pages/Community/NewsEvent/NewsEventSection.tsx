@@ -3,6 +3,8 @@ import { useRef } from 'react';
 
 import { NewsEventCardInfo } from '../Community.types';
 
+import { NEWS_EVENT_CATEGORY } from '@constants/communityCategory';
+
 import CategoryCommunity from '@components/CategoryCommunity/CategoryCommunity';
 import ViewDetail from '@components/ViewDetail/ViewDetail';
 import NewsEventCard from './Card/NewsEventCard';
@@ -16,15 +18,13 @@ interface NewsEventSectionProps {
 const NewsEventSection = ({
   newsEventCardInfos,
 }: NewsEventSectionProps): JSX.Element => {
-  const NewsEventCategory = ['All', 'Recruit', 'Award', 'Alumni'];
-
   const newsEventTopRef = useRef<HTMLDivElement | null>(null);
 
   return (
     <S.NewsEventWrapper ref={newsEventTopRef}>
       <S.NewsEventCategoryContainer>
         <CategoryCommunity
-          categoryList={NewsEventCategory}
+          categoryList={NEWS_EVENT_CATEGORY}
           scrollToTopRef={newsEventTopRef}
         />
       </S.NewsEventCategoryContainer>
