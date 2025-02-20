@@ -57,7 +57,7 @@ export const NewsEventCardGridContainer = styled.section`
 
 export const NewsEventCardGrid = styled.ul`
   display: grid;
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(auto, 1fr);
   grid-template-columns: repeat(4, 1fr);
   gap: 2.4rem 2.3rem;
 `;

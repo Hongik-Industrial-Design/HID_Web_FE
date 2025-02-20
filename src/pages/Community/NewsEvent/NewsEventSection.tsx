@@ -1,8 +1,9 @@
-import axios from 'axios';
 import { JSX } from 'react/jsx-runtime';
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 
 import { NewsEventCardInfo } from '../Community.types';
+
+import { NEWS_EVENT_CATEGORY } from '@constants/communityCategory';
 
 import CategoryCommunity from '@components/CategoryCommunity/CategoryCommunity';
 import ViewDetail from '@components/ViewDetail/ViewDetail';
@@ -10,36 +11,20 @@ import NewsEventCard from './Card/NewsEventCard';
 
 import * as S from './NewsEventSection.styled';
 
-const NewsEventSection = (): JSX.Element => {
-  const NewsEventCategory = ['All', 'Recruit', 'Award', 'Alumni'];
+interface NewsEventSectionProps {
+  newsEventCardInfos: NewsEventCardInfo[];
+}
 
+const NewsEventSection = ({
+  newsEventCardInfos,
+}: NewsEventSectionProps): JSX.Element => {
   const newsEventTopRef = useRef<HTMLDivElement | null>(null);
-
-  const [newsEventCardInfos, setNewsEventCardInfos] = useState<
-    NewsEventCardInfo[]
-  >([]);
-
-  useEffect(() => {
-    const fetchNewsEventCardData = async () => {
-      try {
-        const response = await axios.get('/data/newsEvent.json');
-        const newsEventCardData = response.data.data;
-        console.log(newsEventCardData);
-
-        setNewsEventCardInfos(newsEventCardData);
-      } catch (error) {
-        console.error('News & Event card data fetching error', error);
-      }
-    };
-
-    fetchNewsEventCardData();
-  }, []);
 
   return (
     <S.NewsEventWrapper ref={newsEventTopRef}>
       <S.NewsEventCategoryContainer>
         <CategoryCommunity
-          categoryList={NewsEventCategory}
+          categoryList={NEWS_EVENT_CATEGORY}
           scrollToTopRef={newsEventTopRef}
         />
       </S.NewsEventCategoryContainer>
@@ -58,9 +43,9 @@ const NewsEventSection = (): JSX.Element => {
             {newsEventCardInfos.map((card) => (
               <S.NewsEventCardItem key={card.id}>
                 <NewsEventCard
-                  route={`/community/news-event/${card.id}`}
-                  imageURL={card.imgURL}
-                  deadline={card.deadline}
+                  route={`news-event/${card.id}`}
+                  thumbnailUrl={card.thumbnailUrl}
+                  createdDate={card.createdDate}
                   title={card.title}
                   category={card.category}
                 />
