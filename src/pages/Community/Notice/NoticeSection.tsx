@@ -34,7 +34,7 @@ const NoticeSection = ({
             <S.NoticeTitle>
               Notice<span>.</span>
             </S.NoticeTitle>
-            <ViewDetail route={'/community/notice'} />
+            <ViewDetail route={'notice'} />
           </S.NoticeTitleContainer>
           <S.BoldDivider />
         </S.NoticeHeader>

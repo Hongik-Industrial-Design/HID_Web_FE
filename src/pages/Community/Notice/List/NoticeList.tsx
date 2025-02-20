@@ -2,6 +2,7 @@ import axios from 'axios';
 import { JSX } from 'react/jsx-runtime';
 import { useEffect, useRef, useState } from 'react';
 
+import { NOTICE_CATEGORY } from '@constants/communityCategory';
 import { NoticeInfos, NoticePostInfo } from '../../Community.types';
 
 import CategoryCommunity from '@components/CategoryCommunity/CategoryCommunity';
@@ -12,8 +13,6 @@ import Pagination from '@components/Pagination/Pagination';
 import * as S from './NoticeList.styled';
 
 const NoticeList = (): JSX.Element => {
-  const noticeCategory = ['All', 'College TA', 'Council'];
-
   const noticeTopRef = useRef<HTMLDivElement | null>(null);
 
   const [noticeData, setNoticeData] = useState<NoticeInfos | null>(null);
@@ -66,7 +65,7 @@ const NoticeList = (): JSX.Element => {
       <S.NoticeCategoryContainer ref={noticeTopRef}>
         <S.CategoryStickyContainer>
           <CategoryCommunity
-            categoryList={noticeCategory}
+            categoryList={NOTICE_CATEGORY}
             scrollToTopRef={noticeTopRef}
           />
         </S.CategoryStickyContainer>

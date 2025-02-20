@@ -2,6 +2,7 @@ import axios from 'axios';
 import { JSX } from 'react/jsx-runtime';
 import { useEffect, useRef, useState } from 'react';
 
+import { NEWS_EVENT_CATEGORY } from '@constants/communityCategory';
 import {
   NewsEventCardInfo,
   NewsEventListInfo,
@@ -15,8 +16,6 @@ import NewsEventCard from '../Card/NewsEventCard';
 import * as S from './NewsEventList.styled';
 
 const NewsEventList = (): JSX.Element => {
-  const NewsEventCategory = ['All', 'Recruit', 'Award', 'Alumni'];
-
   const newsEventTopRef = useRef<HTMLDivElement | null>(null);
 
   const [newsEventListInfos, setNewsEventListInfos] =
@@ -64,7 +63,7 @@ const NewsEventList = (): JSX.Element => {
     <S.NewsEventWrapper ref={newsEventTopRef}>
       <S.NewsEventCategoryContainer>
         <CategoryCommunity
-          categoryList={NewsEventCategory}
+          categoryList={NEWS_EVENT_CATEGORY}
           scrollToTopRef={newsEventTopRef}
         />
       </S.NewsEventCategoryContainer>
