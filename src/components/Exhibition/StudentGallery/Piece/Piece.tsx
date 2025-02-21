@@ -3,7 +3,8 @@ import { useState } from 'react';
 
 import { PieceProps } from '@components/Exhibition/Exhibition.types';
 
-import PieceOverlay from './Overlay/PieceOverlay';
+import CardOverlayBackground from '@components/CardOverlay/Background/CardOverlayBackground';
+import CardOverlayText from '@components/CardOverlay/Text/CardOverlayText';
 
 import * as S from './Piece.styled';
 
@@ -34,18 +35,16 @@ const Piece = ({
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <S.PieceOverlayContainer>
-          <S.OverlayBackgroundTop $isThumbnailHovered={isPieceHovered} />
-
-          <S.PieceImage src={imageURL} alt={title} />
-          <PieceOverlay
-            title={title}
-            subTitle={subTitle}
-            isPieceHovered={isPieceHovered}
-          />
-
-          <S.OverlayBackgroundBottom $isThumbnailHovered={isPieceHovered} />
-        </S.PieceOverlayContainer>
+        <CardOverlayBackground isThumbnailHovered={isPieceHovered}>
+          <>
+            <S.PieceImage src={imageURL} alt={title} />
+            <CardOverlayText
+              title={title}
+              subTitle={subTitle}
+              isPieceHovered={isPieceHovered}
+            />
+          </>
+        </CardOverlayBackground>
       </S.PieceLink>
     </S.PieceContainer>
   );

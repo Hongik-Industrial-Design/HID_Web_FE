@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const OverlayInfosContainer = styled.div<{
+export const CardOverlayTextContainer = styled.div<{
   $isThumbnailHovered: boolean;
 }>`
   position: absolute;
@@ -38,13 +38,13 @@ export const OverlayInfosContainer = styled.div<{
         `};
 `;
 
-export const PieceTitle = styled.span`
+export const OverlayTitle = styled.span`
   ${({ theme }) => theme.fontStyles.Title3}
   color: ${({ theme }) => theme.colors.HID_Grayscale[0]};
   text-align: center;
 `;
 
-export const PieceSubTitle = styled.span`
+export const OverlaySubTitle = styled.span`
   ${({ theme }) => theme.fontStyles.SubTitle1}
   color: ${({ theme }) => theme.colors.HID_Grayscale[100]};
   text-align: center;
