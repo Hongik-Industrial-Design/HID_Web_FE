@@ -2,9 +2,9 @@ import { JSX } from 'react/jsx-runtime';
 
 import { OverlayProps } from '@components/Exhibition/Exhibition.types';
 
-import * as S from './OverlayInfos.styled';
+import * as S from './PieceOverlay.styled';
 
-const OverlayInfos = ({
+const PieceOverlay = ({
   title,
   subTitle,
   isPieceHovered,
@@ -17,4 +17,4 @@ const OverlayInfos = ({
   );
 };
 
-export default OverlayInfos;
+export default PieceOverlay;
