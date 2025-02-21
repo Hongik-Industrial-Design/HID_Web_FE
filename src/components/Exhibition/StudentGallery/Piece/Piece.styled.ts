@@ -11,6 +11,8 @@ export const PieceLink = styled(Link)`
   width: fit-content;
   height: fit-content;
 
+  display: block;
+
   border-radius: 2px;
   border: 1px solid ${({ theme }) => theme.colors.HID_Grayscale[200]};
 `;

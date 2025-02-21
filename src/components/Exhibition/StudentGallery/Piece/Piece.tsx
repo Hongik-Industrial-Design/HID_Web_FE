@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import { PieceProps } from '@components/Exhibition/Exhibition.types';
 
-import OverlayInfos from './Overlay/OverlayInfos';
+import PieceOverlay from './Overlay/PieceOverlay';
 
 import * as S from './Piece.styled';
 
@@ -24,6 +24,10 @@ const Piece = ({
       animate={{ opacity: 1 }}
       initial={{ opacity: 0 }}
       exit={{ opacity: 0 }}
+      transition={{
+        duration: 0.3,
+        scale: { type: 'spring', visualDuration: 0.3, bounce: 0.5 },
+      }}
     >
       <S.PieceLink
         to={`${exhibitId}`}
@@ -34,7 +38,7 @@ const Piece = ({
           <S.OverlayBackgroundTop $isThumbnailHovered={isPieceHovered} />
 
           <S.PieceImage src={imageURL} alt={title} />
-          <OverlayInfos
+          <PieceOverlay
             title={title}
             subTitle={subTitle}
             isPieceHovered={isPieceHovered}
