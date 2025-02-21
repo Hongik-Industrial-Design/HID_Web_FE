@@ -35,7 +35,10 @@ const Piece = ({
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <CardOverlayBackground isThumbnailHovered={isPieceHovered}>
+        <CardOverlayBackground
+          bgDirection="vertical"
+          isThumbnailHovered={isPieceHovered}
+        >
           <>
             <S.PieceImage src={imageURL} alt={title} />
             <CardOverlayText
