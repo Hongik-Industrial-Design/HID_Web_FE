@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 
 export const CardOverlayTextContainer = styled.div<{
+  $isFacultyPage: boolean;
   $isThumbnailHovered: boolean;
 }>`
   position: absolute;
@@ -18,7 +19,7 @@ export const CardOverlayTextContainer = styled.div<{
   align-items: center;
   gap: 1.2rem;
 
-  ${({ $isThumbnailHovered }) =>
+  ${({ $isThumbnailHovered, $isFacultyPage }) =>
     $isThumbnailHovered
       ? css`
           z-index: 11;
@@ -29,13 +30,21 @@ export const CardOverlayTextContainer = styled.div<{
             transform 0.3s ease-out,
             opacity 0.3s ease;
         `
-      : css`
-          transform: translate(-120%, -30%);
-          opacity: 0;
-          transition:
-            transform 0.25s ease-out,
-            opacity 0.3s ease;
-        `};
+      : $isFacultyPage
+        ? css`
+            transform: translate(-100%, -50%);
+            opacity: 0;
+            transition:
+              transform 0.25s ease-out,
+              opacity 0.3s ease;
+          `
+        : css`
+            transform: translate(-120%, -30%);
+            opacity: 0;
+            transition:
+              transform 0.25s ease-out,
+              opacity 0.3s ease;
+          `};
 `;
 
 export const OverlayTitle = styled.span`

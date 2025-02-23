@@ -5,6 +5,8 @@ import { motion } from 'framer-motion';
 import { FacultyInfos } from '../../FacultyList.types';
 
 import * as S from './ProfessorCard.styled';
+import CardOverlayBackground from '@components/CardOverlay/Background/CardOverlayBackground';
+import CardOverlayText from '@components/CardOverlay/Text/CardOverlayText';
 
 type ProfessorCardProps = {
   professorInfo: FacultyInfos;
@@ -23,20 +25,27 @@ const ProfessorCard = ({ professorInfo }: ProfessorCardProps): JSX.Element => {
       initial={{ opacity: 0 }}
       exit={{ opacity: 0 }}
     >
-      <S.ProfessorCardLink to={`/faculty/${professorInfo.id}`}>
-        <S.ProfessorContainer
-          onMouseEnter={handleThumbnailHover}
-          onMouseLeave={handleThumbnailLeave}
+      <S.ProfessorCardLink
+        to={`/faculty/${professorInfo.id}`}
+        onMouseEnter={handleThumbnailHover}
+        onMouseLeave={handleThumbnailLeave}
+      >
+        <CardOverlayBackground
+          bgDirection="horizontal"
+          isThumbnailHovered={isThumbnailHovered}
         >
-          <S.ProfessorThumbnail
-            src={`/Faculty/${professorInfo.thumbnail}`}
-            alt={professorInfo.info.name}
-          />
-          <S.ProfessorOverlay $isThumbnailHovered={isThumbnailHovered}>
-            <S.OverlayName>{professorInfo.info.name}</S.OverlayName>
-            <S.OverlayMajor>{professorInfo.info.major}</S.OverlayMajor>
-          </S.ProfessorOverlay>
-        </S.ProfessorContainer>
+          <>
+            <S.ProfessorThumbnail
+              src={`/Faculty/${professorInfo.thumbnail}`}
+              alt={professorInfo.info.name}
+            />
+            <CardOverlayText
+              title={professorInfo.info.name}
+              subTitle={professorInfo.info.major}
+              isPieceHovered={isThumbnailHovered}
+            />
+          </>
+        </CardOverlayBackground>
       </S.ProfessorCardLink>
     </motion.div>
   );

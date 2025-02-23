@@ -43,7 +43,7 @@ export const OverlayBackgroundTopOrLeft = styled.div<{
             z-index: 10;
             opacity: 1;
             transform: translateY(50%);
-            backdrop-filter: blur(3px);
+            /* backdrop-filter: blur(3px); */
             transition:
               transform 0.3s ease,
               opacity 0.3s ease,
@@ -53,7 +53,7 @@ export const OverlayBackgroundTopOrLeft = styled.div<{
             z-index: 10;
             opacity: 1;
             transform: translateX(50%);
-            backdrop-filter: blur(3px);
+            /* backdrop-filter: blur(3px); */
             transition:
               transform 0.3s ease,
               opacity 0.3s ease,
@@ -99,7 +99,7 @@ export const OverlayBackgroundBottomOrRight = styled.div<{
             z-index: 10;
             opacity: 1;
             transform: translateY(-50%);
-            backdrop-filter: blur(3px);
+            /* backdrop-filter: blur(3px); */
             transition:
               transform 0.3s ease,
               opacity 0.3s ease,
@@ -109,7 +109,7 @@ export const OverlayBackgroundBottomOrRight = styled.div<{
             z-index: 10;
             opacity: 1;
             transform: translateX(-50%);
-            backdrop-filter: blur(3px);
+            /* backdrop-filter: blur(3px); */
             transition:
               transform 0.3s ease,
               opacity 0.3s ease,
