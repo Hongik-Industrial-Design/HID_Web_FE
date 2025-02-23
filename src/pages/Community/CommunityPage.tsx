@@ -7,6 +7,7 @@ import NoticeSection from './Notice/NoticeSection';
 import NewsEventSection from './NewsEvent/NewsEventSection';
 
 import * as S from './CommunityPage.styled';
+import Loading from '@components/Loading/Loading';
 
 const CommunityPage = (): JSX.Element => {
   const {
@@ -22,9 +23,9 @@ const CommunityPage = (): JSX.Element => {
   const newsEventCardInfos = communityData.newsEvents as NewsEventCardInfo[];
 
   return (
-    <S.CommunityPageContainer>
+    <S.CommunityPageContainer $isPending={status === 'pending'}>
       {status === 'pending' ? (
-        <span>Loading...</span>
+        <Loading />
       ) : status === 'error' ? (
         <span>Error: {error.message}</span>
       ) : (
