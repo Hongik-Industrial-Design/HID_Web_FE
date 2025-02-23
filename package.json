@@ -8,9 +8,12 @@
     "packages/*"
   ],
   "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
     "dev:admin": "pnpm --filter @hid-web/admin dev",
     "dev:user": "pnpm --filter @hid-web/user dev",
-    "build": "vite build",
     "check-types": "tsc --noEmit",
     "prepare": "husky"
   },
