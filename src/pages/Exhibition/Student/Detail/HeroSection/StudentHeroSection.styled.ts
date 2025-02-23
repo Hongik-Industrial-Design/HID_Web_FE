@@ -4,9 +4,10 @@ export const HeroSectionContainer = styled.section`
   position: relative;
 
   width: 100%;
+  max-width: 70%;
   height: fit-content;
-  padding: 0 15.8rem;
   padding-top: 25.7rem;
+  margin: 0 auto;
   margin-bottom: 13.4rem;
 
   display: flex;
@@ -23,28 +24,7 @@ export const ThumbnailContainer = styled.section`
   gap: 2.7rem;
 `;
 
-export const TinyThumbnailList = styled.ul`
-  width: 17.9rem;
-  height: fit-content;
-
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
-`;
-
-export const TinyThumbnailItem = styled.li`
-  width: 100%;
-  height: fit-content;
-
-  border: 1px solid ${({ theme }) => theme.colors.HID_Grayscale[200]};
-`;
-
-export const TinyThumbnail = styled.img`
-  width: 100%;
-  height: fit-content;
-`;
-
-export const PrimartThumbnailFrame = styled.div`
+export const PrimaryThumbnailFrame = styled.div`
   width: fit-content;
   height: 65.4rem;
 

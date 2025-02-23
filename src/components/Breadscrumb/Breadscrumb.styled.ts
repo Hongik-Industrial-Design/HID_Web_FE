@@ -17,7 +17,7 @@ export const BreadscrumbContainer = styled.div<{
           position: absolute;
           right: 0;
           transform: translateY(-50%);
-          top: -28%;
+          top: -20%;
         `};
 
   font-style: normal;

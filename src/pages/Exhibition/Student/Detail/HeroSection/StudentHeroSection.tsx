@@ -33,6 +33,7 @@ const StudentHeroSection = ({
   };
 
   const { year } = useParams();
+  const exhibitionYear = year ?? '2023';
 
   const [goToListHovered, setGoToListHovered] = useState<boolean>(false);
   const [isSocialIconHovered, setIsSocialIconHovered] =
@@ -56,12 +57,12 @@ const StudentHeroSection = ({
     <S.HeroSectionContainer>
       {/* Thumbnail */}
       <S.ThumbnailContainer>
-        <S.PrimartThumbnailFrame>
+        <S.PrimaryThumbnailFrame>
           <S.PrimaryThumbnail
             src={artworkInfos.mainImgUrl}
             alt={artworkInfos.titleKo}
           />
-        </S.PrimartThumbnailFrame>
+        </S.PrimaryThumbnailFrame>
       </S.ThumbnailContainer>
 
       {/* Content Area */}
@@ -72,7 +73,7 @@ const StudentHeroSection = ({
               content: 'Student Exhibition',
               path: `/student/${year}`,
             },
-            { content: '2024', path: `/student/${year}` },
+            { content: exhibitionYear, path: `/student/${year}` },
           ]}
           currentPage="View Detail"
         />
