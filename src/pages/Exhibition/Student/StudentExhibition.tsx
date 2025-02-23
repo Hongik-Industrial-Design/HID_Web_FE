@@ -5,6 +5,7 @@ import { useStudentExhbitionPreviewQuery } from '@api/query/studentExhibitionQue
 
 import Category from '@components/Category/Category';
 import StudentExhibitionGallery from '@components/Exhibition/StudentGallery/StudentExhibitionGallery';
+import Loading from '@components/Loading/Loading';
 
 import { ARCHIVE_YEAR_LIST } from '@constants/archiveYear';
 import { STUDENT_CLUB_LIST } from '@constants/exhibitionCategory';
@@ -73,7 +74,7 @@ const StudentExhibition = (): JSX.Element => {
           </S.StudentExhibitionGalleryTitle>
 
           {status === 'pending' ? (
-            <span>Loading...</span>
+            <Loading />
           ) : status === 'error' ? (
             <span>Error: {error.message}</span>
           ) : (
