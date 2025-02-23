@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import { Link } from 'react-router';
+import * as motion from 'motion/react-client';
 
 import { HeaderTransientProps } from './Header.types';
 
-export const HeaderContainer = styled.header<HeaderTransientProps>`
+export const HeaderContainer = styled(motion.header)<HeaderTransientProps>`
   position: fixed;
   top: 0;
   z-index: 100;
