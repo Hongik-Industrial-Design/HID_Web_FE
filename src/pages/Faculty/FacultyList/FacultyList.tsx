@@ -2,6 +2,8 @@ import axios from 'axios';
 import { JSX } from 'react/jsx-runtime';
 import { useEffect, useState } from 'react';
 
+import { FACULTY_CATEGORY_LIST } from '@constants/facultyCategory';
+
 import { FacultyInfos } from './FacultyList.types';
 
 import Category from '@components/Category/Category';
@@ -14,7 +16,6 @@ const FacultyList = (): JSX.Element => {
   const [categorizedFaculty, setCategorizedFaculty] = useState<FacultyInfos[]>(
     []
   );
-  const [majorList, setMajorList] = useState<string[]>([]);
 
   useEffect(() => {
     const fetchFacultyList = async () => {
@@ -22,7 +23,6 @@ const FacultyList = (): JSX.Element => {
         const response = await axios.get('/data/faculty.json');
         const facultyInfo = response.data;
 
-        setMajorList(facultyInfo.majorList);
         setFacultyList(facultyInfo.faculty);
         setCategorizedFaculty(facultyInfo.faculty);
       } catch (error) {
@@ -48,7 +48,10 @@ const FacultyList = (): JSX.Element => {
   return (
     <S.FacultyListPageWrapper>
       <S.CategoryStickyContainer>
-        <Category categoryList={majorList} handleFilter={handleFilterFaculty} />
+        <Category
+          currentCategory={FACULTY_CATEGORY_LIST[0]}
+          handleFilter={handleFilterFaculty}
+        />
       </S.CategoryStickyContainer>
 
       <S.FacultyListContainer>
