@@ -1,5 +1,6 @@
 import { JSX } from 'react/jsx-runtime';
 import { useState } from 'react';
+import { useParams } from 'react-router';
 
 import { ArtworkInfos } from '../StudentArtwork.types';
 
@@ -31,7 +32,9 @@ const StudentHeroSection = ({
     Instagram: 'https://www.instagram.com/hongik.id.degreeshow/?__pwa=1',
   };
 
-  const [gotToListHovered, setGoToListHovered] = useState<boolean>(false);
+  const { year } = useParams();
+
+  const [goToListHovered, setGoToListHovered] = useState<boolean>(false);
   const [isSocialIconHovered, setIsSocialIconHovered] =
     useState<SocialIconHovered>({
       Behance: false,
@@ -67,9 +70,9 @@ const StudentHeroSection = ({
           paths={[
             {
               content: 'Student Exhibition',
-              path: '/student',
+              path: `/student/${year}`,
             },
-            { content: '2024', path: '/student' },
+            { content: '2024', path: `/student/${year}` },
           ]}
           currentPage="View Detail"
         />
@@ -135,8 +138,8 @@ const StudentHeroSection = ({
           {/* Routing Area */}
           <S.RoutingArea>
             <GoToList
-              route="/student"
-              isHovered={gotToListHovered}
+              route={`/student/${year}`}
+              isHovered={goToListHovered}
               onMouseEnter={handleGoToListEnter}
               onMouseLeave={handleGoToListLeave}
             />
