@@ -1,8 +1,2 @@
-@import 'variables';
-@import 'mixins';
-
-@import 'normalize';
-@import 'base';
-
-@import 'spacing';
-@import 'typography';
+@use 'normalize';
+@use 'base';
