@@ -1,28 +1,6 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "target": "ES2020", // 최신 JavaScript 기능 사용
-    "module": "ESNext", // Vite는 ES 모듈을 사용하므로 "esnext" 설정
-    "useDefineForClassFields": true, // 클래스 필드의 초기화를 JavaScript의 define 동작으로 할지 결정
-    "lib": ["ES2020", "DOM", "DOM.Iterable"], // DOM 관련 타입과 최신 JavaScript 기능
-    "allowJs": false, // JavaScript 파일을 사용하지 않음
-    "skipLibCheck": true, // 라이브러리 타입 검사 생략하여 빌드 속도 개선
-    "esModuleInterop": true, // ES6 모듈 및 CommonJS 호환성
-    "allowSyntheticDefaultImports": true, // import 구문을 ES6 스타일로 허용
-    "forceConsistentCasingInFileNames": true, // 파일명 대소문자 일관성
-    "moduleResolution": "Node", // Node.js 방식으로 모듈 탐색
-    "isolatedModules": true, // 개별 모듈 컴파일 설정 (Vite와 호환성)
-    "noEmit": true, // 컴파일 시 결과 파일을 내보내지 않음
-    "jsx": "react-jsx", // React 17 이상에서 JSX 변환 설정
-    "types": ["vite/client"], // Vite 클라이언트 타입 설정
-    // "allowImportingTsExtensions": true, // import 구문에서 .ts 확장자를 포함하여 가져올 수 있는지를 결정
-    // "resolveJsonModule": true, // JSON 파일을 모듈처럼 불러올 수 있음
-
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true, // 선언된 변수가 사용되지 않을 경우 오류를 발생
-    "noUnusedParameters": true, // 함수의 매개변수가 사용되지 않으면 오류를 발생
-    "noFallthroughCasesInSwitch": true, // switch문에서 case 블록에 break, return, throw 등이 없으면 오류를 발생
-
     "baseUrl": ".", // 경로 설정 기준
     "paths": {
       "@api/*": ["src/api/*"],
@@ -38,7 +16,5 @@
       "@styles/*": ["src/styles/*"],
       "@utils/*": ["src/utils/*"]
     }
-  },
-  "include": ["src"], // 타입 검사 포함 디렉토리
-  "exclude": ["node_modules"] // 타입 검사 제외 디렉토리
+  }
 }
