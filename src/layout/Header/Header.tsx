@@ -35,6 +35,33 @@ const Header = (): JSX.Element => {
   const location: Location = useLocation();
   const isHomePage = location.pathname === '/';
 
+  const [isHidden, setIsHidden] = useState<boolean>(false);
+  const [lastScrollY, setLastScrollY] = useState<number>(0);
+
+  const hideTransition = {
+    type: 'tween',
+    duration: 0.24,
+    ease: 'easeInOut',
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const scrollGap = currentScrollY - lastScrollY;
+
+      if (scrollGap > 0 && currentScrollY > 70) {
+        setIsHidden(true);
+      } else {
+        setIsHidden(false);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
+
   // Navbar Hover 전역 상태 관리 (Zustand)
   const hoveredNavbarOption = useDropdownStore((state) => state.navbarOption);
   const setHoveredNavbarOption = useDropdownStore(
@@ -123,6 +150,10 @@ const Header = (): JSX.Element => {
   return (
     <>
       <S.HeaderContainer
+        initial={{ y: 0 }}
+        animate={{ y: isHidden ? '-100%' : '0%' }}
+        exit={{ y: '-100%' }}
+        transition={hideTransition}
         $isHomePage={isHomePage}
         $isNavbarHovered={hoveredNavbarOption !== ''}
         $isDropdownHover={hoveredDropdown !== ''}
