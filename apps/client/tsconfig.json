@@ -16,5 +16,7 @@
       "@styles/*": ["src/styles/*"],
       "@utils/*": ["src/utils/*"]
     }
-  }
+  },
+  "include": ["src"], // 타입 검사 포함 디렉토리
+  "exclude": ["node_modules"] // 타입 검사 제외 디렉토리
 }

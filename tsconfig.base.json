@@ -22,7 +22,5 @@
     "noFallthroughCasesInSwitch": true, // switch문에서 case 블록에 break, return, throw 등이 없으면 오류를 발생
 
     "baseUrl": "." // 경로 설정 기준
-  },
-  "include": ["src"], // 타입 검사 포함 디렉토리
-  "exclude": ["node_modules"] // 타입 검사 제외 디렉토리
+  }
 }
