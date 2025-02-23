@@ -4,15 +4,19 @@ export const HeroSectionContainer = styled.section`
   position: relative;
 
   width: 100%;
-  max-width: 70%;
   height: fit-content;
+  padding: 0 15.8rem;
   padding-top: 25.7rem;
-  margin: 0 auto;
   margin-bottom: 13.4rem;
 
   display: flex;
   justify-content: center;
   gap: 16rem;
+
+  @media (max-width: 1440px) {
+    max-width: 70%;
+    margin: 0 auto;
+  }
 `;
 
 // Thumbnail
