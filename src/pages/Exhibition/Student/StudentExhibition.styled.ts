@@ -10,7 +10,6 @@ export const StudentExhibitionContainer = styled.div`
 export const ExhibitionContainer = styled.div`
   width: 100%;
   height: fit-content;
-  /* padding: 11.7rem 0; */
 
   display: flex;
   justify-content: center;
@@ -27,17 +26,15 @@ export const StudentExhibitionGalleryContainer = styled.div`
 
   display: flex;
   flex-direction: column;
-  gap: 8.8rem;
 `;
 
 export const StudentExhibitionGalleryTitle = styled.h1`
+  margin-bottom: 8.5rem;
+
   ${({ theme }) => theme.fontStyles.Header1};
   color: ${({ theme }) => theme.colors.HID_Grayscale[800]};
 
   span {
     color: ${({ theme }) => theme.colors.HID_YellowDot};
-
-    user-select: auto;
-    -webkit-user-select: auto;
   }
 `;
