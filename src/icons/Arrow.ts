@@ -15,7 +15,9 @@ export const LeftArrow = styled(leftArrow)<{ $isHovered: boolean }>`
         fill-opacity: 1;
       `};
 
-    transition: fill 0.3s ease;
+    transition:
+      fill 0.3s ease,
+      fill-opacity 0.2s ease;
   }
 
   z-index: 10; // 애니메이션을 위한 포지셔닝
@@ -30,7 +32,9 @@ export const RightArrow = styled(rightArrow)<{ $isHovered: boolean }>`
         fill-opacity: 1;
       `};
 
-    transition: fill 0.3s ease;
+    transition:
+      fill 0.3s ease,
+      fill-opacity 0.2s ease;
   }
 
   z-index: 10; // 애니메이션을 위한 포지셔닝

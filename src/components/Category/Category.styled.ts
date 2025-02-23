@@ -3,10 +3,10 @@ import styled, { css } from 'styled-components';
 export const CategoryContainer = styled.ul<{ $currentPath: string }>`
   position: sticky;
   top: ${({ $currentPath }) => $currentPath === '/faculty' && '18%'};
-  top: ${({ $currentPath }) => $currentPath === '/graduation' && '15%'};
-  top: ${({ $currentPath }) => $currentPath === '/student' && '15%'};
+  top: ${({ $currentPath }) => $currentPath.includes('/graduation') && '15%'};
+  top: ${({ $currentPath }) => $currentPath.includes('/student') && '28%'};
 
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   gap: 3.2rem;
 `;
