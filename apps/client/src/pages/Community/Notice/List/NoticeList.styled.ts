@@ -1,0 +1,158 @@
+import styled, { css } from 'styled-components';
+
+export const NoticeListWrapper = styled.div`
+  width: 100%;
+  height: fit-content;
+  margin-top: 70px;
+  padding: 0 15.8rem 23.2rem 15.8rem;
+
+  display: flex;
+  gap: 23.3rem;
+`;
+
+export const NoticeCategoryContainer = styled.section`
+  width: 100%;
+  height: fit-content;
+  padding-top: 6.8rem;
+
+  display: flex;
+  gap: 23.3rem;
+`;
+
+export const CategoryStickyContainer = styled.section`
+  position: relative;
+  margin: 10rem 0;
+`;
+
+export const NoticeContainer = styled.section`
+  flex-grow: 1;
+
+  width: 100%;
+  height: fit-content;
+`;
+
+// 게시판 Header
+export const NoticeHeader = styled.section`
+  width: 100%;
+  height: fit-content;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+`;
+
+export const NoticeTitleContainer = styled.div`
+  width: 100%;
+  height: fit-content;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+`;
+
+export const BoldDivider = styled.div`
+  width: 100%;
+  height: 4px;
+  background-color: ${({ theme }) => theme.colors.HID_Grayscale[800]};
+`;
+
+export const NoticeTitle = styled.h2`
+  ${({ theme }) => theme.fontStyles.Header1}
+  color: ${({ theme }) => theme.colors.HID_Grayscale[800]};
+
+  span {
+    color: ${({ theme }) => theme.colors.HID_YellowDot};
+  }
+`;
+
+// 게시판 Main
+export const NoticeBoard = styled.ul`
+  width: 100%;
+  height: fit-content;
+
+  display: flex;
+  flex-direction: column;
+`;
+
+// Board Header
+export const BoardHeaderContainer = styled.section`
+  width: 100%;
+  height: fit-content;
+
+  display: flex;
+  flex-direction: column;
+`;
+
+export const NoticeBoardRowStyles = css`
+  width: 100%;
+  height: fit-content;
+  padding-right: 4.4rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  white-space: nowrap;
+`;
+
+const BoardHeaderStyles = css`
+  ${({ theme }) => theme.fontStyles.Body3}
+  letter-spacing: -0.28px;
+  color: ${({ theme }) => theme.colors.HID_Grayscale[900]};
+`;
+
+export const NoticeBoardHeaderRow = styled.div`
+  ${NoticeBoardRowStyles}
+  margin: 2.8rem 0;
+
+  ${BoardHeaderStyles}
+`;
+
+// Title Header
+export const BoardTitle = styled.span`
+  width: 60%;
+  height: fit-content;
+
+  font-weight: 700;
+`;
+
+// Credit Header
+export const NoticeBoardCredit = styled.div`
+  flex-grow: 1;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const creditWidthStyles = css`
+  flex: 1;
+  text-align: center;
+`;
+
+export const UploadDateTitle = styled.span`
+  ${creditWidthStyles}
+`;
+
+export const AuthorTitle = styled.span`
+  ${creditWidthStyles}
+`;
+
+export const AttatchmentTitle = styled.span`
+  ${creditWidthStyles}
+`;
+
+// 게시글 하단 Divider (Unit)
+export const ThinDivider = styled.div`
+  width: 100%;
+  height: 1px;
+
+  background-color: ${({ theme }) => theme.colors.HID_Grayscale[200]};
+`;
+
+export const PaginationWrapper = styled.div`
+  width: fit-content;
+  height: fit-content;
+  padding-left: 0.8rem;
+  margin-top: 4.8rem;
+`;

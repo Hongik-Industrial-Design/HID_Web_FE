@@ -1,0 +1,356 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "기자재 대여 안내",
+      "important": true,
+      "credit": {
+        "postDate": "2024.03.02",
+        "author": "TA",
+        "attatchment": {
+          "url": "https://HID_Notice.pdf",
+          "name": "기자재 대여 안내"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "title": "조교실 이용 안내 조교실 이용 안내 조교실 이용 안내 조교실 이용 안내 조교실 이용 안내 조교실 이용 안내 ",
+      "important": false,
+      "credit": {
+        "postDate": "2024.03.01",
+        "author": "TA",
+        "attatchment": {
+          "url": "https://HID_Notice.pdf",
+          "name": "조교실 이용 안내"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "title": "코스트랙 변경 사항 안내",
+      "important": false,
+      "credit": {
+        "postDate": "2024.02.28",
+        "author": "TA"
+      }
+    },
+    {
+      "id": 4,
+      "title": "새내기 카페 가입 안내 새내기 카페 가입 안내 새내기 카페 가입 안내 새내기 카페 가입 안내 새내기 카페 가입 안내 ",
+      "important": false,
+      "credit": {
+        "postDate": "2024.02.24",
+        "author": "Council",
+        "attatchment": {
+          "url": "https://HID_Notice.pdf",
+          "name": "새내기 카페 가입 안내"
+        }
+      }
+    },
+    {
+      "id": 5,
+      "title": "기자재 대여 안내",
+      "important": true,
+      "credit": {
+        "postDate": "2024.03.02",
+        "author": "TA",
+        "attatchment": {
+          "url": "https://HID_Notice.pdf",
+          "name": "기자재 대여 안내"
+        }
+      }
+    },
+    {
+      "id": 6,
+      "title": "기자재 대여 안내",
+      "important": false,
+      "credit": {
+        "postDate": "2024.03.02",
+        "author": "TA",
+        "attatchment": {
+          "url": "https://HID_Notice.pdf",
+          "name": "기자재 대여 안내"
+        }
+      }
+    },
+    {
+      "id": 7,
+      "title": "기자재 대여 안내",
+      "important": true,
+      "credit": {
+        "postDate": "2024.03.02",
+        "author": "TA",
+        "attatchment": {
+          "url": "https://HID_Notice.pdf",
+          "name": "기자재 대여 안내"
+        }
+      }
+    },
+    {
+      "id": 8,
+      "title": "기자재 대여 안내",
+      "important": true,
+      "credit": {
+        "postDate": "2024.03.02",
+        "author": "TA",
+        "attatchment": {
+          "url": "https://HID_Notice.pdf",
+          "name": "기자재 대여 안내"
+        }
+      }
+    },
+    {
+      "id": 9,
+      "title": "조교실 이용 안내 조교실 이용 안내 조교실 이용 안내 조교실 이용 안내 조교실 이용 안내 조교실 이용 안내 ",
+      "important": false,
+      "credit": {
+        "postDate": "2024.03.01",
+        "author": "TA",
+        "attatchment": {
+          "url": "https://HID_Notice.pdf",
+          "name": "조교실 이용 안내"
+        }
+      }
+    },
+    {
+      "id": 10,
+      "title": "코스트랙 변경 사항 안내",
+      "important": false,
+      "credit": {
+        "postDate": "2024.02.28",
+        "author": "TA"
+      }
+    },
+    {
+      "id": 11,
+      "title": "새내기 카페 가입 안내 새내기 카페 가입 안내 새내기 카페 가입 안내 새내기 카페 가입 안내 새내기 카페 가입 안내 ",
+      "important": false,
+      "credit": {
+        "postDate": "2024.02.24",
+        "author": "Council",
+        "attatchment": {
+          "url": "https://HID_Notice.pdf",
+          "name": "새내기 카페 가입 안내"
+        }
+      }
+    },
+    {
+      "id": 12,
+      "title": "기자재 대여 안내",
+      "important": true,
+      "credit": {
+        "postDate": "2024.03.02",
+        "author": "TA",
+        "attatchment": {
+          "url": "https://HID_Notice.pdf",
+          "name": "기자재 대여 안내"
+        }
+      }
+    },
+    {
+      "id": 13,
+      "title": "기자재 대여 안내",
+      "important": false,
+      "credit": {
+        "postDate": "2024.03.02",
+        "author": "TA",
+        "attatchment": {
+          "url": "https://HID_Notice.pdf",
+          "name": "기자재 대여 안내"
+        }
+      }
+    },
+    {
+      "id": 14,
+      "title": "기자재 대여 안내",
+      "important": true,
+      "credit": {
+        "postDate": "2024.03.02",
+        "author": "TA",
+        "attatchment": {
+          "url": "https://HID_Notice.pdf",
+          "name": "기자재 대여 안내"
+        }
+      }
+    },
+    {
+      "id": 15,
+      "title": "기자재 대여 안내",
+      "important": true,
+      "credit": {
+        "postDate": "2024.03.02",
+        "author": "TA",
+        "attatchment": {
+          "url": "https://HID_Notice.pdf",
+          "name": "기자재 대여 안내"
+        }
+      }
+    },
+    {
+      "id": 16,
+      "title": "조교실 이용 안내 조교실 이용 안내 조교실 이용 안내 조교실 이용 안내 조교실 이용 안내 조교실 이용 안내 ",
+      "important": false,
+      "credit": {
+        "postDate": "2024.03.01",
+        "author": "TA",
+        "attatchment": {
+          "url": "https://HID_Notice.pdf",
+          "name": "조교실 이용 안내"
+        }
+      }
+    },
+    {
+      "id": 17,
+      "title": "코스트랙 변경 사항 안내",
+      "important": false,
+      "credit": {
+        "postDate": "2024.02.28",
+        "author": "TA"
+      }
+    },
+    {
+      "id": 18,
+      "title": "새내기 카페 가입 안내 새내기 카페 가입 안내 새내기 카페 가입 안내 새내기 카페 가입 안내 새내기 카페 가입 안내 ",
+      "important": false,
+      "credit": {
+        "postDate": "2024.02.24",
+        "author": "Council",
+        "attatchment": {
+          "url": "https://HID_Notice.pdf",
+          "name": "새내기 카페 가입 안내"
+        }
+      }
+    },
+    {
+      "id": 19,
+      "title": "기자재 대여 안내",
+      "important": true,
+      "credit": {
+        "postDate": "2024.03.02",
+        "author": "TA",
+        "attatchment": {
+          "url": "https://HID_Notice.pdf",
+          "name": "기자재 대여 안내"
+        }
+      }
+    },
+    {
+      "id": 20,
+      "title": "기자재 대여 안내",
+      "important": false,
+      "credit": {
+        "postDate": "2024.03.02",
+        "author": "TA",
+        "attatchment": {
+          "url": "https://HID_Notice.pdf",
+          "name": "기자재 대여 안내"
+        }
+      }
+    },
+    {
+      "id": 21,
+      "title": "기자재 대여 안내",
+      "important": true,
+      "credit": {
+        "postDate": "2024.03.02",
+        "author": "TA",
+        "attatchment": {
+          "url": "https://HID_Notice.pdf",
+          "name": "기자재 대여 안내"
+        }
+      }
+    },
+    {
+      "id": 22,
+      "title": "기자재 대여 안내",
+      "important": true,
+      "credit": {
+        "postDate": "2024.03.02",
+        "author": "TA",
+        "attatchment": {
+          "url": "https://HID_Notice.pdf",
+          "name": "기자재 대여 안내"
+        }
+      }
+    },
+    {
+      "id": 23,
+      "title": "조교실 이용 안내 조교실 이용 안내 조교실 이용 안내 조교실 이용 안내 조교실 이용 안내 조교실 이용 안내 ",
+      "important": false,
+      "credit": {
+        "postDate": "2024.03.01",
+        "author": "TA",
+        "attatchment": {
+          "url": "https://HID_Notice.pdf",
+          "name": "조교실 이용 안내"
+        }
+      }
+    },
+    {
+      "id": 24,
+      "title": "코스트랙 변경 사항 안내",
+      "important": false,
+      "credit": {
+        "postDate": "2024.02.28",
+        "author": "TA"
+      }
+    },
+    {
+      "id": 25,
+      "title": "새내기 카페 가입 안내 새내기 카페 가입 안내 새내기 카페 가입 안내 새내기 카페 가입 안내 새내기 카페 가입 안내 ",
+      "important": false,
+      "credit": {
+        "postDate": "2024.02.24",
+        "author": "Council",
+        "attatchment": {
+          "url": "https://HID_Notice.pdf",
+          "name": "새내기 카페 가입 안내"
+        }
+      }
+    },
+    {
+      "id": 26,
+      "title": "기자재 대여 안내",
+      "important": true,
+      "credit": {
+        "postDate": "2024.03.02",
+        "author": "TA",
+        "attatchment": {
+          "url": "https://HID_Notice.pdf",
+          "name": "기자재 대여 안내"
+        }
+      }
+    },
+    {
+      "id": 27,
+      "title": "기자재 대여 안내",
+      "important": false,
+      "credit": {
+        "postDate": "2024.03.02",
+        "author": "TA",
+        "attatchment": {
+          "url": "https://HID_Notice.pdf",
+          "name": "기자재 대여 안내"
+        }
+      }
+    },
+    {
+      "id": 28,
+      "title": "기자재 대여 안내",
+      "important": true,
+      "credit": {
+        "postDate": "2024.03.02",
+        "author": "TA",
+        "attatchment": {
+          "url": "https://HID_Notice.pdf",
+          "name": "기자재 대여 안내"
+        }
+      }
+    }
+  ],
+  "totalPages": 14,
+  "currentPage": 1,
+  "pageSize": 10,
+  "totalItems": 100
+}
