@@ -10,8 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@shared/styles": "workspace:^",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "styled-components": "^6.1.12"
   },
   "devDependencies": {
     "@types/react": "^19.0.8",
@@ -20,5 +22,8 @@
     "globals": "^15.14.0",
     "typescript": "~5.7.2",
     "vite": "^6.1.0"
+  },
+  "installConfig": {
+    "hoisting": true
   }
 }

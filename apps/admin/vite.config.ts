@@ -9,6 +9,14 @@ const __dirname = path.dirname(__filename);
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "@shared/styles/global/main.scss";`,
+        includePaths: [path.resolve(__dirname, 'node_modules')],
+      },
+    },
+  },
   resolve: {
     alias: {
       '@api': path.resolve(__dirname, './src/api'),
