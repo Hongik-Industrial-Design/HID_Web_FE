@@ -12,7 +12,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "@shared/styles/global/main.scss";`,
+        additionalData: `@use "@shared/styles/global/main.scss";`,
         includePaths: [path.resolve(__dirname, 'node_modules')],
       },
     },
