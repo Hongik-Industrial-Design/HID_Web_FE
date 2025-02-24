@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.ts",
   "peerDependencies": {
+    "sass": "^1.85.0",
     "styled-components": "^6.1.15"
   }
 }
