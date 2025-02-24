@@ -8,8 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint .",
-    "format": "prettier --write .",
-    "prepare": "husky"
+    "format": "prettier --write ."
   },
   "lint-staged": {
     "**/*.{js,ts,tsx}": [
