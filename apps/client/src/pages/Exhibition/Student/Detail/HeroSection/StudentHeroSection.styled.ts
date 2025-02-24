@@ -1,13 +1,17 @@
 import styled from 'styled-components';
 
+export const YoutubeEmbedWrapper = styled.div`
+  width: 100%;
+  height: fit-content;
+  padding: 22.5rem 15.8rem 13.4rem;
+  /* margin-bottom: 13.4rem; */
+`;
+
 export const HeroSectionContainer = styled.section`
   position: relative;
 
   width: 100%;
   height: fit-content;
-  padding: 0 15.8rem;
-  padding-top: 25.7rem;
-  margin-bottom: 13.4rem;
 
   display: flex;
   justify-content: center;

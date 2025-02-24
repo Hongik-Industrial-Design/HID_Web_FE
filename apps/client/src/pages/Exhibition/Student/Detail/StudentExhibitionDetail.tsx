@@ -8,6 +8,7 @@ import { ArtworkInfos } from './StudentArtwork.types';
 import StudentHeroSection from './HeroSection/StudentHeroSection';
 import StudentArtworkSection from './ArtworkSection/StudentArtworkSection';
 import StudentTeamMemberSection from './TeamMemberSection/StudentTeamMemberSection';
+import Loading from '@components/Loading/Loading';
 
 import * as S from './StudentExhibitionDetail.styled';
 
@@ -32,7 +33,7 @@ const StudentExhibitionDetail = (): JSX.Element => {
   return (
     <S.ExhibitionDetailWrapper>
       {status === 'pending' ? (
-        <span>Loading...</span>
+        <Loading />
       ) : status === 'error' ? (
         <span>Error: {error.message}</span>
       ) : (
