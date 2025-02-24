@@ -1,0 +1,8 @@
+{
+  "name": "@shared/styles",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "peerDependencies": {
+    "styled-components": "^6.1.15"
+  }
+}
