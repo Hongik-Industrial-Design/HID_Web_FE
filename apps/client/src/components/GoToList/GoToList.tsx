@@ -3,7 +3,7 @@ import { JSX } from 'react/jsx-runtime';
 import * as S from './GoToList.styled';
 
 type GoToListProps = {
-  route: string;
+  route?: string;
   isHovered: boolean;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
