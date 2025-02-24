@@ -28,5 +28,12 @@ export default defineConfig({
   },
   server: {
     port: 3000,
+    // proxy: {
+    //   '/youtube': {
+    //     target: 'https://www.youtube.com',
+    //     changeOrigin: true,
+    //     secure: false,
+    //   },
+    // },
   },
 });

@@ -1,5 +1,5 @@
 import { JSX } from 'react/jsx-runtime';
-import YouTube, { YouTubeProps } from 'react-youtube';
+import YouTube, { YouTubeEvent, YouTubeProps } from 'react-youtube';
 
 import { getYotubeVideoId } from '@utils/getYoutubeVideoId';
 
@@ -10,7 +10,9 @@ type YoutubeEmbedProps = {
 };
 
 const YoutubeEmbed = ({ youtubeUrl }: YoutubeEmbedProps): JSX.Element => {
-  const onPlayerReady: YouTubeProps['onReady'] = (e) => {
+  const origin = window.location.origin;
+
+  const onPlayerReady: YouTubeProps['onReady'] = (e: YouTubeEvent) => {
     e.target.pauseVideo();
   };
 
@@ -21,6 +23,8 @@ const YoutubeEmbed = ({ youtubeUrl }: YoutubeEmbedProps): JSX.Element => {
       autoplay: 0,
       color: 'white',
       controls: 1,
+      rel: 0,
+      origin: origin,
     },
   };
 
