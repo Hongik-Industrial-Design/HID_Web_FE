@@ -10,7 +10,6 @@ const __dirname = path.dirname(__filename);
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), svgr()],
-  root: path.resolve(__dirname, ''),
   resolve: {
     alias: {
       '@api': path.resolve(__dirname, './src/api'),
