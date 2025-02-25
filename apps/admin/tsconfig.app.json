@@ -1,8 +1,7 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-
+    "types": ["@shared/styles"],
     "baseUrl": ".", // 경로 설정 기준
     "paths": {
       "@api/*": ["src/api/*"],
