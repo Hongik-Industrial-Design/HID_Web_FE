@@ -2,10 +2,11 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "paths": {
+      "@assets/*": ["apps/client/src/assets/*"],
       "@constants/*": ["apps/client/src/constants/*"],
       "@components/*": ["apps/client/src/components/*"],
       "@icons/*": ["apps/client/src/icons/*"],
-      "@utils/*": ["apps/client/src/utils/*"],
+      "@utils/*": ["apps/client/src/utils/*"]
     }
   },
   "include": ["src"]
