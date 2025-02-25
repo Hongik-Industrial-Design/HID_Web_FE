@@ -12,6 +12,7 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "esbuild-plugin-svgr": "^3.1.0",
     "tsup": "^8.3.6",
     "typescript": "^5.7.3"
   },

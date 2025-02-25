@@ -1,4 +1,5 @@
 import { defineConfig } from 'tsup';
+import svgrPlugin from 'esbuild-plugin-svgr';
 
 export default defineConfig({
   entry: ['src/index.ts'],
@@ -6,4 +7,5 @@ export default defineConfig({
   dts: true,
   sourcemap: true,
   clean: true,
+  esbuildPlugins: [svgrPlugin()],
 });
