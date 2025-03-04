@@ -9,7 +9,9 @@ const Layout = (): JSX.Element => {
   return (
     <S.LayoutWrapper>
       <GlobalNavbar />
-      <Outlet />
+      <S.ContentWrapper>
+        <Outlet />
+      </S.ContentWrapper>
     </S.LayoutWrapper>
   );
 };

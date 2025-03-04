@@ -7,3 +7,9 @@ export const LayoutWrapper = styled.div`
   min-height: 100vh;
   margin-top: 70px;
 `;
+
+export const ContentWrapper = styled.main`
+  width: 100%;
+  height: fit-content;
+  padding: 6.4rem 15.8rem 0;
+`;
