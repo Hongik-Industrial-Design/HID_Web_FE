@@ -4,6 +4,7 @@ import { useCallback, useState } from 'react';
 import { GRADUATION_EXHIBITION_MAJOR_LIST } from '@constants/Exhibition';
 
 import MajorRadioButtonGroup from '@components/Button/MajorRadio/MajorRadioButtonGroup';
+import ExhibitionTextInput from '@components/Input/Exhibition/ExhibitionTextInput';
 
 import * as S from './ExhibitionRegister.styled';
 
@@ -19,17 +20,33 @@ const ExhibitionRegister = (): JSX.Element => {
   return (
     <S.ExhibitionRegisterContainer>
       <S.ArtworkInfoTitle>
-        Artwork Information <span>.</span>
+        Artwork Information<span>.</span>
       </S.ArtworkInfoTitle>
       <S.DetailInfoSection>
         <S.DetailInfoTitle>
-          Detail Infos <span>.</span>
+          Detail Infos<span>.</span>
         </S.DetailInfoTitle>
-        <MajorRadioButtonGroup
-          majorList={majorList}
-          selectedMajor={selectedMajor}
-          handleMajorClick={handleMajorClick}
-        />
+        {/* Major */}
+        <S.DetailInfoUnit>
+          <S.DetailInfoInputLabel>Major</S.DetailInfoInputLabel>
+          <MajorRadioButtonGroup
+            majorList={majorList}
+            selectedMajor={selectedMajor}
+            handleMajorClick={handleMajorClick}
+          />
+        </S.DetailInfoUnit>
+
+        {/* Title */}
+        <S.DetailInfoUnit>
+          <S.DetailInfoInputLabel>Title</S.DetailInfoInputLabel>
+          <ExhibitionTextInput placeholder="Enter Artwork Title." />
+        </S.DetailInfoUnit>
+
+        {/* SubTitle */}
+        <S.DetailInfoUnit>
+          <S.DetailInfoInputLabel>Subtitle</S.DetailInfoInputLabel>
+          <ExhibitionTextInput placeholder="Enter Artwork Subtitle." />
+        </S.DetailInfoUnit>
       </S.DetailInfoSection>
     </S.ExhibitionRegisterContainer>
   );
