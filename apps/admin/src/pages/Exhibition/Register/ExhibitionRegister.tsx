@@ -5,6 +5,7 @@ import { GRADUATION_EXHIBITION_MAJOR_LIST } from '@constants/Exhibition';
 
 import MajorRadioButtonGroup from '@components/Button/MajorRadio/MajorRadioButtonGroup';
 import ExhibitionTextInput from '@components/Input/Exhibition/ExhibitionTextInput';
+import DescriptionInput from '@components/Input/Description/DescriptionInput';
 
 import * as S from './ExhibitionRegister.styled';
 
@@ -26,27 +27,51 @@ const ExhibitionRegister = (): JSX.Element => {
         <S.DetailInfoTitle>
           Detail Infos<span>.</span>
         </S.DetailInfoTitle>
-        {/* Major */}
-        <S.DetailInfoUnit>
-          <S.DetailInfoInputLabel>Major</S.DetailInfoInputLabel>
-          <MajorRadioButtonGroup
-            majorList={majorList}
-            selectedMajor={selectedMajor}
-            handleMajorClick={handleMajorClick}
-          />
-        </S.DetailInfoUnit>
 
-        {/* Title */}
-        <S.DetailInfoUnit>
-          <S.DetailInfoInputLabel>Title</S.DetailInfoInputLabel>
-          <ExhibitionTextInput placeholder="Enter Artwork Title." />
-        </S.DetailInfoUnit>
+        <S.DetailInfoContainer>
+          <S.MajorTitleSection>
+            {/* Major */}
+            <S.DetailInfoUnit>
+              <S.DetailInfoInputLabel>Major</S.DetailInfoInputLabel>
+              <MajorRadioButtonGroup
+                majorList={majorList}
+                selectedMajor={selectedMajor}
+                handleMajorClick={handleMajorClick}
+              />
+            </S.DetailInfoUnit>
 
-        {/* SubTitle */}
-        <S.DetailInfoUnit>
-          <S.DetailInfoInputLabel>Subtitle</S.DetailInfoInputLabel>
-          <ExhibitionTextInput placeholder="Enter Artwork Subtitle." />
-        </S.DetailInfoUnit>
+            {/* Title */}
+            <S.DetailInfoUnit>
+              <S.DetailInfoInputLabel>Title</S.DetailInfoInputLabel>
+              <ExhibitionTextInput placeholder="Enter Artwork Title." />
+            </S.DetailInfoUnit>
+
+            {/* SubTitle */}
+            <S.DetailInfoUnit>
+              <S.DetailInfoInputLabel>Subtitle</S.DetailInfoInputLabel>
+              <ExhibitionTextInput placeholder="Enter Artwork Subtitle." />
+            </S.DetailInfoUnit>
+          </S.MajorTitleSection>
+
+          {/* Description */}
+          <S.DescriptionSection>
+            <S.DescriptionLabel>Description (ENG/KOR)</S.DescriptionLabel>
+            <S.DescriptionUnit>
+              <S.LanguageDescriptionContainer>
+                <S.LanguageDescriptionLabel>ENG</S.LanguageDescriptionLabel>
+                <S.DescriptionDivider />
+              </S.LanguageDescriptionContainer>
+              <DescriptionInput language="English" />
+            </S.DescriptionUnit>
+            <S.DescriptionUnit>
+              <S.LanguageDescriptionContainer>
+                <S.LanguageDescriptionLabel>KOR</S.LanguageDescriptionLabel>
+                <S.DescriptionDivider />
+              </S.LanguageDescriptionContainer>
+              <DescriptionInput language="Korean" />
+            </S.DescriptionUnit>
+          </S.DescriptionSection>
+        </S.DetailInfoContainer>
       </S.DetailInfoSection>
     </S.ExhibitionRegisterContainer>
   );

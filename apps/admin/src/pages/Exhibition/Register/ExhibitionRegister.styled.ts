@@ -34,19 +34,81 @@ export const DetailInfoTitle = styled.h2`
 `;
 
 // Major, Title, SubTitle, Description
+export const DetailInfoContainer = styled.div`
+  width: 100%;
+  height: fit-content;
+  padding-left: 2.4rem;
+
+  display: flex;
+  flex-direction: column;
+`;
+
+// Major, Title, SubTitle
+export const MajorTitleSection = styled.section`
+  width: 100%;
+  height: fit-content;
+  margin-bottom: 6.4rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+`;
+
 export const DetailInfoUnit = styled.div`
   width: 100%;
   height: fit-content;
-  margin-bottom: 3.2rem;
 
   display: flex;
   align-items: center;
-  gap: 10.8rem;
 `;
 
 export const DetailInfoInputLabel = styled.label`
-  ${({ theme }) => theme.fontStyles.Title4};
+  min-width: 16rem; // 정렬을 위해서 최소 너비 설정
+
+  ${({ theme }) => theme.fontStyles.Title4}
   color: ${({ theme }) => theme.colors.HID_Grayscale[600]};
 `;
 
-// Title & SubTitle Input
+// Description
+export const DescriptionSection = styled.section`
+  width: 100%;
+  height: fit-content;
+
+  display: flex;
+  flex-direction: column;
+`;
+
+export const DescriptionLabel = styled(DetailInfoInputLabel)`
+  margin-bottom: 4rem;
+`;
+
+export const DescriptionUnit = styled(DetailInfoUnit)`
+  padding-left: 6.4rem;
+  margin-bottom: 4.8rem;
+
+  align-items: flex-start;
+  gap: 0;
+`;
+
+export const DescriptionDivider = styled.hr`
+  width: 1px;
+  height: 12px;
+  margin-right: 3.2rem;
+  border-radius: 8px;
+
+  background-color: ${({ theme }) => theme.colors.HID_Grayscale[300]};
+`;
+
+export const LanguageDescriptionContainer = styled.div`
+  width: fit-content;
+  height: fit-content;
+
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+`;
+
+export const LanguageDescriptionLabel = styled.label`
+  ${({ theme }) => theme.fontStyles.Title5};
+  color: ${({ theme }) => theme.colors.HID_Grayscale[600]};
+`;
