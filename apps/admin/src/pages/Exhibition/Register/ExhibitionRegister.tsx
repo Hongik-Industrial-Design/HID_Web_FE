@@ -8,6 +8,7 @@ import ExhibitionTextInput from '@components/Input/Exhibition/ExhibitionTextInpu
 import DescriptionInput from '@components/Input/Description/DescriptionInput';
 
 import * as S from './ExhibitionRegister.styled';
+import { BehanceLogo, LinkedinLogo } from '@icons/SocialLogo';
 
 const ExhibitionRegister = (): JSX.Element => {
   const majorList = GRADUATION_EXHIBITION_MAJOR_LIST;
@@ -71,6 +72,23 @@ const ExhibitionRegister = (): JSX.Element => {
               <DescriptionInput language="Korean" />
             </S.DescriptionUnit>
           </S.DescriptionSection>
+
+          {/* SNS Link */}
+          <S.SocialLinkSection>
+            <S.DetailInfoInputLabel>SNS Link</S.DetailInfoInputLabel>
+            <S.SocialLinkContainer>
+              {/* Behance */}
+              <S.SocialLinkForm>
+                <BehanceLogo />
+                <ExhibitionTextInput placeholder="Enter Behance Link." />
+              </S.SocialLinkForm>
+              {/* Linkedin */}
+              <S.SocialLinkForm>
+                <LinkedinLogo />
+                <ExhibitionTextInput placeholder="Enter Linkedin Link." />
+              </S.SocialLinkForm>
+            </S.SocialLinkContainer>
+          </S.SocialLinkSection>
         </S.DetailInfoContainer>
       </S.DetailInfoSection>
     </S.ExhibitionRegisterContainer>

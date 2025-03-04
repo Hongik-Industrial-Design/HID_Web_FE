@@ -54,7 +54,7 @@ export const MajorTitleSection = styled.section`
   gap: 3.2rem;
 `;
 
-export const DetailInfoUnit = styled.div`
+export const DetailInfoUnit = styled.section`
   width: 100%;
   height: fit-content;
 
@@ -111,4 +111,28 @@ export const LanguageDescriptionContainer = styled.div`
 export const LanguageDescriptionLabel = styled.label`
   ${({ theme }) => theme.fontStyles.Title5};
   color: ${({ theme }) => theme.colors.HID_Grayscale[600]};
+`;
+
+// SNS Link
+export const SocialLinkSection = styled(DetailInfoUnit)`
+  align-items: flex-start;
+`;
+
+export const SocialLinkContainer = styled.div`
+  width: fit-content;
+  height: fit-content;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 2.4rem;
+`;
+
+export const SocialLinkForm = styled.div`
+  width: fit-content;
+  height: fit-content;
+
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
 `;

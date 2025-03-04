@@ -12,5 +12,5 @@ export const LayoutWrapper = styled.div`
 export const ContentWrapper = styled.main`
   width: 100%;
   height: fit-content;
-  padding: 6.4rem 15.8rem 0;
+  padding: 6.4rem 15.8rem 8.4rem;
 `;
