@@ -5,3 +5,10 @@ export const GRADUATION_EXHIBITION_YEAR_LIST = [
   '2022',
   '2021',
 ];
+
+export const GRADUATION_EXHIBITION_MAJOR_LIST = [
+  'Smart Mobility',
+  'Spatial',
+  'Product',
+  'Interaction',
+];
