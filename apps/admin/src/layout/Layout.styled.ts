@@ -4,7 +4,8 @@ export const LayoutWrapper = styled.div`
   position: relative;
 
   width: 100%;
-  min-height: 100vh;
+  height: fit-content;
+  /* min-height: 100vh; */
   margin-top: 70px;
 `;
 
