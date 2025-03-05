@@ -20,6 +20,7 @@ export const ArtworkInfoTitle = styled.h1`
 export const DetailInfoSection = styled.section`
   width: 100%;
   height: fit-content;
+  margin-bottom: 8rem;
 `;
 
 export const DetailInfoTitle = styled.h2`
@@ -129,6 +130,22 @@ export const SocialLinkContainer = styled.div`
 `;
 
 export const SocialLinkForm = styled.div`
+  width: fit-content;
+  height: fit-content;
+
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+`;
+
+// Video
+export const VideoSection = styled.section`
+  width: 100%;
+  height: fit-content;
+  margin-bottom: 8rem;
+`;
+
+export const VideoLinkContainer = styled.section`
   width: fit-content;
   height: fit-content;
 

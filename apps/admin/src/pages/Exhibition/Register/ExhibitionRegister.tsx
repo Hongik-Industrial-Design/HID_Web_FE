@@ -3,12 +3,13 @@ import { useCallback, useState } from 'react';
 
 import { GRADUATION_EXHIBITION_MAJOR_LIST } from '@constants/Exhibition';
 
+import { BehanceLogo, LinkedinLogo } from '@icons/SocialLogo';
 import MajorRadioButtonGroup from '@components/Button/MajorRadio/MajorRadioButtonGroup';
 import ExhibitionTextInput from '@components/Input/Exhibition/ExhibitionTextInput';
 import DescriptionInput from '@components/Input/Description/DescriptionInput';
+import YoutubeCircleLogo from '@components/YoutubeCircleLogo/YoutubeCircleLogo';
 
 import * as S from './ExhibitionRegister.styled';
-import { BehanceLogo, LinkedinLogo } from '@icons/SocialLogo';
 
 const ExhibitionRegister = (): JSX.Element => {
   const majorList = GRADUATION_EXHIBITION_MAJOR_LIST;
@@ -24,6 +25,8 @@ const ExhibitionRegister = (): JSX.Element => {
       <S.ArtworkInfoTitle>
         Artwork Information<span>.</span>
       </S.ArtworkInfoTitle>
+
+      {/* Major, Title, SubTitle, Description */}
       <S.DetailInfoSection>
         <S.DetailInfoTitle>
           Detail Infos<span>.</span>
@@ -91,6 +94,17 @@ const ExhibitionRegister = (): JSX.Element => {
           </S.SocialLinkSection>
         </S.DetailInfoContainer>
       </S.DetailInfoSection>
+
+      {/* Videos */}
+      <S.VideoSection>
+        <S.DetailInfoTitle>
+          Video<span>.</span>
+        </S.DetailInfoTitle>
+        <S.VideoLinkContainer>
+          <YoutubeCircleLogo />
+          <ExhibitionTextInput placeholder="Enter Youtube Link." />
+        </S.VideoLinkContainer>
+      </S.VideoSection>
     </S.ExhibitionRegisterContainer>
   );
 };
