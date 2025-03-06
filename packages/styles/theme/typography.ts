@@ -159,7 +159,7 @@ export const fontStyles: Typography = {
   SubTitle2: css`
     ${CommonFontstyles}
     font-size: clamp(1.4rem, 1.2vw, 2.2rem);
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1;
     letter-spacing: -0.0028em;
   `,
