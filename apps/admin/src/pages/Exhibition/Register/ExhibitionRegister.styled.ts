@@ -179,6 +179,8 @@ export const ImagePreviewContainer = styled.div`
 `;
 
 // Participants
+export const ParticipantSection = styled(DetailInfoSection)``;
+
 export const ParticipantList = styled.div`
   width: 100%;
   height: fit-content;
@@ -188,4 +190,15 @@ export const ParticipantList = styled.div`
   gap: 6.4rem;
 
   overflow-x: scroll;
+`;
+
+// Save & Cancel Button
+export const SaveCancelButtonSection = styled.section`
+  width: 100%;
+  height: fit-content;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.8rem;
 `;

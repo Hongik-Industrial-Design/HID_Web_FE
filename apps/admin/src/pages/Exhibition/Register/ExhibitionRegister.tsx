@@ -16,6 +16,7 @@ import ArtistInfoCard from '@components/ArtistInfoCard/ArtistInfoCard';
 import AddParticipantBox from '@components/AddParticipantBox/AddParticipantBox';
 
 import * as S from './ExhibitionRegister.styled';
+import SaveCancelButton from '@components/Button/SaveCancel/SaveCancelButton';
 
 const ExhibitionRegister = (): JSX.Element => {
   const majorList = GRADUATION_EXHIBITION_MAJOR_LIST;
@@ -203,7 +204,7 @@ const ExhibitionRegister = (): JSX.Element => {
       </S.ExhibitonImageSection>
 
       {/* Participants */}
-      <S.DetailInfoSection>
+      <S.ParticipantSection>
         <S.DetailInfoTitle>
           Participants<span>.</span>
         </S.DetailInfoTitle>
@@ -218,7 +219,13 @@ const ExhibitionRegister = (): JSX.Element => {
           ))}
           <AddParticipantBox addArtistCard={addArtistCard} />
         </S.ParticipantList>
-      </S.DetailInfoSection>
+      </S.ParticipantSection>
+
+      {/* Save & Cancel Button */}
+      <S.SaveCancelButtonSection>
+        <SaveCancelButton buttonType="save" />
+        <SaveCancelButton buttonType="cancel" />
+      </S.SaveCancelButtonSection>
     </S.ExhibitionRegisterContainer>
   );
 };
