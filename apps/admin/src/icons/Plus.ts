@@ -16,3 +16,12 @@ export const PlusIconNavy = styled(plusIconNavy)`
     fill: ${({ theme }) => theme.colors.HID_Navy[900]};
   }
 `;
+
+export const PlusIconGray = styled(plusIconNavy)`
+  width: 1.6rem;
+  height: fit-content;
+
+  path {
+    fill: ${({ theme }) => theme.colors.HID_Grayscale[500]};
+  }
+`;
