@@ -139,7 +139,7 @@ export const SocialLinkForm = styled.div`
 `;
 
 // Video
-export const VideoSection = styled.section`
+export const ExhibitionVideoSection = styled.section`
   width: 100%;
   height: fit-content;
   margin-bottom: 8rem;
@@ -148,8 +148,32 @@ export const VideoSection = styled.section`
 export const VideoLinkContainer = styled.section`
   width: fit-content;
   height: fit-content;
+  padding-left: 1.6rem;
 
   display: flex;
   align-items: center;
   gap: 1.6rem;
+`;
+
+// Images
+export const ExhibitonImageSection = styled.section`
+  width: 100%;
+  height: fit-content;
+  margin-bottom: 8rem;
+`;
+
+export const ImagePreviewScrollContainer = styled.div`
+  width: 100%;
+  height: fit-content;
+
+  overflow-x: scroll;
+`;
+
+export const ImagePreviewContainer = styled.div`
+  width: fit-content;
+  height: fit-content;
+
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
 `;

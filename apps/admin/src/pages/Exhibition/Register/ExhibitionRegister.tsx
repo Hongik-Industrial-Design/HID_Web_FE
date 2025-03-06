@@ -8,6 +8,8 @@ import MajorRadioButtonGroup from '@components/Button/MajorRadio/MajorRadioButto
 import ExhibitionTextInput from '@components/Input/Exhibition/ExhibitionTextInput';
 import DescriptionInput from '@components/Input/Description/DescriptionInput';
 import YoutubeCircleLogo from '@components/YoutubeCircleLogo/YoutubeCircleLogo';
+import ImagePreview from '@components/AddImageBox/Preview/ImagePreview';
+import AddElementBox from '@components/AddImageBox/AddImageBox';
 
 import * as S from './ExhibitionRegister.styled';
 
@@ -18,6 +20,31 @@ const ExhibitionRegister = (): JSX.Element => {
 
   const handleMajorClick = useCallback((major: string) => {
     setSelectedMajor(major);
+  }, []);
+
+  // 전시 이미지 추가 관련
+  const [images, setImages] = useState<string[]>([]);
+
+  const handleImageUpload = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const files = e.target.files;
+
+      console.log('Files: ', files);
+
+      if (files) {
+        // 여러개의 이미지를 한번에 추가할 수 있도록 설정
+        const newImages = Array.from(files).map((file) =>
+          URL.createObjectURL(file)
+        );
+
+        setImages((prevImages) => [...prevImages, ...newImages]);
+      }
+    },
+    []
+  );
+
+  const handleImageDelete = useCallback((imageUrl: string) => {
+    setImages((prevImages) => prevImages.filter((image) => image !== imageUrl));
   }, []);
 
   return (
@@ -96,7 +123,7 @@ const ExhibitionRegister = (): JSX.Element => {
       </S.DetailInfoSection>
 
       {/* Videos */}
-      <S.VideoSection>
+      <S.ExhibitionVideoSection>
         <S.DetailInfoTitle>
           Video<span>.</span>
         </S.DetailInfoTitle>
@@ -104,7 +131,26 @@ const ExhibitionRegister = (): JSX.Element => {
           <YoutubeCircleLogo />
           <ExhibitionTextInput placeholder="Enter Youtube Link." />
         </S.VideoLinkContainer>
-      </S.VideoSection>
+      </S.ExhibitionVideoSection>
+
+      {/* Image */}
+      <S.ExhibitonImageSection>
+        <S.DetailInfoTitle>
+          Images<span>.</span>
+        </S.DetailInfoTitle>
+        <S.ImagePreviewScrollContainer>
+          <S.ImagePreviewContainer>
+            {images.map((image) => (
+              <ImagePreview
+                key={image}
+                image={image}
+                handleImageDelete={() => handleImageDelete(image)}
+              />
+            ))}
+            <AddElementBox handleImageUpload={handleImageUpload} />
+          </S.ImagePreviewContainer>
+        </S.ImagePreviewScrollContainer>
+      </S.ExhibitonImageSection>
     </S.ExhibitionRegisterContainer>
   );
 };
