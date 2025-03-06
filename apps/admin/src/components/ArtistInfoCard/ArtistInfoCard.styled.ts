@@ -10,6 +10,8 @@ export const ArtistInfoCardContainer = styled.div`
 `;
 
 export const ArtistImageContainer = styled.label`
+  position: relative;
+
   width: 18rem;
   height: 18rem;
 
@@ -24,7 +26,39 @@ export const ArtistImageContainer = styled.label`
 
   background-color: ${({ theme }) => theme.colors.HID_Grayscale[200]};
 
+  overflow: hidden;
+
   cursor: pointer;
+`;
+
+export const ArtistProfileImage = styled.img`
+  width: 100%;
+  height: 100%;
+`;
+
+export const ProfileImageOverlay = styled.div<{
+  $isProfileImageHovered: boolean;
+}>`
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #00000080;
+
+  opacity: 0;
+
+  ${({ $isProfileImageHovered }) =>
+    $isProfileImageHovered &&
+    css`
+      opacity: 1;
+    `}
+
+  transition: opacity 0.15s ease-out;
 `;
 
 export const ProfileSelectFileInput = styled.input`
