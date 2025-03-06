@@ -1,7 +1,7 @@
 import { JSX } from 'react/jsx-runtime';
+import { useNavigate } from 'react-router';
 
 import * as S from './SaveCancelButton.styled';
-import { useNavigate } from 'react-router';
 
 type SaveCancelButtonProps = {
   buttonType: 'save' | 'cancel';
