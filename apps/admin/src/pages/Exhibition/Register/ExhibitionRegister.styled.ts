@@ -177,3 +177,15 @@ export const ImagePreviewContainer = styled.div`
   align-items: center;
   gap: 2.4rem;
 `;
+
+// Participants
+export const ParticipantList = styled.div`
+  width: 100%;
+  height: fit-content;
+
+  display: flex;
+  align-items: center;
+  gap: 6.4rem;
+
+  overflow-x: scroll;
+`;

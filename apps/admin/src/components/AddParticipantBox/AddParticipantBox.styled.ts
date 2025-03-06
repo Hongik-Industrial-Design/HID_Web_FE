@@ -2,12 +2,13 @@ import styled from 'styled-components';
 
 export const AddParticipantBoxContainer = styled.label`
   width: 34rem;
-  height: 17.2rem;
+  height: 18rem;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
 
   border-radius: 2px;
   border: 1px dashed ${({ theme }) => theme.colors.HID_Navy[300]};

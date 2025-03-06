@@ -4,9 +4,15 @@ import { PlusIconNavy } from '@icons/Plus';
 
 import * as S from './AddParticipantBox.styled';
 
-const AddParticipantBox = (): JSX.Element => {
+type AddParticipantBoxProps = {
+  addArtistCard: () => void;
+};
+
+const AddParticipantBox = ({
+  addArtistCard,
+}: AddParticipantBoxProps): JSX.Element => {
   return (
-    <S.AddParticipantBoxContainer>
+    <S.AddParticipantBoxContainer onClick={addArtistCard}>
       <S.AddParticipantContent>
         <S.PlusIconContainer>
           <PlusIconNavy />

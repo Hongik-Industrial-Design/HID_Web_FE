@@ -1,6 +1,8 @@
 import { JSX } from 'react/jsx-runtime';
 import { useCallback, useState } from 'react';
 
+import { ArtistInfo } from './Artist.types';
+
 import { GRADUATION_EXHIBITION_MAJOR_LIST } from '@constants/Exhibition';
 
 import { BehanceLogo, LinkedinLogo } from '@icons/SocialLogo';
@@ -10,6 +12,8 @@ import DescriptionInput from '@components/Input/Description/DescriptionInput';
 import YoutubeCircleLogo from '@components/YoutubeCircleLogo/YoutubeCircleLogo';
 import ImagePreview from '@components/AddImageBox/Preview/ImagePreview';
 import AddElementBox from '@components/AddImageBox/AddImageBox';
+import ArtistInfoCard from '@components/ArtistInfoCard/ArtistInfoCard';
+import AddParticipantBox from '@components/AddParticipantBox/AddParticipantBox';
 
 import * as S from './ExhibitionRegister.styled';
 
@@ -46,6 +50,52 @@ const ExhibitionRegister = (): JSX.Element => {
   const handleImageDelete = useCallback((imageUrl: string) => {
     setImages((prevImages) => prevImages.filter((image) => image !== imageUrl));
   }, []);
+
+  // 참여 작가 정보 관련
+  const [artists, setArtists] = useState<ArtistInfo[]>([]);
+
+  // Artist Card 추가
+  const addArtistCard = useCallback(() => {
+    setArtists([
+      ...artists,
+      {
+        id: artists.length + 1,
+        profileImage: '',
+        name: '',
+        major: '',
+        email: '',
+      },
+    ]);
+  }, [artists]);
+
+  const handleArtistProfileChange = (
+    id: number,
+    field: keyof ArtistInfo,
+    value: string
+  ) => {
+    setArtists((prevArtists) =>
+      prevArtists.map((artist) =>
+        artist.id === id ? { ...artist, [field]: value } : artist
+      )
+    );
+  };
+
+  const handleArtistProfileImageUpload = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>, id: number) => {
+      const file = e.target.files?.[0];
+
+      if (file) {
+        const newImage = URL.createObjectURL(file);
+
+        setArtists((prevArtists) =>
+          prevArtists.map((artist) =>
+            artist.id === id ? { ...artist, profileImage: newImage } : artist
+          )
+        );
+      }
+    },
+    []
+  );
 
   return (
     <S.ExhibitionRegisterContainer>
@@ -151,6 +201,24 @@ const ExhibitionRegister = (): JSX.Element => {
           </S.ImagePreviewContainer>
         </S.ImagePreviewScrollContainer>
       </S.ExhibitonImageSection>
+
+      {/* Participants */}
+      <S.DetailInfoSection>
+        <S.DetailInfoTitle>
+          Participants<span>.</span>
+        </S.DetailInfoTitle>
+        <S.ParticipantList>
+          {artists.map((artist) => (
+            <ArtistInfoCard
+              key={artist.id}
+              artistInfo={artist}
+              handleArtistProfileChange={handleArtistProfileChange}
+              handleProfileImageUpload={handleArtistProfileImageUpload}
+            />
+          ))}
+          <AddParticipantBox addArtistCard={addArtistCard} />
+        </S.ParticipantList>
+      </S.DetailInfoSection>
     </S.ExhibitionRegisterContainer>
   );
 };

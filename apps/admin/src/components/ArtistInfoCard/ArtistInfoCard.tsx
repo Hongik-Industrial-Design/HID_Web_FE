@@ -1,18 +1,29 @@
 import { JSX } from 'react/jsx-runtime';
 import { useState } from 'react';
 
-import { PlusIconGray } from '@icons/Plus';
+import { ArtistInfo } from '@pages/Exhibition/Register/Artist.types';
 
-import * as S from './ArtistInfoCard.styled';
+import { PlusIconGray } from '@icons/Plus';
 import { ImageEditIcon } from '@icons/ImageEdit';
 
+import * as S from './ArtistInfoCard.styled';
+
 type ArtistInfoCardProps = {
-  profileImage: string;
-  handleProfileImageUpload: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  artistInfo: ArtistInfo;
+  handleArtistProfileChange: (
+    id: number,
+    field: keyof ArtistInfo,
+    value: string
+  ) => void;
+  handleProfileImageUpload: (
+    e: React.ChangeEvent<HTMLInputElement>,
+    id: number
+  ) => void;
 };
 
 const ArtistInfoCard = ({
-  profileImage,
+  artistInfo,
+  handleArtistProfileChange,
   handleProfileImageUpload,
 }: ArtistInfoCardProps): JSX.Element => {
   const [isProfileImageHovered, setIsProfileImageHovered] =
@@ -30,11 +41,11 @@ const ArtistInfoCard = ({
         <S.ProfileSelectFileInput
           type="file"
           accept="image/*"
-          onChange={handleProfileImageUpload}
+          onChange={(e) => handleProfileImageUpload(e, artistInfo.id)}
         />
-        {profileImage ? (
+        {artistInfo.profileImage ? (
           <>
-            <S.ArtistProfileImage src={profileImage} />
+            <S.ArtistProfileImage src={artistInfo.profileImage} />
             {/* Hover시 이미지 변경 UI */}
             <S.ProfileImageOverlay
               $isProfileImageHovered={isProfileImageHovered}
@@ -52,9 +63,30 @@ const ArtistInfoCard = ({
         )}
       </S.ArtistImageContainer>
       <S.ArtistTextInfoContainer>
-        <S.ArtistNameInput type="text" placeholder="Artist Name" />
-        <S.ArtistMajorInput type="text" placeholder="Major" />
-        <S.ArtistEmailInput type="text" placeholder="Contact e-mail" />
+        <S.ArtistNameInput
+          type="text"
+          placeholder="Artist Name"
+          value={artistInfo.name}
+          onChange={(e) =>
+            handleArtistProfileChange(artistInfo.id, 'name', e.target.value)
+          }
+        />
+        <S.ArtistMajorInput
+          type="text"
+          placeholder="Major"
+          value={artistInfo.major}
+          onChange={(e) =>
+            handleArtistProfileChange(artistInfo.id, 'major', e.target.value)
+          }
+        />
+        <S.ArtistEmailInput
+          type="text"
+          placeholder="Contact e-mail"
+          value={artistInfo.email}
+          onChange={(e) =>
+            handleArtistProfileChange(artistInfo.id, 'email', e.target.value)
+          }
+        />
       </S.ArtistTextInfoContainer>
     </S.ArtistInfoCardContainer>
   );
