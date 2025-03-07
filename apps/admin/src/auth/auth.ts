@@ -10,7 +10,7 @@ export const adminLogin = async (username: string, password: string) => {
     console.log('Login Response: ', response);
 
     if (response.status === 200) {
-      return { status: response.status, data: response.data };
+      return response.data;
     }
   } catch (error) {
     console.error('Admin Login Failed: ', error);

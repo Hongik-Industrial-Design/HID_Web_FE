@@ -23,11 +23,13 @@ const AdminLogin = (): JSX.Element => {
   } = useForm<AdminLoginFormData>();
 
   const handleLogin = async (data: AdminLoginFormData): Promise<void> => {
-    const loginResponse = await adminLogin(data.id, data.password);
+    const loginResponseBody = await adminLogin(data.id, data.password);
 
-    console.log('Login Data: ', loginResponse?.data);
+    console.log('Access Token: ', loginResponseBody?.token);
 
-    if (loginResponse?.status === 200) {
+    if (loginResponseBody?.token) {
+      localStorage.setItem('accessToken', loginResponseBody.token);
+
       // 추후에 메인 대시보드 페이지로 Routing 되도록 수정
       navigate('/graduation');
     } else {
