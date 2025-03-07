@@ -6,3 +6,8 @@ export const HIDLogoAdmin = styled(HIDLogo)`
   width: 9.6rem;
   height: fit-content;
 `;
+
+export const HIDLogoLogin = styled(HIDLogo)`
+  width: 36rem;
+  height: fit-content;
+`;
