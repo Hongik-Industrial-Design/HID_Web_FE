@@ -5,6 +5,7 @@
     "baseUrl": ".", // 경로 설정 기준
     "paths": {
       "@api/*": ["src/api/*"],
+      "@auth/*": ["src/auth/*"],
       "@assets/*": ["src/assets/*"],
       "@components/*": ["src/components/*"],
       "@constants/*": ["src/constants/*"],
