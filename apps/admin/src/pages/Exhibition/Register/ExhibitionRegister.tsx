@@ -1,7 +1,7 @@
 import { JSX } from 'react/jsx-runtime';
 import { useCallback, useState } from 'react';
 
-import { ArtistInfo } from './Artist.types';
+import { ArtistInfo, ExhibitionDetailInfo } from './ExhibitionRegister.types';
 
 import { GRADUATION_EXHIBITION_MAJOR_LIST } from '@constants/Exhibition';
 
@@ -14,9 +14,9 @@ import ImagePreview from '@components/AddImageBox/Preview/ImagePreview';
 import AddElementBox from '@components/AddImageBox/AddImageBox';
 import ArtistInfoCard from '@components/ArtistInfoCard/ArtistInfoCard';
 import AddParticipantBox from '@components/AddParticipantBox/AddParticipantBox';
+import SaveCancelButton from '@components/Button/SaveCancel/SaveCancelButton';
 
 import * as S from './ExhibitionRegister.styled';
-import SaveCancelButton from '@components/Button/SaveCancel/SaveCancelButton';
 
 const ExhibitionRegister = (): JSX.Element => {
   const majorList = GRADUATION_EXHIBITION_MAJOR_LIST;
@@ -98,6 +98,43 @@ const ExhibitionRegister = (): JSX.Element => {
     []
   );
 
+  const [detailInfo, setDetailInfo] = useState<ExhibitionDetailInfo>({
+    exhibitType: 'GRADUATION',
+    year: '2024',
+    major: selectedMajor,
+    title: '',
+    subTitle: '',
+    description_ko: '',
+    description_en: '',
+    behanceUrl: '',
+    linkedinUrl: '',
+    youtubeUrl: '',
+  });
+
+  const handleDetailInfoChange = (
+    field: keyof ExhibitionDetailInfo,
+    value: string
+  ) => {
+    setDetailInfo((prevDetailInfo) => ({
+      ...prevDetailInfo,
+      [field]: value,
+    }));
+  };
+
+  // 전시 정보 저장 FormData
+  const graduationExhibitionFormData = new FormData();
+
+  graduationExhibitionFormData.append('exhibitType', detailInfo.exhibitType);
+  graduationExhibitionFormData.append('year', detailInfo.year); //  임시로 2024로 설정
+  graduationExhibitionFormData.append('major', detailInfo.major);
+  graduationExhibitionFormData.append('title', detailInfo.title);
+  graduationExhibitionFormData.append('subTitle', detailInfo.subTitle);
+  graduationExhibitionFormData.append('textEn', detailInfo.description_en);
+  graduationExhibitionFormData.append('textKo', detailInfo.description_ko);
+  graduationExhibitionFormData.append('behanceUrl', detailInfo.behanceUrl);
+  graduationExhibitionFormData.append('linkedinUrl', detailInfo.linkedinUrl);
+  graduationExhibitionFormData.append('videoUrl', detailInfo.youtubeUrl);
+
   return (
     <S.ExhibitionRegisterContainer>
       <S.ArtworkInfoTitle>
@@ -125,13 +162,23 @@ const ExhibitionRegister = (): JSX.Element => {
             {/* Title */}
             <S.DetailInfoUnit>
               <S.DetailInfoInputLabel>Title</S.DetailInfoInputLabel>
-              <ExhibitionTextInput placeholder="Enter Artwork Title." />
+              <ExhibitionTextInput
+                placeholder="Enter Artwork Title."
+                field="title"
+                value={detailInfo.title}
+                handleTextChange={handleDetailInfoChange}
+              />
             </S.DetailInfoUnit>
 
             {/* SubTitle */}
             <S.DetailInfoUnit>
               <S.DetailInfoInputLabel>Subtitle</S.DetailInfoInputLabel>
-              <ExhibitionTextInput placeholder="Enter Artwork Subtitle." />
+              <ExhibitionTextInput
+                placeholder="Enter Artwork Subtitle."
+                field="subTitle"
+                value={detailInfo.subTitle}
+                handleTextChange={handleDetailInfoChange}
+              />
             </S.DetailInfoUnit>
           </S.MajorTitleSection>
 
@@ -143,14 +190,24 @@ const ExhibitionRegister = (): JSX.Element => {
                 <S.LanguageDescriptionLabel>ENG</S.LanguageDescriptionLabel>
                 <S.DescriptionDivider />
               </S.LanguageDescriptionContainer>
-              <DescriptionInput language="English" />
+              <DescriptionInput
+                language="English"
+                field="description_en"
+                value={detailInfo.description_en}
+                handleTextChange={handleDetailInfoChange}
+              />
             </S.DescriptionUnit>
             <S.DescriptionUnit>
               <S.LanguageDescriptionContainer>
                 <S.LanguageDescriptionLabel>KOR</S.LanguageDescriptionLabel>
                 <S.DescriptionDivider />
               </S.LanguageDescriptionContainer>
-              <DescriptionInput language="Korean" />
+              <DescriptionInput
+                language="Korean"
+                field="description_ko"
+                value={detailInfo.description_ko}
+                handleTextChange={handleDetailInfoChange}
+              />
             </S.DescriptionUnit>
           </S.DescriptionSection>
 
@@ -161,12 +218,22 @@ const ExhibitionRegister = (): JSX.Element => {
               {/* Behance */}
               <S.SocialLinkForm>
                 <BehanceLogo />
-                <ExhibitionTextInput placeholder="Enter Behance Link." />
+                <ExhibitionTextInput
+                  placeholder="Enter Behance Link."
+                  field="behanceUrl"
+                  value={detailInfo.behanceUrl}
+                  handleTextChange={handleDetailInfoChange}
+                />
               </S.SocialLinkForm>
               {/* Linkedin */}
               <S.SocialLinkForm>
                 <LinkedinLogo />
-                <ExhibitionTextInput placeholder="Enter Linkedin Link." />
+                <ExhibitionTextInput
+                  placeholder="Enter Linkedin Link."
+                  field="linkedinUrl"
+                  value={detailInfo.linkedinUrl}
+                  handleTextChange={handleDetailInfoChange}
+                />
               </S.SocialLinkForm>
             </S.SocialLinkContainer>
           </S.SocialLinkSection>
@@ -180,7 +247,12 @@ const ExhibitionRegister = (): JSX.Element => {
         </S.DetailInfoTitle>
         <S.VideoLinkContainer>
           <YoutubeCircleLogo />
-          <ExhibitionTextInput placeholder="Enter Youtube Link." />
+          <ExhibitionTextInput
+            placeholder="Enter Youtube Link."
+            field="youtubeUrl"
+            value={detailInfo.youtubeUrl}
+            handleTextChange={handleDetailInfoChange}
+          />
         </S.VideoLinkContainer>
       </S.ExhibitionVideoSection>
 

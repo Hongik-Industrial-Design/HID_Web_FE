@@ -1,23 +1,30 @@
 import { JSX } from 'react/jsx-runtime';
-import { useState } from 'react';
+
+import { ExhibitionDetailInfo } from '@pages/Exhibition/Register/ExhibitionRegister.types';
 
 import * as S from './DescriptionInput.styled';
 
 type DescriptionInputProps = {
   language: 'Korean' | 'English';
+  value: string;
+  field: keyof ExhibitionDetailInfo;
+  handleTextChange: (field: keyof ExhibitionDetailInfo, value: string) => void;
 };
 
-const DescriptionInput = ({ language }: DescriptionInputProps): JSX.Element => {
-  const [text, setText] = useState<string>('');
-
-  const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setText(e.target.value);
+const DescriptionInput = ({
+  language,
+  value,
+  field,
+  handleTextChange,
+}: DescriptionInputProps): JSX.Element => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    handleTextChange(field, e.target.value);
   };
 
   return (
     <S.DescriptionTextarea
-      value={text}
-      onChange={handleTextChange}
+      value={value}
+      onChange={handleInputChange}
       placeholder={
         language === 'Korean'
           ? '작품에 대한 설명을 입력해주세요.'

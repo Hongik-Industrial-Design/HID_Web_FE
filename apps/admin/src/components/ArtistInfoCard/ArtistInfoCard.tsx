@@ -1,7 +1,7 @@
 import { JSX } from 'react/jsx-runtime';
 import { useState } from 'react';
 
-import { ArtistInfo } from '@pages/Exhibition/Register/Artist.types';
+import { ArtistInfo } from '@pages/Exhibition/Register/ExhibitionRegister.types';
 
 import { PlusIconGray } from '@icons/Plus';
 import { ImageEditIcon } from '@icons/ImageEdit';
