@@ -9,9 +9,10 @@ import ExhibitionRegister from '@pages/Exhibition/Register/ExhibitionRegister';
 function App() {
   return (
     <Routes>
-      <Route index element={<AdminLogin />} />
+      <Route path="login" element={<AdminLogin />} />
 
       <Route element={<Layout />}>
+        <Route index element={<GraduationExhibition />} />
         <Route path="graduation" element={<GraduationExhibition />} />
         <Route path="exhibition-register" element={<ExhibitionRegister />} />
       </Route>
