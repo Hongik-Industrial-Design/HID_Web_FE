@@ -1,7 +1,8 @@
 import { JSX } from 'react/jsx-runtime';
 
-import * as S from './ThumbnailSelect.styled';
 import { CheckIcon } from '@icons/Check';
+
+import * as S from './ThumbnailSelect.styled';
 
 type ThumbnailSelectProps = {
   isImageHovered: boolean;
