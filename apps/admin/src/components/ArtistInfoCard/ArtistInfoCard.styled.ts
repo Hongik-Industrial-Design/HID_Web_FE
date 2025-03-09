@@ -5,7 +5,7 @@ export const ArtistInfoCardContainer = styled.div`
   height: fit-content;
 
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 2.8rem;
 `;
 
@@ -112,7 +112,7 @@ export const ArtistNameInput = styled.input`
   width: 24rem;
   height: fit-content;
   padding: 0.8rem 0.6rem;
-  margin-bottom: 2.4rem;
+  margin-bottom: 1.6rem;
 
   border: none;
   border-bottom: 2px solid ${({ theme }) => theme.colors.HID_Grayscale[400]};
@@ -124,6 +124,11 @@ export const ArtistNameInput = styled.input`
   color: ${({ theme }) => theme.colors.HID_Grayscale[800]};
 
   ${FocusAnimation}
+`;
+
+export const ArtistKoreanNameInput = styled(ArtistNameInput)`
+  font-size: 2.4rem;
+  margin-bottom: 2.4rem;
 `;
 
 export const ArtistMajorInput = styled.input`
