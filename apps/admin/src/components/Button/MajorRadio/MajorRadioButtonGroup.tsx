@@ -1,13 +1,13 @@
 import { JSX } from 'react/jsx-runtime';
 
-import { ExhibitionDetailInfo } from '@pages/Exhibition/Register/ExhibitionRegister.types';
+import { DetailInfoFormData } from '@schemas/registerSchema';
 
 import * as S from './MajorRadioButtonGroup.styled';
 
 type MajorRadioButtonProps = {
   majorList: string[];
   selectedMajor: string;
-  handleMajorClick: (field: keyof ExhibitionDetailInfo, major: string) => void;
+  handleMajorClick: (field: keyof DetailInfoFormData, major: string) => void;
 };
 
 const MajorRadioButtonGroup = ({

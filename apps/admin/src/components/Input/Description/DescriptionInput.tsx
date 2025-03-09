@@ -1,14 +1,14 @@
 import { JSX } from 'react/jsx-runtime';
 
-import { ExhibitionDetailInfo } from '@pages/Exhibition/Register/ExhibitionRegister.types';
+import { DetailInfoFormData } from '@schemas/registerSchema';
 
 import * as S from './DescriptionInput.styled';
 
 type DescriptionInputProps = {
   language: 'Korean' | 'English';
   value: string;
-  field: keyof ExhibitionDetailInfo;
-  handleTextChange: (field: keyof ExhibitionDetailInfo, value: string) => void;
+  field: keyof DetailInfoFormData;
+  handleTextChange: (field: keyof DetailInfoFormData, value: string) => void;
 };
 
 const DescriptionInput = ({

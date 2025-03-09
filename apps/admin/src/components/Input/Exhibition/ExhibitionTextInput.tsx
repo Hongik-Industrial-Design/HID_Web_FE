@@ -1,11 +1,11 @@
-import { ExhibitionDetailInfo } from '@pages/Exhibition/Register/ExhibitionRegister.types';
+import { DetailInfoFormData } from '@schemas/registerSchema';
 
 import * as S from './ExhibitionTextInput.styled';
 
 type ExhibitionTextInputProps = {
-  value: string;
-  field: keyof ExhibitionDetailInfo;
-  handleTextChange: (field: keyof ExhibitionDetailInfo, value: string) => void;
+  value: string | undefined;
+  field: keyof DetailInfoFormData;
+  handleTextChange: (field: keyof DetailInfoFormData, value: string) => void;
   placeholder: string;
 };
 
