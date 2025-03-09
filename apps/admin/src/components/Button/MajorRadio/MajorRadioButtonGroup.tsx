@@ -1,11 +1,13 @@
 import { JSX } from 'react/jsx-runtime';
 
+import { ExhibitionDetailInfo } from '@pages/Exhibition/Register/ExhibitionRegister.types';
+
 import * as S from './MajorRadioButtonGroup.styled';
 
 type MajorRadioButtonProps = {
   majorList: string[];
   selectedMajor: string;
-  handleMajorClick: (major: string) => void;
+  handleMajorClick: (field: keyof ExhibitionDetailInfo, major: string) => void;
 };
 
 const MajorRadioButtonGroup = ({
@@ -22,7 +24,7 @@ const MajorRadioButtonGroup = ({
               type="radio"
               id={major}
               name={major}
-              onClick={() => handleMajorClick(major)}
+              onClick={() => handleMajorClick('major', major)}
               $isSelected={selectedMajor === major}
             />
             <S.MajorRadioButtonName>{major}</S.MajorRadioButtonName>
