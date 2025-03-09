@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const AddParticipantBoxContainer = styled.label`
   width: 34rem;
-  height: 18rem;
+  height: 26rem;
 
   display: flex;
   flex-direction: column;

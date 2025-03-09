@@ -1,9 +1,21 @@
 import { JSX } from 'react/jsx-runtime';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router';
 
-import { ArtistInfo } from './Artist.types';
+import { registerExhibition } from '@api/exhibition';
 
-import { GRADUATION_EXHIBITION_MAJOR_LIST } from '@constants/Exhibition';
+import {
+  ArtistInfoField,
+  ArtistsFormData,
+  DetailInfoFormData,
+} from '@schemas/registerSchema';
+
+import {
+  EXHIBITION_TYPE_LIST,
+  GRADUATION_EXHIBITION_MAJOR_LIST,
+  EXHIBITION_TYPE,
+  GRADUATION_EXHIBITION_MAJOR,
+} from '@constants/Exhibition';
 
 import { BehanceLogo, LinkedinLogo } from '@icons/SocialLogo';
 import MajorRadioButtonGroup from '@components/Button/MajorRadio/MajorRadioButtonGroup';
@@ -14,64 +26,105 @@ import ImagePreview from '@components/AddImageBox/Preview/ImagePreview';
 import AddElementBox from '@components/AddImageBox/AddImageBox';
 import ArtistInfoCard from '@components/ArtistInfoCard/ArtistInfoCard';
 import AddParticipantBox from '@components/AddParticipantBox/AddParticipantBox';
-
-import * as S from './ExhibitionRegister.styled';
 import SaveCancelButton from '@components/Button/SaveCancel/SaveCancelButton';
 
+import { createGraduationExhibitionFormData } from '@utils/formdataHelper';
+
+import * as S from './ExhibitionRegister.styled';
+
 const ExhibitionRegister = (): JSX.Element => {
-  const majorList = GRADUATION_EXHIBITION_MAJOR_LIST;
+  const navigate = useNavigate();
 
-  const [selectedMajor, setSelectedMajor] = useState<string>(majorList[0]);
+  // 📍 전시 정보 관련
+  const [detailInfo, setDetailInfo] = useState<DetailInfoFormData>({
+    exhibitType: EXHIBITION_TYPE_LIST.graduation as EXHIBITION_TYPE,
+    year: 2024,
+    major: GRADUATION_EXHIBITION_MAJOR_LIST[0] as GRADUATION_EXHIBITION_MAJOR,
+    title: '',
+    subTitle: '',
+    description_ko: '',
+    description_en: '',
+    behanceUrl: '',
+    linkedinUrl: '',
+    videoUrl: '',
+  });
 
-  const handleMajorClick = useCallback((major: string) => {
-    setSelectedMajor(major);
-  }, []);
+  const handleDetailInfoChange = (
+    field: keyof DetailInfoFormData,
+    value: string
+  ) => {
+    setDetailInfo((prevDetailInfo) => ({
+      ...prevDetailInfo,
+      [field]: value,
+    }));
+  };
 
-  // 전시 이미지 추가 관련
-  const [images, setImages] = useState<string[]>([]);
+  // 📍 전시 이미지 썸네일 및 상세 이미지 상태 관리
+  const [imageFiles, setImageFiles] = useState<File[]>([]);
 
   const handleImageUpload = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
+      // 여러개의 이미지를 한번에 추가할 수 있도록 설정
       const files = e.target.files;
 
-      console.log('Files: ', files);
-
       if (files) {
-        // 여러개의 이미지를 한번에 추가할 수 있도록 설정
-        const newImages = Array.from(files).map((file) =>
-          URL.createObjectURL(file)
-        );
-
-        setImages((prevImages) => [...prevImages, ...newImages]);
+        // 이미지 File 객체 저장
+        const newImageFiles = Array.from(files);
+        setImageFiles((prevFiles) => [...prevFiles, ...newImageFiles]);
       }
     },
     []
   );
 
-  const handleImageDelete = useCallback((imageUrl: string) => {
-    setImages((prevImages) => prevImages.filter((image) => image !== imageUrl));
-  }, []);
+  // 대표 이미지에 대한 별도의 상태 관리
+  const [thumbnail, setThumbnail] = useState<File>(new File([], ''));
 
-  // 참여 작가 정보 관련
-  const [artists, setArtists] = useState<ArtistInfo[]>([]);
+  useEffect(() => {
+    if (imageFiles.length > 0 && thumbnail.size === 0) {
+      setThumbnail(imageFiles[0]); // 최초 한 번만 thumbnail을 설정
+    }
+  }, [imageFiles, thumbnail]); // images가 변경될 때 한 번만 실행
+
+  const handleThumbnailCheck = (imageFile: File) => setThumbnail(imageFile);
+
+  // 이미지 삭제 관련 (대표 이미지 삭제 시 대표 이미지 선택 해제 기능 포함)
+  const handleImageDelete = useCallback(
+    (imageFile: File) => {
+      setImageFiles((prevFiles) =>
+        prevFiles.filter((file) => file !== imageFile)
+      );
+
+      if (thumbnail === imageFile) {
+        setThumbnail(imageFiles[1]);
+      }
+    },
+    [thumbnail, imageFiles]
+  );
+
+  // 작품 참여 작가 정보 상태 관리
+  const [artists, setArtists] = useState<ArtistsFormData>([]);
 
   // Artist Card 추가
   const addArtistCard = useCallback(() => {
-    setArtists([
-      ...artists,
+    setArtists((prevArtists) => [
+      ...prevArtists, // 기존 배열 유지
       {
-        id: artists.length + 1,
-        profileImage: '',
-        name: '',
-        major: '',
+        id: prevArtists.length + 1, // 새 아이디 생성
+        profileImgFile: new File([], ''), // 빈 파일 객체
+        nameKo: '',
+        nameEn: '',
+        role: '',
         email: '',
+        instagramUrl: '',
+        linkedinUrl: '',
+        behanceUrl: '',
       },
     ]);
-  }, [artists]);
+  }, []);
 
   const handleArtistProfileChange = (
     id: number,
-    field: keyof ArtistInfo,
+    field: keyof ArtistInfoField,
     value: string
   ) => {
     setArtists((prevArtists) =>
@@ -83,14 +136,14 @@ const ExhibitionRegister = (): JSX.Element => {
 
   const handleArtistProfileImageUpload = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>, id: number) => {
-      const file = e.target.files?.[0];
+      const newImageFile = e.target.files?.[0];
 
-      if (file) {
-        const newImage = URL.createObjectURL(file);
-
+      if (newImageFile) {
         setArtists((prevArtists) =>
           prevArtists.map((artist) =>
-            artist.id === id ? { ...artist, profileImage: newImage } : artist
+            artist.id === id
+              ? { ...artist, profileImgFile: newImageFile }
+              : artist
           )
         );
       }
@@ -98,10 +151,44 @@ const ExhibitionRegister = (): JSX.Element => {
     []
   );
 
+  const handleExhibitionRegister = async (): Promise<void> => {
+    try {
+      // 상태 값이 올바르게 존재하는지 확인
+      if (!detailInfo || !imageFiles || !thumbnail || !artists) {
+        console.error('필수 데이터가 로딩되지 않았습니다.');
+        alert('필수 데이터가 존재하지 않습니다.');
+      }
+
+      // 전시 등록 FormData 생성
+      const exhibitionFormData = createGraduationExhibitionFormData({
+        detailInfo,
+        imageFiles,
+        thumbnail,
+        artists,
+      });
+
+      // FormData 확인 (디버깅용)
+      for (const [key, value] of exhibitionFormData.entries()) {
+        console.log(`${key}:`, value);
+      }
+
+      const registerResponse = await registerExhibition(exhibitionFormData);
+
+      if (registerResponse) {
+        alert('전시 등록 성공');
+        navigate('/graduation');
+      } else {
+        alert('전시 등록 실패');
+      }
+    } catch (error) {
+      console.error('전시 등록 실패: ', error);
+    }
+  };
+
   return (
     <S.ExhibitionRegisterContainer>
       <S.ArtworkInfoTitle>
-        Artwork Information<span>.</span>
+        Graduation Artwork<span>.</span>
       </S.ArtworkInfoTitle>
 
       {/* Major, Title, SubTitle, Description */}
@@ -116,22 +203,32 @@ const ExhibitionRegister = (): JSX.Element => {
             <S.DetailInfoUnit>
               <S.DetailInfoInputLabel>Major</S.DetailInfoInputLabel>
               <MajorRadioButtonGroup
-                majorList={majorList}
-                selectedMajor={selectedMajor}
-                handleMajorClick={handleMajorClick}
+                majorList={GRADUATION_EXHIBITION_MAJOR_LIST}
+                selectedMajor={detailInfo.major}
+                handleMajorClick={handleDetailInfoChange}
               />
             </S.DetailInfoUnit>
 
             {/* Title */}
             <S.DetailInfoUnit>
               <S.DetailInfoInputLabel>Title</S.DetailInfoInputLabel>
-              <ExhibitionTextInput placeholder="Enter Artwork Title." />
+              <ExhibitionTextInput
+                placeholder="Enter Artwork Title."
+                field="title"
+                value={detailInfo.title}
+                handleTextChange={handleDetailInfoChange}
+              />
             </S.DetailInfoUnit>
 
             {/* SubTitle */}
             <S.DetailInfoUnit>
               <S.DetailInfoInputLabel>Subtitle</S.DetailInfoInputLabel>
-              <ExhibitionTextInput placeholder="Enter Artwork Subtitle." />
+              <ExhibitionTextInput
+                placeholder="Enter Artwork Subtitle."
+                field="subTitle"
+                value={detailInfo.subTitle}
+                handleTextChange={handleDetailInfoChange}
+              />
             </S.DetailInfoUnit>
           </S.MajorTitleSection>
 
@@ -143,14 +240,24 @@ const ExhibitionRegister = (): JSX.Element => {
                 <S.LanguageDescriptionLabel>ENG</S.LanguageDescriptionLabel>
                 <S.DescriptionDivider />
               </S.LanguageDescriptionContainer>
-              <DescriptionInput language="English" />
+              <DescriptionInput
+                language="English"
+                field="description_en"
+                value={detailInfo.description_en}
+                handleTextChange={handleDetailInfoChange}
+              />
             </S.DescriptionUnit>
             <S.DescriptionUnit>
               <S.LanguageDescriptionContainer>
                 <S.LanguageDescriptionLabel>KOR</S.LanguageDescriptionLabel>
                 <S.DescriptionDivider />
               </S.LanguageDescriptionContainer>
-              <DescriptionInput language="Korean" />
+              <DescriptionInput
+                language="Korean"
+                field="description_ko"
+                value={detailInfo.description_ko}
+                handleTextChange={handleDetailInfoChange}
+              />
             </S.DescriptionUnit>
           </S.DescriptionSection>
 
@@ -161,12 +268,22 @@ const ExhibitionRegister = (): JSX.Element => {
               {/* Behance */}
               <S.SocialLinkForm>
                 <BehanceLogo />
-                <ExhibitionTextInput placeholder="Enter Behance Link." />
+                <ExhibitionTextInput
+                  placeholder="Enter Behance Link."
+                  field="behanceUrl"
+                  value={detailInfo.behanceUrl}
+                  handleTextChange={handleDetailInfoChange}
+                />
               </S.SocialLinkForm>
               {/* Linkedin */}
               <S.SocialLinkForm>
                 <LinkedinLogo />
-                <ExhibitionTextInput placeholder="Enter Linkedin Link." />
+                <ExhibitionTextInput
+                  placeholder="Enter Linkedin Link."
+                  field="linkedinUrl"
+                  value={detailInfo.linkedinUrl}
+                  handleTextChange={handleDetailInfoChange}
+                />
               </S.SocialLinkForm>
             </S.SocialLinkContainer>
           </S.SocialLinkSection>
@@ -180,7 +297,12 @@ const ExhibitionRegister = (): JSX.Element => {
         </S.DetailInfoTitle>
         <S.VideoLinkContainer>
           <YoutubeCircleLogo />
-          <ExhibitionTextInput placeholder="Enter Youtube Link." />
+          <ExhibitionTextInput
+            placeholder="Enter Youtube Link."
+            field="videoUrl"
+            value={detailInfo.videoUrl}
+            handleTextChange={handleDetailInfoChange}
+          />
         </S.VideoLinkContainer>
       </S.ExhibitionVideoSection>
 
@@ -191,13 +313,19 @@ const ExhibitionRegister = (): JSX.Element => {
         </S.DetailInfoTitle>
         <S.ImagePreviewScrollContainer>
           <S.ImagePreviewContainer>
-            {images.map((image) => (
-              <ImagePreview
-                key={image}
-                image={image}
-                handleImageDelete={() => handleImageDelete(image)}
-              />
-            ))}
+            {imageFiles
+              .slice() // 원본 배열을 변경하지 않도록 복사본을 만듦
+              .sort((a, b) => (a === thumbnail ? -1 : b === thumbnail ? 1 : 0)) // thumbnail을 첫 번째로 정렬
+              .map((image, index) => (
+                <ImagePreview
+                  key={index}
+                  imageUrl={URL.createObjectURL(image)}
+                  image={image}
+                  isThumbnailChecked={image === thumbnail}
+                  handleThumbnailCheck={handleThumbnailCheck}
+                  handleImageDelete={() => handleImageDelete(image)}
+                />
+              ))}
             <AddElementBox handleImageUpload={handleImageUpload} />
           </S.ImagePreviewContainer>
         </S.ImagePreviewScrollContainer>
@@ -223,7 +351,10 @@ const ExhibitionRegister = (): JSX.Element => {
 
       {/* Save & Cancel Button */}
       <S.SaveCancelButtonSection>
-        <SaveCancelButton buttonType="save" />
+        <SaveCancelButton
+          buttonType="save"
+          handleButtonClick={handleExhibitionRegister}
+        />
         <SaveCancelButton buttonType="cancel" />
       </S.SaveCancelButtonSection>
     </S.ExhibitionRegisterContainer>

@@ -5,23 +5,19 @@ import * as S from './SaveCancelButton.styled';
 
 type SaveCancelButtonProps = {
   buttonType: 'save' | 'cancel';
+  handleButtonClick?: () => void;
 };
 
 const SaveCancelButton = ({
   buttonType,
+  handleButtonClick,
 }: SaveCancelButtonProps): JSX.Element => {
   const navigate = useNavigate();
-
-  const handleSaveClick = () => {
-    // 작품 등록 API 함수 호출
-
-    navigate('/graduation');
-  };
 
   return (
     <S.SaveCancelButtonContainer
       $isSaveButton={buttonType === 'save'}
-      onClick={buttonType === 'save' ? () => navigate(-1) : handleSaveClick}
+      onClick={buttonType === 'save' ? handleButtonClick : () => navigate(-1)}
     >
       {buttonType === 'save' ? 'Save' : 'Cancel'}
     </S.SaveCancelButtonContainer>
