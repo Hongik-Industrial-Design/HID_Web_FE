@@ -1,5 +1,5 @@
 import { JSX } from 'react/jsx-runtime';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { ArtistInfo, ExhibitionDetailInfo } from './ExhibitionRegister.types';
 
@@ -19,14 +19,6 @@ import SaveCancelButton from '@components/Button/SaveCancel/SaveCancelButton';
 import * as S from './ExhibitionRegister.styled';
 
 const ExhibitionRegister = (): JSX.Element => {
-  const majorList = GRADUATION_EXHIBITION_MAJOR_LIST;
-
-  const [selectedMajor, setSelectedMajor] = useState<string>(majorList[0]);
-
-  const handleMajorClick = useCallback((major: string) => {
-    setSelectedMajor(major);
-  }, []);
-
   // 전시 이미지 추가 관련
   const [images, setImages] = useState<string[]>([]);
 
@@ -48,9 +40,30 @@ const ExhibitionRegister = (): JSX.Element => {
     []
   );
 
-  const handleImageDelete = useCallback((imageUrl: string) => {
-    setImages((prevImages) => prevImages.filter((image) => image !== imageUrl));
-  }, []);
+  // 대표 이미지 선택에 대한 상태 관리
+  const [thumbnail, setThumbnail] = useState<string>('');
+
+  useEffect(() => {
+    if (images.length > 0 && !thumbnail) {
+      setThumbnail(images[0]); // 최초 한 번만 thumbnail을 설정
+    }
+  }, [images, thumbnail]); // images가 변경될 때 한 번만 실행
+
+  const handleThumbnailCheck = (image: string) => setThumbnail(image);
+
+  // 이미지 삭제 관련 (대표 이미지 삭제 시 대표 이미지 선택 해제 기능 포함)
+  const handleImageDelete = useCallback(
+    (imageUrl: string) => {
+      setImages((prevImages) =>
+        prevImages.filter((image) => image !== imageUrl)
+      );
+
+      if (thumbnail === imageUrl) {
+        setThumbnail('');
+      }
+    },
+    [thumbnail]
+  );
 
   // 참여 작가 정보 관련
   const [artists, setArtists] = useState<ArtistInfo[]>([]);
@@ -65,6 +78,9 @@ const ExhibitionRegister = (): JSX.Element => {
         name: '',
         major: '',
         email: '',
+        instagramUrl: '',
+        behanceUrl: '',
+        linkedinUrl: '',
       },
     ]);
   }, [artists]);
@@ -100,8 +116,8 @@ const ExhibitionRegister = (): JSX.Element => {
 
   const [detailInfo, setDetailInfo] = useState<ExhibitionDetailInfo>({
     exhibitType: 'GRADUATION',
-    year: '2024',
-    major: selectedMajor,
+    year: '2024', // 임시로 2024로 설정
+    major: GRADUATION_EXHIBITION_MAJOR_LIST[0],
     title: '',
     subTitle: '',
     description_ko: '',
@@ -125,7 +141,7 @@ const ExhibitionRegister = (): JSX.Element => {
   const graduationExhibitionFormData = new FormData();
 
   graduationExhibitionFormData.append('exhibitType', detailInfo.exhibitType);
-  graduationExhibitionFormData.append('year', detailInfo.year); //  임시로 2024로 설정
+  graduationExhibitionFormData.append('year', detailInfo.year);
   graduationExhibitionFormData.append('major', detailInfo.major);
   graduationExhibitionFormData.append('title', detailInfo.title);
   graduationExhibitionFormData.append('subTitle', detailInfo.subTitle);
@@ -153,9 +169,9 @@ const ExhibitionRegister = (): JSX.Element => {
             <S.DetailInfoUnit>
               <S.DetailInfoInputLabel>Major</S.DetailInfoInputLabel>
               <MajorRadioButtonGroup
-                majorList={majorList}
-                selectedMajor={selectedMajor}
-                handleMajorClick={handleMajorClick}
+                majorList={GRADUATION_EXHIBITION_MAJOR_LIST}
+                selectedMajor={detailInfo.major}
+                handleMajorClick={handleDetailInfoChange}
               />
             </S.DetailInfoUnit>
 
@@ -263,13 +279,18 @@ const ExhibitionRegister = (): JSX.Element => {
         </S.DetailInfoTitle>
         <S.ImagePreviewScrollContainer>
           <S.ImagePreviewContainer>
-            {images.map((image) => (
-              <ImagePreview
-                key={image}
-                image={image}
-                handleImageDelete={() => handleImageDelete(image)}
-              />
-            ))}
+            {images
+              .slice() // 원본 배열을 변경하지 않도록 복사본을 만듦
+              .sort((a, b) => (a === thumbnail ? -1 : b === thumbnail ? 1 : 0)) // thumbnail을 첫 번째로 정렬
+              .map((image) => (
+                <ImagePreview
+                  key={image}
+                  image={image}
+                  isThumbnailChecked={image === thumbnail}
+                  handleThumbnailCheck={handleThumbnailCheck}
+                  handleImageDelete={() => handleImageDelete(image)}
+                />
+              ))}
             <AddElementBox handleImageUpload={handleImageUpload} />
           </S.ImagePreviewContainer>
         </S.ImagePreviewScrollContainer>

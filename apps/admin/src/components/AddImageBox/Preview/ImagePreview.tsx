@@ -9,21 +9,20 @@ import * as S from './ImagePreview.styled';
 interface ImagePreviewProps {
   image: string;
   handleImageDelete: () => void;
+  isThumbnailChecked: boolean;
+  handleThumbnailCheck: (image: string) => void;
 }
 
 const ImagePreview = ({
   image,
   handleImageDelete,
+  isThumbnailChecked,
+  handleThumbnailCheck,
 }: ImagePreviewProps): JSX.Element => {
   const [isImageHovered, setIsImageHovered] = useState<boolean>(false);
 
   const handleImageEnter = () => setIsImageHovered(true);
   const handleImageLeave = () => setIsImageHovered(false);
-
-  // 대표 이미지 선택에 대한 상태 관리
-  const [isThumbnailChecked, setIsThumbnailChecked] = useState<boolean>(false);
-
-  const handleThumbnailCheck = () => setIsThumbnailChecked(!isThumbnailChecked);
 
   return (
     <S.ImagePreviewContainer
@@ -39,7 +38,7 @@ const ImagePreview = ({
       <ThumbnailSelect
         isImageHovered={isImageHovered}
         isThumbnailChecked={isThumbnailChecked}
-        handleThumbnailCheck={handleThumbnailCheck}
+        handleThumbnailCheck={() => handleThumbnailCheck(image)}
       />
     </S.ImagePreviewContainer>
   );
