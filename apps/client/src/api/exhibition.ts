@@ -8,14 +8,15 @@ export const fetchStudentExhibitionPreview = async (
   club: string
 ): Promise<Schemas.StudentExhibitionPreview> => {
   const params = {
+    exhibitType: 'CLUB',
     year: year,
-    club: club,
+    term: club,
   };
 
-  const response = await exhibitionAPI.get('/exhibits/previews/clubs', {
+  const response = await exhibitionAPI.get('/exhibits/previews', {
     params,
   });
-  // console.log('학생 전시 Preview 데이터: ', response.data);
+  console.log('학생 전시 Preview 데이터: ', response.data);
 
   return validateResponse(
     Schemas.StudentExhibitionPreviewSchema,
