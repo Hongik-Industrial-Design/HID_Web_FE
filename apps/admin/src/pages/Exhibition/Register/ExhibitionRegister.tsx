@@ -1,9 +1,21 @@
 import { JSX } from 'react/jsx-runtime';
 import { useCallback, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router';
 
-import { ArtistInfo, ExhibitionDetailInfo } from './ExhibitionRegister.types';
+import { registerExhibition } from '@api/exhibition';
 
-import { GRADUATION_EXHIBITION_MAJOR_LIST } from '@constants/Exhibition';
+import {
+  ArtistInfoField,
+  ArtistsFormData,
+  DetailInfoFormData,
+} from '@schemas/registerSchema';
+
+import {
+  EXHIBITION_TYPE_LIST,
+  GRADUATION_EXHIBITION_MAJOR_LIST,
+  EXHIBITION_TYPE,
+  GRADUATION_EXHIBITION_MAJOR,
+} from '@constants/Exhibition';
 
 import { BehanceLogo, LinkedinLogo } from '@icons/SocialLogo';
 import MajorRadioButtonGroup from '@components/Button/MajorRadio/MajorRadioButtonGroup';
@@ -16,78 +28,103 @@ import ArtistInfoCard from '@components/ArtistInfoCard/ArtistInfoCard';
 import AddParticipantBox from '@components/AddParticipantBox/AddParticipantBox';
 import SaveCancelButton from '@components/Button/SaveCancel/SaveCancelButton';
 
+import { createGraduationExhibitionFormData } from '@utils/formdataHelper';
+
 import * as S from './ExhibitionRegister.styled';
 
 const ExhibitionRegister = (): JSX.Element => {
-  // 전시 이미지 추가 관련
-  const [images, setImages] = useState<string[]>([]);
+  const navigate = useNavigate();
+
+  // 📍 전시 정보 관련
+  const [detailInfo, setDetailInfo] = useState<DetailInfoFormData>({
+    exhibitType: EXHIBITION_TYPE_LIST.graduation as EXHIBITION_TYPE,
+    year: 2024,
+    major: GRADUATION_EXHIBITION_MAJOR_LIST[0] as GRADUATION_EXHIBITION_MAJOR,
+    title: '',
+    subTitle: '',
+    description_ko: '',
+    description_en: '',
+    behanceUrl: '',
+    linkedinUrl: '',
+    videoUrl: '',
+  });
+
+  const handleDetailInfoChange = (
+    field: keyof DetailInfoFormData,
+    value: string
+  ) => {
+    setDetailInfo((prevDetailInfo) => ({
+      ...prevDetailInfo,
+      [field]: value,
+    }));
+  };
+
+  // 📍 전시 이미지 썸네일 및 상세 이미지 상태 관리
+  const [imageFiles, setImageFiles] = useState<File[]>([]);
 
   const handleImageUpload = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
+      // 여러개의 이미지를 한번에 추가할 수 있도록 설정
       const files = e.target.files;
 
-      console.log('Files: ', files);
-
       if (files) {
-        // 여러개의 이미지를 한번에 추가할 수 있도록 설정
-        const newImages = Array.from(files).map((file) =>
-          URL.createObjectURL(file)
-        );
-
-        setImages((prevImages) => [...prevImages, ...newImages]);
+        // 이미지 File 객체 저장
+        const newImageFiles = Array.from(files);
+        setImageFiles((prevFiles) => [...prevFiles, ...newImageFiles]);
       }
     },
     []
   );
 
-  // 대표 이미지 선택에 대한 상태 관리
-  const [thumbnail, setThumbnail] = useState<string>('');
+  // 대표 이미지에 대한 별도의 상태 관리
+  const [thumbnail, setThumbnail] = useState<File>(new File([], ''));
 
   useEffect(() => {
-    if (images.length > 0 && !thumbnail) {
-      setThumbnail(images[0]); // 최초 한 번만 thumbnail을 설정
+    if (imageFiles.length > 0 && thumbnail.size === 0) {
+      setThumbnail(imageFiles[0]); // 최초 한 번만 thumbnail을 설정
     }
-  }, [images, thumbnail]); // images가 변경될 때 한 번만 실행
+  }, [imageFiles, thumbnail]); // images가 변경될 때 한 번만 실행
 
-  const handleThumbnailCheck = (image: string) => setThumbnail(image);
+  const handleThumbnailCheck = (imageFile: File) => setThumbnail(imageFile);
 
   // 이미지 삭제 관련 (대표 이미지 삭제 시 대표 이미지 선택 해제 기능 포함)
   const handleImageDelete = useCallback(
-    (imageUrl: string) => {
-      setImages((prevImages) =>
-        prevImages.filter((image) => image !== imageUrl)
+    (imageFile: File) => {
+      setImageFiles((prevFiles) =>
+        prevFiles.filter((file) => file !== imageFile)
       );
 
-      if (thumbnail === imageUrl) {
-        setThumbnail('');
+      if (thumbnail === imageFile) {
+        setThumbnail(imageFiles[1]);
       }
     },
-    [thumbnail]
+    [thumbnail, imageFiles]
   );
 
-  // 참여 작가 정보 관련
-  const [artists, setArtists] = useState<ArtistInfo[]>([]);
+  // 작품 참여 작가 정보 상태 관리
+  const [artists, setArtists] = useState<ArtistsFormData>([]);
 
   // Artist Card 추가
   const addArtistCard = useCallback(() => {
-    setArtists([
-      ...artists,
+    setArtists((prevArtists) => [
+      ...prevArtists, // 기존 배열 유지
       {
-        id: artists.length + 1,
-        profileImage: '',
-        name: '',
-        major: '',
+        id: prevArtists.length + 1, // 새 아이디 생성
+        profileImgFile: new File([], ''), // 빈 파일 객체
+        nameKo: '',
+        nameEn: '',
+        role: '',
         email: '',
         instagramUrl: '',
-        behanceUrl: '',
         linkedinUrl: '',
+        behanceUrl: '',
       },
     ]);
-  }, [artists]);
+  }, []);
 
   const handleArtistProfileChange = (
     id: number,
-    field: keyof ArtistInfo,
+    field: keyof ArtistInfoField,
     value: string
   ) => {
     setArtists((prevArtists) =>
@@ -99,14 +136,14 @@ const ExhibitionRegister = (): JSX.Element => {
 
   const handleArtistProfileImageUpload = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>, id: number) => {
-      const file = e.target.files?.[0];
+      const newImageFile = e.target.files?.[0];
 
-      if (file) {
-        const newImage = URL.createObjectURL(file);
-
+      if (newImageFile) {
         setArtists((prevArtists) =>
           prevArtists.map((artist) =>
-            artist.id === id ? { ...artist, profileImage: newImage } : artist
+            artist.id === id
+              ? { ...artist, profileImgFile: newImageFile }
+              : artist
           )
         );
       }
@@ -114,47 +151,44 @@ const ExhibitionRegister = (): JSX.Element => {
     []
   );
 
-  const [detailInfo, setDetailInfo] = useState<ExhibitionDetailInfo>({
-    exhibitType: 'GRADUATION',
-    year: '2024', // 임시로 2024로 설정
-    major: GRADUATION_EXHIBITION_MAJOR_LIST[0],
-    title: '',
-    subTitle: '',
-    description_ko: '',
-    description_en: '',
-    behanceUrl: '',
-    linkedinUrl: '',
-    youtubeUrl: '',
-  });
+  const handleExhibitionRegister = async (): Promise<void> => {
+    try {
+      // 상태 값이 올바르게 존재하는지 확인
+      if (!detailInfo || !imageFiles || !thumbnail || !artists) {
+        console.error('필수 데이터가 로딩되지 않았습니다.');
+        alert('필수 데이터가 존재하지 않습니다.');
+      }
 
-  const handleDetailInfoChange = (
-    field: keyof ExhibitionDetailInfo,
-    value: string
-  ) => {
-    setDetailInfo((prevDetailInfo) => ({
-      ...prevDetailInfo,
-      [field]: value,
-    }));
+      // 전시 등록 FormData 생성
+      const exhibitionFormData = createGraduationExhibitionFormData({
+        detailInfo,
+        imageFiles,
+        thumbnail,
+        artists,
+      });
+
+      // FormData 확인 (디버깅용)
+      for (const [key, value] of exhibitionFormData.entries()) {
+        console.log(`${key}:`, value);
+      }
+
+      const registerResponse = await registerExhibition(exhibitionFormData);
+
+      if (registerResponse) {
+        alert('전시 등록 성공');
+        navigate('/graduation');
+      } else {
+        alert('전시 등록 실패');
+      }
+    } catch (error) {
+      console.error('전시 등록 실패: ', error);
+    }
   };
-
-  // 전시 정보 저장 FormData
-  const graduationExhibitionFormData = new FormData();
-
-  graduationExhibitionFormData.append('exhibitType', detailInfo.exhibitType);
-  graduationExhibitionFormData.append('year', detailInfo.year);
-  graduationExhibitionFormData.append('major', detailInfo.major);
-  graduationExhibitionFormData.append('title', detailInfo.title);
-  graduationExhibitionFormData.append('subTitle', detailInfo.subTitle);
-  graduationExhibitionFormData.append('textEn', detailInfo.description_en);
-  graduationExhibitionFormData.append('textKo', detailInfo.description_ko);
-  graduationExhibitionFormData.append('behanceUrl', detailInfo.behanceUrl);
-  graduationExhibitionFormData.append('linkedinUrl', detailInfo.linkedinUrl);
-  graduationExhibitionFormData.append('videoUrl', detailInfo.youtubeUrl);
 
   return (
     <S.ExhibitionRegisterContainer>
       <S.ArtworkInfoTitle>
-        Artwork Information<span>.</span>
+        Graduation Artwork<span>.</span>
       </S.ArtworkInfoTitle>
 
       {/* Major, Title, SubTitle, Description */}
@@ -265,8 +299,8 @@ const ExhibitionRegister = (): JSX.Element => {
           <YoutubeCircleLogo />
           <ExhibitionTextInput
             placeholder="Enter Youtube Link."
-            field="youtubeUrl"
-            value={detailInfo.youtubeUrl}
+            field="videoUrl"
+            value={detailInfo.videoUrl}
             handleTextChange={handleDetailInfoChange}
           />
         </S.VideoLinkContainer>
@@ -279,12 +313,13 @@ const ExhibitionRegister = (): JSX.Element => {
         </S.DetailInfoTitle>
         <S.ImagePreviewScrollContainer>
           <S.ImagePreviewContainer>
-            {images
+            {imageFiles
               .slice() // 원본 배열을 변경하지 않도록 복사본을 만듦
               .sort((a, b) => (a === thumbnail ? -1 : b === thumbnail ? 1 : 0)) // thumbnail을 첫 번째로 정렬
-              .map((image) => (
+              .map((image, index) => (
                 <ImagePreview
-                  key={image}
+                  key={index}
+                  imageUrl={URL.createObjectURL(image)}
                   image={image}
                   isThumbnailChecked={image === thumbnail}
                   handleThumbnailCheck={handleThumbnailCheck}
@@ -316,7 +351,10 @@ const ExhibitionRegister = (): JSX.Element => {
 
       {/* Save & Cancel Button */}
       <S.SaveCancelButtonSection>
-        <SaveCancelButton buttonType="save" />
+        <SaveCancelButton
+          buttonType="save"
+          handleButtonClick={handleExhibitionRegister}
+        />
         <SaveCancelButton buttonType="cancel" />
       </S.SaveCancelButtonSection>
     </S.ExhibitionRegisterContainer>

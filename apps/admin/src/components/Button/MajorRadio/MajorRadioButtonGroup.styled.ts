@@ -57,4 +57,6 @@ export const MajorRadioButtonName = styled.span`
   ${({ theme }) => theme.fontStyles.Title6};
   font-weight: 500;
   color: ${({ theme }) => theme.colors.HID_Grayscale[600]};
+
+  white-space: nowrap;
 `;

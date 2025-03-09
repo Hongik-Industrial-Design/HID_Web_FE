@@ -7,14 +7,16 @@ import ThumbnailSelect from '@components/ThumbnailSelect/ThumbnailSelect';
 import * as S from './ImagePreview.styled';
 
 interface ImagePreviewProps {
-  image: string;
+  image: File;
+  imageUrl: string;
   handleImageDelete: () => void;
   isThumbnailChecked: boolean;
-  handleThumbnailCheck: (image: string) => void;
+  handleThumbnailCheck: (image: File) => void;
 }
 
 const ImagePreview = ({
   image,
+  imageUrl,
   handleImageDelete,
   isThumbnailChecked,
   handleThumbnailCheck,
@@ -30,7 +32,7 @@ const ImagePreview = ({
       onMouseLeave={handleImageLeave}
       $isThumbnailChecked={isThumbnailChecked}
     >
-      <S.PreviewImage src={image} $isImageHovered={isImageHovered} />
+      <S.PreviewImage src={imageUrl} $isImageHovered={isImageHovered} />
       <DeleteImageButton
         handleImageDelete={handleImageDelete}
         isImageHovered={isImageHovered}

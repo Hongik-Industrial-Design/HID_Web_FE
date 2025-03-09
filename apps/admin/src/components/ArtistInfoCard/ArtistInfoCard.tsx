@@ -1,7 +1,7 @@
 import { JSX } from 'react/jsx-runtime';
 import { useState } from 'react';
 
-import { ArtistInfo } from '@pages/Exhibition/Register/ExhibitionRegister.types';
+import { ArtistInfoField } from '@schemas/registerSchema';
 
 import { PlusIconGray } from '@icons/Plus';
 import { ImageEditIcon } from '@icons/ImageEdit';
@@ -9,10 +9,10 @@ import { ImageEditIcon } from '@icons/ImageEdit';
 import * as S from './ArtistInfoCard.styled';
 
 type ArtistInfoCardProps = {
-  artistInfo: ArtistInfo;
+  artistInfo: ArtistInfoField;
   handleArtistProfileChange: (
     id: number,
-    field: keyof ArtistInfo,
+    field: keyof ArtistInfoField,
     value: string
   ) => void;
   handleProfileImageUpload: (
@@ -43,9 +43,11 @@ const ArtistInfoCard = ({
           accept="image/*"
           onChange={(e) => handleProfileImageUpload(e, artistInfo.id)}
         />
-        {artistInfo.profileImage ? (
+        {artistInfo.profileImgFile.size > 0 ? (
           <>
-            <S.ArtistProfileImage src={artistInfo.profileImage} />
+            <S.ArtistProfileImage
+              src={URL.createObjectURL(artistInfo.profileImgFile)}
+            />
             {/* Hover시 이미지 변경 UI */}
             <S.ProfileImageOverlay
               $isProfileImageHovered={isProfileImageHovered}
@@ -66,17 +68,17 @@ const ArtistInfoCard = ({
         <S.ArtistNameInput
           type="text"
           placeholder="Artist Name"
-          value={artistInfo.name}
+          value={artistInfo.nameEn}
           onChange={(e) =>
-            handleArtistProfileChange(artistInfo.id, 'name', e.target.value)
+            handleArtistProfileChange(artistInfo.id, 'nameEn', e.target.value)
           }
         />
         <S.ArtistMajorInput
           type="text"
           placeholder="Major"
-          value={artistInfo.major}
+          value={artistInfo.role}
           onChange={(e) =>
-            handleArtistProfileChange(artistInfo.id, 'major', e.target.value)
+            handleArtistProfileChange(artistInfo.id, 'role', e.target.value)
           }
         />
         <S.ArtistEmailInput
