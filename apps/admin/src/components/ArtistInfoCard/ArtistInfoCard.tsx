@@ -67,11 +67,21 @@ const ArtistInfoCard = ({
       <S.ArtistTextInfoContainer>
         <S.ArtistNameInput
           type="text"
-          placeholder="Artist Name"
+          placeholder="Artist Name (ENG)"
           value={artistInfo.nameEn}
           onChange={(e) =>
             handleArtistProfileChange(artistInfo.id, 'nameEn', e.target.value)
           }
+          required
+        />
+        <S.ArtistKoreanNameInput
+          type="text"
+          placeholder="작가 이름 (한글)"
+          value={artistInfo.nameKo}
+          onChange={(e) =>
+            handleArtistProfileChange(artistInfo.id, 'nameKo', e.target.value)
+          }
+          required
         />
         <S.ArtistMajorInput
           type="text"
@@ -80,6 +90,7 @@ const ArtistInfoCard = ({
           onChange={(e) =>
             handleArtistProfileChange(artistInfo.id, 'role', e.target.value)
           }
+          required
         />
         <S.ArtistEmailInput
           type="text"
