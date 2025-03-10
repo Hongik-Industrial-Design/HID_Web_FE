@@ -2,7 +2,7 @@ import { JSX } from 'react/jsx-runtime';
 import { useMemo, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 
-import { GalleryInfos } from '../Exhibition.types';
+import { ExhibitionPreview } from '@schemas/exhibition';
 
 import SearchBar from '@components/SearchBar/SearchBar';
 import Piece from './Piece/Piece';
@@ -10,26 +10,26 @@ import Pagination from '@components/Pagination/Pagination';
 
 import * as S from './GraduationExhibitionGallery.styled';
 
-interface GalleryProps {
-  pieces: GalleryInfos[];
+interface GraduationGalleryProps {
+  previews: ExhibitionPreview;
   exhibitionYear: string;
 }
 
 const GraduationExhibitionGallery = ({
-  pieces,
+  previews,
   exhibitionYear,
-}: GalleryProps): JSX.Element => {
+}: GraduationGalleryProps): JSX.Element => {
   const [currentPage, setCurrentPage] = useState<number>(1);
 
-  const totalPages = Math.ceil(pieces.length / 9);
+  const totalPages = Math.ceil(previews?.length / 9);
 
   const handleCurrentPage = (page: number) => setCurrentPage(page);
 
   // 페이지네이션 작품 리스트 계산 Logic
-  const paginatedPieces = useMemo(() => {
+  const paginatedPreviews = useMemo(() => {
     const startIndex = (currentPage - 1) * 9;
-    return pieces.slice(startIndex, currentPage * 9);
-  }, [currentPage, pieces]);
+    return previews?.slice(startIndex, currentPage * 9);
+  }, [currentPage, previews]);
 
   return (
     <S.GalleryWrapper>
@@ -39,13 +39,13 @@ const GraduationExhibitionGallery = ({
       </S.GalleryHeader>
       <S.GalleryContainer>
         <AnimatePresence>
-          {paginatedPieces.map((piece) => (
+          {paginatedPreviews?.map((preview) => (
             <Piece
-              key={piece.exhibitId}
-              exhibitId={piece.exhibitId}
-              title={piece.titleEn}
-              subTitle={piece.subTitleEn}
-              imageURL={piece.mainImgUrl}
+              key={preview.exhibitId}
+              exhibitId={preview.exhibitId}
+              title={preview.titleEn}
+              subTitle={preview.subTitleEn}
+              imageURL={preview.mainImgUrl}
             />
           ))}
         </AnimatePresence>

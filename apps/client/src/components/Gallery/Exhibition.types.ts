@@ -19,29 +19,3 @@ export interface OverlayProps {
   subTitle: string;
   isPieceHovered: boolean;
 }
-
-// 학생 전시 API response 타입
-export interface StudentPreviewInfos {
-  exhibitId: number;
-  club: string;
-  mainImgUrl: string;
-  titleKo: string;
-  titleEn: string;
-  subTitleKo: string;
-  subTitleEn: string;
-}
-
-export interface GalleryInfos {
-  id: number;
-  category: string;
-  thumbnail: string;
-  credit: {
-    title: string;
-    author: string;
-  };
-}
-
-export interface IndicatorProps {
-  handleScroll: () => void;
-  width: string;
-}

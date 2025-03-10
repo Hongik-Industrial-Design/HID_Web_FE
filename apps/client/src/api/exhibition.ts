@@ -10,7 +10,7 @@ export const fetchExhibitionPreview = async (
   exhibitType: EXHIBIT_TYPE,
   year: string,
   club: string
-): Promise<Schemas.StudentExhibitionPreview> => {
+): Promise<Schemas.ExhibitionPreview> => {
   const params = {
     exhibitType: exhibitType,
     year: year,
@@ -22,10 +22,7 @@ export const fetchExhibitionPreview = async (
   });
   console.log('전시 Preview 데이터: ', response.data.data);
 
-  return validateResponse(
-    Schemas.StudentExhibitionPreviewSchema,
-    response.data.data
-  );
+  return validateResponse(Schemas.ExhibitionPreviewSchema, response.data.data);
 };
 
 // 졸업 전시 페이지 데이터 조회

@@ -7,10 +7,13 @@ export const GraduationBannerVideoSchema = z.object({
 });
 
 // 학생 전시 Preview Schema
-export const StudentExhibitionPreviewSchema = z.array(
+export const ExhibitionPreviewSchema = z.array(
   z.object({
     exhibitId: z.number(),
-    club: z.string(),
+    type: z.enum(['GRADUATION', 'CLUB']),
+    year: z.string(),
+    major: z.nullable(z.string()),
+    club: z.nullable(z.string()),
     mainImgUrl: z.string().url(),
     titleKo: z.string(),
     titleEn: z.string(),
@@ -19,9 +22,7 @@ export const StudentExhibitionPreviewSchema = z.array(
   })
 );
 
-export type StudentExhibitionPreview = z.infer<
-  typeof StudentExhibitionPreviewSchema
->;
+export type ExhibitionPreview = z.infer<typeof ExhibitionPreviewSchema>;
 
 // 학생 전시 상세 Schema
 export const StudentExhibitionDetailSchema = z.object({
