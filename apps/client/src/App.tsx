@@ -7,7 +7,6 @@ import FacultyList from '@pages/Faculty/FacultyList/FacultyList';
 import ProfessorProfile from '@pages/Faculty/ProfessorProfile/ProfessorProfile';
 
 import GraduationExhibition from '@pages/Exhibition/Graduation/GraduationExhibition';
-import ExhibitionDetail from '@pages/Exhibition/Detail/ExhibitionDetail';
 import StudentExhibition from '@pages/Exhibition/Student/StudentExhibition';
 import StudentExhibitionDetail from '@pages/Exhibition/Student/Detail/StudentExhibitionDetail';
 
@@ -17,6 +16,7 @@ import NewsEventList from '@pages/Community/NewsEvent/List/NewsEventList';
 import BoardDetailPage from '@pages/Community/BoardDetail/BoardDetailPage';
 
 import ContactPage from '@pages/Contact/ContactPage';
+import GraduationExhibitionDetail from '@pages/Exhibition/Graduation/Detail/GraduationExhibitionDetail';
 
 function App() {
   return (
@@ -30,9 +30,8 @@ function App() {
         </Route>
 
         <Route path="graduation">
-          <Route path=":year" element={<GraduationExhibition />}>
-            <Route path=":id" element={<ExhibitionDetail />} />
-          </Route>
+          <Route path=":year" element={<GraduationExhibition />} />
+          <Route path=":year/:id" element={<GraduationExhibitionDetail />} />
         </Route>
 
         <Route path="student">
