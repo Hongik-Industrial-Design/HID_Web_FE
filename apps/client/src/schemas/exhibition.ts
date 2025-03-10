@@ -43,7 +43,7 @@ export const ExhibitionDetailSchema = z.object({
   exhibitId: z.number(),
   exhibitType: z.enum(['GRADUATION', 'CLUB']),
   year: z.string(),
-  major: z.enum(['Smart Mobility', 'Spatial', 'Product', 'Interaction']),
+  major: z.nullable(z.string()),
   club: z.nullable(z.string()),
   mainImgUrl: z.string().url(),
   detailImgs: z.array(
