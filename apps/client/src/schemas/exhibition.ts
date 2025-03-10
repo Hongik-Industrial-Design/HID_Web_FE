@@ -6,7 +6,7 @@ export const GraduationBannerVideoSchema = z.object({
   videoUrl: z.string().url(),
 });
 
-// 학생 전시 Preview Schema
+// 전시 Preview Schema
 export const ExhibitionPreviewSchema = z.array(
   z.object({
     exhibitId: z.number(),
@@ -23,6 +23,44 @@ export const ExhibitionPreviewSchema = z.array(
 );
 
 export type ExhibitionPreview = z.infer<typeof ExhibitionPreviewSchema>;
+
+// 전시 상세 정보 Schema
+export const ExhibitionDetailSchema = z.object({
+  exhibitId: z.number(),
+  exhibitType: z.enum(['GRADUATION', 'CLUB']),
+  year: z.string(),
+  major: z.enum(['Smart Mobility', 'Spatial', 'Product', 'Interaction']),
+  club: z.nullable(z.string()),
+  mainImgUrl: z.string().url(),
+  detailImgs: z.array(
+    z.object({
+      detailImgUrl: z.string().url(),
+      position: z.number(),
+    })
+  ),
+  titleKo: z.string(),
+  titleEn: z.string(),
+  subTitleKo: z.string(),
+  subTitleEn: z.string(),
+  textKo: z.string(),
+  textEn: z.string(),
+  videoUrl: z.string().url(),
+  artists: z.array(
+    z.object({
+      id: z.number(),
+      profileImgUrl: z.string().url(),
+      nameKo: z.string(),
+      nameEn: z.string(),
+      role: z.string(),
+      email: z.string().email(),
+      instagramUrl: z.string().url(),
+      behanceUrl: z.string().url(),
+      linkedinUrl: z.string().url(),
+    })
+  ),
+});
+
+export type ExhibitionDetail = z.infer<typeof ExhibitionDetailSchema>;
 
 // 학생 전시 상세 Schema
 export const StudentExhibitionDetailSchema = z.object({

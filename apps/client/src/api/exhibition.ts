@@ -1,4 +1,4 @@
-import { exhibitionAPI } from '@lib/axios';
+import { HWISO_API } from '@lib/axios';
 import { validateResponse } from '@utils/validateResponse';
 
 import { EXHIBIT_TYPE } from '@constants/exhibitionCategory';
@@ -17,7 +17,7 @@ export const fetchExhibitionPreview = async (
     term: club,
   };
 
-  const response = await exhibitionAPI.get('/exhibits/previews', {
+  const response = await HWISO_API.get('/exhibits/previews', {
     params,
   });
   console.log('전시 Preview 데이터: ', response.data.data);
@@ -27,18 +27,26 @@ export const fetchExhibitionPreview = async (
 
 // 졸업 전시 페이지 데이터 조회
 export const fetchGraduationBannerVideo = async (year: number) => {
-  const response = await exhibitionAPI.get(`/contents/main-video/${year}`);
+  const response = await HWISO_API.get(`/contents/main-video/${year}`);
 
   console.log('졸업 전시 배너 영상: ', response.data);
 
   return validateResponse(Schemas.GraduationBannerVideoSchema, response.data);
 };
 
+export const fetchExhibitionDetail = async (exhibitId: number) => {
+  const response = await HWISO_API.get(`/exhibits/${exhibitId}`);
+
+  console.log('전시 상세 데이터: ', response.data);
+
+  return validateResponse(Schemas.ExhibitionDetailSchema, response.data);
+};
+
 // 학생 전시 상세 조회 API 함수
 export const fetchStudentExhibitionDetail = async (
   exhibitId: number
 ): Promise<Schemas.StudentExhibitionDetail> => {
-  const response = await exhibitionAPI.get(`/exhibits/${exhibitId}`);
+  const response = await HWISO_API.get(`/exhibits/${exhibitId}`);
   // console.log('학생 전시 Detail 데이터: ', response.data);
 
   return validateResponse(Schemas.StudentExhibitionDetailSchema, response.data);
