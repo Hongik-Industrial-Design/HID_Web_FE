@@ -40,6 +40,7 @@ const StudentExhibition = (): JSX.Element => {
     isFetching,
     error,
   } = useStudentExhbitionPreviewQuery(
+    'CLUB',
     selectedExhibition.year,
     selectedExhibition.club.toUpperCase()
   );

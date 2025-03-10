@@ -1,24 +1,18 @@
 import { exhibitionAPI } from '@lib/axios';
 import { validateResponse } from '@utils/validateResponse';
 
+import { EXHIBIT_TYPE } from '@constants/exhibitionCategory';
+
 import * as Schemas from '@schemas/exhibition';
 
-// 졸업 전시 페이지 데이터 조회
-export const fetchGraduationBannerVideo = async (year: number) => {
-  const response = await exhibitionAPI.get(`/contents/main-video/${year}`);
-
-  console.log('졸업 전시 배너 영상: ', response.data);
-
-  return validateResponse(Schemas.GraduationBannerVideoSchema, response.data);
-};
-
-// 학생 전시 페이지 데이터 조회
-export const fetchStudentExhibitionPreview = async (
+// 전시 Preview 조회 API 함수
+export const fetchExhibitionPreview = async (
+  exhibitType: EXHIBIT_TYPE,
   year: string,
   club: string
 ): Promise<Schemas.StudentExhibitionPreview> => {
   const params = {
-    exhibitType: 'CLUB',
+    exhibitType: exhibitType,
     year: year,
     term: club,
   };
@@ -34,6 +28,16 @@ export const fetchStudentExhibitionPreview = async (
   );
 };
 
+// 졸업 전시 페이지 데이터 조회
+export const fetchGraduationBannerVideo = async (year: number) => {
+  const response = await exhibitionAPI.get(`/contents/main-video/${year}`);
+
+  console.log('졸업 전시 배너 영상: ', response.data);
+
+  return validateResponse(Schemas.GraduationBannerVideoSchema, response.data);
+};
+
+// 학생 전시 상세 조회 API 함수
 export const fetchStudentExhibitionDetail = async (
   exhibitId: number
 ): Promise<Schemas.StudentExhibitionDetail> => {
