@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useStudentExhbitionPreviewQuery } from '@api/query/studentExhibitionQuery';
 
 import Category from '@components/Category/Category';
-import StudentExhibitionGallery from '@components/Exhibition/StudentGallery/StudentExhibitionGallery';
+import StudentExhibitionGallery from '@components/Gallery/StudentGallery/StudentExhibitionGallery';
 import Loading from '@components/Loading/Loading';
 
 import { ARCHIVE_YEAR_LIST } from '@constants/archiveYear';
@@ -40,6 +40,7 @@ const StudentExhibition = (): JSX.Element => {
     isFetching,
     error,
   } = useStudentExhbitionPreviewQuery(
+    'CLUB',
     selectedExhibition.year,
     selectedExhibition.club.toUpperCase()
   );

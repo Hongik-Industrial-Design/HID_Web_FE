@@ -1,14 +1,50 @@
 import { JSX } from 'react/jsx-runtime';
+import { useParams } from 'react-router';
 
-import Exhibition from '@components/Exhibition/Exhibition';
+import {
+  useGraduationBannerVideoQuery,
+  useGraduationExhbitionPreviewQuery,
+} from '@api/query/graduationExhibitionQuery';
 
-// import graduationBanner from '@assets/images/graduation-banner.jpg';
+import { GRADUATION_CATEGORY_LIST } from '@constants/exhibitionCategory';
+
+import Loading from '@components/Loading/Loading';
+import Category from '@components/Category/Category';
+import GraduationExhibitionGallery from '@components/Gallery/GraduationGallery/GraduationExhibitionGallery';
 
 import * as S from './GraduationExhibition.styled';
 
 export const GraduationExhibition = (): JSX.Element => {
-  const GraduationVideoURL =
-    'http://www.hongik-id-degreeshow2023.com/wp-content/themes/hidds/assets/images/main/main-video.mp4';
+  const { year } = useParams();
+
+  const exhibitionYear = year ?? '2024';
+
+  // Fetching Banner Video
+  const {
+    status,
+    data: bannerVideo,
+    error,
+  } = useGraduationBannerVideoQuery(Number(exhibitionYear));
+
+  // 졸업 전시 Preview 조회 API
+  const {
+    status: previewStatus,
+    data: exhibitionPreviews,
+    error: previewError,
+  } = useGraduationExhbitionPreviewQuery('GRADUATION', exhibitionYear, 'ALL');
+
+  // Filterirng corresponding category Pieces list
+  const handleFilterPieces = (category: string) => {
+    if (category === 'All') {
+      setCategorizedPieces(pieces);
+    } else {
+      const filteredPieces = pieces.filter(
+        (piece) => piece.category === category
+      );
+
+      setCategorizedPieces(filteredPieces);
+    }
+  };
 
   return (
     <S.GraduationExhibitionContainer>
@@ -26,12 +62,35 @@ export const GraduationExhibition = (): JSX.Element => {
           },
         }}
       >
-        {/* <S.GraduationBanner src={graduationBanner} alt="graduation-banner" /> */}
-        <S.GraduationVideo src={GraduationVideoURL} autoPlay loop muted />
+        {status === 'pending' ? (
+          <Loading />
+        ) : status === 'error' ? (
+          <span>Error: {error.message}</span>
+        ) : (
+          <S.GraduationVideo src={bannerVideo.videoUrl} autoPlay loop muted />
+        )}
       </S.BannerFrame>
 
       <S.GraduationExhibitonGalleryContainer>
-        <Exhibition />
+        <S.ExhibitionContainer>
+          <S.StickyContainer>
+            <Category
+              currentCategory={GRADUATION_CATEGORY_LIST[0]}
+              handleFilter={handleFilterPieces}
+            />
+          </S.StickyContainer>
+
+          {previewStatus === 'pending' ? (
+            <Loading />
+          ) : previewStatus === 'error' ? (
+            <span>Error: {previewError.message}</span>
+          ) : (
+            <GraduationExhibitionGallery
+              previews={exhibitionPreviews}
+              exhibitionYear={String(exhibitionYear)}
+            />
+          )}
+        </S.ExhibitionContainer>
       </S.GraduationExhibitonGalleryContainer>
     </S.GraduationExhibitionContainer>
   );
