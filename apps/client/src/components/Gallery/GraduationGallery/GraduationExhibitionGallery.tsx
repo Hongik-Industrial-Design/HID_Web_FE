@@ -1,6 +1,5 @@
 import { JSX } from 'react/jsx-runtime';
 import { useMemo, useState } from 'react';
-import { useNavigate } from 'react-router';
 import { AnimatePresence } from 'framer-motion';
 
 import { GalleryInfos } from '../Exhibition.types';
@@ -9,19 +8,17 @@ import SearchBar from '@components/SearchBar/SearchBar';
 import Piece from './Piece/Piece';
 import Pagination from '@components/Pagination/Pagination';
 
-import * as S from './ExhibitionGallery.styled';
+import * as S from './GraduationExhibitionGallery.styled';
 
 interface GalleryProps {
   pieces: GalleryInfos[];
   exhibitionYear: string;
 }
 
-const ExhibitionGallery = ({
+const GraduationExhibitionGallery = ({
   pieces,
   exhibitionYear,
 }: GalleryProps): JSX.Element => {
-  const navigate = useNavigate();
-
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   const totalPages = Math.ceil(pieces.length / 9);
@@ -34,8 +31,6 @@ const ExhibitionGallery = ({
     return pieces.slice(startIndex, currentPage * 9);
   }, [currentPage, pieces]);
 
-  const goToDetailPage = (id: number) => navigate(`/graduation/work/${id}`);
-
   return (
     <S.GalleryWrapper>
       <S.GalleryHeader>
@@ -46,10 +41,11 @@ const ExhibitionGallery = ({
         <AnimatePresence>
           {paginatedPieces.map((piece) => (
             <Piece
-              key={piece.id}
-              pieceName={piece.thumbnail}
-              pieceInfos={piece.credit}
-              goToDetailPage={() => goToDetailPage(piece.id)}
+              key={piece.exhibitId}
+              exhibitId={piece.exhibitId}
+              title={piece.titleEn}
+              subTitle={piece.subTitleEn}
+              imageURL={piece.mainImgUrl}
             />
           ))}
         </AnimatePresence>
@@ -65,4 +61,4 @@ const ExhibitionGallery = ({
   );
 };
 
-export default ExhibitionGallery;
+export default GraduationExhibitionGallery;
