@@ -1,14 +1,20 @@
 import { JSX } from 'react/jsx-runtime';
 
-import Exhibition from '@components/Exhibition/Exhibition';
+import { useGraduationBannerVideoQuery } from '@api/query/graduationExhibitionQuery';
 
-// import graduationBanner from '@assets/images/graduation-banner.jpg';
+import Exhibition from '@components/Exhibition/Exhibition';
+import Loading from '@components/Loading/Loading';
 
 import * as S from './GraduationExhibition.styled';
 
 export const GraduationExhibition = (): JSX.Element => {
-  const GraduationVideoURL =
-    'http://www.hongik-id-degreeshow2023.com/wp-content/themes/hidds/assets/images/main/main-video.mp4';
+  const exhibitionYear = 2024;
+
+  const {
+    status,
+    data: bannerVideo,
+    error,
+  } = useGraduationBannerVideoQuery(exhibitionYear);
 
   return (
     <S.GraduationExhibitionContainer>
@@ -26,8 +32,13 @@ export const GraduationExhibition = (): JSX.Element => {
           },
         }}
       >
-        {/* <S.GraduationBanner src={graduationBanner} alt="graduation-banner" /> */}
-        <S.GraduationVideo src={GraduationVideoURL} autoPlay loop muted />
+        {status === 'pending' ? (
+          <Loading />
+        ) : status === 'error' ? (
+          <span>Error: {error.message}</span>
+        ) : (
+          <S.GraduationVideo src={bannerVideo.videoUrl} autoPlay loop muted />
+        )}
       </S.BannerFrame>
 
       <S.GraduationExhibitonGalleryContainer>

@@ -3,6 +3,16 @@ import { validateResponse } from '@utils/validateResponse';
 
 import * as Schemas from '@schemas/exhibition';
 
+// 졸업 전시 페이지 데이터 조회
+export const fetchGraduationBannerVideo = async (year: number) => {
+  const response = await exhibitionAPI.get(`/contents/main-video/${year}`);
+
+  console.log('졸업 전시 배너 영상: ', response.data);
+
+  return validateResponse(Schemas.GraduationBannerVideoSchema, response.data);
+};
+
+// 학생 전시 페이지 데이터 조회
 export const fetchStudentExhibitionPreview = async (
   year: string,
   club: string

@@ -1,5 +1,11 @@
 import { z } from 'zod';
 
+// 졸업 전시 배너 영상 조회 Schema
+export const GraduationBannerVideoSchema = z.object({
+  year: z.number(),
+  videoUrl: z.string().url(),
+});
+
 // 학생 전시 Preview Schema
 export const StudentExhibitionPreviewSchema = z.array(
   z.object({
