@@ -1,4 +1,4 @@
-import { communityAPI } from '@lib/axios';
+import { JUNBO_API } from '@lib/axios';
 import {
   CommunitySchema,
   NewsEventListSchema,
@@ -7,7 +7,7 @@ import {
 import { validateResponse } from '@utils/validateResponse';
 
 export const fetchCommunityData = async () => {
-  const response = await communityAPI.get('/community');
+  const response = await JUNBO_API.get('/community');
 
   // 추후 status code에 따른 에러 처리 필요
 
@@ -21,7 +21,7 @@ export const fetchNoticeList = async (page: number, size: number) => {
   };
 
   try {
-    const response = await communityAPI.get('/notices', noticeParams);
+    const response = await JUNBO_API.get('/notices', noticeParams);
 
     return validateResponse(NoticeListSchema, response.data);
   } catch (error) {
@@ -36,7 +36,7 @@ export const fetchNewsEventList = async (page: number, size: number) => {
   };
 
   try {
-    const response = await communityAPI.get('/newsEvent', newsEventParams);
+    const response = await JUNBO_API.get('/newsEvent', newsEventParams);
 
     // 추후 status code에 따른 에러 처리 필요
 
