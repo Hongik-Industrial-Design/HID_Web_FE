@@ -25,6 +25,20 @@ export const ExhibitionPreviewSchema = z.array(
 export type ExhibitionPreview = z.infer<typeof ExhibitionPreviewSchema>;
 
 // 전시 상세 정보 Schema
+export const ArtistSchema = z.object({
+  id: z.number(),
+  profileImgUrl: z.string().url(),
+  nameKo: z.string(),
+  nameEn: z.string(),
+  role: z.string(),
+  email: z.string().email(),
+  instagramUrl: z.string().url(),
+  behanceUrl: z.string().url(),
+  linkedinUrl: z.string().url(),
+});
+
+export type Artist = z.infer<typeof ArtistSchema>;
+
 export const ExhibitionDetailSchema = z.object({
   exhibitId: z.number(),
   exhibitType: z.enum(['GRADUATION', 'CLUB']),
@@ -45,19 +59,7 @@ export const ExhibitionDetailSchema = z.object({
   textKo: z.string(),
   textEn: z.string(),
   videoUrl: z.string().url(),
-  artists: z.array(
-    z.object({
-      id: z.number(),
-      profileImgUrl: z.string().url(),
-      nameKo: z.string(),
-      nameEn: z.string(),
-      role: z.string(),
-      email: z.string().email(),
-      instagramUrl: z.string().url(),
-      behanceUrl: z.string().url(),
-      linkedinUrl: z.string().url(),
-    })
-  ),
+  artists: z.array(ArtistSchema),
 });
 
 export type ExhibitionDetail = z.infer<typeof ExhibitionDetailSchema>;

@@ -1,6 +1,6 @@
 import { JSX } from 'react/jsx-runtime';
 
-import { ArtworkInfos } from '../GraduationArtwork.types';
+import { ExhibitionDetail } from '@schemas/exhibition';
 
 import GraduationArtworkImages from './ArtworkImages/GraduationArtworkImages';
 // import YoutubeEmbed from '@components/YoutubeEmbed/YoutubeEmbed';
@@ -8,7 +8,7 @@ import GraduationArtworkImages from './ArtworkImages/GraduationArtworkImages';
 import * as S from './GraduationArtworkSection.styled';
 
 interface ArtworkSectionProps {
-  artworkInfos: ArtworkInfos;
+  artworkInfos: ExhibitionDetail;
 }
 
 const GraduationArtworkSection = ({

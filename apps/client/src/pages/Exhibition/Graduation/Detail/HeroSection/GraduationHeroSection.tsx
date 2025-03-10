@@ -2,7 +2,7 @@ import { JSX } from 'react/jsx-runtime';
 import { useState } from 'react';
 import { useParams } from 'react-router';
 
-import { ArtworkInfos } from '../GraduationArtwork.types';
+import { ExhibitionDetail } from '@schemas/exhibition';
 
 import Breadscrumb from '@components/Breadscrumb/Breadscrumb';
 import Keyword from '@components/Keyword/Keyword';
@@ -14,7 +14,7 @@ import { BehanceLogo, InstagramLogo } from '@icons/SocialIcon';
 import * as S from './GraduationHeroSection.styled';
 
 interface HeroSectionProps {
-  artworkInfos: ArtworkInfos;
+  artworkInfos: ExhibitionDetail;
 }
 
 type SocialIconHovered = {

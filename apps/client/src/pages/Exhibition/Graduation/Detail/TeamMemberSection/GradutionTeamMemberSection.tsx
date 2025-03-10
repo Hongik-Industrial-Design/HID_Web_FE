@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { PanInfo, useSpring, useTransform } from 'framer-motion';
 import { useRafLoop, useWindowSize } from 'react-use';
 
-import { AuthorInfos } from '../GraduationArtwork.types';
+import { Artist } from '@schemas/exhibition';
 
 import MemberCard from './MemberCard/GraduationMemberCard';
 import { PlayPauseIcon } from '@icons/PlayPause';
@@ -11,7 +11,7 @@ import { PlayPauseIcon } from '@icons/PlayPause';
 import * as S from './GraduationTeamMemberSection.styled';
 
 interface TeamMemberSectionProps {
-  membersData: AuthorInfos[];
+  membersData: Artist[];
 }
 
 const animationFactor = {
@@ -20,7 +20,7 @@ const animationFactor = {
   dragFactor: 1.2,
 };
 
-const StudentTeamMemberSection = ({
+const GraduationTeamMemberSection = ({
   membersData,
 }: TeamMemberSectionProps): JSX.Element => {
   const [isRunning, setIsRunning] = useState<boolean>(false);
@@ -153,7 +153,7 @@ const StudentTeamMemberSection = ({
         <S.TeamMembersContainer ref={cards}>
           {membersData?.map((teamMember) => (
             <MemberCard
-              key={teamMember.artistUUID}
+              key={teamMember.id}
               teamMember={teamMember}
               speed={speed}
               isRunning={isRunning}
@@ -165,4 +165,4 @@ const StudentTeamMemberSection = ({
   );
 };
 
-export default StudentTeamMemberSection;
+export default GraduationTeamMemberSection;

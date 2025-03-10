@@ -3,12 +3,12 @@ import { useRef, useState } from 'react';
 import { MotionValue } from 'framer-motion';
 import { useRafLoop } from 'react-use';
 
-import { AuthorInfos } from '../../GraduationArtwork.types';
+import { Artist } from '@schemas/exhibition';
 
 import * as S from './GraduationMemberCard.styled';
 
 interface MemberCardProps {
-  teamMember: AuthorInfos;
+  teamMember: Artist;
   speed: MotionValue<number>;
   isRunning: boolean;
 }

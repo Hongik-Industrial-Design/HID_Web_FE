@@ -1,16 +1,13 @@
 import { JSX } from 'react/jsx-runtime';
 import { useParams } from 'react-router';
 
-import { useStudentExhibitionDetailQuery } from '@api/query/studentExhibitionQuery';
-
-import { ArtworkInfos } from './GraduationArtwork.types';
-
-import StudentHeroSection from './HeroSection/GraduationHeroSection';
-import StudentArtworkSection from './ArtworkSection/GraduationArtworkSection';
-import StudentTeamMemberSection from './TeamMemberSection/GradutionTeamMemberSection';
+import GraduationHeroSection from './HeroSection/GraduationHeroSection';
+import GraduationArtworkSection from './ArtworkSection/GraduationArtworkSection';
+import GraduationTeamMemberSection from './TeamMemberSection/GradutionTeamMemberSection';
 import Loading from '@components/Loading/Loading';
 
 import * as S from './GraduationExhibitionDetail.styled';
+import { useGraduationExhibitionDetailQuery } from '@api/query/graduationExhibitionQuery';
 
 const GraduationExhibitionDetail = (): JSX.Element => {
   //   const [artworkInfos, setArtworkInfos] = useState<ArtworkInfos>(
@@ -18,17 +15,17 @@ const GraduationExhibitionDetail = (): JSX.Element => {
   //   );
 
   // URL 내 params 추출 (API 요청시에 필요)
-  const { id, year } = useParams();
+  const { id } = useParams();
   const exhibitId = parseInt(id ? id : '');
-  const exhibtionYear = year ? year : '';
+  // const exhibtionYear = year ? year : '';
 
   // 학생 전시 상세 정보 데이터 Fetching (Tanstack Query 적용F)
   const {
     status,
-    data: artworkInfos = {} as ArtworkInfos,
+    data: graduationArtworkInfos,
     error,
     isFetching,
-  } = useStudentExhibitionDetailQuery(exhibtionYear, exhibitId);
+  } = useGraduationExhibitionDetailQuery(exhibitId);
 
   return (
     <>
@@ -41,10 +38,12 @@ const GraduationExhibitionDetail = (): JSX.Element => {
       ) : (
         <S.ExhibitionDetailWrapper>
           <S.ExhibitionDetailContainer>
-            <StudentHeroSection artworkInfos={artworkInfos} />
-            <StudentArtworkSection artworkInfos={artworkInfos} />
+            <GraduationHeroSection artworkInfos={graduationArtworkInfos} />
+            <GraduationArtworkSection artworkInfos={graduationArtworkInfos} />
           </S.ExhibitionDetailContainer>
-          <StudentTeamMemberSection membersData={artworkInfos.artists} />
+          <GraduationTeamMemberSection
+            membersData={graduationArtworkInfos.artists}
+          />
           {isFetching && <span>Background Updating...</span>}
         </S.ExhibitionDetailWrapper>
       )}
