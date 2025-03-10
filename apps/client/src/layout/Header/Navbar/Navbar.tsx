@@ -45,7 +45,7 @@ const Navbar = ({
         onMouseEnter={() => enterNavbar('graduation')}
         onMouseLeave={() => leaveNavbar()}
       >
-        <S.NavItemLink to={`/graduation/${ARCHIVE_YEAR_LIST[1]}`}>
+        <S.NavItemLink to={`/graduation/${ARCHIVE_YEAR_LIST[0]}`}>
           Graduation Exhibition
         </S.NavItemLink>
       </S.NavItem>

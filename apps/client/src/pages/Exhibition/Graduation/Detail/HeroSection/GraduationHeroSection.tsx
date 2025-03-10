@@ -102,8 +102,12 @@ const GraduationHeroSection = ({
 
           {/* Description */}
           <S.ArtworkDescriptionSection>
-            <S.DescriptionEnglish>{artworkInfos.textEn}</S.DescriptionEnglish>
-            <S.DescriptionKorean>{artworkInfos.textKo}</S.DescriptionKorean>
+            <S.DescriptionEnglish>
+              {artworkInfos.descriptionEn}
+            </S.DescriptionEnglish>
+            <S.DescriptionKorean>
+              {artworkInfos.descriptionKo}
+            </S.DescriptionKorean>
           </S.ArtworkDescriptionSection>
 
           {/* 서버에서 데이터가 넘어오지 않음 (BE에 요청 필요) */}
