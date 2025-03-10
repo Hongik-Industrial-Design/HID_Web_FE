@@ -29,7 +29,7 @@ export const fetchExhibitionPreview = async (
 export const fetchGraduationBannerVideo = async (year: number) => {
   const response = await HWISO_API.get(`/contents/main-video/${year}`);
 
-  console.log('졸업 전시 배너 영상: ', response.data);
+  // console.log('졸업 전시 배너 영상: ', response.data);
 
   return validateResponse(Schemas.GraduationBannerVideoSchema, response.data);
 };
