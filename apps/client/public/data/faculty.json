@@ -2,15 +2,6 @@
   "majorList": ["All", "Smart Mobility", "Spatial", "Product"],
   "faculty": [
     {
-      "id": "1",
-      "thumbnail": "lee-geun.jpg",
-      "info": {
-        "name": "Lee Geun",
-        "major": "Smart Mobility Design",
-        "category": "Smart Mobility"
-      }
-    },
-    {
       "id": "2",
       "thumbnail": "koo-sang.jpg",
       "info": {
