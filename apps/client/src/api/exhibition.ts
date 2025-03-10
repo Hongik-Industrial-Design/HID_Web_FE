@@ -20,7 +20,7 @@ export const fetchExhibitionPreview = async (
   const response = await exhibitionAPI.get('/exhibits/previews', {
     params,
   });
-  console.log('학생 전시 Preview 데이터: ', response.data);
+  console.log('전시 Preview 데이터: ', response.data.data);
 
   return validateResponse(
     Schemas.StudentExhibitionPreviewSchema,

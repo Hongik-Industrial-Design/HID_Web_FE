@@ -1,15 +1,40 @@
 import { useQuery } from '@tanstack/react-query';
 
-import { fetchGraduationBannerVideo } from '@api/exhibition';
+import { EXHIBIT_TYPE } from '@constants/exhibitionCategory';
+
+import {
+  fetchExhibitionPreview,
+  fetchGraduationBannerVideo,
+} from '@api/exhibition';
 
 const GRADUATION_QUERY_KEYS = {
   bannerVideo: (year: number) => ['Graduation', year],
+  preview: (exhibitType: EXHIBIT_TYPE, year: string, club: string) => [
+    exhibitType,
+    year,
+    club,
+  ],
 };
 
+// 졸업 전시 배너 영상 조회 API
 export const useGraduationBannerVideoQuery = (year: number) => {
   return useQuery({
     queryKey: GRADUATION_QUERY_KEYS.bannerVideo(year),
     queryFn: () => fetchGraduationBannerVideo(year),
+    staleTime: 1000 * 10, // 10초 (Testing)
+    gcTime: 1000 * 60, // 1분 (Testing)
+  });
+};
+
+// 졸업 전시 Preview 조회 API
+export const useGraduationExhbitionPreviewQuery = (
+  exhibitType: EXHIBIT_TYPE,
+  year: string,
+  club: string
+) => {
+  return useQuery({
+    queryKey: GRADUATION_QUERY_KEYS.preview(exhibitType, year, club),
+    queryFn: () => fetchExhibitionPreview(exhibitType, year, club),
     staleTime: 1000 * 10, // 10초 (Testing)
     gcTime: 1000 * 60, // 1분 (Testing)
   });

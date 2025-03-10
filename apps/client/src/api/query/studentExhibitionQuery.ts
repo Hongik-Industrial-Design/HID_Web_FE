@@ -16,6 +16,7 @@ const STUDENT_QUERY_KEYS = {
   detail: (year: string, exhibitId: number) => ['Student', year, exhibitId],
 };
 
+// 학생 전시 프리뷰 조회 API
 export const useStudentExhbitionPreviewQuery = (
   exhibitType: EXHIBIT_TYPE,
   year: string,
@@ -28,6 +29,8 @@ export const useStudentExhbitionPreviewQuery = (
     gcTime: 1000 * 60, // 1분 (Testing)
   });
 };
+
+// 학생 전시 상세 조회 API
 export const useStudentExhibitionDetailQuery = (
   year: string,
   exhibitId: number
