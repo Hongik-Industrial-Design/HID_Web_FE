@@ -1,12 +1,13 @@
 import { JSX } from 'react/jsx-runtime';
 import { useState } from 'react';
 
+import { ARCHIVE_YEAR_LIST } from '@constants/archiveYear';
 import { GraduationTabProps } from '../Dropdown.types';
 
 import * as S from './GraduationTab.styled';
 
 const exhibitionInfos = {
-  timeline: [2025, 2024, 2023, 2022, 2021],
+  timeline: ARCHIVE_YEAR_LIST,
   infos: [
     {
       year: 2025,
@@ -98,17 +99,19 @@ const GraduationTab = ({
           {exhibitionInfos.timeline.map((year) => (
             <S.ExhibitonPosterItem
               key={year}
-              onMouseEnter={handleMouseEnter.bind(null, year)}
+              onMouseEnter={handleMouseEnter.bind(null, Number(year))}
               onMouseLeave={handleMouseLeave}
             >
               <S.ExhibitonLink to={`/graduation/${year}`}>
                 <S.ExhibitionPoster
                   src={`/Dropdown-Poster/${year}_DD_Thumbnail.jpg`}
                   alt={`${year}_DD_Thumbnail`}
-                  $isHovered={hoveredYear === year}
+                  $isHovered={hoveredYear === Number(year)}
                 />
               </S.ExhibitonLink>
-              <S.OverlappedYearContainer $isHovered={hoveredYear === year}>
+              <S.OverlappedYearContainer
+                $isHovered={hoveredYear === Number(year)}
+              >
                 <S.ExhibitionYear>{year}</S.ExhibitionYear>
               </S.OverlappedYearContainer>
             </S.ExhibitonPosterItem>

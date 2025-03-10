@@ -30,9 +30,9 @@ function App() {
         </Route>
 
         <Route path="graduation">
-          <Route index element={<GraduationExhibition />} />
-          <Route path="2024" element={<GraduationExhibition />} />
-          <Route path=":id" element={<ExhibitionDetail />} />
+          <Route path=":year" element={<GraduationExhibition />}>
+            <Route path=":id" element={<ExhibitionDetail />} />
+          </Route>
         </Route>
 
         <Route path="student">

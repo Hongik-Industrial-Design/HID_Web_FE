@@ -15,16 +15,16 @@ import GraduationExhibitionGallery from '@components/Gallery/GraduationGallery/G
 import * as S from './GraduationExhibition.styled';
 
 export const GraduationExhibition = (): JSX.Element => {
-  const { id } = useParams();
+  const { year } = useParams();
 
-  const exhibitionYear = id ?? '2024';
+  const exhibitionYear = year ?? '2024';
 
   // Fetching Banner Video
   const {
     status,
     data: bannerVideo,
     error,
-  } = useGraduationBannerVideoQuery(2024);
+  } = useGraduationBannerVideoQuery(Number(exhibitionYear));
 
   // 졸업 전시 Preview 조회 API
   const {
