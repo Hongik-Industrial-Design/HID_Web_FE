@@ -31,22 +31,24 @@ const GraduationExhibitionDetail = (): JSX.Element => {
   } = useStudentExhibitionDetailQuery(exhibtionYear, exhibitId);
 
   return (
-    <S.ExhibitionDetailWrapper>
+    <>
       {status === 'pending' ? (
-        <Loading />
+        <S.SkeletonLoadingContainer>
+          <Loading />
+        </S.SkeletonLoadingContainer>
       ) : status === 'error' ? (
         <span>Error: {error.message}</span>
       ) : (
-        <>
+        <S.ExhibitionDetailWrapper>
           <S.ExhibitionDetailContainer>
             <StudentHeroSection artworkInfos={artworkInfos} />
             <StudentArtworkSection artworkInfos={artworkInfos} />
           </S.ExhibitionDetailContainer>
           <StudentTeamMemberSection membersData={artworkInfos.artists} />
           {isFetching && <span>Background Updating...</span>}
-        </>
+        </S.ExhibitionDetailWrapper>
       )}
-    </S.ExhibitionDetailWrapper>
+    </>
   );
 };
 

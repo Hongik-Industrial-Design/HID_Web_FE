@@ -10,3 +10,12 @@ export const ExhibitionDetailContainer = styled.section`
   width: 100%;
   height: fit-content;
 `;
+
+export const SkeletonLoadingContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
