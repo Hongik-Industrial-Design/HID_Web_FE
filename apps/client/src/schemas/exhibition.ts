@@ -15,10 +15,10 @@ export const ExhibitionPreviewSchema = z.array(
     major: z.nullable(z.string()),
     club: z.nullable(z.string()),
     mainImgUrl: z.string().url(),
-    titleKo: z.string(),
-    titleEn: z.string(),
-    subTitleKo: z.string(),
-    subTitleEn: z.string(),
+    titleKo: z.nullable(z.string()),
+    titleEn: z.nullable(z.string()),
+    subTitleKo: z.nullable(z.string()),
+    subTitleEn: z.nullable(z.string()),
   })
 );
 
@@ -27,14 +27,15 @@ export type ExhibitionPreview = z.infer<typeof ExhibitionPreviewSchema>;
 // 전시 상세 정보 Schema
 export const ArtistSchema = z.object({
   id: z.number(),
+  artistUUID: z.string().uuid(),
   profileImgUrl: z.string().url(),
   nameKo: z.string(),
   nameEn: z.string(),
   role: z.string(),
   email: z.string().email(),
-  instagramUrl: z.string().url(),
-  behanceUrl: z.string().url(),
-  linkedinUrl: z.string().url(),
+  instagramUrl: z.string().url().nullable(),
+  behanceUrl: z.string().url().nullable(),
+  linkedinUrl: z.string().url().nullable(),
 });
 
 export type Artist = z.infer<typeof ArtistSchema>;
@@ -56,8 +57,8 @@ export const ExhibitionDetailSchema = z.object({
   titleEn: z.string(),
   subTitleKo: z.string(),
   subTitleEn: z.string(),
-  textKo: z.string(),
-  textEn: z.string(),
+  descriptionKo: z.string(),
+  descriptionEn: z.string(),
   videoUrl: z.string().url(),
   artists: z.array(ArtistSchema),
 });
