@@ -10,7 +10,7 @@ export const DescriptionTextarea = styled.textarea<{ $isKorean: boolean }>`
 
   ${({ $isKorean, theme }) =>
     $isKorean ? theme.fontStyles.Body3_KO : theme.fontStyles.Body3};
-  color: ${({ theme }) => theme.colors.HID_Grayscale[400]};
+  color: ${({ theme }) => theme.colors.HID_Grayscale[700]};
   background: transparent;
 
   resize: none;
