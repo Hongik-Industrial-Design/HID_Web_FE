@@ -22,7 +22,7 @@ const GraduationExhibition = (): JSX.Element => {
     <S.GraduationHeaderSection>
       <S.TitleYearSelectorContainer>
         <S.GraduationExhibitionTitle>
-          Graduation Exhibition.
+          Graduation Exhibition<span>.</span>
         </S.GraduationExhibitionTitle>
         {/* <S.Divider /> */}
         <YearSelector

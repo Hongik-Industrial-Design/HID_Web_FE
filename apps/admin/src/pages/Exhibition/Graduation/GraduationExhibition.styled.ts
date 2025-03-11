@@ -22,6 +22,10 @@ export const GraduationExhibitionTitle = styled.h1`
   ${({ theme }) => theme.fontStyles.Header1}
   color: ${({ theme }) => theme.colors.HID_Grayscale[900]};
 
+  span {
+    color: ${({ theme }) => theme.colors.HID_YellowDot};
+  }
+
   white-space: nowrap;
 `;
 
