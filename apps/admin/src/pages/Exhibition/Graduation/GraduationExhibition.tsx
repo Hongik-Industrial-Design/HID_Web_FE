@@ -25,10 +25,13 @@ const GraduationExhibition = (): JSX.Element => {
           Graduation Exhibition<span>.</span>
         </S.GraduationExhibitionTitle>
         {/* <S.Divider /> */}
-        <YearSelector
-          selectedExhibitonYear={selectedExhibitionYear}
-          handleExhibitionYearChange={handleExhibitionYearChange}
-        />
+        <S.YearSelectorContainer>
+          <S.YearSelectorTitle>Select Year</S.YearSelectorTitle>
+          <YearSelector
+            selectedExhibitonYear={selectedExhibitionYear}
+            handleExhibitionYearChange={handleExhibitionYearChange}
+          />
+        </S.YearSelectorContainer>
       </S.TitleYearSelectorContainer>
       <AddArtworkButton />
     </S.GraduationHeaderSection>
