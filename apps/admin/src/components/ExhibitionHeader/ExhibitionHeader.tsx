@@ -1,0 +1,51 @@
+import { JSX } from 'react/jsx-runtime';
+import { useCallback, useState } from 'react';
+
+import {
+  EXHIBITION_TYPE,
+  GRADUATION_EXHIBITION_YEAR_LIST,
+} from '@constants/Exhibition';
+
+import AddArtworkButton from '@components/Button/AddArtwork/AddArtworkButton';
+import YearSelector from '@components/YearSelector/YearSelector';
+
+import * as S from './ExhibitionHeader.styled';
+
+type ExhibitionHeaderProps = {
+  exhibitionType: EXHIBITION_TYPE;
+};
+
+const ExhibitionHeader = ({
+  exhibitionType,
+}: ExhibitionHeaderProps): JSX.Element => {
+  const [selectedExhibitionYear, setSelectedExhibitonYear] = useState<string>(
+    GRADUATION_EXHIBITION_YEAR_LIST[0]
+  );
+
+  // props로 넘겨줄 함수 메모이제이션 (useCallback)
+  const handleExhibitionYearChange = useCallback((year: string) => {
+    setSelectedExhibitonYear(year);
+  }, []);
+
+  return (
+    <S.ExhibitionHeaderSection>
+      <S.TitleYearSelectorContainer>
+        <S.ExhibitionHeaderTitle>
+          {exhibitionType === 'GRADUATION' ? 'Graduation' : 'Student'}{' '}
+          Exhibition<span>.</span>
+        </S.ExhibitionHeaderTitle>
+        {/* <S.Divider /> */}
+        <S.YearSelectorContainer>
+          <S.YearSelectorTitle>Select Year</S.YearSelectorTitle>
+          <YearSelector
+            selectedExhibitonYear={selectedExhibitionYear}
+            handleExhibitionYearChange={handleExhibitionYearChange}
+          />
+        </S.YearSelectorContainer>
+      </S.TitleYearSelectorContainer>
+      <AddArtworkButton />
+    </S.ExhibitionHeaderSection>
+  );
+};
+
+export default ExhibitionHeader;

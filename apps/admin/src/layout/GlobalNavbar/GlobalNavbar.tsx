@@ -1,10 +1,10 @@
 import { JSX } from 'react/jsx-runtime';
+import { useState } from 'react';
 
 import { GNBList } from '@constants/GNBList';
 import { HIDLogoAdmin } from '@icons/HIDLogo';
 
 import * as S from './GlobalNavbar.styled';
-import { useState } from 'react';
 
 const GlobalNavbar = (): JSX.Element => {
   const [selectedOption, setSelectedOption] = useState<string>('');

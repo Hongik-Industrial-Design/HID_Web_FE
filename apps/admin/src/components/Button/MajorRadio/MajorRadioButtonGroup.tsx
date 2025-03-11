@@ -5,12 +5,14 @@ import { DetailInfoFormData } from '@schemas/registerSchema';
 import * as S from './MajorRadioButtonGroup.styled';
 
 type MajorRadioButtonProps = {
+  radioListType: keyof DetailInfoFormData;
   majorList: string[];
-  selectedMajor: string;
+  selectedMajor: string | null;
   handleMajorClick: (field: keyof DetailInfoFormData, major: string) => void;
 };
 
 const MajorRadioButtonGroup = ({
+  radioListType,
   majorList,
   selectedMajor,
   handleMajorClick,
@@ -24,7 +26,7 @@ const MajorRadioButtonGroup = ({
               type="radio"
               id={major}
               name={major}
-              onClick={() => handleMajorClick('major', major)}
+              onClick={() => handleMajorClick(radioListType, major)}
               $isSelected={selectedMajor === major}
             />
             <S.MajorRadioButtonName>{major}</S.MajorRadioButtonName>

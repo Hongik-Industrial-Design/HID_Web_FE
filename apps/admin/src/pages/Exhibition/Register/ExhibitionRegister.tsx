@@ -17,6 +17,8 @@ import {
   GRADUATION_EXHIBITION_MAJOR,
   DESCRIPTION_MAX_LENGTH,
   GRADUATION_EXHIBITION_YEAR_LIST,
+  STUDENT_EXHIBITION_CLUB_LIST,
+  STUDENT_EXHIBITION_CLUB,
 } from '@constants/Exhibition';
 
 import { BehanceLogo, LinkedinLogo } from '@icons/SocialLogo';
@@ -31,12 +33,21 @@ import ArtistInfoCard from '@components/ArtistInfoCard/ArtistInfoCard';
 import AddParticipantBox from '@components/AddParticipantBox/AddParticipantBox';
 import SaveCancelButton from '@components/Button/SaveCancel/SaveCancelButton';
 
-import { createGraduationExhibitionFormData } from '@utils/formdataHelper';
+import { createExhibitionFormData } from '@utils/formdataHelper';
 
 import * as S from './ExhibitionRegister.styled';
 
-const ExhibitionRegister = (): JSX.Element => {
+type ExhibitionRegisterProps = {
+  exhibitionType: EXHIBITION_TYPE;
+};
+
+const ExhibitionRegister = ({
+  exhibitionType,
+}: ExhibitionRegisterProps): JSX.Element => {
   const navigate = useNavigate();
+
+  // 졸업 전시와 학생 전시 구분 플래그
+  const isGraduationExhibition = exhibitionType === 'GRADUATION';
 
   // 전시 설명 글자수 관리 ref
   const koreanDescriptionRef = useRef<HTMLTextAreaElement>(null);
@@ -44,9 +55,12 @@ const ExhibitionRegister = (): JSX.Element => {
 
   // 📍 전시 정보 관련
   const [detailInfo, setDetailInfo] = useState<DetailInfoFormData>({
-    exhibitType: EXHIBITION_TYPE_LIST.graduation as EXHIBITION_TYPE,
+    exhibitType: isGraduationExhibition
+      ? (EXHIBITION_TYPE_LIST.graduation as EXHIBITION_TYPE)
+      : (EXHIBITION_TYPE_LIST.student as EXHIBITION_TYPE),
     year: GRADUATION_EXHIBITION_YEAR_LIST[0],
     major: GRADUATION_EXHIBITION_MAJOR_LIST[0] as GRADUATION_EXHIBITION_MAJOR,
+    club: STUDENT_EXHIBITION_CLUB_LIST[0] as STUDENT_EXHIBITION_CLUB,
     title: '',
     subTitle: '',
     description_ko: '',
@@ -167,7 +181,7 @@ const ExhibitionRegister = (): JSX.Element => {
       }
 
       // 전시 등록 FormData 생성
-      const exhibitionFormData = createGraduationExhibitionFormData({
+      const exhibitionFormData = createExhibitionFormData({
         detailInfo,
         imageFiles,
         thumbnail,
@@ -183,7 +197,7 @@ const ExhibitionRegister = (): JSX.Element => {
 
       if (registerResponse) {
         alert('전시 등록 성공');
-        navigate('/graduation');
+        navigate(isGraduationExhibition ? '/graduation' : '/student');
       } else {
         alert('전시 등록 실패');
       }
@@ -195,7 +209,8 @@ const ExhibitionRegister = (): JSX.Element => {
   return (
     <S.ExhibitionRegisterContainer>
       <S.ArtworkInfoTitle>
-        Graduation Artwork<span>.</span>
+        {isGraduationExhibition ? 'Graduation' : 'Student'} Artwork
+        <span>.</span>
       </S.ArtworkInfoTitle>
 
       {/* Major, Title, SubTitle, Description */}
@@ -217,10 +232,19 @@ const ExhibitionRegister = (): JSX.Element => {
 
             {/* Major */}
             <S.DetailInfoUnit>
-              <S.DetailInfoInputLabel>Major</S.DetailInfoInputLabel>
+              <S.DetailInfoInputLabel>
+                {isGraduationExhibition ? 'Major' : 'Club'}
+              </S.DetailInfoInputLabel>
               <MajorRadioButtonGroup
-                majorList={GRADUATION_EXHIBITION_MAJOR_LIST}
-                selectedMajor={detailInfo.major}
+                radioListType={isGraduationExhibition ? 'major' : 'club'}
+                majorList={
+                  isGraduationExhibition
+                    ? GRADUATION_EXHIBITION_MAJOR_LIST
+                    : STUDENT_EXHIBITION_CLUB_LIST
+                }
+                selectedMajor={
+                  isGraduationExhibition ? detailInfo.major : detailInfo.club
+                }
                 handleMajorClick={handleDetailInfoChange}
               />
             </S.DetailInfoUnit>
