@@ -9,9 +9,9 @@ export const ExhibitionTextInput = styled.input`
   border: 1px solid ${({ theme }) => theme.colors.HID_Grayscale[400]};
 
   background: transparent;
+  color: ${({ theme }) => theme.colors.HID_Grayscale[700]};
 
   ${({ theme }) => theme.fontStyles.Body3};
-  color: ${({ theme }) => theme.colors.HID_Navy[900]};
 
   &::placeholder {
     color: ${({ theme }) => theme.colors.HID_Grayscale[400]};
@@ -21,6 +21,7 @@ export const ExhibitionTextInput = styled.input`
 
   &:focus {
     border-color: ${({ theme }) => theme.colors.HID_Navy[900]};
+    color: ${({ theme }) => theme.colors.HID_Navy[900]};
 
     &::placeholder {
       color: ${({ theme }) => theme.colors.HID_Navy[900]};

@@ -17,15 +17,15 @@ export const createGraduationExhibitionFormData = ({
 
   // 🔹 전시 기본 정보
   const details = {
-    exhibitType: detailInfo?.exhibitType,
+    type: detailInfo?.exhibitType,
     year: detailInfo?.year,
     major: detailInfo?.major,
     titleEn: detailInfo?.title,
     titleKo: detailInfo?.title,
     subTitleEn: detailInfo?.subTitle,
     subTitleKo: detailInfo?.subTitle,
-    textEn: detailInfo?.description_en,
-    textKo: detailInfo?.description_ko,
+    descriptionEn: detailInfo?.description_en,
+    descriptionKo: detailInfo?.description_ko,
     videoUrl: detailInfo?.videoUrl,
   };
 
@@ -33,17 +33,21 @@ export const createGraduationExhibitionFormData = ({
   // if (detailInfo?.behanceUrl) details.behanceUrl = detailInfo.behanceUrl;
   // if (detailInfo?.linkedinUrl) details.linkedinUrl = detailInfo.linkedinUrl;
 
-  // JSON으로 변환 후 추가
-  graduationExhibitionFormData.append('details', JSON.stringify(details));
+  // details 객체의 각 필드를 개별적으로 추가
+  Object.entries(details).forEach(([key, value]) => {
+    if (value) {
+      graduationExhibitionFormData.append(`details.${key}`, value);
+    }
+  });
 
   // 🔹 대표 이미지 추가
   graduationExhibitionFormData.append('mainImgFile', thumbnail);
 
   // 🔹 상세 이미지 추가
   imageFiles.slice(1).forEach((image, index) => {
-    graduationExhibitionFormData.append(`detailImgs[${index}][file]`, image);
+    graduationExhibitionFormData.append(`detailImgs[${index}].file`, image);
     graduationExhibitionFormData.append(
-      `detailImgs[${index}][position]`,
+      `detailImgs[${index}].position`,
       String(index + 1)
     );
   });
@@ -51,38 +55,38 @@ export const createGraduationExhibitionFormData = ({
   // 🔹 참여 작가 정보 추가
   artists?.forEach((artist, index) => {
     graduationExhibitionFormData.append(
-      `artists[${index}][profileImgFile]`,
+      `artists[${index}].profileImgFile`,
       artist.profileImgFile
     );
     graduationExhibitionFormData.append(
-      `artists[${index}][nameKo]`,
+      `artists[${index}].nameKo`,
       artist.nameKo
     );
     graduationExhibitionFormData.append(
-      `artists[${index}][nameEn]`,
+      `artists[${index}].nameEn`,
       artist.nameEn
     );
-    graduationExhibitionFormData.append(`artists[${index}][role]`, artist.role);
+    graduationExhibitionFormData.append(`artists[${index}].role`, artist.role);
     graduationExhibitionFormData.append(
-      `artists[${index}][email]`,
+      `artists[${index}].email`,
       artist.email
     );
 
     if (artist.instagramUrl) {
       graduationExhibitionFormData.append(
-        `artists[${index}][instagramUrl]`,
+        `artists[${index}].instagramUrl`,
         artist.instagramUrl
       );
     }
     if (artist.behanceUrl) {
       graduationExhibitionFormData.append(
-        `artists[${index}][behanceUrl]`,
+        `artists[${index}].behanceUrl`,
         artist.behanceUrl
       );
     }
     if (artist.linkedinUrl) {
       graduationExhibitionFormData.append(
-        `artists[${index}][linkedinUrl]`,
+        `artists[${index}].linkedinUrl`,
         artist.linkedinUrl
       );
     }

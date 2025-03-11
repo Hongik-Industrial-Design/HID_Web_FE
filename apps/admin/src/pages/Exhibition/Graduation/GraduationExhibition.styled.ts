@@ -22,6 +22,10 @@ export const GraduationExhibitionTitle = styled.h1`
   ${({ theme }) => theme.fontStyles.Header1}
   color: ${({ theme }) => theme.colors.HID_Grayscale[900]};
 
+  span {
+    color: ${({ theme }) => theme.colors.HID_YellowDot};
+  }
+
   white-space: nowrap;
 `;
 
@@ -30,4 +34,21 @@ export const Divider = styled.hr`
   height: 24px;
 
   background-color: ${({ theme }) => theme.colors.HID_Grayscale[400]};
+`;
+
+export const YearSelectorContainer = styled.div`
+  width: fit-content;
+  height: fit-content;
+  margin-left: 1.2rem;
+
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+`;
+
+export const YearSelectorTitle = styled.span`
+  ${({ theme }) => theme.fontStyles.Body2}
+  color: ${({ theme }) => theme.colors.HID_Grayscale[500]};
+
+  white-space: nowrap;
 `;
