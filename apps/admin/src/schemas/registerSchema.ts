@@ -3,7 +3,12 @@ import { z } from 'zod';
 export const detailInfoSchema = z.object({
   exhibitType: z.enum(['GRADUATION', 'CLUB']),
   year: z.string(),
-  major: z.enum(['Smart Mobility', 'Spatial', 'Product', 'Interaction']),
+  major: z.nullable(
+    z.enum(['Smart Mobility', 'Spatial', 'Product', 'Interaction'])
+  ),
+  club: z.nullable(
+    z.enum(['Casttec', 'Contra', 'DBZC', 'DESIGN STUDIO i', 'G.LAB', 'HILLS'])
+  ),
   title: z.string(),
   subTitle: z.string(),
   description_ko: z.string(),

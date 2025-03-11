@@ -19,7 +19,8 @@ export const createGraduationExhibitionFormData = ({
   const details = {
     type: detailInfo?.exhibitType,
     year: detailInfo?.year,
-    major: detailInfo?.major,
+    major: detailInfo?.exhibitType === 'GRADUATION' ? detailInfo?.major : null,
+    club: detailInfo?.exhibitType === 'CLUB' ? detailInfo?.club : null,
     titleEn: detailInfo?.title,
     titleKo: detailInfo?.title,
     subTitleEn: detailInfo?.subTitle,
