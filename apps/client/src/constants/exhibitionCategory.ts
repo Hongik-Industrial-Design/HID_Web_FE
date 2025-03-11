@@ -10,9 +10,11 @@ export const GRADUATION_CATEGORY_LIST = [
 export const STUDENT_CLUB_LIST = [
   'All',
   'Casttec',
-  'DBZC',
-  'Studio i',
-  'Interaction',
+  'Contra',
+  'DBZC (덤벙주초)',
+  'DESIGN STUDIO i',
+  'G.LAB',
+  'HILLS',
 ];
 
 // 타입 정의

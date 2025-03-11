@@ -20,7 +20,7 @@ export interface SelectStudentExhibition {
 const StudentExhibition = (): JSX.Element => {
   const [selectedExhibition, setSelectedExhibition] =
     useState<SelectStudentExhibition>({
-      year: ARCHIVE_YEAR_LIST[1], // 추후 배열의 0번 index로 기본값 설정 (number -> string)
+      year: ARCHIVE_YEAR_LIST[0], // 추후 배열의 0번 index로 기본값 설정 (number -> string)
       club: STUDENT_CLUB_LIST[0],
     });
 

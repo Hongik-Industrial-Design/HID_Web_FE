@@ -6,7 +6,7 @@ import * as S from './AddArtworkButton.styled';
 
 const AddArtworkButton = (): JSX.Element => {
   return (
-    <S.AddArtworkButtonLink to="/exhibition-register">
+    <S.AddArtworkButtonLink to="register">
       <PlusIcon />
       Add Artwork
     </S.AddArtworkButtonLink>
