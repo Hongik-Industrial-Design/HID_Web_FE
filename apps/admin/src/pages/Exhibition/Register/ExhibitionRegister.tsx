@@ -33,7 +33,7 @@ import ArtistInfoCard from '@components/ArtistInfoCard/ArtistInfoCard';
 import AddParticipantBox from '@components/AddParticipantBox/AddParticipantBox';
 import SaveCancelButton from '@components/Button/SaveCancel/SaveCancelButton';
 
-import { createGraduationExhibitionFormData } from '@utils/formdataHelper';
+import { createExhibitionFormData } from '@utils/formdataHelper';
 
 import * as S from './ExhibitionRegister.styled';
 
@@ -181,7 +181,7 @@ const ExhibitionRegister = ({
       }
 
       // 전시 등록 FormData 생성
-      const exhibitionFormData = createGraduationExhibitionFormData({
+      const exhibitionFormData = createExhibitionFormData({
         detailInfo,
         imageFiles,
         thumbnail,
@@ -197,7 +197,7 @@ const ExhibitionRegister = ({
 
       if (registerResponse) {
         alert('전시 등록 성공');
-        navigate('/graduation');
+        navigate(isGraduationExhibition ? '/graduation' : '/student');
       } else {
         alert('전시 등록 실패');
       }
