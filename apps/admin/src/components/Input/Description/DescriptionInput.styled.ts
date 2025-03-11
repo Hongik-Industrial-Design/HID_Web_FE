@@ -1,5 +1,14 @@
 import styled from 'styled-components';
 
+export const DescriptionInputContainer = styled.div`
+  width: fit-content;
+  height: fit-content;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+`;
+
 export const DescriptionTextarea = styled.textarea<{ $isKorean: boolean }>`
   width: 66rem;
   height: 20rem;
@@ -33,4 +42,14 @@ export const DescriptionTextarea = styled.textarea<{ $isKorean: boolean }>`
   transition:
     color 0.2s ease,
     border-color 0.2s ease;
+`;
+
+export const DescriptionTextCount = styled.span`
+  align-self: flex-end;
+
+  width: fit-content;
+  height: fit-content;
+
+  ${({ theme }) => theme.fontStyles.Hint};
+  color: ${({ theme }) => theme.colors.HID_Navy[900]};
 `;

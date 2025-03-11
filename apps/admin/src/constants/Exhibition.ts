@@ -26,3 +26,8 @@ export type GRADUATION_EXHIBITION_MAJOR =
   | 'Spatial'
   | 'Product'
   | 'Interaction';
+
+export const DESCRIPTION_MAX_LENGTH = {
+  Korean: 300,
+  English: 700,
+};

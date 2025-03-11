@@ -1,5 +1,5 @@
 import { JSX } from 'react/jsx-runtime';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
 
 import { registerExhibition } from '@api/exhibition';
@@ -15,6 +15,7 @@ import {
   GRADUATION_EXHIBITION_MAJOR_LIST,
   EXHIBITION_TYPE,
   GRADUATION_EXHIBITION_MAJOR,
+  DESCRIPTION_MAX_LENGTH,
 } from '@constants/Exhibition';
 
 import { BehanceLogo, LinkedinLogo } from '@icons/SocialLogo';
@@ -34,6 +35,10 @@ import * as S from './ExhibitionRegister.styled';
 
 const ExhibitionRegister = (): JSX.Element => {
   const navigate = useNavigate();
+
+  // 전시 설명 글자수 관리 ref
+  const koreanDescriptionRef = useRef<HTMLTextAreaElement>(null);
+  const englishDescriptionRef = useRef<HTMLTextAreaElement>(null);
 
   // 📍 전시 정보 관련
   const [detailInfo, setDetailInfo] = useState<DetailInfoFormData>({
@@ -241,10 +246,12 @@ const ExhibitionRegister = (): JSX.Element => {
                 <S.DescriptionDivider />
               </S.LanguageDescriptionContainer>
               <DescriptionInput
+                inputRef={englishDescriptionRef}
                 language="English"
                 field="description_en"
                 value={detailInfo.description_en}
                 handleTextChange={handleDetailInfoChange}
+                maxLength={DESCRIPTION_MAX_LENGTH.English}
               />
             </S.DescriptionUnit>
             <S.DescriptionUnit>
@@ -253,10 +260,12 @@ const ExhibitionRegister = (): JSX.Element => {
                 <S.DescriptionDivider />
               </S.LanguageDescriptionContainer>
               <DescriptionInput
+                inputRef={koreanDescriptionRef}
                 language="Korean"
                 field="description_ko"
                 value={detailInfo.description_ko}
                 handleTextChange={handleDetailInfoChange}
+                maxLength={DESCRIPTION_MAX_LENGTH.Korean}
               />
             </S.DescriptionUnit>
           </S.DescriptionSection>
