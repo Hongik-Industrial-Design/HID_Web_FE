@@ -35,7 +35,13 @@ import { createGraduationExhibitionFormData } from '@utils/formdataHelper';
 
 import * as S from './ExhibitionRegister.styled';
 
-const ExhibitionRegister = (): JSX.Element => {
+type ExhibitionRegisterProps = {
+  exhibitionType: EXHIBITION_TYPE;
+};
+
+const ExhibitionRegister = ({
+  exhibitionType,
+}: ExhibitionRegisterProps): JSX.Element => {
   const navigate = useNavigate();
 
   // 전시 설명 글자수 관리 ref
@@ -195,7 +201,8 @@ const ExhibitionRegister = (): JSX.Element => {
   return (
     <S.ExhibitionRegisterContainer>
       <S.ArtworkInfoTitle>
-        Graduation Artwork<span>.</span>
+        {exhibitionType === 'GRADUATION' ? 'Graduation' : 'Student'} Artwork
+        <span>.</span>
       </S.ArtworkInfoTitle>
 
       {/* Major, Title, SubTitle, Description */}
