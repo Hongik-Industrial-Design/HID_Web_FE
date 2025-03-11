@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { PanInfo, useSpring, useTransform } from 'framer-motion';
 import { useRafLoop, useWindowSize } from 'react-use';
 
-import { AuthorInfos } from '../StudentArtwork.types';
+import { Artist } from '@schemas/exhibition';
 
 import MemberCard from './MemberCard/StudentMemberCard';
 import { PlayPauseIcon } from '@icons/PlayPause';
@@ -11,7 +11,7 @@ import { PlayPauseIcon } from '@icons/PlayPause';
 import * as S from './StudentTeamMemberSection.styled';
 
 interface TeamMemberSectionProps {
-  membersData: AuthorInfos[];
+  membersData: Artist[];
 }
 
 const animationFactor = {
