@@ -172,7 +172,11 @@ const ExhibitionRegister = ({
     []
   );
 
-  const handleExhibitionRegister = async (): Promise<void> => {
+  const handleExhibitionRegisterSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ): Promise<void> => {
+    e.preventDefault();
+
     try {
       // 상태 값이 올바르게 존재하는지 확인
       if (!detailInfo || !imageFiles || !thumbnail || !artists) {
@@ -188,18 +192,18 @@ const ExhibitionRegister = ({
         artists,
       });
 
-      // FormData 확인 (디버깅용)
-      for (const [key, value] of exhibitionFormData.entries()) {
-        console.log(`${key}:`, value);
-      }
+      // // FormData 확인 (디버깅용)
+      // for (const [key, value] of exhibitionFormData.entries()) {
+      //   console.log(`${key}:`, value);
+      // }
 
       const registerResponse = await registerExhibition(exhibitionFormData);
 
       if (registerResponse) {
-        alert('전시 등록 성공');
+        alert('전시 등록 성공!');
         navigate(isGraduationExhibition ? '/graduation' : '/student');
       } else {
-        alert('전시 등록 실패');
+        alert('전시 등록 실패...');
       }
     } catch (error) {
       console.error('전시 등록 실패: ', error);
@@ -207,7 +211,7 @@ const ExhibitionRegister = ({
   };
 
   return (
-    <S.ExhibitionRegisterContainer>
+    <S.ExhibitionRegisterForm onSubmit={handleExhibitionRegisterSubmit}>
       <S.ArtworkInfoTitle>
         {isGraduationExhibition ? 'Graduation' : 'Student'} Artwork
         <span>.</span>
@@ -393,13 +397,10 @@ const ExhibitionRegister = ({
 
       {/* Save & Cancel Button */}
       <S.SaveCancelButtonSection>
-        <SaveCancelButton
-          buttonType="save"
-          handleButtonClick={handleExhibitionRegister}
-        />
+        <SaveCancelButton buttonType="save" />
         <SaveCancelButton buttonType="cancel" />
       </S.SaveCancelButtonSection>
-    </S.ExhibitionRegisterContainer>
+    </S.ExhibitionRegisterForm>
   );
 };
 
