@@ -1,5 +1,5 @@
 import { JSX } from 'react/jsx-runtime';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
 
 import { registerExhibition } from '@api/exhibition';
@@ -15,9 +15,12 @@ import {
   GRADUATION_EXHIBITION_MAJOR_LIST,
   EXHIBITION_TYPE,
   GRADUATION_EXHIBITION_MAJOR,
+  DESCRIPTION_MAX_LENGTH,
+  GRADUATION_EXHIBITION_YEAR_LIST,
 } from '@constants/Exhibition';
 
 import { BehanceLogo, LinkedinLogo } from '@icons/SocialLogo';
+import YearSelector from '@components/YearSelector/YearSelector';
 import MajorRadioButtonGroup from '@components/Button/MajorRadio/MajorRadioButtonGroup';
 import ExhibitionTextInput from '@components/Input/Exhibition/ExhibitionTextInput';
 import DescriptionInput from '@components/Input/Description/DescriptionInput';
@@ -35,10 +38,14 @@ import * as S from './ExhibitionRegister.styled';
 const ExhibitionRegister = (): JSX.Element => {
   const navigate = useNavigate();
 
+  // 전시 설명 글자수 관리 ref
+  const koreanDescriptionRef = useRef<HTMLTextAreaElement>(null);
+  const englishDescriptionRef = useRef<HTMLTextAreaElement>(null);
+
   // 📍 전시 정보 관련
   const [detailInfo, setDetailInfo] = useState<DetailInfoFormData>({
     exhibitType: EXHIBITION_TYPE_LIST.graduation as EXHIBITION_TYPE,
-    year: 2024,
+    year: GRADUATION_EXHIBITION_YEAR_LIST[0],
     major: GRADUATION_EXHIBITION_MAJOR_LIST[0] as GRADUATION_EXHIBITION_MAJOR,
     title: '',
     subTitle: '',
@@ -199,6 +206,15 @@ const ExhibitionRegister = (): JSX.Element => {
 
         <S.DetailInfoContainer>
           <S.MajorTitleSection>
+            {/* Year */}
+            <S.DetailInfoUnit>
+              <S.DetailInfoInputLabel>Year</S.DetailInfoInputLabel>
+              <YearSelector
+                selectedExhibitonYear={detailInfo.year}
+                handleExhibitionYearChange={handleDetailInfoChange}
+              />
+            </S.DetailInfoUnit>
+
             {/* Major */}
             <S.DetailInfoUnit>
               <S.DetailInfoInputLabel>Major</S.DetailInfoInputLabel>
@@ -208,7 +224,6 @@ const ExhibitionRegister = (): JSX.Element => {
                 handleMajorClick={handleDetailInfoChange}
               />
             </S.DetailInfoUnit>
-
             {/* Title */}
             <S.DetailInfoUnit>
               <S.DetailInfoInputLabel>Title</S.DetailInfoInputLabel>
@@ -219,7 +234,6 @@ const ExhibitionRegister = (): JSX.Element => {
                 handleTextChange={handleDetailInfoChange}
               />
             </S.DetailInfoUnit>
-
             {/* SubTitle */}
             <S.DetailInfoUnit>
               <S.DetailInfoInputLabel>Subtitle</S.DetailInfoInputLabel>
@@ -241,10 +255,12 @@ const ExhibitionRegister = (): JSX.Element => {
                 <S.DescriptionDivider />
               </S.LanguageDescriptionContainer>
               <DescriptionInput
+                inputRef={englishDescriptionRef}
                 language="English"
                 field="description_en"
                 value={detailInfo.description_en}
                 handleTextChange={handleDetailInfoChange}
+                maxLength={DESCRIPTION_MAX_LENGTH.English}
               />
             </S.DescriptionUnit>
             <S.DescriptionUnit>
@@ -253,10 +269,12 @@ const ExhibitionRegister = (): JSX.Element => {
                 <S.DescriptionDivider />
               </S.LanguageDescriptionContainer>
               <DescriptionInput
+                inputRef={koreanDescriptionRef}
                 language="Korean"
                 field="description_ko"
                 value={detailInfo.description_ko}
                 handleTextChange={handleDetailInfoChange}
+                maxLength={DESCRIPTION_MAX_LENGTH.Korean}
               />
             </S.DescriptionUnit>
           </S.DescriptionSection>
