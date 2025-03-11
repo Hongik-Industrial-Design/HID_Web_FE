@@ -8,20 +8,20 @@ export const HWISO_API = axios.create({
   },
 });
 
-HWISO_API.interceptors.request.use(
-  (config) => {
-    const accessToken = localStorage.getItem('accessToken');
+// HWISO_API.interceptors.request.use(
+//   (config) => {
+//     const accessToken = localStorage.getItem('accessToken');
 
-    if (accessToken) {
-      config.headers.Authorization = `Bearer ${accessToken}`;
-    }
+//     if (accessToken) {
+//       config.headers.Authorization = `Bearer ${accessToken}`;
+//     }
 
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
-  }
-);
+//     return config;
+//   },
+//   (error) => {
+//     return Promise.reject(error);
+//   }
+// );
 
 export const communityAPI = axios.create({
   baseURL: ENV.API_BASE_URL_JUNBO,
