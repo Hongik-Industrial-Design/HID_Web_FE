@@ -1,22 +1,5 @@
 import styled, { css } from 'styled-components';
 
-export const YearSelectorContainer = styled.div`
-  width: fit-content;
-  height: fit-content;
-  margin-left: 1.2rem;
-
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
-`;
-
-export const YearSelectorTitle = styled.span`
-  ${({ theme }) => theme.fontStyles.Body2}
-  color: ${({ theme }) => theme.colors.HID_Grayscale[500]};
-
-  white-space: nowrap;
-`;
-
 export const YearSelectDropdownWrapper = styled.div`
   position: relative;
 
@@ -30,7 +13,7 @@ export const YearSelectorButton = styled.button`
   width: fit-content;
   min-width: 9.6rem;
   height: fit-content;
-  padding: 0.8rem 1.6rem;
+  padding: 0.8rem 1.8rem;
 
   display: flex;
   justify-content: center;
@@ -44,7 +27,7 @@ export const YearSelectorButton = styled.button`
   font-weight: 500;
 
   color: ${({ theme }) => theme.colors.HID_Grayscale[600]};
-  background-color: transparent;
+  background-color: ${({ theme }) => theme.colors.HID_Grayscale[50]};
 `;
 
 export const YearSelectDropdownContainer = styled.ul`
@@ -52,6 +35,7 @@ export const YearSelectDropdownContainer = styled.ul`
   top: 105%;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 1;
 
   width: 9rem;
   height: fit-content;
@@ -62,6 +46,8 @@ export const YearSelectDropdownContainer = styled.ul`
 
   border-radius: 16px;
   border: 1px solid ${({ theme }) => theme.colors.HID_Grayscale[600]};
+
+  background-color: ${({ theme }) => theme.colors.HID_Grayscale[50]};
 `;
 
 export const GraduationExhibitionYearItem = styled.li`
