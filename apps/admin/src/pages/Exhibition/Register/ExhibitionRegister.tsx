@@ -38,7 +38,7 @@ const ExhibitionRegister = (): JSX.Element => {
   // 📍 전시 정보 관련
   const [detailInfo, setDetailInfo] = useState<DetailInfoFormData>({
     exhibitType: EXHIBITION_TYPE_LIST.graduation as EXHIBITION_TYPE,
-    year: 2024,
+    year: '2024',
     major: GRADUATION_EXHIBITION_MAJOR_LIST[0] as GRADUATION_EXHIBITION_MAJOR,
     title: '',
     subTitle: '',

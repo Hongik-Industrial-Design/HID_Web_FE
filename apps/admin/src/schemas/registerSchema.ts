@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 export const detailInfoSchema = z.object({
   exhibitType: z.enum(['GRADUATION', 'CLUB']),
-  year: z.number(),
+  year: z.string(),
   major: z.enum(['Smart Mobility', 'Spatial', 'Product', 'Interaction']),
   title: z.string(),
   subTitle: z.string(),
