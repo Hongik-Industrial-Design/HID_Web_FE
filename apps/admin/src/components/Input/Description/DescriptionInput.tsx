@@ -46,7 +46,12 @@ const DescriptionInput = ({
         $isKorean={language === 'Korean'}
         maxLength={maxLength}
       />
-      <S.DescriptionTextCount>
+      <S.DescriptionTextCount $isLimited={textCount === maxLength}>
+        {textCount === maxLength && (
+          <S.DescriptionCountWarning>
+            제한 글자수에 도달했습니다.
+          </S.DescriptionCountWarning>
+        )}
         {textCount}/{maxLength}자 (공백 포함)
       </S.DescriptionTextCount>
     </S.DescriptionInputContainer>

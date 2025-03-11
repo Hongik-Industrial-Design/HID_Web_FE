@@ -44,12 +44,20 @@ export const DescriptionTextarea = styled.textarea<{ $isKorean: boolean }>`
     border-color 0.2s ease;
 `;
 
-export const DescriptionTextCount = styled.span`
+export const DescriptionTextCount = styled.span<{ $isLimited: boolean }>`
   align-self: flex-end;
 
   width: fit-content;
   height: fit-content;
 
   ${({ theme }) => theme.fontStyles.Hint};
-  color: ${({ theme }) => theme.colors.HID_Navy[900]};
+  color: ${({ $isLimited, theme }) =>
+    $isLimited ? '#ff1c19' : theme.colors.HID_Navy[900]};
+`;
+
+export const DescriptionCountWarning = styled.span`
+  margin-right: 0.8rem;
+
+  ${({ theme }) => theme.fontStyles.Hint};
+  color: #ff1c19;
 `;
