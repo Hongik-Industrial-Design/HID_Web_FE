@@ -17,6 +17,8 @@ import {
   GRADUATION_EXHIBITION_MAJOR,
   DESCRIPTION_MAX_LENGTH,
   GRADUATION_EXHIBITION_YEAR_LIST,
+  STUDENT_EXHIBITION_CLUB_LIST,
+  STUDENT_EXHIBITION_CLUB,
 } from '@constants/Exhibition';
 
 import { BehanceLogo, LinkedinLogo } from '@icons/SocialLogo';
@@ -44,15 +46,21 @@ const ExhibitionRegister = ({
 }: ExhibitionRegisterProps): JSX.Element => {
   const navigate = useNavigate();
 
+  // 졸업 전시와 학생 전시 구분 플래그
+  const isGraduationExhibition = exhibitionType === 'GRADUATION';
+
   // 전시 설명 글자수 관리 ref
   const koreanDescriptionRef = useRef<HTMLTextAreaElement>(null);
   const englishDescriptionRef = useRef<HTMLTextAreaElement>(null);
 
   // 📍 전시 정보 관련
   const [detailInfo, setDetailInfo] = useState<DetailInfoFormData>({
-    exhibitType: EXHIBITION_TYPE_LIST.graduation as EXHIBITION_TYPE,
+    exhibitType: isGraduationExhibition
+      ? (EXHIBITION_TYPE_LIST.graduation as EXHIBITION_TYPE)
+      : (EXHIBITION_TYPE_LIST.student as EXHIBITION_TYPE),
     year: GRADUATION_EXHIBITION_YEAR_LIST[0],
     major: GRADUATION_EXHIBITION_MAJOR_LIST[0] as GRADUATION_EXHIBITION_MAJOR,
+    club: STUDENT_EXHIBITION_CLUB_LIST[0] as STUDENT_EXHIBITION_CLUB,
     title: '',
     subTitle: '',
     description_ko: '',
@@ -201,7 +209,7 @@ const ExhibitionRegister = ({
   return (
     <S.ExhibitionRegisterContainer>
       <S.ArtworkInfoTitle>
-        {exhibitionType === 'GRADUATION' ? 'Graduation' : 'Student'} Artwork
+        {isGraduationExhibition ? 'Graduation' : 'Student'} Artwork
         <span>.</span>
       </S.ArtworkInfoTitle>
 
@@ -224,10 +232,19 @@ const ExhibitionRegister = ({
 
             {/* Major */}
             <S.DetailInfoUnit>
-              <S.DetailInfoInputLabel>Major</S.DetailInfoInputLabel>
+              <S.DetailInfoInputLabel>
+                {isGraduationExhibition ? 'Major' : 'Club'}
+              </S.DetailInfoInputLabel>
               <MajorRadioButtonGroup
-                majorList={GRADUATION_EXHIBITION_MAJOR_LIST}
-                selectedMajor={detailInfo.major}
+                radioListType={isGraduationExhibition ? 'major' : 'club'}
+                majorList={
+                  isGraduationExhibition
+                    ? GRADUATION_EXHIBITION_MAJOR_LIST
+                    : STUDENT_EXHIBITION_CLUB_LIST
+                }
+                selectedMajor={
+                  isGraduationExhibition ? detailInfo.major : detailInfo.club
+                }
                 handleMajorClick={handleDetailInfoChange}
               />
             </S.DetailInfoUnit>

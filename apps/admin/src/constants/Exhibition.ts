@@ -24,7 +24,7 @@ export const STUDENT_EXHIBITION_CLUB_LIST = [
 
 export const EXHIBITION_TYPE_LIST = {
   graduation: 'GRADUATION',
-  student: 'STUDENT',
+  student: 'CLUB',
 };
 
 // 타입 정의
