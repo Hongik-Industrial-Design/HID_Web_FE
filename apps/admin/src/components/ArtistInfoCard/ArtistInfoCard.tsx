@@ -85,7 +85,7 @@ const ArtistInfoCard = ({
         />
         <S.ArtistMajorInput
           type="text"
-          placeholder="Major"
+          placeholder="Artist Role"
           value={artistInfo.role}
           onChange={(e) =>
             handleArtistProfileChange(artistInfo.id, 'role', e.target.value)

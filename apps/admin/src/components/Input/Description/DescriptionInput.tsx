@@ -45,6 +45,7 @@ const DescriptionInput = ({
         }
         $isKorean={language === 'Korean'}
         maxLength={maxLength}
+        required
       />
       <S.DescriptionTextCount $isLimited={textCount === maxLength}>
         {textCount === maxLength && (

@@ -2,10 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 
 import { EXHIBIT_TYPE } from '@constants/exhibitionCategory';
 
-import {
-  fetchStudentExhibitionDetail,
-  fetchExhibitionPreview,
-} from '@api/exhibition';
+import { fetchExhibitionDetail, fetchExhibitionPreview } from '@api/exhibition';
 
 const STUDENT_QUERY_KEYS = {
   preview: (exhibitType: EXHIBIT_TYPE, year: string, club: string) => [
@@ -37,7 +34,7 @@ export const useStudentExhibitionDetailQuery = (
 ) => {
   return useQuery({
     queryKey: STUDENT_QUERY_KEYS.detail(year, exhibitId),
-    queryFn: () => fetchStudentExhibitionDetail(exhibitId),
+    queryFn: () => fetchExhibitionDetail(exhibitId),
     staleTime: 1000 * 3, // 3초 (Testing)
     gcTime: 1000 * 60, // 1분 (Testing)
   });

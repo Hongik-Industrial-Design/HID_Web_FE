@@ -41,13 +41,3 @@ export const fetchExhibitionDetail = async (exhibitId: number) => {
 
   return validateResponse(Schemas.ExhibitionDetailSchema, response.data);
 };
-
-// 학생 전시 상세 조회 API 함수
-export const fetchStudentExhibitionDetail = async (
-  exhibitId: number
-): Promise<Schemas.StudentExhibitionDetail> => {
-  const response = await HWISO_API.get(`/exhibits/${exhibitId}`);
-  // console.log('학생 전시 Detail 데이터: ', response.data);
-
-  return validateResponse(Schemas.StudentExhibitionDetailSchema, response.data);
-};
