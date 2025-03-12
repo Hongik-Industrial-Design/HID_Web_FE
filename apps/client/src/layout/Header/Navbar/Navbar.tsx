@@ -55,7 +55,7 @@ const Navbar = ({
         $disableHighlightBar={isNavbarHovered || isDropdownHover}
       >
         {/* 추후 0번 index로 기본값 설정 (BE 테스트 기본값 때문에 1번 index로 임시 설정) */}
-        <S.NavItemLink to={`/student/${ARCHIVE_YEAR_LIST[1]}`}>
+        <S.NavItemLink to={`/student/${ARCHIVE_YEAR_LIST[0]}`}>
           Student Exhibition
         </S.NavItemLink>
       </S.NavItem>
