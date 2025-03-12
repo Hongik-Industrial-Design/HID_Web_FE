@@ -31,7 +31,7 @@ const YearSelector = ({
 
   return (
     <S.YearSelectDropdownWrapper>
-      <S.YearSelectorButton onClick={handleDropdownClick}>
+      <S.YearSelectorButton onClick={handleDropdownClick} type="button">
         {selectedExhibitonYear}
         <DropdownArrow />
       </S.YearSelectorButton>
