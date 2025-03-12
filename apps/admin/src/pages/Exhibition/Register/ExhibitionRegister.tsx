@@ -7,6 +7,7 @@ import { registerExhibition } from '@api/exhibition';
 
 import { createExhibitionFormData } from '@utils/formdataHelper';
 import { showAlertAndScroll } from '@utils/scroll';
+import { handleImageDrop } from '@utils/imageDrop';
 
 import {
   ArtistInfoField,
@@ -84,6 +85,7 @@ const ExhibitionRegister = ({
 
   // 📍 전시 이미지 썸네일 및 상세 이미지 상태 관리
   const [imageFiles, setImageFiles] = useState<File[]>([]);
+  const [isImageDragging, setIsImageDragging] = useState<boolean>(false);
 
   const handleImageUpload = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -98,6 +100,10 @@ const ExhibitionRegister = ({
     },
     []
   );
+
+  // 이미지 드래그 앤 드롭 이벤트 핸들러
+  const handleImageDragEnter = () => setIsImageDragging(true);
+  const handleImageDragLeave = () => setIsImageDragging(false);
 
   // 대표 이미지에 대한 별도의 상태 관리
   const [thumbnail, setThumbnail] = useState<File>(new File([], ''));
@@ -389,7 +395,14 @@ const ExhibitionRegister = ({
         <S.DetailInfoTitle>
           Images<span>.</span>
         </S.DetailInfoTitle>
-        <S.ImagePreviewScrollContainer id="image-preview-list">
+        <S.ImagePreviewScrollContainer
+          id="image-preview-list"
+          onDragOver={(e) => e.preventDefault()}
+          onDrop={(e) => handleImageDrop(e, setImageFiles, setIsImageDragging)}
+          onDragEnter={handleImageDragEnter}
+          onDragLeave={handleImageDragLeave}
+          $isImageDragging={isImageDragging}
+        >
           <S.ImagePreviewContainer>
             {imageFiles
               .slice() // 원본 배열을 변경하지 않도록 복사본을 만듦

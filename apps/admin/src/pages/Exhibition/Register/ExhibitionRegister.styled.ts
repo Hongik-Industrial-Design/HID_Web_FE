@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const ExhibitionRegisterForm = styled.form`
   width: 100%;
@@ -187,11 +187,23 @@ export const ExhibitonImageSection = styled.section`
   margin-bottom: 8rem;
 `;
 
-export const ImagePreviewScrollContainer = styled.div`
+export const ImagePreviewScrollContainer = styled.div<{
+  $isImageDragging: boolean;
+}>`
   width: 100%;
   height: fit-content;
 
   overflow-x: scroll;
+
+  ${({ $isImageDragging }) =>
+    $isImageDragging &&
+    css`
+      border: 2px solid ${({ theme }) => theme.colors.HID_Navy[900]};
+      border-radius: 8px;
+      opacity: 0.5;
+    `}
+
+  transition: border-radius 0.1s ease-out, border 0.1s ease-out, opacity 0.1s ease-out;
 `;
 
 export const ImagePreviewContainer = styled.div`
