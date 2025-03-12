@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ExhibitionRegisterContainer = styled.div`
+export const ExhibitionRegisterForm = styled.form`
   width: 100%;
   height: fit-content;
 `;

@@ -2,7 +2,7 @@ import { JSX } from 'react/jsx-runtime';
 import { useMemo, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 
-import { StudentPreviewInfos } from '../Exhibition.types';
+import { ExhibitionPreview } from '@schemas/exhibition';
 
 import SearchBar from '@components/SearchBar/SearchBar';
 import Piece from './Piece/Piece';
@@ -11,7 +11,7 @@ import Pagination from '@components/Pagination/Pagination';
 import * as S from './StudentExhibitionGallery.styled';
 
 interface StudentExhibitionGalleryProps {
-  pieces: StudentPreviewInfos[];
+  pieces: ExhibitionPreview;
   exhibitionYear: string;
 }
 

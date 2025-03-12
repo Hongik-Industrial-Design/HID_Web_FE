@@ -2,7 +2,7 @@ import { JSX } from 'react/jsx-runtime';
 import { useState } from 'react';
 import { useParams } from 'react-router';
 
-import { ArtworkInfos } from '../StudentArtwork.types';
+import { ExhibitionDetail } from '@schemas/exhibition';
 
 import Breadscrumb from '@components/Breadscrumb/Breadscrumb';
 import Keyword from '@components/Keyword/Keyword';
@@ -12,9 +12,8 @@ import YoutubeEmbed from '@components/YoutubeEmbed/YoutubeEmbed';
 import { BehanceLogo, InstagramLogo } from '@icons/SocialIcon';
 
 import * as S from './StudentHeroSection.styled';
-
 interface HeroSectionProps {
-  artworkInfos: ArtworkInfos;
+  artworkInfos: ExhibitionDetail;
 }
 
 type SocialIconHovered = {
@@ -99,8 +98,12 @@ const StudentHeroSection = ({
 
           {/* Description */}
           <S.ArtworkDescriptionSection>
-            <S.DescriptionEnglish>{artworkInfos.textEn}</S.DescriptionEnglish>
-            <S.DescriptionKorean>{artworkInfos.textKo}</S.DescriptionKorean>
+            <S.DescriptionEnglish>
+              {artworkInfos.descriptionEn}
+            </S.DescriptionEnglish>
+            <S.DescriptionKorean>
+              {artworkInfos.descriptionKo}
+            </S.DescriptionKorean>
           </S.ArtworkDescriptionSection>
 
           {/* 서버에서 데이터가 넘어오지 않음 (BE에 요청 필요) */}

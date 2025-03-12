@@ -18,6 +18,7 @@ const SaveCancelButton = ({
     <S.SaveCancelButtonContainer
       $isSaveButton={buttonType === 'save'}
       onClick={buttonType === 'save' ? handleButtonClick : () => navigate(-1)}
+      type={buttonType === 'save' ? 'submit' : 'button'}
     >
       {buttonType === 'save' ? 'Save' : 'Cancel'}
     </S.SaveCancelButtonContainer>
