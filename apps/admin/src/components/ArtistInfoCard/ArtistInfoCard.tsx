@@ -5,7 +5,7 @@ import { ArtistInfoField } from '@schemas/registerSchema';
 
 import { PlusIconGray } from '@icons/Plus';
 import { ImageEditIcon } from '@icons/ImageEdit';
-import DeleteCardButton from '@components/Button/DeleteCard/DeleteCardButton';
+import DeleteCardButton from '@components/Button/Delete/Card/DeleteCardButton';
 
 import * as S from './ArtistInfoCard.styled';
 
