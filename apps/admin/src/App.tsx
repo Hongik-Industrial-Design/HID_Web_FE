@@ -9,11 +9,13 @@ import StudentExhibition from '@pages/Exhibition/Student/StudentExhibition';
 
 import GraduationExhibitionRegister from '@pages/Exhibition/Graduation/Register/GraduationExhibitionRegister';
 import StudentExhibitionRegister from '@pages/Exhibition/Student/Register/StudentExhibitionRegister';
+import SuccessPage from '@pages/Success/SuccessPage';
 
 function App() {
   return (
     <Routes>
       <Route path="login" element={<AdminLogin />} />
+      <Route path="success" element={<SuccessPage />} />
 
       <Route element={<Layout />}>
         <Route index element={<div>Admin Home</div>} />
