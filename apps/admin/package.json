@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@babel/helpers": "7.26.10",
+    "@babel/runtime": "7.26.10",
     "@shared/styles": "workspace:^",
     "axios": "^1.8.2",
     "react": "^19.0.0",

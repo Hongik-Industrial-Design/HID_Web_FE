@@ -14,7 +14,7 @@ export const detailInfoSchema = z.object({
   description_ko: z.string(),
   description_en: z.string(),
   behanceUrl: z.string().url().optional(),
-  linkedinUrl: z.string().url().optional(),
+  instagramUrl: z.string().url().optional(),
   videoUrl: z.string().url().optional(),
 });
 
