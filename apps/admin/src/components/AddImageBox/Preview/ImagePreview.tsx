@@ -1,7 +1,7 @@
 import { JSX } from 'react/jsx-runtime';
 import { useState } from 'react';
 
-import DeleteImageButton from '@components/Button/DeleteImage/DeleteImageButton';
+import DeleteImageButton from '@components/Button/Delete/Image/DeleteImageButton';
 import ThumbnailSelect from '@components/ThumbnailSelect/ThumbnailSelect';
 
 import * as S from './ImagePreview.styled';
