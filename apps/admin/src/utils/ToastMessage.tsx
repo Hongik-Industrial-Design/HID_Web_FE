@@ -1,5 +1,5 @@
-import { ToastOptions } from 'react-toastify';
 import { JSX } from 'react/jsx-runtime';
+import { ToastOptions } from 'react-toastify';
 
 type RegisterToastMessageProps = {
   closeToast: () => void;

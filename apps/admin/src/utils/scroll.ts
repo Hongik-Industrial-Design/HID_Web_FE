@@ -1,5 +1,3 @@
-// import { JSX } from 'react/jsx-runtime';
-
 import { toast } from 'react-toastify';
 
 export const showAlertAndScroll = (
