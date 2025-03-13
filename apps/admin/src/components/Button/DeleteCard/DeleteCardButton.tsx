@@ -5,14 +5,14 @@ import { DeleteIcon } from '@icons/Delete';
 import * as S from './DeleteCardButton.styled';
 
 type DeleteCardButtonProps = {
-  handleImageDelete: () => void;
+  handleCardDelete: () => void;
 };
 
 const DeleteCardButton = ({
-  handleImageDelete,
+  handleCardDelete,
 }: DeleteCardButtonProps): JSX.Element => {
   return (
-    <S.DeleteCardButtonContainer type="button" onClick={handleImageDelete}>
+    <S.DeleteCardButtonContainer type="button" onClick={handleCardDelete}>
       <DeleteIcon />
     </S.DeleteCardButtonContainer>
   );

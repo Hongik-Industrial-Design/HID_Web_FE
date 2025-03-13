@@ -11,6 +11,33 @@ export const ArtistInfoCardContainer = styled.div`
   gap: 2.8rem;
 `;
 
+export const ArtistCountContainer = styled.div`
+  width: fit-content;
+  height: fit-content;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.4rem;
+`;
+
+export const ArtistCountDeleteContainer = styled.div`
+  position: relative;
+
+  width: 100%;
+  height: fit-content;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+`;
+
+export const ArtistCountText = styled.span`
+  ${({ theme }) => theme.fontStyles.Caption1}
+  color: ${({ theme }) => theme.colors.HID_Grayscale[400]};
+`;
+
 export const ArtistImageContainer = styled.label`
   position: relative;
 

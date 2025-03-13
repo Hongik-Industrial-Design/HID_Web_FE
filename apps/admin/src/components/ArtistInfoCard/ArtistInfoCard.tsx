@@ -37,39 +37,44 @@ const ArtistInfoCard = ({
 
   return (
     <S.ArtistInfoCardContainer>
-      <DeleteCardButton
-        handleImageDelete={() => handleArtistCardDelete(artistInfo.id)}
-      />
-      <S.ArtistImageContainer
-        onMouseEnter={handleProfileImageHover}
-        onMouseLeave={handleProfileImageLeave}
-      >
-        <S.ProfileSelectFileInput
-          type="file"
-          accept="image/*"
-          onChange={(e) => handleProfileImageUpload(e, artistInfo.id)}
-        />
-        {artistInfo.profileImgFile.size > 0 ? (
-          <>
-            <S.ArtistProfileImage
-              src={URL.createObjectURL(artistInfo.profileImgFile)}
-            />
-            {/* Hover시 이미지 변경 UI */}
-            <S.ProfileImageOverlay
-              $isProfileImageHovered={isProfileImageHovered}
-            >
-              <ImageEditIcon />
-            </S.ProfileImageOverlay>
-          </>
-        ) : (
-          <>
-            <S.PlusIconContainer>
-              <PlusIconGray />
-            </S.PlusIconContainer>
-            <S.AddProfileImageText>Add Profile Image!</S.AddProfileImageText>
-          </>
-        )}
-      </S.ArtistImageContainer>
+      <S.ArtistCountContainer>
+        <S.ArtistImageContainer
+          onMouseEnter={handleProfileImageHover}
+          onMouseLeave={handleProfileImageLeave}
+        >
+          <S.ProfileSelectFileInput
+            type="file"
+            accept="image/*"
+            onChange={(e) => handleProfileImageUpload(e, artistInfo.id)}
+          />
+          {artistInfo.profileImgFile.size > 0 ? (
+            <>
+              <S.ArtistProfileImage
+                src={URL.createObjectURL(artistInfo.profileImgFile)}
+              />
+              {/* Hover시 이미지 변경 UI */}
+              <S.ProfileImageOverlay
+                $isProfileImageHovered={isProfileImageHovered}
+              >
+                <ImageEditIcon />
+              </S.ProfileImageOverlay>
+            </>
+          ) : (
+            <>
+              <S.PlusIconContainer>
+                <PlusIconGray />
+              </S.PlusIconContainer>
+              <S.AddProfileImageText>Add Profile Image!</S.AddProfileImageText>
+            </>
+          )}
+        </S.ArtistImageContainer>
+        <S.ArtistCountDeleteContainer>
+          <DeleteCardButton
+            handleCardDelete={() => handleArtistCardDelete(artistInfo.id)}
+          />
+          <S.ArtistCountText>Artist No.{`${artistInfo.id}`}</S.ArtistCountText>
+        </S.ArtistCountDeleteContainer>
+      </S.ArtistCountContainer>
       <S.ArtistTextInfoContainer>
         <S.ArtistNameInput
           type="text"
