@@ -441,6 +441,7 @@ const ExhibitionRegister = ({
               handleArtistProfileChange={handleArtistProfileChange}
               handleProfileImageUpload={handleArtistProfileImageUpload}
               handleArtistCardDelete={handleArtistCardDelete}
+              setArtists={setArtists}
             />
           ))}
           <AddParticipantBox addArtistCard={addArtistCard} />

@@ -1,11 +1,13 @@
 import { JSX } from 'react/jsx-runtime';
 import { useState } from 'react';
 
-import { ArtistInfoField } from '@schemas/registerSchema';
+import { ArtistInfoField, ArtistsFormData } from '@schemas/registerSchema';
 
 import { PlusIconGray } from '@icons/Plus';
 import { ImageEditIcon } from '@icons/ImageEdit';
 import DeleteCardButton from '@components/Button/Delete/Card/DeleteCardButton';
+
+import { handleProfileImageDrop } from '@utils/imageDrop';
 
 import * as S from './ArtistInfoCard.styled';
 
@@ -21,6 +23,7 @@ type ArtistInfoCardProps = {
     id: number
   ) => void;
   handleArtistCardDelete: (artistId: number) => void;
+  setArtists: React.Dispatch<React.SetStateAction<ArtistsFormData>>;
 };
 
 const ArtistInfoCard = ({
@@ -28,12 +31,19 @@ const ArtistInfoCard = ({
   handleArtistProfileChange,
   handleProfileImageUpload,
   handleArtistCardDelete,
+  setArtists,
 }: ArtistInfoCardProps): JSX.Element => {
   const [isProfileImageHovered, setIsProfileImageHovered] =
     useState<boolean>(false);
 
+  const [isProfileImageDragging, setIsProfileImageDragging] =
+    useState<boolean>(false);
+
   const handleProfileImageHover = () => setIsProfileImageHovered(true);
   const handleProfileImageLeave = () => setIsProfileImageHovered(false);
+
+  const handleProfileImageDragEnter = () => setIsProfileImageDragging(true);
+  const handleProfileImageDragLeave = () => setIsProfileImageDragging(false);
 
   return (
     <S.ArtistInfoCardContainer>
@@ -41,6 +51,18 @@ const ArtistInfoCard = ({
         <S.ArtistImageContainer
           onMouseEnter={handleProfileImageHover}
           onMouseLeave={handleProfileImageLeave}
+          onDragOver={(e) => e.preventDefault()}
+          onDrop={(e) =>
+            handleProfileImageDrop(
+              e,
+              artistInfo.id,
+              setArtists,
+              setIsProfileImageDragging
+            )
+          }
+          onDragEnter={handleProfileImageDragEnter}
+          onDragLeave={handleProfileImageDragLeave}
+          $isProfileImageDragging={isProfileImageDragging}
         >
           <S.ProfileSelectFileInput
             type="file"

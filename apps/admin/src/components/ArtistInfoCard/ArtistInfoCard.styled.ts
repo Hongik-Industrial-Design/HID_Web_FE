@@ -38,7 +38,9 @@ export const ArtistCountText = styled.span`
   color: ${({ theme }) => theme.colors.HID_Grayscale[400]};
 `;
 
-export const ArtistImageContainer = styled.label`
+export const ArtistImageContainer = styled.label<{
+  $isProfileImageDragging: boolean;
+}>`
   position: relative;
 
   width: 18rem;
@@ -58,6 +60,15 @@ export const ArtistImageContainer = styled.label`
   overflow: hidden;
 
   cursor: pointer;
+
+  ${({ $isProfileImageDragging }) =>
+    $isProfileImageDragging &&
+    css`
+      border-color: 2px dashed ${({ theme }) => theme.colors.HID_Navy[900]};
+      opacity: 0.6;
+    `}
+
+  transition: all 0.1s ease-out;
 `;
 
 export const ArtistProfileImage = styled.img`
