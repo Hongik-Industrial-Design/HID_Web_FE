@@ -1,8 +1,13 @@
 import { JSX } from 'react/jsx-runtime';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
+import { Flip, ToastContainer } from 'react-toastify';
 
 import { registerExhibition } from '@api/exhibition';
+
+import { createExhibitionFormData } from '@utils/formdataHelper';
+import { showAlertAndScroll } from '@utils/scroll';
+import { handleImageDrop } from '@utils/imageDrop';
 
 import {
   ArtistInfoField,
@@ -32,8 +37,6 @@ import AddElementBox from '@components/AddImageBox/AddImageBox';
 import ArtistInfoCard from '@components/ArtistInfoCard/ArtistInfoCard';
 import AddParticipantBox from '@components/AddParticipantBox/AddParticipantBox';
 import SaveCancelButton from '@components/Button/SaveCancel/SaveCancelButton';
-
-import { createExhibitionFormData } from '@utils/formdataHelper';
 
 import * as S from './ExhibitionRegister.styled';
 
@@ -82,6 +85,7 @@ const ExhibitionRegister = ({
 
   // 📍 전시 이미지 썸네일 및 상세 이미지 상태 관리
   const [imageFiles, setImageFiles] = useState<File[]>([]);
+  const [isImageDragging, setIsImageDragging] = useState<boolean>(false);
 
   const handleImageUpload = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -96,6 +100,10 @@ const ExhibitionRegister = ({
     },
     []
   );
+
+  // 이미지 드래그 앤 드롭 이벤트 핸들러
+  const handleImageDragEnter = () => setIsImageDragging(true);
+  const handleImageDragLeave = () => setIsImageDragging(false);
 
   // 대표 이미지에 대한 별도의 상태 관리
   const [thumbnail, setThumbnail] = useState<File>(new File([], ''));
@@ -143,6 +151,12 @@ const ExhibitionRegister = ({
     ]);
   }, []);
 
+  const handleArtistCardDelete = useCallback((id: number) => {
+    setArtists((prevArtists) =>
+      prevArtists.filter((artist) => artist.id !== id)
+    );
+  }, []);
+
   const handleArtistProfileChange = (
     id: number,
     field: keyof ArtistInfoField,
@@ -175,13 +189,43 @@ const ExhibitionRegister = ({
   const handleExhibitionRegisterSubmit = async (
     e: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
-    e.preventDefault();
-
     try {
-      // 상태 값이 올바르게 존재하는지 확인
-      if (!detailInfo || !imageFiles || !thumbnail || !artists) {
-        console.error('필수 데이터가 로딩되지 않았습니다.');
-        alert('필수 데이터가 존재하지 않습니다.');
+      e.preventDefault();
+
+      // 필수 입력 필드 검사 (Toast UI 알림 표시)
+      if (!detailInfo.title) {
+        showAlertAndScroll('title', '전시 제목을 입력해주세요.');
+        return;
+      } else if (!detailInfo.subTitle) {
+        showAlertAndScroll('subTitle', '전시 부제목(Subtitle)을 입력해주세요.');
+        return;
+      } else if (!detailInfo.description_en) {
+        showAlertAndScroll(
+          'description-en',
+          '전시 설명(English)을 입력해주세요.'
+        );
+        return;
+      } else if (!detailInfo.description_ko) {
+        showAlertAndScroll(
+          'description-ko',
+          '전시 설명(Korean)을 입력해주세요.'
+        );
+        return;
+      } else if (!imageFiles.length) {
+        showAlertAndScroll('image-section', '전시 상세 이미지를 추가해주세요.');
+        return;
+      } else if (!thumbnail) {
+        showAlertAndScroll(
+          'image-preview-list',
+          '썸네일 이미지를 선택해주세요.'
+        );
+        return;
+      } else if (!artists.length) {
+        showAlertAndScroll(
+          'artist-section',
+          '작가(Artist) 정보를 추가해주세요.'
+        );
+        return;
       }
 
       // 전시 등록 FormData 생성
@@ -253,7 +297,7 @@ const ExhibitionRegister = ({
               />
             </S.DetailInfoUnit>
             {/* Title */}
-            <S.DetailInfoUnit>
+            <S.DetailInfoUnit id="title">
               <S.DetailInfoInputLabel>Title</S.DetailInfoInputLabel>
               <ExhibitionTextInput
                 placeholder="Enter Artwork Title."
@@ -263,7 +307,7 @@ const ExhibitionRegister = ({
               />
             </S.DetailInfoUnit>
             {/* SubTitle */}
-            <S.DetailInfoUnit>
+            <S.DetailInfoUnit id="subTitle">
               <S.DetailInfoInputLabel>Subtitle</S.DetailInfoInputLabel>
               <ExhibitionTextInput
                 placeholder="Enter Artwork Subtitle."
@@ -277,7 +321,7 @@ const ExhibitionRegister = ({
           {/* Description */}
           <S.DescriptionSection>
             <S.DescriptionLabel>Description (ENG/KOR)</S.DescriptionLabel>
-            <S.DescriptionUnit>
+            <S.DescriptionUnit id="description-en">
               <S.LanguageDescriptionContainer>
                 <S.LanguageDescriptionLabel>ENG</S.LanguageDescriptionLabel>
                 <S.DescriptionDivider />
@@ -292,7 +336,7 @@ const ExhibitionRegister = ({
               />
             </S.DescriptionUnit>
             <S.DescriptionUnit>
-              <S.LanguageDescriptionContainer>
+              <S.LanguageDescriptionContainer id="description-ko">
                 <S.LanguageDescriptionLabel>KOR</S.LanguageDescriptionLabel>
                 <S.DescriptionDivider />
               </S.LanguageDescriptionContainer>
@@ -353,11 +397,18 @@ const ExhibitionRegister = ({
       </S.ExhibitionVideoSection>
 
       {/* Image */}
-      <S.ExhibitonImageSection>
+      <S.ExhibitonImageSection id="image-section">
         <S.DetailInfoTitle>
           Images<span>.</span>
         </S.DetailInfoTitle>
-        <S.ImagePreviewScrollContainer>
+        <S.ImagePreviewScrollContainer
+          id="image-preview-list"
+          onDragOver={(e) => e.preventDefault()}
+          onDrop={(e) => handleImageDrop(e, setImageFiles, setIsImageDragging)}
+          onDragEnter={handleImageDragEnter}
+          onDragLeave={handleImageDragLeave}
+          $isImageDragging={isImageDragging}
+        >
           <S.ImagePreviewContainer>
             {imageFiles
               .slice() // 원본 배열을 변경하지 않도록 복사본을 만듦
@@ -378,7 +429,7 @@ const ExhibitionRegister = ({
       </S.ExhibitonImageSection>
 
       {/* Participants */}
-      <S.ParticipantSection>
+      <S.ParticipantSection id="artist-section">
         <S.DetailInfoTitle>
           Participants<span>.</span>
         </S.DetailInfoTitle>
@@ -389,6 +440,8 @@ const ExhibitionRegister = ({
               artistInfo={artist}
               handleArtistProfileChange={handleArtistProfileChange}
               handleProfileImageUpload={handleArtistProfileImageUpload}
+              handleArtistCardDelete={handleArtistCardDelete}
+              setArtists={setArtists}
             />
           ))}
           <AddParticipantBox addArtistCard={addArtistCard} />
@@ -400,6 +453,9 @@ const ExhibitionRegister = ({
         <SaveCancelButton buttonType="save" />
         <SaveCancelButton buttonType="cancel" />
       </S.SaveCancelButtonSection>
+
+      {/* Toast Container */}
+      <ToastContainer autoClose={3000} transition={Flip} />
     </S.ExhibitionRegisterForm>
   );
 };

@@ -15,6 +15,7 @@ const DeleteImageButton = ({
 }: DeleteImageButtonProps): JSX.Element => {
   return (
     <S.DeleteImageButtonContainer
+      type="button"
       onClick={handleImageDelete}
       $isImageHovered={isImageHovered}
     >

@@ -25,6 +25,11 @@ export type ColorPalette = {
     0: string;
   };
   HID_YellowDot: string;
+  HID_Alert: {
+    Error: string;
+    Warning: string;
+    Success: string;
+  };
 };
 
 export const colors: ColorPalette = {
@@ -56,4 +61,10 @@ export const colors: ColorPalette = {
   },
 
   HID_YellowDot: '#FFC700',
+
+  HID_Alert: {
+    Error: '#F54F4D',
+    Warning: '#FFC700',
+    Success: '#00B46E',
+  },
 };
