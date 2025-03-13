@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components';
 
 export const ArtistInfoCardContainer = styled.div`
+  position: relative;
+
   width: fit-content;
   height: fit-content;
 

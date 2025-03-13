@@ -5,6 +5,7 @@ import { ArtistInfoField } from '@schemas/registerSchema';
 
 import { PlusIconGray } from '@icons/Plus';
 import { ImageEditIcon } from '@icons/ImageEdit';
+import DeleteCardButton from '@components/Button/DeleteCard/DeleteCardButton';
 
 import * as S from './ArtistInfoCard.styled';
 
@@ -19,12 +20,14 @@ type ArtistInfoCardProps = {
     e: React.ChangeEvent<HTMLInputElement>,
     id: number
   ) => void;
+  handleArtistCardDelete: (artistId: number) => void;
 };
 
 const ArtistInfoCard = ({
   artistInfo,
   handleArtistProfileChange,
   handleProfileImageUpload,
+  handleArtistCardDelete,
 }: ArtistInfoCardProps): JSX.Element => {
   const [isProfileImageHovered, setIsProfileImageHovered] =
     useState<boolean>(false);
@@ -34,6 +37,9 @@ const ArtistInfoCard = ({
 
   return (
     <S.ArtistInfoCardContainer>
+      <DeleteCardButton
+        handleImageDelete={() => handleArtistCardDelete(artistInfo.id)}
+      />
       <S.ArtistImageContainer
         onMouseEnter={handleProfileImageHover}
         onMouseLeave={handleProfileImageLeave}

@@ -151,6 +151,12 @@ const ExhibitionRegister = ({
     ]);
   }, []);
 
+  const handleArtistCardDelete = useCallback((id: number) => {
+    setArtists((prevArtists) =>
+      prevArtists.filter((artist) => artist.id !== id)
+    );
+  }, []);
+
   const handleArtistProfileChange = (
     id: number,
     field: keyof ArtistInfoField,
@@ -434,6 +440,7 @@ const ExhibitionRegister = ({
               artistInfo={artist}
               handleArtistProfileChange={handleArtistProfileChange}
               handleProfileImageUpload={handleArtistProfileImageUpload}
+              handleArtistCardDelete={handleArtistCardDelete}
             />
           ))}
           <AddParticipantBox addArtistCard={addArtistCard} />
