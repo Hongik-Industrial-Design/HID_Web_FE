@@ -46,6 +46,8 @@ export const ExhibitionDetailSchema = z.object({
   year: z.string(),
   major: z.nullable(z.string()),
   club: z.nullable(z.string()),
+  behanceUrl: z.nullable(z.string().url()),
+  instagramUrl: z.nullable(z.string().url()),
   mainImgUrl: z.string().url(),
   detailImgs: z.array(
     z.object({
