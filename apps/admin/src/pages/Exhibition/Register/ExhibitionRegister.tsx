@@ -26,7 +26,7 @@ import {
   STUDENT_EXHIBITION_CLUB,
 } from '@constants/Exhibition';
 
-import { BehanceLogo, LinkedinLogo } from '@icons/SocialLogo';
+import { BehanceLogo, InstagramLogo } from '@icons/SocialLogo';
 import YearSelector from '@components/YearSelector/YearSelector';
 import MajorRadioButtonGroup from '@components/Button/MajorRadio/MajorRadioButtonGroup';
 import ExhibitionTextInput from '@components/Input/Exhibition/ExhibitionTextInput';
@@ -69,7 +69,7 @@ const ExhibitionRegister = ({
     description_ko: '',
     description_en: '',
     behanceUrl: '',
-    linkedinUrl: '',
+    instagramUrl: '',
     videoUrl: '',
   });
 
@@ -367,11 +367,11 @@ const ExhibitionRegister = ({
               </S.SocialLinkForm>
               {/* Linkedin */}
               <S.SocialLinkForm>
-                <LinkedinLogo />
+                <InstagramLogo />
                 <ExhibitionTextInput
-                  placeholder="Enter Linkedin Link."
-                  field="linkedinUrl"
-                  value={detailInfo.linkedinUrl}
+                  placeholder="Enter Instagram Link."
+                  field="instagramUrl"
+                  value={detailInfo.instagramUrl}
                   handleTextChange={handleDetailInfoChange}
                 />
               </S.SocialLinkForm>
