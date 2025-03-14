@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { Flip, ToastContainer } from 'react-toastify';
 
-import { registerExhibition } from '@api/exhibition';
+import { useExhibitionRegisterMutation } from '@api/mutation/exhibitionMutation';
 
 import { createExhibitionFormData } from '@utils/formdataHelper';
 import { showAlertAndScroll } from '@utils/scroll';
@@ -56,8 +56,6 @@ const ExhibitionRegister = ({
   // 전시 설명 글자수 관리 ref
   const koreanDescriptionRef = useRef<HTMLTextAreaElement>(null);
   const englishDescriptionRef = useRef<HTMLTextAreaElement>(null);
-
-  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   // 📍 전시 정보 관련
   const [detailInfo, setDetailInfo] = useState<DetailInfoFormData>({
@@ -189,12 +187,24 @@ const ExhibitionRegister = ({
     []
   );
 
+  // 전시 등록 Mutation
+  const registerMutation = useExhibitionRegisterMutation({
+    exhibitionType: exhibitionType,
+    exhibitTitle: detailInfo.title,
+    onSuccess: () => {
+      navigate('success');
+    },
+    onError: (error) => {
+      console.error('전시 등록 실패: ', error);
+      alert('전시 등록 실패...');
+    },
+  });
+
   const handleExhibitionRegisterSubmit = async (
     e: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
     try {
       e.preventDefault();
-      setIsLoading(true);
 
       // 필수 입력 필드 검사 (Toast UI 알림 표시)
       if (!detailInfo.title) {
@@ -246,20 +256,7 @@ const ExhibitionRegister = ({
         artists,
       });
 
-      // // FormData 확인 (디버깅용)
-      // for (const [key, value] of exhibitionFormData.entries()) {
-      //   console.log(`${key}:`, value);
-      // }
-
-      const registerResponse = await registerExhibition(exhibitionFormData);
-
-      if (registerResponse) {
-        setIsLoading(false);
-        navigate('success');
-      } else {
-        setIsLoading(false);
-        alert('전시 등록 실패...');
-      }
+      registerMutation.mutate(exhibitionFormData);
     } catch (error) {
       console.error('전시 등록 실패: ', error);
     }
@@ -267,7 +264,7 @@ const ExhibitionRegister = ({
 
   return (
     <>
-      {isLoading && <FullScreenOverlayLoading />}
+      {registerMutation.isPending && <FullScreenOverlayLoading />}
       <S.ExhibitionRegisterForm onSubmit={handleExhibitionRegisterSubmit}>
         <S.ArtworkInfoTitle>
           {isGraduationExhibition ? 'Graduation' : 'Student'} Artwork
@@ -473,7 +470,7 @@ const ExhibitionRegister = ({
         </S.SaveCancelButtonSection>
 
         {/* Toast Container */}
-        <ToastContainer autoClose={3000} transition={Flip} />
+        <ToastContainer autoClose={2000} transition={Flip} hideProgressBar />
       </S.ExhibitionRegisterForm>
     </>
   );
