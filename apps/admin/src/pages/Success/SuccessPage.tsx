@@ -1,11 +1,15 @@
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router';
 
+import { useScrollDisable } from '@hooks/useScrollDisable';
+
 import { SuccessCheckIcon } from '@icons/Check';
 
 import * as S from './SuccessPage.styled';
 
 const SuccessPage = () => {
+  useScrollDisable();
+
   const navigate = useNavigate();
   const location = useLocation();
 
