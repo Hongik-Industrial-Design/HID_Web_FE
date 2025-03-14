@@ -80,6 +80,18 @@ importers:
       '@shared/styles':
         specifier: workspace:^
         version: link:../../packages/styles
+      '@tanstack/query-sync-storage-persister':
+        specifier: ^5.66.4
+        version: 5.66.4
+      '@tanstack/react-query':
+        specifier: ^5.66.7
+        version: 5.66.9(react@19.0.0)
+      '@tanstack/react-query-devtools':
+        specifier: ^5.66.7
+        version: 5.66.9(@tanstack/react-query@5.66.9(react@19.0.0))(react@19.0.0)
+      '@tanstack/react-query-persist-client':
+        specifier: ^5.66.7
+        version: 5.66.9(@tanstack/react-query@5.66.9(react@19.0.0))(react@19.0.0)
       axios:
         specifier: ^1.8.2
         version: 1.8.2
@@ -3463,16 +3475,33 @@ snapshots:
       '@tanstack/react-query': 5.66.9(react@18.3.1)
       react: 18.3.1
 
+  '@tanstack/react-query-devtools@5.66.9(@tanstack/react-query@5.66.9(react@19.0.0))(react@19.0.0)':
+    dependencies:
+      '@tanstack/query-devtools': 5.65.0
+      '@tanstack/react-query': 5.66.9(react@19.0.0)
+      react: 19.0.0
+
   '@tanstack/react-query-persist-client@5.66.9(@tanstack/react-query@5.66.9(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@tanstack/query-persist-client-core': 5.66.4
       '@tanstack/react-query': 5.66.9(react@18.3.1)
       react: 18.3.1
 
+  '@tanstack/react-query-persist-client@5.66.9(@tanstack/react-query@5.66.9(react@19.0.0))(react@19.0.0)':
+    dependencies:
+      '@tanstack/query-persist-client-core': 5.66.4
+      '@tanstack/react-query': 5.66.9(react@19.0.0)
+      react: 19.0.0
+
   '@tanstack/react-query@5.66.9(react@18.3.1)':
     dependencies:
       '@tanstack/query-core': 5.66.4
       react: 18.3.1
+
+  '@tanstack/react-query@5.66.9(react@19.0.0)':
+    dependencies:
+      '@tanstack/query-core': 5.66.4
+      react: 19.0.0
 
   '@types/babel__core@7.20.5':
     dependencies:

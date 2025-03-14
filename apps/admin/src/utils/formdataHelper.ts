@@ -27,12 +27,14 @@ export const createExhibitionFormData = ({
     subTitleKo: detailInfo?.subTitle,
     descriptionEn: detailInfo?.description_en,
     descriptionKo: detailInfo?.description_ko,
+    behanceUrl: detailInfo?.behanceUrl,
+    instagramUrl: detailInfo?.instagramUrl,
     videoUrl: detailInfo?.videoUrl,
   };
 
   // // 🔹 선택적 필드 추가
   // if (detailInfo?.behanceUrl) details.behanceUrl = detailInfo.behanceUrl;
-  // if (detailInfo?.linkedinUrl) details.linkedinUrl = detailInfo.linkedinUrl;
+  // if (detailInfo?.instagramUrl) details.instagramUrl = detailInfo.instagramUrl;
 
   // details 객체의 각 필드를 개별적으로 추가
   Object.entries(details).forEach(([key, value]) => {

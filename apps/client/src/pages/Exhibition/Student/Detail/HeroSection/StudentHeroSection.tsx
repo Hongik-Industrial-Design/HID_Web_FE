@@ -12,6 +12,7 @@ import YoutubeEmbed from '@components/YoutubeEmbed/YoutubeEmbed';
 import { BehanceLogo, InstagramLogo } from '@icons/SocialIcon';
 
 import * as S from './StudentHeroSection.styled';
+
 interface HeroSectionProps {
   artworkInfos: ExhibitionDetail;
 }
@@ -26,11 +27,6 @@ const StudentHeroSection = ({
 }: HeroSectionProps): JSX.Element => {
   // 추후에 서버로부터 받아온 데이터로 변경 필요
   const KEYWORD_LIST = ['Service', 'Product', 'Future'];
-
-  const SOCIAL_LINK = {
-    Behance: 'https://www.behance.net/search/projects/hongik%20university',
-    Instagram: 'https://www.instagram.com/hongik.id.degreeshow/?__pwa=1',
-  };
 
   const { year } = useParams();
   const exhibitionYear = year ?? '2023';
@@ -120,7 +116,7 @@ const StudentHeroSection = ({
             <S.SocialIconList>
               <S.SocialIconItem>
                 <S.SocialIconLink
-                  href={SOCIAL_LINK.Behance}
+                  href={artworkInfos.behanceUrl ?? ''}
                   target="_blank"
                   rel="noopener noreferrer"
                   onMouseEnter={handleSocialIconEnter.bind(null, 'Behance')}
@@ -132,7 +128,7 @@ const StudentHeroSection = ({
 
               <S.SocialIconItem>
                 <S.SocialIconLink
-                  href={SOCIAL_LINK.Instagram}
+                  href={artworkInfos.instagramUrl ?? ''}
                   target="_blank"
                   rel="noopener noreferrer"
                   onMouseEnter={handleSocialIconEnter.bind(null, 'Instagram')}
