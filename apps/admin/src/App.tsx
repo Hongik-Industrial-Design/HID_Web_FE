@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router';
 import Layout from '@layout/Layout';
 
 import AdminLogin from '@pages/Login/AdminLogin';
+import AdminHome from '@pages/Home/AdminHome';
 
 import GraduationExhibition from '@pages/Exhibition/Graduation/GraduationExhibition';
 import StudentExhibition from '@pages/Exhibition/Student/StudentExhibition';
@@ -17,7 +18,7 @@ function App() {
       <Route path="login" element={<AdminLogin />} />
 
       <Route element={<Layout />}>
-        <Route index element={<div>Admin Home</div>} />
+        <Route index element={<AdminHome />} />
 
         <Route path="graduation">
           <Route index element={<GraduationExhibition />} />
