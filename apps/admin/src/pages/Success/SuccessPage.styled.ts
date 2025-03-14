@@ -8,7 +8,7 @@ export const SuccessPageContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 3.6rem;
+  gap: 2.8rem;
 
   ${({ theme }) => theme.fontStyles.Header2};
   color: ${({ theme }) => theme.colors.HID_Navy[900]};

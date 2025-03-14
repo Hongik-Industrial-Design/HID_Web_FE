@@ -15,19 +15,26 @@ function App() {
   return (
     <Routes>
       <Route path="login" element={<AdminLogin />} />
-      <Route path="success" element={<SuccessPage />} />
 
       <Route element={<Layout />}>
         <Route index element={<div>Admin Home</div>} />
 
         <Route path="graduation">
           <Route index element={<GraduationExhibition />} />
-          <Route path="register" element={<GraduationExhibitionRegister />} />
+
+          <Route path="register">
+            <Route index element={<GraduationExhibitionRegister />} />
+            <Route path="success" element={<SuccessPage />} />
+          </Route>
         </Route>
 
         <Route path="student">
           <Route index element={<StudentExhibition />} />
-          <Route path="register" element={<StudentExhibitionRegister />} />
+
+          <Route path="register">
+            <Route index element={<StudentExhibitionRegister />} />
+            <Route path="success" element={<SuccessPage />} />
+          </Route>
         </Route>
 
         <Route path="*" element={<div>404</div>} />
