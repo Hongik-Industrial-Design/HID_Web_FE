@@ -37,6 +37,7 @@ import AddElementBox from '@components/AddImageBox/AddImageBox';
 import ArtistInfoCard from '@components/ArtistInfoCard/ArtistInfoCard';
 import AddParticipantBox from '@components/AddParticipantBox/AddParticipantBox';
 import SaveCancelButton from '@components/Button/SaveCancel/SaveCancelButton';
+import FullScreenOverlayLoading from '@components/Loading/FullScreenOverlay/FullScreenOverlayLoading';
 
 import * as S from './ExhibitionRegister.styled';
 
@@ -56,6 +57,8 @@ const ExhibitionRegister = ({
   const koreanDescriptionRef = useRef<HTMLTextAreaElement>(null);
   const englishDescriptionRef = useRef<HTMLTextAreaElement>(null);
 
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   // 📍 전시 정보 관련
   const [detailInfo, setDetailInfo] = useState<DetailInfoFormData>({
     exhibitType: isGraduationExhibition
@@ -68,8 +71,8 @@ const ExhibitionRegister = ({
     subTitle: '',
     description_ko: '',
     description_en: '',
-    behanceUrl: '',
-    instagramUrl: '',
+    behanceUrl: 'https://behance.net/search/projects/hongik%20university',
+    instagramUrl: 'https://instagram.com/hongik.id.degreeshow/',
     videoUrl: '',
   });
 
@@ -191,6 +194,7 @@ const ExhibitionRegister = ({
   ): Promise<void> => {
     try {
       e.preventDefault();
+      setIsLoading(true);
 
       // 필수 입력 필드 검사 (Toast UI 알림 표시)
       if (!detailInfo.title) {
@@ -210,6 +214,12 @@ const ExhibitionRegister = ({
           'description-ko',
           '전시 설명(Korean)을 입력해주세요.'
         );
+        return;
+      } else if (!detailInfo.behanceUrl) {
+        showAlertAndScroll('behance-url', 'Behance 링크를 입력해주세요.');
+        return;
+      } else if (!detailInfo.instagramUrl) {
+        showAlertAndScroll('instagram-url', 'Instagram 링크를 입력해주세요.');
         return;
       } else if (!imageFiles.length) {
         showAlertAndScroll('image-section', '전시 상세 이미지를 추가해주세요.');
@@ -244,9 +254,10 @@ const ExhibitionRegister = ({
       const registerResponse = await registerExhibition(exhibitionFormData);
 
       if (registerResponse) {
-        alert('전시 등록 성공!');
-        navigate(isGraduationExhibition ? '/graduation' : '/student');
+        setIsLoading(false);
+        navigate('success');
       } else {
+        setIsLoading(false);
         alert('전시 등록 실패...');
       }
     } catch (error) {
@@ -255,208 +266,216 @@ const ExhibitionRegister = ({
   };
 
   return (
-    <S.ExhibitionRegisterForm onSubmit={handleExhibitionRegisterSubmit}>
-      <S.ArtworkInfoTitle>
-        {isGraduationExhibition ? 'Graduation' : 'Student'} Artwork
-        <span>.</span>
-      </S.ArtworkInfoTitle>
+    <>
+      {isLoading && <FullScreenOverlayLoading />}
+      <S.ExhibitionRegisterForm onSubmit={handleExhibitionRegisterSubmit}>
+        <S.ArtworkInfoTitle>
+          {isGraduationExhibition ? 'Graduation' : 'Student'} Artwork
+          <span>.</span>
+        </S.ArtworkInfoTitle>
 
-      {/* Major, Title, SubTitle, Description */}
-      <S.DetailInfoSection>
-        <S.DetailInfoTitle>
-          Detail Infos<span>.</span>
-        </S.DetailInfoTitle>
+        {/* Major, Title, SubTitle, Description */}
+        <S.DetailInfoSection>
+          <S.DetailInfoTitle>
+            Detail Infos<span>.</span>
+          </S.DetailInfoTitle>
 
-        <S.DetailInfoContainer>
-          <S.MajorTitleSection>
-            {/* Year */}
-            <S.DetailInfoUnit>
-              <S.DetailInfoInputLabel>Year</S.DetailInfoInputLabel>
-              <YearSelector
-                selectedExhibitonYear={detailInfo.year}
-                handleExhibitionYearChange={handleDetailInfoChange}
-              />
-            </S.DetailInfoUnit>
+          <S.DetailInfoContainer>
+            <S.MajorTitleSection>
+              {/* Year */}
+              <S.DetailInfoUnit>
+                <S.DetailInfoInputLabel>Year</S.DetailInfoInputLabel>
+                <YearSelector
+                  selectedExhibitonYear={detailInfo.year}
+                  handleExhibitionYearChange={handleDetailInfoChange}
+                />
+              </S.DetailInfoUnit>
 
-            {/* Major */}
-            <S.DetailInfoUnit>
-              <S.DetailInfoInputLabel>
-                {isGraduationExhibition ? 'Major' : 'Club'}
-              </S.DetailInfoInputLabel>
-              <MajorRadioButtonGroup
-                radioListType={isGraduationExhibition ? 'major' : 'club'}
-                majorList={
-                  isGraduationExhibition
-                    ? GRADUATION_EXHIBITION_MAJOR_LIST
-                    : STUDENT_EXHIBITION_CLUB_LIST
-                }
-                selectedMajor={
-                  isGraduationExhibition ? detailInfo.major : detailInfo.club
-                }
-                handleMajorClick={handleDetailInfoChange}
-              />
-            </S.DetailInfoUnit>
-            {/* Title */}
-            <S.DetailInfoUnit id="title">
-              <S.DetailInfoInputLabel>Title</S.DetailInfoInputLabel>
-              <ExhibitionTextInput
-                placeholder="Enter Artwork Title."
-                field="title"
-                value={detailInfo.title}
-                handleTextChange={handleDetailInfoChange}
-              />
-            </S.DetailInfoUnit>
-            {/* SubTitle */}
-            <S.DetailInfoUnit id="subTitle">
-              <S.DetailInfoInputLabel>Subtitle</S.DetailInfoInputLabel>
-              <ExhibitionTextInput
-                placeholder="Enter Artwork Subtitle."
-                field="subTitle"
-                value={detailInfo.subTitle}
-                handleTextChange={handleDetailInfoChange}
-              />
-            </S.DetailInfoUnit>
-          </S.MajorTitleSection>
-
-          {/* Description */}
-          <S.DescriptionSection>
-            <S.DescriptionLabel>Description (ENG/KOR)</S.DescriptionLabel>
-            <S.DescriptionUnit id="description-en">
-              <S.LanguageDescriptionContainer>
-                <S.LanguageDescriptionLabel>ENG</S.LanguageDescriptionLabel>
-                <S.DescriptionDivider />
-              </S.LanguageDescriptionContainer>
-              <DescriptionInput
-                inputRef={englishDescriptionRef}
-                language="English"
-                field="description_en"
-                value={detailInfo.description_en}
-                handleTextChange={handleDetailInfoChange}
-                maxLength={DESCRIPTION_MAX_LENGTH.English}
-              />
-            </S.DescriptionUnit>
-            <S.DescriptionUnit>
-              <S.LanguageDescriptionContainer id="description-ko">
-                <S.LanguageDescriptionLabel>KOR</S.LanguageDescriptionLabel>
-                <S.DescriptionDivider />
-              </S.LanguageDescriptionContainer>
-              <DescriptionInput
-                inputRef={koreanDescriptionRef}
-                language="Korean"
-                field="description_ko"
-                value={detailInfo.description_ko}
-                handleTextChange={handleDetailInfoChange}
-                maxLength={DESCRIPTION_MAX_LENGTH.Korean}
-              />
-            </S.DescriptionUnit>
-          </S.DescriptionSection>
-
-          {/* SNS Link */}
-          <S.SocialLinkSection>
-            <S.DetailInfoInputLabel>SNS Link</S.DetailInfoInputLabel>
-            <S.SocialLinkContainer>
-              {/* Behance */}
-              <S.SocialLinkForm>
-                <BehanceLogo />
+              {/* Major */}
+              <S.DetailInfoUnit>
+                <S.DetailInfoInputLabel>
+                  {isGraduationExhibition ? 'Major' : 'Club'}
+                </S.DetailInfoInputLabel>
+                <MajorRadioButtonGroup
+                  radioListType={isGraduationExhibition ? 'major' : 'club'}
+                  majorList={
+                    isGraduationExhibition
+                      ? GRADUATION_EXHIBITION_MAJOR_LIST
+                      : STUDENT_EXHIBITION_CLUB_LIST
+                  }
+                  selectedMajor={
+                    isGraduationExhibition ? detailInfo.major : detailInfo.club
+                  }
+                  handleMajorClick={handleDetailInfoChange}
+                />
+              </S.DetailInfoUnit>
+              {/* Title */}
+              <S.DetailInfoUnit id="title">
+                <S.DetailInfoInputLabel>Title</S.DetailInfoInputLabel>
                 <ExhibitionTextInput
-                  placeholder="Enter Behance Link."
-                  field="behanceUrl"
-                  value={detailInfo.behanceUrl}
+                  placeholder="Enter Artwork Title."
+                  field="title"
+                  value={detailInfo.title}
                   handleTextChange={handleDetailInfoChange}
                 />
-              </S.SocialLinkForm>
-              {/* Linkedin */}
-              <S.SocialLinkForm>
-                <InstagramLogo />
+              </S.DetailInfoUnit>
+              {/* SubTitle */}
+              <S.DetailInfoUnit id="subTitle">
+                <S.DetailInfoInputLabel>Subtitle</S.DetailInfoInputLabel>
                 <ExhibitionTextInput
-                  placeholder="Enter Instagram Link."
-                  field="instagramUrl"
-                  value={detailInfo.instagramUrl}
+                  placeholder="Enter Artwork Subtitle."
+                  field="subTitle"
+                  value={detailInfo.subTitle}
                   handleTextChange={handleDetailInfoChange}
                 />
-              </S.SocialLinkForm>
-            </S.SocialLinkContainer>
-          </S.SocialLinkSection>
-        </S.DetailInfoContainer>
-      </S.DetailInfoSection>
+              </S.DetailInfoUnit>
+            </S.MajorTitleSection>
 
-      {/* Videos */}
-      <S.ExhibitionVideoSection>
-        <S.DetailInfoTitle>
-          Video<span>.</span>
-        </S.DetailInfoTitle>
-        <S.VideoLinkContainer>
-          <YoutubeCircleLogo />
-          <ExhibitionTextInput
-            placeholder="Enter Youtube Link."
-            field="videoUrl"
-            value={detailInfo.videoUrl}
-            handleTextChange={handleDetailInfoChange}
-          />
-        </S.VideoLinkContainer>
-      </S.ExhibitionVideoSection>
-
-      {/* Image */}
-      <S.ExhibitonImageSection id="image-section">
-        <S.DetailInfoTitle>
-          Images<span>.</span>
-        </S.DetailInfoTitle>
-        <S.ImagePreviewScrollContainer
-          id="image-preview-list"
-          onDragOver={(e) => e.preventDefault()}
-          onDrop={(e) => handleImageDrop(e, setImageFiles, setIsImageDragging)}
-          onDragEnter={handleImageDragEnter}
-          onDragLeave={handleImageDragLeave}
-          $isImageDragging={isImageDragging}
-        >
-          <S.ImagePreviewContainer>
-            {imageFiles
-              .slice() // 원본 배열을 변경하지 않도록 복사본을 만듦
-              .sort((a, b) => (a === thumbnail ? -1 : b === thumbnail ? 1 : 0)) // thumbnail을 첫 번째로 정렬
-              .map((image, index) => (
-                <ImagePreview
-                  key={index}
-                  imageUrl={URL.createObjectURL(image)}
-                  image={image}
-                  isThumbnailChecked={image === thumbnail}
-                  handleThumbnailCheck={handleThumbnailCheck}
-                  handleImageDelete={() => handleImageDelete(image)}
+            {/* Description */}
+            <S.DescriptionSection>
+              <S.DescriptionLabel>Description (ENG/KOR)</S.DescriptionLabel>
+              <S.DescriptionUnit id="description-en">
+                <S.LanguageDescriptionContainer>
+                  <S.LanguageDescriptionLabel>ENG</S.LanguageDescriptionLabel>
+                  <S.DescriptionDivider />
+                </S.LanguageDescriptionContainer>
+                <DescriptionInput
+                  inputRef={englishDescriptionRef}
+                  language="English"
+                  field="description_en"
+                  value={detailInfo.description_en}
+                  handleTextChange={handleDetailInfoChange}
+                  maxLength={DESCRIPTION_MAX_LENGTH.English}
                 />
-              ))}
-            <AddElementBox handleImageUpload={handleImageUpload} />
-          </S.ImagePreviewContainer>
-        </S.ImagePreviewScrollContainer>
-      </S.ExhibitonImageSection>
+              </S.DescriptionUnit>
+              <S.DescriptionUnit>
+                <S.LanguageDescriptionContainer id="description-ko">
+                  <S.LanguageDescriptionLabel>KOR</S.LanguageDescriptionLabel>
+                  <S.DescriptionDivider />
+                </S.LanguageDescriptionContainer>
+                <DescriptionInput
+                  inputRef={koreanDescriptionRef}
+                  language="Korean"
+                  field="description_ko"
+                  value={detailInfo.description_ko}
+                  handleTextChange={handleDetailInfoChange}
+                  maxLength={DESCRIPTION_MAX_LENGTH.Korean}
+                />
+              </S.DescriptionUnit>
+            </S.DescriptionSection>
 
-      {/* Participants */}
-      <S.ParticipantSection id="artist-section">
-        <S.DetailInfoTitle>
-          Participants<span>.</span>
-        </S.DetailInfoTitle>
-        <S.ParticipantList>
-          {artists.map((artist) => (
-            <ArtistInfoCard
-              key={artist.id}
-              artistInfo={artist}
-              handleArtistProfileChange={handleArtistProfileChange}
-              handleProfileImageUpload={handleArtistProfileImageUpload}
-              handleArtistCardDelete={handleArtistCardDelete}
-              setArtists={setArtists}
+            {/* SNS Link */}
+            <S.SocialLinkSection>
+              <S.DetailInfoInputLabel>SNS Link</S.DetailInfoInputLabel>
+              <S.SocialLinkContainer>
+                {/* Behance */}
+                <S.SocialLinkForm id="behance-url">
+                  <BehanceLogo />
+                  <ExhibitionTextInput
+                    placeholder="Enter Behance Link."
+                    field="behanceUrl"
+                    value={detailInfo.behanceUrl}
+                    handleTextChange={handleDetailInfoChange}
+                  />
+                </S.SocialLinkForm>
+
+                {/* Instagram */}
+                <S.SocialLinkForm id="instagram-url">
+                  <InstagramLogo />
+                  <ExhibitionTextInput
+                    placeholder="Enter Instagram Link."
+                    field="instagramUrl"
+                    value={detailInfo.instagramUrl}
+                    handleTextChange={handleDetailInfoChange}
+                  />
+                </S.SocialLinkForm>
+              </S.SocialLinkContainer>
+            </S.SocialLinkSection>
+          </S.DetailInfoContainer>
+        </S.DetailInfoSection>
+
+        {/* Videos */}
+        <S.ExhibitionVideoSection>
+          <S.DetailInfoTitle>
+            Video<span>.</span>
+          </S.DetailInfoTitle>
+          <S.VideoLinkContainer>
+            <YoutubeCircleLogo />
+            <ExhibitionTextInput
+              placeholder="Enter Youtube Link."
+              field="videoUrl"
+              value={detailInfo.videoUrl}
+              handleTextChange={handleDetailInfoChange}
             />
-          ))}
-          <AddParticipantBox addArtistCard={addArtistCard} />
-        </S.ParticipantList>
-      </S.ParticipantSection>
+          </S.VideoLinkContainer>
+        </S.ExhibitionVideoSection>
 
-      {/* Save & Cancel Button */}
-      <S.SaveCancelButtonSection>
-        <SaveCancelButton buttonType="save" />
-        <SaveCancelButton buttonType="cancel" />
-      </S.SaveCancelButtonSection>
+        {/* Image */}
+        <S.ExhibitonImageSection id="image-section">
+          <S.DetailInfoTitle>
+            Images<span>.</span>
+          </S.DetailInfoTitle>
+          <S.ImagePreviewScrollContainer
+            id="image-preview-list"
+            onDragOver={(e) => e.preventDefault()}
+            onDrop={(e) =>
+              handleImageDrop(e, setImageFiles, setIsImageDragging)
+            }
+            onDragEnter={handleImageDragEnter}
+            onDragLeave={handleImageDragLeave}
+            $isImageDragging={isImageDragging}
+          >
+            <S.ImagePreviewContainer>
+              {imageFiles
+                .slice() // 원본 배열을 변경하지 않도록 복사본을 만듦
+                .sort((a, b) =>
+                  a === thumbnail ? -1 : b === thumbnail ? 1 : 0
+                ) // thumbnail을 첫 번째로 정렬
+                .map((image, index) => (
+                  <ImagePreview
+                    key={index}
+                    imageUrl={URL.createObjectURL(image)}
+                    image={image}
+                    isThumbnailChecked={image === thumbnail}
+                    handleThumbnailCheck={handleThumbnailCheck}
+                    handleImageDelete={() => handleImageDelete(image)}
+                  />
+                ))}
+              <AddElementBox handleImageUpload={handleImageUpload} />
+            </S.ImagePreviewContainer>
+          </S.ImagePreviewScrollContainer>
+        </S.ExhibitonImageSection>
 
-      {/* Toast Container */}
-      <ToastContainer autoClose={3000} transition={Flip} />
-    </S.ExhibitionRegisterForm>
+        {/* Participants */}
+        <S.ParticipantSection id="artist-section">
+          <S.DetailInfoTitle>
+            Participants<span>.</span>
+          </S.DetailInfoTitle>
+          <S.ParticipantList>
+            {artists.map((artist) => (
+              <ArtistInfoCard
+                key={artist.id}
+                artistInfo={artist}
+                handleArtistProfileChange={handleArtistProfileChange}
+                handleProfileImageUpload={handleArtistProfileImageUpload}
+                handleArtistCardDelete={handleArtistCardDelete}
+                setArtists={setArtists}
+              />
+            ))}
+            <AddParticipantBox addArtistCard={addArtistCard} />
+          </S.ParticipantList>
+        </S.ParticipantSection>
+
+        {/* Save & Cancel Button */}
+        <S.SaveCancelButtonSection>
+          <SaveCancelButton buttonType="save" />
+          <SaveCancelButton buttonType="cancel" />
+        </S.SaveCancelButtonSection>
+
+        {/* Toast Container */}
+        <ToastContainer autoClose={3000} transition={Flip} />
+      </S.ExhibitionRegisterForm>
+    </>
   );
 };
 
