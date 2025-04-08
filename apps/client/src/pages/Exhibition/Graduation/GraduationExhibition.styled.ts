@@ -24,13 +24,12 @@ export const GraduationVideo = styled.video`
 export const GraduationExhibitonGalleryContainer = styled.div`
   width: 100%;
   height: fit-content;
-  padding: 11.7rem 0 8.4rem 0;
+  padding: 8.4rem 0;
 `;
 
 export const ExhibitionContainer = styled.div`
   width: 100%;
   height: fit-content;
-  /* padding: 11.7rem 0; */
 
   display: flex;
   justify-content: center;

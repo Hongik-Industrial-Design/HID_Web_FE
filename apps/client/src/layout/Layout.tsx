@@ -10,9 +10,11 @@ const Layout = (): JSX.Element => {
   return (
     <S.TopLevelContainer>
       <Header />
+
       <S.Contents>
         <Outlet />
       </S.Contents>
+
       <Footer />
     </S.TopLevelContainer>
   );

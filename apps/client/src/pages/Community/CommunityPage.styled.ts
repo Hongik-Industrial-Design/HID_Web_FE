@@ -2,9 +2,8 @@ import styled, { css } from 'styled-components';
 
 export const CommunityPageContainer = styled.div<{ $isPending: boolean }>`
   width: 100%;
-  height: fit-content;
-  padding: 0 15.8rem 31.9rem 15.8rem; // Scroll Top UX 고려해 padding-top 분리
-  margin-top: 70px;
+  height: 100%;
+  padding: 0 15.8rem 9.6rem 15.8rem; // Scroll Top UX 고려해 padding-top 분리
 
   display: flex;
   flex-direction: column;
@@ -12,8 +11,6 @@ export const CommunityPageContainer = styled.div<{ $isPending: boolean }>`
   ${({ $isPending }) =>
     $isPending &&
     css`
-      width: 100%;
-      height: calc(100vh - 70px);
       padding: 0;
       margin: 0;
 
