@@ -21,7 +21,7 @@ const NoticeList = (): JSX.Element => {
 
   const handleCurrentPage = (page: number) => setCurrentPage(page);
 
-  const { status, data, error } = useNoticeListQuery(currentPage - 1, 10); // 서버 측에서 page 시작값을 0으로 설정해놔서 임시로 -1 처리
+  const { status, data, error } = useNoticeListQuery(currentPage, 10);
 
   const noticeList = data ? (data.content as NoticePostInfo[]) : [];
   console.log('공지사항 목록 조회 API 응답 데이터: ', noticeList);
@@ -31,7 +31,7 @@ const NoticeList = (): JSX.Element => {
     return Number(b.important) - Number(a.important);
   });
 
-  const totalPages = data ? data.totalPages : 0;
+  const totalPages = data ? data.pageInfo.totalPages : 0;
 
   return (
     <S.NoticeListWrapper>

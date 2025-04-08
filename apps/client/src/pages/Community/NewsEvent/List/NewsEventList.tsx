@@ -25,10 +25,10 @@ const NewsEventList = (): JSX.Element => {
   };
 
   // News & Event List API 호출
-  const { status, data, error } = useNewsEventListQuery(currentPage - 1, 10);
+  const { status, data, error } = useNewsEventListQuery(currentPage, 10);
 
   const newsEventListInfos = data ? (data.content as NewsEventCardInfo[]) : [];
-  const totalPages = data ? data.totalPages : 1;
+  const totalPages = data ? data.pageInfo.totalPages : 1;
 
   return (
     <S.NewsEventWrapper ref={newsEventTopRef}>

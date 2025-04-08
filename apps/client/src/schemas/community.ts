@@ -7,7 +7,7 @@ export const CommunitySchema = z.object({
       title: z.string(),
       author: z.string(),
       createdDate: z.string().date(),
-      attachmentUrls: z.array(z.string().url()),
+      attachmentUrls: z.array(z.string()),
       important: z.boolean(),
     })
   ),
@@ -30,36 +30,17 @@ export const NoticeListSchema = z.object({
       title: z.string(),
       author: z.string(),
       createdDate: z.string().date(),
-      attachmentUrls: z.array(z.string().url()),
+      attachmentUrls: z.array(z.string()),
       important: z.boolean(),
     })
   ),
-  // 불필요한 페이지네이션 데이터가 너무 많음,,
-  pageable: z.object({
-    pageNumber: z.number(),
-    pageSize: z.number(),
-    sort: z.object({
-      empty: z.boolean(),
-      sorted: z.boolean(),
-      unsorted: z.boolean(),
-    }),
-    offset: z.number(),
-    paged: z.boolean(),
-    unpaged: z.boolean(),
+  pageInfo: z.object({
+    currentPage: z.number(),
+    totalPages: z.number(),
+    totalElements: z.number(),
+    last: z.boolean(),
+    first: z.boolean(),
   }),
-  last: z.boolean(),
-  totalPages: z.number(),
-  totalElements: z.number(),
-  size: z.number(),
-  number: z.number(),
-  sort: z.object({
-    empty: z.boolean(),
-    sorted: z.boolean(),
-    unsorted: z.boolean(),
-  }),
-  numberOfElements: z.number(),
-  first: z.boolean(),
-  empty: z.boolean(),
 });
 
 // News & Event 카드 목록 조회 API 응답 스키마 (content 필드만 형식 다름)
@@ -73,30 +54,11 @@ export const NewsEventListSchema = z.object({
       category: z.string(),
     })
   ),
-  // 불필요한 페이지네이션 데이터가 너무 많음,,
-  pageable: z.object({
-    pageNumber: z.number(),
-    pageSize: z.number(),
-    sort: z.object({
-      empty: z.boolean(),
-      sorted: z.boolean(),
-      unsorted: z.boolean(),
-    }),
-    offset: z.number(),
-    paged: z.boolean(),
-    unpaged: z.boolean(),
+  pageInfo: z.object({
+    currentPage: z.number(),
+    totalPages: z.number(),
+    totalElements: z.number(),
+    last: z.boolean(),
+    first: z.boolean(),
   }),
-  last: z.boolean(),
-  totalPages: z.number(),
-  totalElements: z.number(),
-  size: z.number(),
-  number: z.number(),
-  sort: z.object({
-    empty: z.boolean(),
-    sorted: z.boolean(),
-    unsorted: z.boolean(),
-  }),
-  numberOfElements: z.number(),
-  first: z.boolean(),
-  empty: z.boolean(),
 });
