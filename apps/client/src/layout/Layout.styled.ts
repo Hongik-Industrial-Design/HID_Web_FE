@@ -5,8 +5,8 @@ export const TopLevelContainer = styled.div`
   min-height: 100vh;
 `;
 
-export const Contents = styled.main`
+export const Contents = styled.main<{ $isNoPaddingTop: boolean }>`
   width: 100%;
   min-height: 100vh;
-  padding-top: 70px;
+  padding-top: ${({ $isNoPaddingTop }) => ($isNoPaddingTop ? '0' : '70px')};
 `;
