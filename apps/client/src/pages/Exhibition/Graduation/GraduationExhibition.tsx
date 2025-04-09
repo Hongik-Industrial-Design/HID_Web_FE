@@ -80,16 +80,18 @@ export const GraduationExhibition = (): JSX.Element => {
             />
           </S.StickyContainer>
 
-          {previewStatus === 'pending' ? (
-            <Loading />
-          ) : previewStatus === 'error' ? (
-            <span>Error: {previewError.message}</span>
-          ) : (
-            <GraduationExhibitionGallery
-              previews={exhibitionPreviews}
-              exhibitionYear={String(exhibitionYear)}
-            />
-          )}
+          <S.ExhibitionGallerySection>
+            {previewStatus === 'pending' ? (
+              <Loading />
+            ) : previewStatus === 'error' ? (
+              <span>Error: {previewError.message}</span>
+            ) : (
+              <GraduationExhibitionGallery
+                previews={exhibitionPreviews}
+                exhibitionYear={String(exhibitionYear)}
+              />
+            )}
+          </S.ExhibitionGallerySection>
         </S.ExhibitionContainer>
       </S.GraduationExhibitonGalleryContainer>
     </S.GraduationExhibitionContainer>

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const StudentExhibitionContainer = styled.div`
   width: 100%;
   height: fit-content;
-  padding: 6.8rem 0;
+  padding: 6.8rem 15.8rem;
 `;
 
 export const ExhibitionContainer = styled.div`
@@ -11,7 +11,6 @@ export const ExhibitionContainer = styled.div`
   height: fit-content;
 
   display: flex;
-  justify-content: center;
   gap: 19.6rem;
 `;
 
