@@ -15,6 +15,11 @@ export const CategoryStickyContainer = styled.section`
 `;
 
 export const FacultyListContainer = styled.section`
+  flex-grow: 1;
+
+  width: 100%;
+  height: fit-content;
+
   display: flex;
   flex-direction: column;
   gap: 3.2rem;

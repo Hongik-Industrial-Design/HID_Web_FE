@@ -11,6 +11,8 @@ export const CommunityPageContainer = styled.div<{ $isPending: boolean }>`
   ${({ $isPending }) =>
     $isPending &&
     css`
+      height: calc(100vh - 118px);
+
       padding: 0;
       margin: 0;
 
