@@ -5,29 +5,26 @@ import { useNewsEventListQuery } from '@api/query/communityQuery';
 
 import { NEWS_EVENT_CATEGORY } from '@constants/communityCategory';
 
-import { NewsEventCardInfo } from '@pages/Community/Community.types';
+import { NewsEventContent } from '@schemas/community';
 
+import Loading from '@components/Loading/Loading';
 import CategoryCommunity from '@components/CategoryCommunity/CategoryCommunity';
 import SearchBar from '@components/SearchBar/SearchBar';
 import Pagination from '@components/Pagination/Pagination';
 import NewsEventCard from '../Card/NewsEventCard';
 
 import * as S from './NewsEventList.styled';
-import Loading from '@components/Loading/Loading';
 
 const NewsEventList = (): JSX.Element => {
   const newsEventTopRef = useRef<HTMLDivElement | null>(null);
 
   const [currentPage, setCurrentPage] = useState<number>(1);
-
-  const handleCurrentPage = (page: number) => {
-    setCurrentPage(page);
-  };
+  const handleCurrentPage = (page: number) => setCurrentPage(page);
 
   // News & Event List API 호출
   const { status, data, error } = useNewsEventListQuery(currentPage, 10);
 
-  const newsEventListInfos = data ? (data.content as NewsEventCardInfo[]) : [];
+  const newsEventListInfos = data ? (data.content as NewsEventContent[]) : [];
   const totalPages = data ? data.pageInfo.totalPages : 1;
 
   return (

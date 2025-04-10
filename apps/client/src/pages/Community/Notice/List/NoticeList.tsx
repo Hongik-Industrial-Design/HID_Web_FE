@@ -4,7 +4,7 @@ import { useRef, useState } from 'react';
 import { useNoticeListQuery } from '@api/query/communityQuery';
 import { NOTICE_CATEGORY } from '@constants/communityCategory';
 
-import { NoticePostInfo } from '@pages/Community/Community.types';
+import { NoticeContent } from '@schemas/community';
 
 import CategoryCommunity from '@components/CategoryCommunity/CategoryCommunity';
 import NoticeListItem from '../Item/NoticeListItem';
@@ -23,7 +23,7 @@ const NoticeList = (): JSX.Element => {
 
   const { status, data, error } = useNoticeListQuery(currentPage, 10);
 
-  const noticeList = data ? (data.content as NoticePostInfo[]) : [];
+  const noticeList = data ? (data.content as NoticeContent[]) : [];
   console.log('공지사항 목록 조회 API 응답 데이터: ', noticeList);
 
   // 중요 공지사항 우선순위 정렬
@@ -84,7 +84,7 @@ const NoticeList = (): JSX.Element => {
                     title={notice.title}
                     createdDate={notice.createdDate}
                     author={notice.author}
-                    attachmentUrls={notice.attachmentUrls}
+                    hasAttachment={notice.hasAttachment}
                   />
                   <S.ThinDivider />
                 </S.NoticeBoard>
