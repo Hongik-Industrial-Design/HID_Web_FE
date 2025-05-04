@@ -3,8 +3,7 @@ import styled, { css } from 'styled-components';
 export const BoardDetailPageContainer = styled.div`
   width: 100%;
   height: fit-content;
-  padding: 6.8rem 15.8rem 7.1rem;
-  margin-top: 70px;
+  padding: 6.8rem 15.8rem;
 `;
 
 export const BreadScrumbSection = styled.section`

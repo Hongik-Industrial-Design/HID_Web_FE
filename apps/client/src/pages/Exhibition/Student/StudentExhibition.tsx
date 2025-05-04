@@ -37,7 +37,6 @@ const StudentExhibition = (): JSX.Element => {
   const {
     status,
     data: previews = [],
-    isFetching,
     error,
   } = useStudentExhbitionPreviewQuery(
     'CLUB',
@@ -61,34 +60,32 @@ const StudentExhibition = (): JSX.Element => {
   // };
 
   return (
-    <S.StudentExhibitionContainer>
-      <S.ExhibitionContainer>
-        <S.StickyContainer>
-          <Category
-            currentCategory={selectedExhibition.club}
-            handleFilter={handlePreviewFilter}
-          />
-        </S.StickyContainer>
-        <S.StudentExhibitionGalleryContainer>
-          <S.StudentExhibitionGalleryTitle>
-            Student Exhibiton<span>.</span>
-          </S.StudentExhibitionGalleryTitle>
-
-          {status === 'pending' ? (
-            <Loading />
-          ) : status === 'error' ? (
-            <span>Error: {error.message}</span>
-          ) : (
-            <>
-              <StudentExhibitionGallery
-                pieces={previews}
-                exhibitionYear={selectedExhibition.year}
-              />
-              <span>{isFetching ? 'Background Updating...' : ''}</span>
-            </>
-          )}
-        </S.StudentExhibitionGalleryContainer>
-      </S.ExhibitionContainer>
+    <S.StudentExhibitionContainer
+      $isPendingOrError={status === 'pending' || status === 'error'}
+    >
+      {status === 'pending' ? (
+        <Loading />
+      ) : status === 'error' ? (
+        <span>Error: {error.message}</span>
+      ) : (
+        <S.ExhibitionContainer>
+          <S.StickyContainer>
+            <Category
+              currentCategory={selectedExhibition.club}
+              handleFilter={handlePreviewFilter}
+            />
+          </S.StickyContainer>
+          <S.StudentExhibitionGalleryContainer>
+            <S.StudentExhibitionGalleryTitle>
+              Student Exhibiton<span>.</span>
+            </S.StudentExhibitionGalleryTitle>
+            <StudentExhibitionGallery
+              pieces={previews}
+              exhibitionYear={selectedExhibition.year}
+            />
+          </S.StudentExhibitionGalleryContainer>
+        </S.ExhibitionContainer>
+      )}
     </S.StudentExhibitionContainer>
   );
 };

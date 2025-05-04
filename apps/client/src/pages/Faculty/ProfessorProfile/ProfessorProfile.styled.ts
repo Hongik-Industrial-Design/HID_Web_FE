@@ -2,8 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const ProfessorProfileWrapper = styled.div`
   width: 100%;
-  padding: 6.8rem 15.8rem 18.5rem 15.8rem;
-  margin-top: 70px;
+  padding: 6.8rem 15.8rem;
 
   display: flex;
   flex-direction: column;

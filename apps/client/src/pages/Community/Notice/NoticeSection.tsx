@@ -1,7 +1,7 @@
 import { JSX } from 'react/jsx-runtime';
 import { useRef } from 'react';
 
-import { NoticePostInfo } from '../Community.types';
+import { NoticePreview } from '@schemas/community';
 
 import CategoryCommunity from '@components/CategoryCommunity/CategoryCommunity';
 import NoticeListItem from './Item/NoticeListItem';
@@ -10,7 +10,7 @@ import ViewDetail from '@components/ViewDetail/ViewDetail';
 import * as S from './NoticeSection.styled';
 
 interface NoticeSectionProps {
-  noticeBoardData: NoticePostInfo[];
+  noticeBoardData: NoticePreview[];
 }
 
 const NoticeSection = ({
@@ -62,7 +62,7 @@ const NoticeSection = ({
                 title={notice.title}
                 createdDate={notice.createdDate}
                 author={notice.author}
-                attachmentUrls={notice.attachmentUrls}
+                hasAttachment={notice.hasAttachment}
               />
               <S.ThinDivider />
             </S.BoardHeaderContainer>

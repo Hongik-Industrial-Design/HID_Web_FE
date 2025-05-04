@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const GalleryWrapper = styled.div`
-  width: fit-content;
+  width: 100%;
   height: fit-content;
 `;
 

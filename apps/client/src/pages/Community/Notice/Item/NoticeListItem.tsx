@@ -1,4 +1,4 @@
-import { NoticePostInfo } from '@pages/Community/Community.types';
+import { NoticePreview } from '@schemas/community';
 
 import ImportantBox from '@components/ImportantBox/ImportantBox';
 import PostTypeBox from '@components/PostTypeBox/PostTypeBox';
@@ -12,8 +12,8 @@ const NoticeListItem = ({
   title,
   createdDate,
   author,
-  attachmentUrls,
-}: NoticePostInfo) => {
+  hasAttachment,
+}: NoticePreview) => {
   // // 첨부 파일 다운로드 logic
   // const handleDownload = () => {
   //   if (id) {
@@ -66,7 +66,7 @@ const NoticeListItem = ({
           <PostTypeBox type={author} />
         </S.AuthorBoxArea>
         <S.ClipIconContainer>
-          {attachmentUrls.length > 0 ? (
+          {hasAttachment ? (
             <S.ClipIconButton>
               <ClipIcon />
             </S.ClipIconButton>

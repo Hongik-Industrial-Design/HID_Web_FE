@@ -69,8 +69,8 @@ const ExhibitionRegister = ({
     subTitle: '',
     description_ko: '',
     description_en: '',
-    behanceUrl: 'https://behance.net/search/projects/hongik%20university',
-    instagramUrl: 'https://instagram.com/hongik.id.degreeshow/',
+    behanceUrl: 'https://www.behance.net/search/projects/hongik%20university',
+    instagramUrl: 'https://www.instagram.com/hongik.id.degreeshow/',
     videoUrl: '',
   });
 

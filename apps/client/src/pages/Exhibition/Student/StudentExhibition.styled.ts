@@ -1,10 +1,22 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const StudentExhibitionContainer = styled.div`
+export const StudentExhibitionContainer = styled.div<{
+  $isPendingOrError: boolean;
+}>`
   width: 100%;
   height: fit-content;
-  margin-top: 70px;
-  padding: 6.8rem 0 8rem 0;
+  padding: 6.8rem 15.8rem;
+
+  ${({ $isPendingOrError }) =>
+    $isPendingOrError &&
+    css`
+      padding: 0;
+      height: calc(100vh - 118px);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    `}
 `;
 
 export const ExhibitionContainer = styled.div`
@@ -12,7 +24,6 @@ export const ExhibitionContainer = styled.div`
   height: fit-content;
 
   display: flex;
-  justify-content: center;
   gap: 19.6rem;
 `;
 
@@ -21,7 +32,9 @@ export const StickyContainer = styled.div`
 `;
 
 export const StudentExhibitionGalleryContainer = styled.div`
-  width: fit-content;
+  flex-grow: 1;
+
+  width: 100%;
   height: fit-content;
 
   display: flex;

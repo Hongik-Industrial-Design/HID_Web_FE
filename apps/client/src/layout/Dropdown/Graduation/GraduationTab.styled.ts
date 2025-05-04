@@ -6,7 +6,7 @@ export const GraduationTabContainer = styled.div<{
   $isActive: boolean;
 }>`
   width: 100%;
-  height: fit-content;
+  height: 23.6rem;
 
   display: flex;
 
@@ -20,12 +20,8 @@ export const GraduationTabContainer = styled.div<{
 
 export const ExhibitionInfos = styled.section`
   width: 50%;
-  height: fit-content;
-  padding: 4rem 1.6rem 0 15.8rem;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  height: 100%;
+  padding: 4rem 6.4rem 4rem 15.8rem;
 `;
 
 export const ExhibitionTitle = styled.h3`
@@ -52,6 +48,7 @@ export const ExhibitionPosterContainer = styled.section`
 
 export const ExhibitonPosterList = styled.ul`
   width: 100%;
+  height: 100%;
 
   display: flex;
   align-items: center;
@@ -63,19 +60,19 @@ export const ExhibitonPosterItem = styled.li`
   flex: 1;
 
   width: 100%;
-  height: fit-content;
+  height: 100%;
 
   overflow-y: hidden;
 `;
 
 export const ExhibitonLink = styled(Link)`
   width: 100%;
-  height: fit-content;
+  height: 100%;
 `;
 
 export const ExhibitionPoster = styled.img<{ $isHovered: boolean }>`
   width: 100%;
-  height: fit-content;
+  height: 100%;
 
   ${({ $isHovered }) =>
     $isHovered

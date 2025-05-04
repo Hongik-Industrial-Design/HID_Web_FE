@@ -3,12 +3,11 @@ import { colors } from '@styles/theme/colors';
 
 export const ContactPageContainer = styled.div`
   width: 100%;
-  padding: 120px 153px 256px 158px;
-  margin-top: 50px;
+  padding: 6.8rem 15.8rem;
 
   display: flex;
   flex-direction: column;
-  gap: 72px;
+  gap: 7.2rem;
 `;
 
 export const Title = styled.h1`
@@ -23,7 +22,7 @@ export const Title = styled.h1`
 export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 108px;
+  gap: 10.8rem;
 `;
 
 export const HIDInfo = styled.div`
@@ -31,10 +30,10 @@ export const HIDInfo = styled.div`
 
   display: flex;
   justify-content: space-between;
-  gap: 24px;
+  gap: 2.4rem;
 `;
 
 export const WebAdmin = styled.div`
   display: flex;
-  gap: 140px;
+  gap: 14rem;
 `;
