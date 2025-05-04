@@ -25,7 +25,9 @@ const StudentExhibitionDetail = (): JSX.Element => {
   } = useStudentExhibitionDetailQuery(exhibtionYear, exhibitId);
 
   return (
-    <S.ExhibitionDetailWrapper>
+    <S.ExhibitionDetailWrapper
+      $isPendingOrError={status === 'pending' || status === 'error'}
+    >
       {status === 'pending' ? (
         <Loading />
       ) : status === 'error' ? (

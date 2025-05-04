@@ -1,7 +1,7 @@
 import { JSX } from 'react/jsx-runtime';
 import { useRef } from 'react';
 
-import { NewsEventCardInfo } from '../Community.types';
+import { NewsEventPreview } from '@schemas/community';
 
 import { NEWS_EVENT_CATEGORY } from '@constants/communityCategory';
 
@@ -12,7 +12,7 @@ import NewsEventCard from './Card/NewsEventCard';
 import * as S from './NewsEventSection.styled';
 
 interface NewsEventSectionProps {
-  newsEventCardInfos: NewsEventCardInfo[];
+  newsEventCardInfos: NewsEventPreview[];
 }
 
 const NewsEventSection = ({

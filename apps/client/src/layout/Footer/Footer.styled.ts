@@ -6,7 +6,8 @@ import mailLogo from '@assets/svgs/social-icons/Mail.svg?react';
 
 export const FooterContainer = styled.footer`
   width: 100%;
-  padding: 9.6rem 15.8rem;
+  height: 32rem;
+  padding: 0 15.8rem;
 
   display: flex;
   justify-content: space-between;

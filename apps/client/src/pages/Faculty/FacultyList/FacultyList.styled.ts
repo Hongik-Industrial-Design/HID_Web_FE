@@ -3,8 +3,7 @@ import styled from 'styled-components';
 export const FacultyListPageWrapper = styled.div`
   width: 100%;
   height: fit-content;
-  padding: 7rem 15.8rem 21.7rem 15.8rem;
-  margin-top: 70px;
+  padding: 6.8rem 15.8rem;
 
   display: flex;
   justify-content: center;
@@ -16,6 +15,11 @@ export const CategoryStickyContainer = styled.section`
 `;
 
 export const FacultyListContainer = styled.section`
+  flex-grow: 1;
+
+  width: 100%;
+  height: fit-content;
+
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
