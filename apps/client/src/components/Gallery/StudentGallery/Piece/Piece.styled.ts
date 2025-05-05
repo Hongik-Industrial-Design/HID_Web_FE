@@ -3,12 +3,13 @@ import { Link } from 'react-router';
 import { motion } from 'framer-motion';
 
 export const PieceContainer = styled(motion.li)`
-  width: fit-content;
+  flex: 1;
+  width: 100%;
   height: fit-content;
 `;
 
 export const PieceLink = styled(Link)`
-  width: fit-content;
+  width: 100%;
   height: fit-content;
 
   display: block;
@@ -17,20 +18,8 @@ export const PieceLink = styled(Link)`
   border: 1px solid ${({ theme }) => theme.colors.HID_Grayscale[200]};
 `;
 
-export const PieceOverlayContainer = styled.div`
-  position: relative;
-
-  width: fit-content;
-  height: fit-content;
-
-  display: flex;
-  flex-direction: column;
-
-  overflow: hidden;
-`;
-
 export const PieceImage = styled.img`
-  width: 38.5rem;
+  width: 100%;
   height: fit-content;
 
   display: block;

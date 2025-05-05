@@ -13,7 +13,6 @@ export const STUDENT_CLUB_LIST = [
   'Contra',
   'DBZC (덤벙주초)',
   'DESIGN STUDIO i',
-  'G.LAB',
   'HILLS',
 ];
 

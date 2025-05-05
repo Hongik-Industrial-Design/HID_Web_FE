@@ -17,6 +17,14 @@ export const StudentExhibitionContainer = styled.div<{
       justify-content: center;
       align-items: center;
     `}
+
+  @media (max-width: 1200px) {
+    padding: 6.8rem 8.4rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 6.8rem 3.2rem;
+  }
 `;
 
 export const ExhibitionContainer = styled.div`
@@ -24,7 +32,12 @@ export const ExhibitionContainer = styled.div`
   height: fit-content;
 
   display: flex;
-  gap: 19.6rem;
+  gap: clamp(3.2rem, 10vw, 19.6rem);
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+    gap: 4.8rem;
+  }
 `;
 
 export const StickyContainer = styled.div`
@@ -42,12 +55,16 @@ export const StudentExhibitionGalleryContainer = styled.div`
 `;
 
 export const StudentExhibitionGalleryTitle = styled.h1`
-  margin-bottom: 8.5rem;
+  margin-bottom: 6.4rem;
 
   ${({ theme }) => theme.fontStyles.Header1};
   color: ${({ theme }) => theme.colors.HID_Grayscale[800]};
 
   span {
     color: ${({ theme }) => theme.colors.HID_YellowDot};
+  }
+
+  @media (max-width: 1200px) {
+    margin-bottom: 4.8rem;
   }
 `;

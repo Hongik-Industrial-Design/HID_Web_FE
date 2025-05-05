@@ -21,7 +21,6 @@ const StudentExhibitionDetail = (): JSX.Element => {
     status,
     data: artworkInfos,
     error,
-    isFetching,
   } = useStudentExhibitionDetailQuery(exhibtionYear, exhibitId);
 
   return (
@@ -39,7 +38,6 @@ const StudentExhibitionDetail = (): JSX.Element => {
             <StudentArtworkSection artworkInfos={artworkInfos} />
           </S.ExhibitionDetailContainer>
           <StudentTeamMemberSection membersData={artworkInfos.artists} />
-          {isFetching && <span>Background Updating...</span>}
         </>
       )}
     </S.ExhibitionDetailWrapper>

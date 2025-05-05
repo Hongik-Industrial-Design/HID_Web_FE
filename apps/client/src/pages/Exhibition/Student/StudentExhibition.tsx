@@ -20,18 +20,21 @@ export interface SelectStudentExhibition {
 const StudentExhibition = (): JSX.Element => {
   const [selectedExhibition, setSelectedExhibition] =
     useState<SelectStudentExhibition>({
-      year: ARCHIVE_YEAR_LIST[0], // 추후 배열의 0번 index로 기본값 설정 (number -> string)
+      year: ARCHIVE_YEAR_LIST[0],
       club: STUDENT_CLUB_LIST[0],
     });
 
   const handlePreviewFilter = (
     key: keyof SelectStudentExhibition,
     club: string
-  ) =>
+  ) => {
     setSelectedExhibition((prev) => ({
       ...prev,
       [key]: club,
     }));
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   // Fetching Student Exhibition Preview Data (Tanstack Query 적용)
   const {
@@ -43,21 +46,6 @@ const StudentExhibition = (): JSX.Element => {
     selectedExhibition.year,
     selectedExhibition.club.toUpperCase()
   );
-
-  // console.log('Tanstack Query 적용 후의 학생 전시 Preview 데이터: ', previews);
-
-  // // Client Side Filtering Logic (애니메이션 구체화 시 사용 - 백엔드와 로직 상의 필요)
-  // const handlePreviewFilter = (category: string) => {
-  //   if (category === 'ALL') {
-  //     setFilteredPreviews(previews);
-  //   } else {
-  //     const filteredPreviews = previews.filter(
-  //       (preview) => preview.club === category
-  //     );
-
-  //     setFilteredPreviews(filteredPreviews);
-  //   }
-  // };
 
   return (
     <S.StudentExhibitionContainer

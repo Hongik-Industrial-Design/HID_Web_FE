@@ -1,7 +1,7 @@
 import { JSX } from 'react/jsx-runtime';
 import { useState } from 'react';
 
-import { PieceProps } from '@components/Exhibition/Exhibition.types';
+import { PieceProps } from '@components/Gallery/Exhibition.types';
 
 import CardOverlayBackground from '@components/CardOverlay/Background/CardOverlayBackground';
 import CardOverlayText from '@components/CardOverlay/Text/CardOverlayText';
@@ -40,7 +40,7 @@ const Piece = ({
           isThumbnailHovered={isPieceHovered}
         >
           <>
-            <S.PieceImage src={imageURL} alt={title} />
+            <S.PieceImage src={imageURL} alt={title ? title : ''} />
             <CardOverlayText
               title={title}
               subTitle={subTitle}

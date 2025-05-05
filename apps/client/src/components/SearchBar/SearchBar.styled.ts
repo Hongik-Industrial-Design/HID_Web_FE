@@ -21,7 +21,7 @@ export const SearchButton = styled.button`
 `;
 
 export const SearchInput = styled.input`
-  width: 31.6rem;
+  width: 30rem;
   height: fit-content;
   padding: 1rem 1.6rem;
   padding-left: 4.2rem;
@@ -59,4 +59,12 @@ export const SearchInput = styled.input`
     background-color 0.2s ease-out,
     border 0.2s ease-out,
     color 0.2s ease-out;
+
+  @media (max-width: 1200px) {
+    width: 24rem;
+  }
+
+  @media (max-width: 768px) {
+    width: 20rem;
+  }
 `;

@@ -20,7 +20,7 @@ export const fetchExhibitionPreview = async (
   const response = await HWISO_API.get('/exhibits/previews', {
     params,
   });
-  console.log('전시 Preview 데이터: ', response.data.data);
+  // console.log('전시 Preview 데이터: ', response.data.data);
 
   return validateResponse(Schemas.ExhibitionPreviewSchema, response.data.data);
 };

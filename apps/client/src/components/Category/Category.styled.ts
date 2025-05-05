@@ -9,12 +9,35 @@ export const CategoryContainer = styled.ul<{ $currentPath: string }>`
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
+
+  @media (max-width: 1200px) {
+    ${({ $currentPath }) =>
+      $currentPath.includes('/student') &&
+      css`
+        width: 100%;
+        padding-bottom: 1.6rem;
+        border-bottom: 1px solid
+          ${({ theme }) => theme.colors.HID_Grayscale[100]};
+        position: static;
+        flex-direction: row;
+        gap: 4rem;
+        flex-wrap: wrap;
+      `}
+  }
 `;
 
-export const DetailedMajor = styled.li<{ $isSelected: boolean }>`
+export const DetailedMajor = styled.li<{
+  $isSelected: boolean;
+}>`
   width: fit-content;
   min-width: 15rem;
   height: fit-content;
+
+  @media (max-width: 1200px) {
+    width: fit-content;
+    min-width: 0;
+    height: fit-content;
+  }
 `;
 
 export const CategoryButton = styled.button<{ $isSelected: boolean }>`

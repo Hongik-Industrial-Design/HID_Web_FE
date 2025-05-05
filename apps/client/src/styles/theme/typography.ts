@@ -128,7 +128,7 @@ export const fontStyles: Typography = {
   `,
   Title4: css`
     ${CommonFontstyles}
-    font-size: clamp(1.4rem, 1.2vw, 2.2rem);
+    font-size: clamp(1.6rem, 1.2vw, 2rem);
     font-weight: 600;
     line-height: 1.36;
   `,
