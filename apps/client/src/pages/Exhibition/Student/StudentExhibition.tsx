@@ -7,7 +7,7 @@ import Category from '@components/Category/Category';
 import StudentExhibitionGallery from '@components/Gallery/StudentGallery/StudentExhibitionGallery';
 import Loading from '@components/Loading/Loading';
 
-import { ARCHIVE_YEAR_LIST } from '@constants/archiveYear';
+import { ARCHIVE_YEAR_LIST } from '@constants/archive';
 import { STUDENT_CLUB_LIST } from '@constants/exhibitionCategory';
 
 import * as S from './StudentExhibition.styled';

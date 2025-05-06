@@ -6,7 +6,7 @@ export const GraduationTabContainer = styled.div<{
   $isActive: boolean;
 }>`
   width: 100%;
-  height: 23.6rem;
+  height: 24rem;
 
   display: flex;
 
@@ -16,16 +16,65 @@ export const GraduationTabContainer = styled.div<{
     $isRendered || $isActive ? 1 : 0};
 
   transition: opacity 0.4s ease-in-out;
+
+  @media (max-width: 2560px) {
+    height: clamp(24rem, 13vw, 26rem);
+  }
+
+  @media (max-width: 1920px) {
+    height: clamp(22rem, 13vw, 24rem);
+  }
+
+  @media (max-width: 1440px) {
+    height: clamp(20rem, 12vw, 22rem);
+  }
+
+  @media (max-width: 1200px) {
+    height: clamp(18rem, 16vw, 20rem);
+  }
+
+  @media (max-width: 1080px) {
+    height: clamp(20rem, 24vw, 24rem);
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
+// Infos
 export const ExhibitionInfos = styled.section`
   width: 50%;
   height: 100%;
-  padding: 4rem 6.4rem 4rem 15.8rem;
+  padding: 4rem 6.4rem 0 15.8rem;
+
+  @media (max-width: 2560px) {
+    padding-top: clamp(4.8rem, 3vw, 6rem);
+  }
+
+  @media (max-width: 1920px) {
+    max-width: 45%;
+    padding-top: clamp(3.2rem, 2.4vw, 4.8rem);
+  }
+
+  @media (max-width: 1440px) {
+    max-width: 38%;
+  }
+
+  @media (max-width: 1200px) {
+    max-width: 35%;
+    padding-left: 8.4rem;
+    padding-top: clamp(2.4rem, 1.6vw, 3.2rem);
+  }
+
+  @media (max-width: 1080px) {
+    display: none;
+  }
 `;
 
 export const ExhibitionTitle = styled.h3`
   ${({ theme }) => theme.fontStyles.Title3}
+  font-size: clamp(1.8rem, 1.8vw, 2.4rem);
   color: ${({ theme }) => theme.colors.HID_Grayscale[800]};
 `;
 
@@ -39,9 +88,21 @@ export const InfoDivider = styled.div`
   height: 1px;
   margin: 3.2rem 0 2.4rem 0;
 
-  background-color: ${({ theme }) => theme.colors.HID_Grayscale[800]};
+  background: ${({ theme }) => theme.colors.HID_Grayscale[800]};
+
+  @media (max-width: 1440px) {
+    margin-top: clamp(2.4rem, 1.6vw, 3.2rem);
+    margin-bottom: clamp(1.6rem, 1vw, 2.4rem);
+  }
+
+  @media (max-width: 1200px) {
+    width: 3rem;
+    margin-top: clamp(1.6rem, 1vw, 2.4rem);
+    margin-bottom: clamp(1.2rem, 0.8vw, 1.6rem);
+  }
 `;
 
+// Poster
 export const ExhibitionPosterContainer = styled.section`
   flex-grow: 1;
 `;
@@ -51,7 +112,7 @@ export const ExhibitonPosterList = styled.ul`
   height: 100%;
 
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 `;
 
 export const ExhibitonPosterItem = styled.li`
@@ -71,8 +132,11 @@ export const ExhibitonLink = styled(Link)`
 `;
 
 export const ExhibitionPoster = styled.img<{ $isHovered: boolean }>`
+  display: block;
+
   width: 100%;
   height: 100%;
+  aspect-ratio: 16 / 19;
 
   ${({ $isHovered }) =>
     $isHovered
@@ -93,7 +157,7 @@ export const OverlappedYearContainer = styled.div<{ $isHovered: boolean }>`
 
   width: 100%;
   height: fit-content;
-  padding: 1.6rem 0;
+  padding: 1.2rem 0;
   text-align: center;
 
   background-color: rgba(9, 40, 122, 0.32);

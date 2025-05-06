@@ -1,7 +1,7 @@
 import { JSX } from 'react/jsx-runtime';
 import { Location, useLocation } from 'react-router';
 
-import { ARCHIVE_YEAR_LIST } from '@constants/archiveYear';
+import { ARCHIVE_YEAR_LIST } from '@constants/archive';
 
 import { NavbarProps } from './Navbar.types';
 
