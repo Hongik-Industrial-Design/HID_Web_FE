@@ -23,7 +23,11 @@ const StudentExhibitionGallery = ({
 
   const totalPages = Math.ceil(pieces?.length / 9);
 
-  const handleCurrentPage = (page: number) => setCurrentPage(page);
+  const handleCurrentPage = (page: number) => {
+    setCurrentPage(page);
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   // 페이지네이션 작품 리스트 계산 Logic
   const paginatedPieces = useMemo(() => {
