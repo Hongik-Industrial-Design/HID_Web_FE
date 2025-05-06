@@ -3,10 +3,13 @@ import { JSX } from 'react/jsx-runtime';
 import { DropdownProps } from './Dropdown.types';
 
 import GraduationTab from './Graduation/GraduationTab';
-import CommunityTab from './Community/CommunityTab';
+// import CommunityTab from './Community/CommunityTab';
+import SearchTab from './Search/SearchTab';
+import MobileDropdown from './Mobile/MobileDropdown';
+
+import useDisableScroll from '@hooks/useDisableScroll';
 
 import * as S from './Dropdown.styled';
-import SearchTab from './Search/SearchTab';
 
 const Dropdown = ({
   hoveredOption,
@@ -15,16 +18,24 @@ const Dropdown = ({
   leaveDropdown,
   isSearchTabOpened,
   handleSearchTab,
+  isHamburgerClicked,
+  setIsHamburgerClicked,
 }: DropdownProps): JSX.Element => {
+  useDisableScroll(isHamburgerClicked);
+
   return (
     <>
       <S.DropdownBackground
-        $isRendered={hoveredOption !== '' || isSearchTabOpened}
+        $isRendered={
+          hoveredOption !== '' || isSearchTabOpened || isHamburgerClicked
+        }
         $isActive={hoveredDropdown !== '' || isSearchTabOpened}
         onClick={handleSearchTab}
       />
       <S.DropdownContainer
-        $isRendered={hoveredOption !== '' || isSearchTabOpened}
+        $isRendered={
+          hoveredOption !== '' || isSearchTabOpened || isHamburgerClicked
+        }
         $isActive={hoveredDropdown !== '' || isSearchTabOpened}
       >
         {(hoveredOption === 'graduation' ||
@@ -36,19 +47,23 @@ const Dropdown = ({
             leaveDropdown={leaveDropdown}
           />
         )}
-        {(hoveredOption === 'community' || hoveredDropdown === 'community') && (
+        {/* {(hoveredOption === 'community' || hoveredDropdown === 'community') && (
           <CommunityTab
             isRendered={hoveredOption === 'community'}
             isActive={hoveredDropdown === 'community'}
             enterDropdown={enterDropdown}
             leaveDropdown={leaveDropdown}
           />
+        )} */}
+        {isHamburgerClicked && (
+          <MobileDropdown setIsHamburgerClicked={setIsHamburgerClicked} />
         )}
       </S.DropdownContainer>
-      {/* SearchTab */}
-      {hoveredOption === '' && hoveredDropdown === '' && isSearchTabOpened && (
-        <SearchTab />
-      )}
+
+      {hoveredOption === '' &&
+        hoveredDropdown === '' &&
+        !isHamburgerClicked &&
+        isSearchTabOpened && <SearchTab />}
     </>
   );
 };

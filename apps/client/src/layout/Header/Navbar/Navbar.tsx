@@ -30,14 +30,14 @@ const Navbar = ({
       $isSearchTabOpened={isSearchTabOpened}
       $scrolled={scrolled}
     >
-      <S.NavItem
+      {/* <S.NavItem
         $currentPage={currentPath.startsWith('/community')}
         $disableHighlightBar={isNavbarHovered || isDropdownHover}
         onMouseEnter={() => enterNavbar('community')}
         onMouseLeave={() => leaveNavbar()}
       >
         <S.NavItemLink to="/community">Community</S.NavItemLink>
-      </S.NavItem>
+      </S.NavItem> */}
 
       <S.NavItem
         $currentPage={currentPath.startsWith('/graduation')}

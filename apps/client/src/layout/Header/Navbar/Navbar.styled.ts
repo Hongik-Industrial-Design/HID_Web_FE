@@ -30,6 +30,10 @@ export const NavbarContainer = styled.ul<HeaderTransientProps>`
     theme.colors.HID_Grayscale[800]};
 
   transition: color 0.3s ease;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const NavItem = styled.li<{
@@ -42,7 +46,7 @@ export const NavItem = styled.li<{
   height: 100%;
   text-align: center;
 
-  font-size: 1.8rem;
+  font-size: clamp(1.6rem, 1.2vw, 1.8rem);
   font-weight: ${({ $currentPage }) => ($currentPage ? 700 : 300)};
   color: ${({ $currentPage, theme }) =>
     $currentPage && theme.colors.HID_Navy[900]};

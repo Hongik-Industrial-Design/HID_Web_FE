@@ -7,6 +7,8 @@ export type DropdownProps = {
   leaveDropdown: () => void;
   isSearchTabOpened: boolean;
   handleSearchTab: () => void;
+  isHamburgerClicked: boolean;
+  setIsHamburgerClicked: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export type GraduationTabProps = {

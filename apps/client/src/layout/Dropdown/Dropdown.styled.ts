@@ -19,6 +19,11 @@ export const DropdownBackground = styled.div<{
 
   opacity: ${({ $isRendered, $isActive }) =>
     $isRendered || $isActive ? 1 : 0};
+
+  @media (max-width: 768px) {
+    background-color: rgba(128, 128, 128, 0.6);
+    backdrop-filter: blur(50px);
+  }
 `;
 
 export const DropdownContainer = styled.div<{
@@ -40,4 +45,9 @@ export const DropdownContainer = styled.div<{
     $isRendered || $isActive ? 1 : 0};
 
   z-index: ${({ $isRendered, $isActive }) => ($isRendered || $isActive) && 100};
+
+  @media (max-width: 768px) {
+    background: transparent;
+    z-index: 100;
+  }
 `;

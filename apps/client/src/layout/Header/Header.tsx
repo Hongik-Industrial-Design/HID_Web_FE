@@ -8,6 +8,8 @@ import { HoveredOption } from './Navbar/Navbar.types';
 import { HoveredDropdown } from '@layout/Dropdown/Dropdown.types';
 
 import { HeaderHIDLogo } from '@icons/HIDLogo';
+import { HamburgerIcon } from '@icons/Hamburger';
+import { MagnifyGlassIconMobile } from '@icons/Search';
 import Navbar from './Navbar/Navbar';
 import Dropdown from '../Dropdown/Dropdown';
 
@@ -77,17 +79,16 @@ const Header = (): JSX.Element => {
   };
 
   // GNB 내 SearchTab 전역 상태 관리 (Zustand)
-  const isSearchTabOpened = useDropdownStore(
-    (state) => state.isSearchTabOpened
-  );
+  const { isSearchTabOpened, setSearchTabOpened } = useDropdownStore();
 
-  const setSearchTabOpened = useDropdownStore(
-    (state) => state.setSearchTabOpened
-  );
-
-  const handleSearchTab = () => setSearchTabOpened(!isSearchTabOpened);
+  const handleSearchTab = () => {
+    if (!isHamburgerClicked) {
+      setSearchTabOpened(!isSearchTabOpened);
+    }
+  };
 
   const [hoveredDropdown, setHoveredDropdown] = useState<HoveredDropdown>('');
+  const [isHamburgerClicked, setIsHamburgerClicked] = useState<boolean>(false);
 
   // Dropdown 컨테이너 hover시 Dropdown 컴포넌트 유지 (for better UX)
   const enterDropdown = (type: HoveredDropdown) => {
@@ -160,7 +161,13 @@ const Header = (): JSX.Element => {
         $isSearchTabOpened={isSearchTabOpened}
         $scrolled={scrollPosition > 1056}
       >
-        <S.HomeLogo to="/">
+        <S.HamburgerButton
+          onClick={() => setIsHamburgerClicked(!isHamburgerClicked)}
+        >
+          <HamburgerIcon $isHomePage={isHomePage} />
+        </S.HamburgerButton>
+
+        <S.HomeLogo to="/" onClick={() => setIsHamburgerClicked(false)}>
           <HeaderHIDLogo
             $isHomePage={isHomePage}
             $scrolled={scrollPosition > 1056}
@@ -169,6 +176,8 @@ const Header = (): JSX.Element => {
             $isSearchTabOpened={isSearchTabOpened}
           />
         </S.HomeLogo>
+
+        <MagnifyGlassIconMobile $isHomePage={isHomePage} />
 
         <Navbar
           isHomePage={isHomePage}
@@ -188,6 +197,8 @@ const Header = (): JSX.Element => {
         hoveredDropdown={hoveredDropdown}
         isSearchTabOpened={isSearchTabOpened}
         handleSearchTab={handleSearchTab}
+        isHamburgerClicked={isHamburgerClicked}
+        setIsHamburgerClicked={setIsHamburgerClicked}
       />
     </>
   );

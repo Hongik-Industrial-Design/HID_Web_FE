@@ -24,6 +24,21 @@ export const MagnifyGlassIcon = styled(magnifyGlass)<{
   }
 `;
 
+export const MagnifyGlassIconMobile = styled(magnifyGlass)<{
+  $isHomePage: boolean;
+}>`
+  path {
+    fill: ${({ $isHomePage, theme }) =>
+      $isHomePage
+        ? theme.colors.HID_Grayscale[0]
+        : theme.colors.HID_Grayscale[800]};
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
+
 export const SmallSearchIcon = styled(magnifyGlass)<{ $isFocused: boolean }>`
   width: 1.4rem;
   height: fit-content;
