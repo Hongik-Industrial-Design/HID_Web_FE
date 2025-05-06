@@ -5,7 +5,7 @@ import { NewsEventPreview } from '@schemas/community';
 
 import { NEWS_EVENT_CATEGORY } from '@constants/communityCategory';
 
-import CategoryCommunity from '@components/CategoryCommunity/CategoryCommunity';
+import CategoryCommunity from '@components/Category/Community/CategoryCommunity';
 import ViewDetail from '@components/ViewDetail/ViewDetail';
 import NewsEventCard from './Card/NewsEventCard';
 

@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import { useStudentExhbitionPreviewQuery } from '@api/query/studentExhibitionQuery';
 
-import Category from '@components/Category/Category';
+import CategoryExhibition from '@components/Category/Exhibition/CategoryExhibtion';
 import StudentExhibitionGallery from '@components/Gallery/StudentGallery/StudentExhibitionGallery';
 import Loading from '@components/Loading/Loading';
 
@@ -58,7 +58,7 @@ const StudentExhibition = (): JSX.Element => {
       ) : (
         <S.ExhibitionContainer>
           <S.StickyContainer>
-            <Category
+            <CategoryExhibition
               currentCategory={selectedExhibition.club}
               handleFilter={handlePreviewFilter}
             />

@@ -6,14 +6,17 @@ import {
 } from '@constants/exhibitionCategory';
 import { SelectStudentExhibition } from '@pages/Exhibition/Student/StudentExhibition';
 
-import * as S from './Category.styled';
+import * as S from './CategoryExhibition.styled';
 
 type CategoryProps = {
   currentCategory: string;
   handleFilter: (key: keyof SelectStudentExhibition, club: string) => void;
 };
 
-const Category = ({ currentCategory, handleFilter }: CategoryProps) => {
+const CategoryExhibition = ({
+  currentCategory,
+  handleFilter,
+}: CategoryProps) => {
   const location = useLocation();
   const currentPath = location.pathname;
 
@@ -38,4 +41,4 @@ const Category = ({ currentCategory, handleFilter }: CategoryProps) => {
   );
 };
 
-export default Category;
+export default CategoryExhibition;

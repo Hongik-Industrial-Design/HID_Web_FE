@@ -8,7 +8,7 @@ import { NEWS_EVENT_CATEGORY } from '@constants/communityCategory';
 import { NewsEventContent } from '@schemas/community';
 
 import Loading from '@components/Loading/Loading';
-import CategoryCommunity from '@components/CategoryCommunity/CategoryCommunity';
+import CategoryCommunity from '@components/Category/Community/CategoryCommunity';
 import SearchBar from '@components/SearchBar/SearchBar';
 import Pagination from '@components/Pagination/Pagination';
 import NewsEventCard from '../Card/NewsEventCard';

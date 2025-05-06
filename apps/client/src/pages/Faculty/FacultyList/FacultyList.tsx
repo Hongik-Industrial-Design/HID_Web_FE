@@ -6,7 +6,7 @@ import { FACULTY_CATEGORY_LIST } from '@constants/facultyCategory';
 
 import { FacultyInfos } from './FacultyList.types';
 
-import CategoryFaculty from '@components/CategoryFaculty/CategoryFaculty';
+import CategoryFaculty from '@components/Category/Faculty/CategoryFaculty';
 import FacultyGallery from './FacultyGallery/FacultyGallery';
 
 import * as S from './FacultyList.styled';

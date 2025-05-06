@@ -6,7 +6,7 @@ import { NOTICE_CATEGORY } from '@constants/communityCategory';
 
 import { NoticeContent } from '@schemas/community';
 
-import CategoryCommunity from '@components/CategoryCommunity/CategoryCommunity';
+import CategoryCommunity from '@components/Category/Community/CategoryCommunity';
 import NoticeListItem from '../Item/NoticeListItem';
 import SearchBar from '@components/SearchBar/SearchBar';
 import Pagination from '@components/Pagination/Pagination';

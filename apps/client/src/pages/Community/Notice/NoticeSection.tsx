@@ -3,7 +3,7 @@ import { useRef } from 'react';
 
 import { NoticePreview } from '@schemas/community';
 
-import CategoryCommunity from '@components/CategoryCommunity/CategoryCommunity';
+import CategoryCommunity from '@components/Category/Community/CategoryCommunity';
 import NoticeListItem from './Item/NoticeListItem';
 import ViewDetail from '@components/ViewDetail/ViewDetail';
 

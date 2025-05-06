@@ -9,7 +9,7 @@ import {
 import { GRADUATION_CATEGORY_LIST } from '@constants/exhibitionCategory';
 
 import Loading from '@components/Loading/Loading';
-import Category from '@components/Category/Category';
+import Category from '@components/Category/Exhibition/CategoryExhibtion';
 import GraduationExhibitionGallery from '@components/Gallery/GraduationGallery/GraduationExhibitionGallery';
 
 import * as S from './GraduationExhibition.styled';
