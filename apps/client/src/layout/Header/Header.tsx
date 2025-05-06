@@ -1,8 +1,6 @@
 import { JSX } from 'react/jsx-runtime';
 import { useEffect, useState } from 'react';
 import { Location, useLocation } from 'react-router';
-import { create } from 'zustand';
-import { combine } from 'zustand/middleware';
 
 import { HoveredOption } from './Navbar/Navbar.types';
 import { HoveredDropdown } from '@layout/Dropdown/Dropdown.types';
@@ -13,25 +11,9 @@ import { MagnifyGlassIconMobile } from '@icons/Search';
 import Navbar from './Navbar/Navbar';
 import Dropdown from '../Dropdown/Dropdown';
 
-import * as S from './Header.styled';
+import { useDropdownStore } from '@stores/useDropdownStore';
 
-// Navbar Hover 전역 상태 관리 (Zustand)
-const useDropdownStore = create(
-  combine({ navbarOption: '', isSearchTabOpened: false }, (set) => {
-    return {
-      setNavbarOption: (option: string) => {
-        set(() => ({
-          navbarOption: option,
-        }));
-      },
-      setSearchTabOpened: (isOpened: boolean) => {
-        set(() => ({
-          isSearchTabOpened: isOpened,
-        }));
-      },
-    };
-  })
-);
+import * as S from './Header.styled';
 
 const Header = (): JSX.Element => {
   const location: Location = useLocation();
@@ -65,10 +47,12 @@ const Header = (): JSX.Element => {
   }, [lastScrollY]);
 
   // Navbar Hover 전역 상태 관리 (Zustand)
-  const hoveredNavbarOption = useDropdownStore((state) => state.navbarOption);
-  const setHoveredNavbarOption = useDropdownStore(
-    (state) => state.setNavbarOption
-  );
+  const {
+    hoveredNavbarOption,
+    setHoveredNavbarOption,
+    isSearchTabOpened,
+    setSearchTabOpened,
+  } = useDropdownStore();
 
   const enterNavbarOption = (option: HoveredOption) => {
     setHoveredNavbarOption(option);
@@ -79,8 +63,6 @@ const Header = (): JSX.Element => {
   };
 
   // GNB 내 SearchTab 전역 상태 관리 (Zustand)
-  const { isSearchTabOpened, setSearchTabOpened } = useDropdownStore();
-
   const handleSearchTab = () => {
     if (!isHamburgerClicked) {
       setSearchTabOpened(!isSearchTabOpened);
