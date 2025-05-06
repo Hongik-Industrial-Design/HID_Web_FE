@@ -11,7 +11,7 @@ export const CardOverlayTextContainer = styled.div<{
 
   width: 100%;
   height: 100%;
-  padding: 4.8rem;
+  padding: 2.4rem 1.2rem;
 
   display: flex;
   flex-direction: column;
@@ -51,10 +51,43 @@ export const OverlayTitle = styled.span`
   ${({ theme }) => theme.fontStyles.Title3}
   color: ${({ theme }) => theme.colors.HID_Grayscale[0]};
   text-align: center;
+
+  @media (max-width: 2560px) {
+    font-size: clamp(2.4rem, 1.6vw, 2.8rem);
+  }
+
+  @media (max-width: 1200px) {
+    font-size: clamp(2.2rem, 2.8vw, 3.2rem);
+  }
+
+  @media (max-width: 768px) {
+    font-size: clamp(2rem, 3.6vw, 2.6rem);
+  }
+
+  @media (max-width: 480px) {
+    font-size: clamp(2rem, 6vw, 2.8rem);
+  }
 `;
 
 export const OverlaySubTitle = styled.span`
   ${({ theme }) => theme.fontStyles.SubTitle1}
+
   color: ${({ theme }) => theme.colors.HID_Grayscale[100]};
   text-align: center;
+
+  @media (max-width: 2560px) {
+    font-size: clamp(1.4rem, 0.8vw, 1.8rem);
+  }
+
+  @media (max-width: 1200px) {
+    font-size: clamp(1.4rem, 1.6vw, 1.8rem);
+  }
+
+  @media (max-width: 768px) {
+    font-size: clamp(1.2rem, 2.4vw, 1.4rem);
+  }
+
+  @media (max-width: 480px) {
+    font-size: clamp(1.2rem, 3.6vw, 1.6rem);
+  }
 `;

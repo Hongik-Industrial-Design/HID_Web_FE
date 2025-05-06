@@ -1,9 +1,9 @@
 import { JSX } from 'react/jsx-runtime';
+import { useLocation } from 'react-router';
 
-import { OverlayProps } from '@components/Exhibition/Exhibition.types';
+import { OverlayProps } from '@components/Gallery/Exhibition.types';
 
 import * as S from './CardOverlayText.styled';
-import { useLocation } from 'react-router';
 
 const CardOverlayText = ({
   title,
