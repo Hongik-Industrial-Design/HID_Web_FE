@@ -7,8 +7,6 @@ import GraduationTab from './Graduation/GraduationTab';
 import SearchTab from './Search/SearchTab';
 import MobileDropdown from './Mobile/MobileDropdown';
 
-import useDisableScroll from '@hooks/useDisableScroll';
-
 import * as S from './Dropdown.styled';
 
 const Dropdown = ({
@@ -21,8 +19,6 @@ const Dropdown = ({
   isHamburgerClicked,
   setIsHamburgerClicked,
 }: DropdownProps): JSX.Element => {
-  useDisableScroll(isHamburgerClicked);
-
   return (
     <>
       <S.DropdownBackground

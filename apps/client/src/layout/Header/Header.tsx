@@ -14,6 +14,7 @@ import Dropdown from '../Dropdown/Dropdown';
 import { useDropdownStore } from '@stores/useDropdownStore';
 
 import * as S from './Header.styled';
+import useDisableScroll from '@hooks/useDisableScroll';
 
 const Header = (): JSX.Element => {
   const location: Location = useLocation();
@@ -94,41 +95,13 @@ const Header = (): JSX.Element => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Dropdown 렌더링 시 Scroll 제어
-  useEffect(() => {
-    if (hoveredNavbarOption !== '' || hoveredDropdown) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [hoveredNavbarOption, hoveredDropdown]);
-
-  // IntersectionObserver를 사용한 방식
-  // const targetRef = useRef(null);
-  // const [isSticky, setIsSticky] = useState(false);
-
-  // useEffect(() => {
-  //   const observer = new IntersectionObserver(
-  //     ([entry]) => {
-  //       setIsSticky(!entry.isIntersecting);
-  //     },
-  //     { threshold: 0 }
-  //   );
-
-  //   if (targetRef.current) {
-  //     observer.observe(targetRef.current);
-  //   }
-
-  //   return () => {
-  //     if (targetRef.current) {
-  //       observer.unobserve(targetRef.current);
-  //     }
-  //   };
-  // }, []);
+  // 검색 탭 Open or Hamburger 메뉴 열렸을 때 스크롤 방지
+  useDisableScroll(
+    isSearchTabOpened ||
+      isHamburgerClicked ||
+      hoveredNavbarOption !== '' ||
+      hoveredDropdown !== ''
+  );
 
   return (
     <>
