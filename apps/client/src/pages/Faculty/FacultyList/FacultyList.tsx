@@ -6,7 +6,7 @@ import { FACULTY_CATEGORY_LIST } from '@constants/facultyCategory';
 
 import { FacultyInfos } from './FacultyList.types';
 
-import Category from '@components/Category/Category';
+import CategoryFaculty from '@components/CategoryFaculty/CategoryFaculty';
 import FacultyGallery from './FacultyGallery/FacultyGallery';
 
 import * as S from './FacultyList.styled';
@@ -15,6 +15,9 @@ const FacultyList = (): JSX.Element => {
   const [facultyList, setFacultyList] = useState<FacultyInfos[]>([]);
   const [categorizedFaculty, setCategorizedFaculty] = useState<FacultyInfos[]>(
     []
+  );
+  const [currentCategory, setCurrentCategory] = useState<string>(
+    FACULTY_CATEGORY_LIST[0]
   );
 
   useEffect(() => {
@@ -34,6 +37,8 @@ const FacultyList = (): JSX.Element => {
   }, []);
 
   const handleFilterFaculty = (category: string) => {
+    setCurrentCategory(category);
+
     if (category === 'All') {
       setCategorizedFaculty(facultyList);
     } else {
@@ -48,8 +53,8 @@ const FacultyList = (): JSX.Element => {
   return (
     <S.FacultyListPageWrapper>
       <S.CategoryStickyContainer>
-        <Category
-          currentCategory={FACULTY_CATEGORY_LIST[0]}
+        <CategoryFaculty
+          currentCategory={currentCategory}
           handleFilter={handleFilterFaculty}
         />
       </S.CategoryStickyContainer>
