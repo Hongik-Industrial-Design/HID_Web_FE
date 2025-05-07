@@ -3,7 +3,11 @@ import { colors } from '@styles/theme/colors';
 
 // Loading 전역 변수
 const loading = {
-  boxSize: '120px',
+  boxSize: {
+    laptop: '120px',
+    tablet: '108px',
+    mobile: '100px',
+  },
   ballColor: colors.HID_Navy[900],
   ballSpeed: '0.7s',
 };
@@ -61,17 +65,27 @@ const morph = keyframes`
 `;
 
 export const LoadingContainer = styled.div`
-  width: ${loading.boxSize};
-  height: calc(${loading.boxSize} * 0.4);
+  width: ${loading.boxSize.laptop};
+  height: calc(${loading.boxSize.laptop} * 0.4);
 
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+
+  @media (max-width: 768px) {
+    width: ${loading.boxSize.tablet};
+    height: calc(${loading.boxSize.tablet} * 0.4);
+  }
+
+  @media (max-width: 480px) {
+    width: ${loading.boxSize.mobile};
+    height: calc(${loading.boxSize.mobile} * 0.4);
+  }
 `;
 
 export const LoadingBall = styled.div`
-  width: calc(${loading.boxSize}* 0.2);
-  height: calc(${loading.boxSize} * 0.2);
+  width: calc(${loading.boxSize.laptop}* 0.2);
+  height: calc(${loading.boxSize.laptop} * 0.2);
   flex-shrink: 0;
 
   animation: ${jump} ${loading.ballSpeed} ease-in-out infinite;
@@ -90,6 +104,16 @@ export const LoadingBall = styled.div`
     .inner {
       animation-delay: calc(${loading.ballSpeed} * -0.4);
     }
+  }
+
+  @media (max-width: 768px) {
+    width: calc(${loading.boxSize.tablet}* 0.2);
+    height: calc(${loading.boxSize.tablet} * 0.2);
+  }
+
+  @media (max-width: 480px) {
+    width: calc(${loading.boxSize.mobile}* 0.2);
+    height: calc(${loading.boxSize.mobile} * 0.2);
   }
 `;
 
