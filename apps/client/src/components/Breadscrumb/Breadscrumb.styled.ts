@@ -6,7 +6,7 @@ export const BreadscrumbContainer = styled.div<{
 }>`
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.8rem;
 
   ${({ $facultyPage, $isDetailPage }) =>
     $facultyPage || $isDetailPage
@@ -17,16 +17,18 @@ export const BreadscrumbContainer = styled.div<{
           position: absolute;
           right: 0;
           transform: translateY(-50%);
-          top: -20%;
+          top: -15%;
         `};
 
-  font-style: normal;
-  font-size: 14px;
-  line-height: 14px;
+  font-size: 1.4rem;
 
   span {
+    font-size: clamp(1.2rem, 1vw, 1.4rem);
     font-weight: 300;
     color: ${({ theme }) => theme.colors.HID_Grayscale[500]};
+
+    white-space: nowrap;
+    cursor: pointer;
   }
 
   .current-page {
@@ -35,24 +37,28 @@ export const BreadscrumbContainer = styled.div<{
 
     white-space: nowrap;
   }
+
+  @media (max-width: 1920px) {
+    top: -16%;
+  }
+
+  @media (max-width: 1440px) {
+    top: -15%;
+  }
+
+  @media (max-width: 1200px) {
+    top: -15%;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const BreadScrumbUnit = styled.div`
   display: flex;
   align-items: center;
-  gap: 8px;
-
-  span {
-    font-style: normal;
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 14px;
-
-    color: ${({ theme }) => theme.colors.HID_Grayscale[500]};
-
-    white-space: nowrap;
-    cursor: pointer;
-  }
+  gap: 0.8rem;
 
   .forward-arrow {
     width: 14px;

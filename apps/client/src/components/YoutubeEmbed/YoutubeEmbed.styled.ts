@@ -13,4 +13,17 @@ export const YoutubeVideoContainer = styled.div`
   iframe {
     border-radius: 2px;
   }
+
+  @media (max-width: 1920px) {
+    margin-top: clamp(8rem, 8vw, 14.8rem);
+  }
+
+  @media (max-width: 1200px) {
+    margin-top: clamp(6rem, 8vw, 12rem);
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-top: clamp(3.6rem, 4vw, 6.4rem);
+  }
 `;

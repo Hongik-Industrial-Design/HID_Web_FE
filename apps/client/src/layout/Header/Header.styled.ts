@@ -43,6 +43,7 @@ export const HeaderContainer = styled(motion.header)<HeaderTransientProps>`
 
   @media (max-width: 768px) {
     padding: 0 3.2rem;
+    gap: 0;
   }
 `;
 

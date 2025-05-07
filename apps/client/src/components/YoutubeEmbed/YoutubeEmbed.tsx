@@ -17,8 +17,8 @@ const YoutubeEmbed = ({ youtubeUrl }: YoutubeEmbedProps): JSX.Element => {
   };
 
   const options: YouTubeProps['opts'] = {
-    height: '100%',
     width: '100%',
+    height: '100%',
     playerVars: {
       autoplay: 0,
       color: 'white',

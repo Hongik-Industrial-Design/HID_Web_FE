@@ -5,9 +5,13 @@ export const ArtworkImageContainer = styled.div`
 
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 0.4rem;
 
   flex-shrink: 0;
+
+  @media (max-width: 768px) {
+    gap: 0.2rem;
+  }
 `;
 
 export const DetailImage = styled.img`
@@ -15,4 +19,9 @@ export const DetailImage = styled.img`
 
   border-radius: 2px;
   border: 1px solid ${({ theme }) => theme.colors.HID_Grayscale[200]};
+
+  @media (max-width: 768px) {
+    border-radius: 0;
+    border: none;
+  }
 `;

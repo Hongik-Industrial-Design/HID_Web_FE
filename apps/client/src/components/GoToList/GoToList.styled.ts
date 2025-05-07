@@ -58,6 +58,14 @@ export const GoToListButton = styled.button`
   &:active::after {
     background-color: ${({ theme }) => theme.colors.HID_Navy[900]};
   }
+
+  @media (max-width: 768px) {
+    padding: clamp(0.6rem, 1.6vw, 0.8rem) clamp(1.2rem, 3.2vw, 1.6rem);
+  }
+
+  @media (max-width: 480px) {
+    padding: clamp(0.6rem, 1.6vw, 0.8rem) 1.4rem;
+  }
 `;
 
 export const GoToListText = styled.span<{ $isHovered: boolean }>`
@@ -70,10 +78,14 @@ export const GoToListText = styled.span<{ $isHovered: boolean }>`
   font-weight: 600;
 
   white-space: nowrap;
+
+  @media (max-width: 768px) {
+    font-size: clamp(1rem, 1.6vw, 1.2rem);
+  }
 `;
 
 export const LeftArrowIcon = styled(leftArrow)<{ $isHovered: boolean }>`
-  width: 1.4rem;
+  width: clamp(1rem, 0.7vw, 1.4rem);
   height: fit-content;
 
   path {
@@ -87,5 +99,9 @@ export const LeftArrowIcon = styled(leftArrow)<{ $isHovered: boolean }>`
     transition:
       fill 0.3s ease,
       fill-opacity 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    width: clamp(1rem, 1.6vw, 1.2rem);
   }
 `;
