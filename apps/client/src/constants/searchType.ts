@@ -1,0 +1,1 @@
+export type EXHIBITION_SEARCH_TYPE = 'TITLE' | 'ARTIST';

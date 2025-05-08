@@ -1,8 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
 
 import { EXHIBIT_TYPE } from '@constants/exhibitionCategory';
+import { EXHIBITION_SEARCH_TYPE } from '@constants/searchType';
 
-import { fetchExhibitionDetail, fetchExhibitionPreview } from '@api/exhibition';
+import {
+  fetchExhibitionDetail,
+  fetchExhibitionPreview,
+  searchArtwork,
+} from '@api/exhibition';
 
 const STUDENT_QUERY_KEYS = {
   preview: (exhibitType: EXHIBIT_TYPE, year: string, club: string) => [
@@ -11,6 +16,12 @@ const STUDENT_QUERY_KEYS = {
     club,
   ],
   detail: (year: string, exhibitId: number) => ['Student', year, exhibitId],
+  search: (
+    exhibitType: EXHIBIT_TYPE,
+    year: string,
+    query: string,
+    searchType: EXHIBITION_SEARCH_TYPE
+  ) => [exhibitType, year, query, searchType],
 };
 
 // 학생 전시 프리뷰 조회 API
@@ -36,6 +47,22 @@ export const useStudentExhibitionDetailQuery = (
     queryKey: STUDENT_QUERY_KEYS.detail(year, exhibitId),
     queryFn: () => fetchExhibitionDetail(exhibitId),
     staleTime: 1000 * 3, // 3초 (Testing)
+    gcTime: 1000 * 60, // 1분 (Testing)
+  });
+};
+
+export const useSearchArtworkQuery = (
+  exhibitType: EXHIBIT_TYPE,
+  year: string,
+  query: string,
+  searchType: EXHIBITION_SEARCH_TYPE,
+  enabled: boolean
+) => {
+  return useQuery({
+    queryKey: STUDENT_QUERY_KEYS.search(exhibitType, year, query, searchType),
+    queryFn: () => searchArtwork(exhibitType, year, query, searchType),
+    enabled,
+    staleTime: 1000 * 10, // 10초 (Testing)
     gcTime: 1000 * 60, // 1분 (Testing)
   });
 };

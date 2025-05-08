@@ -15,7 +15,7 @@ const GlobalNavbar = (): JSX.Element => {
 
   return (
     <S.GlobalNavbarContainer>
-      <S.HIDAdminLogoLink href="/">
+      <S.HIDAdminLogoLink href="/home">
         <HIDLogoAdmin />
       </S.HIDAdminLogoLink>
       <S.GlobalNavbarOptionList>

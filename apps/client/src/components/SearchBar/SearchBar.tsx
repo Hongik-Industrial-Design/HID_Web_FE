@@ -1,6 +1,8 @@
 import { JSX } from 'react/jsx-runtime';
 import { useState } from 'react';
 
+import { useSearchStore } from '@stores/useSearchStore';
+
 import { SmallSearchIcon } from '@icons/Search';
 
 import * as S from './SearchBar.styled';
@@ -11,17 +13,28 @@ type SearchBarProps = {
 
 const SearchBar = ({ placeholder }: SearchBarProps): JSX.Element => {
   const [query, setQuery] = useState<string>('');
+  const { setSearchTerm, isQueryEnabled, setIsQueryEnabled } = useSearchStore();
+
   const [isFocused, setIsFocused] = useState<boolean>(false);
 
   const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
+    console.log('SearchBar 입력 값: ', query);
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // 추후 검색 API 연동 시 구현
-    console.log(query);
+    if (query.trim() === '') {
+      if (isQueryEnabled) {
+        console.log('Form Handler 동작');
+        setIsQueryEnabled(false);
+      }
+      return;
+    }
+
+    setSearchTerm(query);
+    setIsQueryEnabled(true);
   };
 
   return (

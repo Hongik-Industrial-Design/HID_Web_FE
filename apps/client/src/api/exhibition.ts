@@ -2,6 +2,7 @@ import { HWISO_API } from '@lib/axios';
 import { validateResponse } from '@utils/validateResponse';
 
 import { EXHIBIT_TYPE } from '@constants/exhibitionCategory';
+import { EXHIBITION_SEARCH_TYPE } from '@constants/searchType';
 
 import * as Schemas from '@schemas/exhibition';
 
@@ -40,4 +41,25 @@ export const fetchExhibitionDetail = async (exhibitId: number) => {
   console.log('전시 상세 데이터: ', response.data);
 
   return validateResponse(Schemas.ExhibitionDetailSchema, response.data);
+};
+
+export const searchArtwork = async (
+  exhibitType: EXHIBIT_TYPE,
+  year: string,
+  query: string,
+  searchType: EXHIBITION_SEARCH_TYPE
+) => {
+  const params = {
+    exhibitType: exhibitType,
+    year: year,
+    searchType: searchType,
+    searchTerm: query,
+  };
+
+  const response = await HWISO_API.get('/exhibits/search', {
+    params,
+  });
+  console.log('검색 결과: ', response.data);
+
+  return validateResponse(Schemas.ExhibitionPreviewSchema, response.data);
 };

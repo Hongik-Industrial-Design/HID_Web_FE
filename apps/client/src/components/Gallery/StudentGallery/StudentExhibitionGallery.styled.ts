@@ -20,6 +20,17 @@ export const ExhbitionYear = styled.h2`
   color: ${({ theme }) => theme.colors.HID_Grayscale[800]};
 `;
 
+export const LoadingWrapper = styled.div`
+  flex-grow: 1;
+
+  width: 100%;
+  height: 30vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const GallerySection = styled.section`
   width: 100%;
   height: fit-content;

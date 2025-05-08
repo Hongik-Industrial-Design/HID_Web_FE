@@ -1,5 +1,5 @@
 import { JSX } from 'react/jsx-runtime';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useStudentExhbitionPreviewQuery } from '@api/query/studentExhibitionQuery';
 
@@ -11,6 +11,7 @@ import { ARCHIVE_YEAR_LIST } from '@constants/archive';
 import { STUDENT_CLUB_LIST } from '@constants/exhibitionCategory';
 
 import * as S from './StudentExhibition.styled';
+import { useSearchStore } from '@stores/useSearchStore';
 
 export interface SelectStudentExhibition {
   year: string;
@@ -47,6 +48,13 @@ const StudentExhibition = (): JSX.Element => {
     selectedExhibition.club.toUpperCase()
   );
 
+  const { isQueryEnabled, resetSearch } = useSearchStore();
+
+  // 검색 기능 초기화
+  useEffect(() => {
+    resetSearch();
+  }, [resetSearch]);
+
   return (
     <S.StudentExhibitionContainer
       $isPendingOrError={status === 'pending' || status === 'error'}
@@ -57,12 +65,14 @@ const StudentExhibition = (): JSX.Element => {
         <span>Error: {error.message}</span>
       ) : (
         <S.ExhibitionContainer>
-          <S.StickyContainer>
-            <CategoryExhibition
-              currentCategory={selectedExhibition.club}
-              handleFilter={handlePreviewFilter}
-            />
-          </S.StickyContainer>
+          {!isQueryEnabled && (
+            <S.StickyContainer>
+              <CategoryExhibition
+                currentCategory={selectedExhibition.club}
+                handleFilter={handlePreviewFilter}
+              />
+            </S.StickyContainer>
+          )}
           <S.StudentExhibitionGalleryContainer>
             <S.StudentExhibitionGalleryTitle>
               Student Exhibiton<span>.</span>

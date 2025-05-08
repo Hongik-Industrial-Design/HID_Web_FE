@@ -1,12 +1,18 @@
 import { JSX } from 'react/jsx-runtime';
 import { useMemo, useState } from 'react';
+import { useLocation } from 'react-router';
 import { AnimatePresence } from 'framer-motion';
 
+import { EXHIBIT_TYPE } from '@constants/exhibitionCategory';
+
+import { useSearchArtworkQuery } from '@api/query/studentExhibitionQuery';
+import { useSearchStore } from '@stores/useSearchStore';
 import { ExhibitionPreview } from '@schemas/exhibition';
 
 import SearchBar from '@components/SearchBar/SearchBar';
 import Piece from './Piece/Piece';
 import Pagination from '@components/Pagination/Pagination';
+import Loading from '@components/Loading/Loading';
 
 import * as S from './StudentExhibitionGallery.styled';
 
@@ -21,8 +27,6 @@ const StudentExhibitionGallery = ({
 }: StudentExhibitionGalleryProps): JSX.Element => {
   const [currentPage, setCurrentPage] = useState<number>(1);
 
-  const totalPages = Math.ceil(pieces?.length / 9);
-
   const handleCurrentPage = (page: number) => {
     setCurrentPage(page);
 
@@ -35,39 +39,85 @@ const StudentExhibitionGallery = ({
     return pieces?.slice(startIndex, currentPage * 9);
   }, [currentPage, pieces]);
 
+  // 검색 기능
+  const location = useLocation();
+  const exhibitType =
+    location.pathname.split('/')[1].toUpperCase() === 'graduation'
+      ? 'GRADUATION'
+      : 'CLUB';
+
+  const exhibitionMetadata = {
+    exhibitType,
+    year: location.pathname.split('/')[2],
+  };
+  console.log(exhibitionMetadata);
+
+  // (임시) 검색 타입 설정
+  const searchType = 'TITLE';
+
+  const { searchTerm, isQueryEnabled } = useSearchStore();
+
+  const {
+    status: searchStatus,
+    data: searchedArtwork,
+    error,
+  } = useSearchArtworkQuery(
+    exhibitionMetadata.exhibitType as EXHIBIT_TYPE,
+    exhibitionMetadata.year,
+    searchTerm,
+    searchType,
+    isQueryEnabled
+  );
+
+  const renderedArtworks =
+    isQueryEnabled && searchStatus === 'success'
+      ? searchedArtwork
+      : paginatedPieces;
+
+  const totalPages = Math.ceil(renderedArtworks?.length / 9);
+
   return (
     <S.GalleryWrapper>
       {/* Header */}
       <S.GalleryHeader>
         <S.ExhbitionYear>{exhibitionYear}</S.ExhbitionYear>
-        <SearchBar placeholder="Search by student name" />
+        <SearchBar placeholder="Search by title or artist" />
       </S.GalleryHeader>
 
       {/* Gallery */}
-      <S.GallerySection>
-        <S.GalleryList>
-          <AnimatePresence>
-            {paginatedPieces?.map((piece) => (
-              <Piece
-                key={piece.exhibitId}
-                exhibitId={piece.exhibitId}
-                title={piece.titleEn}
-                subTitle={piece.subTitleEn}
-                imageURL={piece.mainImgUrl}
-              />
-            ))}
-          </AnimatePresence>
-        </S.GalleryList>
-      </S.GallerySection>
-
-      {/* Pagination */}
-      <S.PaginationSection>
-        <Pagination
-          currentPage={currentPage}
-          handleCurrentPage={handleCurrentPage}
-          totalPages={totalPages}
-        />
-      </S.PaginationSection>
+      {isQueryEnabled && searchStatus === 'pending' ? (
+        <S.LoadingWrapper>
+          <Loading />
+        </S.LoadingWrapper>
+      ) : searchStatus === 'error' ? (
+        <span>Error: {error.message}</span>
+      ) : (
+        <>
+          <S.GallerySection>
+            <S.GalleryList>
+              <AnimatePresence>
+                {renderedArtworks?.map((piece) => (
+                  <Piece
+                    key={piece.exhibitId}
+                    exhibitId={piece.exhibitId}
+                    title={piece.titleEn}
+                    subTitle={piece.subTitleEn}
+                    imageURL={piece.mainImgUrl}
+                  />
+                ))}
+              </AnimatePresence>
+            </S.GalleryList>
+          </S.GallerySection>
+          {/* Pagination */}
+          <S.PaginationSection>
+            <Pagination
+              currentPage={currentPage}
+              handleCurrentPage={handleCurrentPage}
+              totalPages={totalPages}
+            />
+          </S.PaginationSection>
+        </>
+      )}
     </S.GalleryWrapper>
   );
 };
