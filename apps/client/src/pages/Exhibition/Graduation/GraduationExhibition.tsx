@@ -67,7 +67,13 @@ export const GraduationExhibition = (): JSX.Element => {
         ) : status === 'error' ? (
           <span>Error: {error.message}</span>
         ) : (
-          <S.GraduationVideo src={bannerVideo.videoUrl} autoPlay loop muted />
+          <S.GraduationVideo
+            src={bannerVideo.videoUrl}
+            autoPlay
+            muted
+            loop
+            webkit-playsinline
+          />
         )}
       </S.BannerFrame>
 
