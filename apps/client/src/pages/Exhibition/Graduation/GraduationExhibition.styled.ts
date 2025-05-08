@@ -11,14 +11,15 @@ export const BannerFrame = styled(motion.div)`
   height: fit-content;
 `;
 
-export const GraduationBanner = styled.img`
-  width: 100%;
-  height: fit-content;
-`;
-
 export const GraduationVideo = styled.video`
   width: 100%;
-  height: fit-content;
+  height: auto;
+
+  display: block;
+
+  @media (max-width: 480px) {
+    margin-top: 70px;
+  }
 `;
 
 export const GraduationExhibitonGalleryContainer = styled.div`

@@ -72,7 +72,8 @@ export const GraduationExhibition = (): JSX.Element => {
             autoPlay
             muted
             loop
-            webkit-playsinline
+            playsInline
+            $webkit-playsinline="true"
           />
         )}
       </S.BannerFrame>
