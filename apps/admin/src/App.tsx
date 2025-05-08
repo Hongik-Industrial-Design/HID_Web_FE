@@ -18,7 +18,7 @@ function App() {
       <Route path="login" element={<AdminLogin />} />
 
       <Route element={<Layout />}>
-        <Route index element={<Navigate to="home" replace />} />
+        <Route index element={<Navigate to="login" replace />} />
         <Route path="home" element={<AdminHome />} />
 
         <Route path="graduation">
