@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router';
+import { Navigate, Route, Routes } from 'react-router';
 
 import Layout from '@layout/Layout';
 
@@ -18,7 +18,8 @@ function App() {
       <Route path="login" element={<AdminLogin />} />
 
       <Route element={<Layout />}>
-        <Route index element={<AdminHome />} />
+        <Route index element={<Navigate to="home" replace />} />
+        <Route path="home" element={<AdminHome />} />
 
         <Route path="graduation">
           <Route index element={<GraduationExhibition />} />
@@ -38,7 +39,7 @@ function App() {
           </Route>
         </Route>
 
-        <Route path="*" element={<div>404</div>} />
+        <Route path="*" element={<h3>On Process...</h3>} />
       </Route>
     </Routes>
   );

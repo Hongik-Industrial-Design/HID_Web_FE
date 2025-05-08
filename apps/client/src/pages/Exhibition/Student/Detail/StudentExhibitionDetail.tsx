@@ -32,13 +32,11 @@ const StudentExhibitionDetail = (): JSX.Element => {
       ) : status === 'error' ? (
         <span>Error: {error.message}</span>
       ) : (
-        <>
-          <S.ExhibitionDetailContainer>
-            <StudentHeroSection artworkInfos={artworkInfos} />
-            <StudentArtworkSection artworkInfos={artworkInfos} />
-          </S.ExhibitionDetailContainer>
+        <S.ExhibitionDetailContainer>
+          <StudentHeroSection artworkInfos={artworkInfos} />
+          <StudentArtworkSection artworkInfos={artworkInfos} />
           <StudentTeamMemberSection membersData={artworkInfos.artists} />
-        </>
+        </S.ExhibitionDetailContainer>
       )}
     </S.ExhibitionDetailWrapper>
   );

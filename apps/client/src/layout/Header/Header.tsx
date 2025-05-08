@@ -12,9 +12,9 @@ import Navbar from './Navbar/Navbar';
 import Dropdown from '../Dropdown/Dropdown';
 
 import { useDropdownStore } from '@stores/useDropdownStore';
+import useDisableScroll from '@hooks/useDisableScroll';
 
 import * as S from './Header.styled';
-import useDisableScroll from '@hooks/useDisableScroll';
 
 const Header = (): JSX.Element => {
   const location: Location = useLocation();

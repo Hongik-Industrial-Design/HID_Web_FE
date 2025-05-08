@@ -1,5 +1,5 @@
 import { JSX } from 'react/jsx-runtime';
-import { Outlet, useLocation } from 'react-router';
+import { Navigate, Outlet, useLocation } from 'react-router';
 
 import GlobalNavbar from './GlobalNavbar/GlobalNavbar';
 
@@ -10,13 +10,15 @@ const Layout = (): JSX.Element => {
 
   const isSuccessPage = loaction.pathname.includes('success');
 
+  const token = localStorage.getItem('accessToken');
+
   return (
     <>
       {!isSuccessPage ? (
         <S.LayoutWrapper>
           <GlobalNavbar />
           <S.ContentWrapper>
-            <Outlet />
+            {token ? <Outlet /> : <Navigate to="/login" />}
           </S.ContentWrapper>
         </S.LayoutWrapper>
       ) : (

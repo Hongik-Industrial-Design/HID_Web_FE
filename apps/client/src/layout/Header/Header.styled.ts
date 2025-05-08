@@ -56,15 +56,6 @@ export const HomeLogo = styled(Link)`
   height: fit-content;
 `;
 
-export const GNBMobile = styled.div`
-  width: fit-content;
-  height: fit-content;
-
-  display: flex;
-  align-items: center;
-  gap: 1.6rem;
-`;
-
 export const HamburgerButton = styled.label`
   width: fit-content;
   height: 100%;
@@ -79,26 +70,4 @@ export const HamburgerButton = styled.label`
   @media (min-width: 768px) {
     display: none;
   }
-`;
-
-export const InvisibleCheckbox = styled.input`
-  display: none;
-`;
-
-export const HamburgerLine = styled.span`
-  width: 28px;
-  height: 2px;
-
-  display: block;
-
-  position: relative;
-
-  background: ${({ theme }) => theme.colors.HID_Grayscale[800]};
-  border-radius: 2px;
-
-  /* transform-origin: 2px 0px;
-  transition:
-    transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
-    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
-    opacity 0.55s ease; */
 `;

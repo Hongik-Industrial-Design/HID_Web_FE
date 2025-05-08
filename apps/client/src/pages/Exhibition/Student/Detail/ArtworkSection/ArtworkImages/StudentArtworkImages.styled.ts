@@ -16,6 +16,7 @@ export const ArtworkImageContainer = styled.div`
 
 export const DetailImage = styled.img`
   width: 100%;
+  height: fit-content;
 
   border-radius: 2px;
   border: 1px solid ${({ theme }) => theme.colors.HID_Grayscale[200]};

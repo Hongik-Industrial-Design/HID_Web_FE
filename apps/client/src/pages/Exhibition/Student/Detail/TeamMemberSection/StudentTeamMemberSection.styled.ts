@@ -4,11 +4,11 @@ import { motion } from 'framer-motion';
 export const TeamMembersSection = styled.div`
   width: 100%;
   height: fit-content;
-  padding: 8.8rem 15.8rem 9.9rem 15.8rem;
+  padding: 8.4rem 12rem;
 
   display: flex;
   flex-direction: column;
-  gap: 8rem;
+  gap: 4.8rem;
 `;
 
 export const TeamMemberSectionHeader = styled(motion.section)`

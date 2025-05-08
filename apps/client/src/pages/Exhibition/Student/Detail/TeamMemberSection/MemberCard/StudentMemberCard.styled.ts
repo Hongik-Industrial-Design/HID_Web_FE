@@ -14,10 +14,14 @@ export const ProfileImageFrame = styled.div`
 
 export const ProfileImage = styled.img`
   width: 19.2rem;
-  height: 19.2rem;
+  aspect-ratio: 1 / 1;
 
   border-radius: 50%;
   border: 1px solid ${({ theme }) => theme.colors.HID_Grayscale[200]};
+
+  @media (max-width: 1920px) {
+    width: clamp(16rem, 12vw, 19.2rem);
+  }
 `;
 
 export const MemberInfo = styled.div`
@@ -29,6 +33,10 @@ export const MemberInfo = styled.div`
 export const MemberName = styled.h3`
   ${({ theme }) => theme.fontStyles.Title2};
   color: ${({ theme }) => theme.colors.HID_Grayscale[800]};
+
+  @media (max-width: 1920px) {
+    font-size: clamp(2.4rem, 1.6vw, 3.2rem);
+  }
 `;
 
 export const Divider = styled.div`
@@ -50,6 +58,7 @@ export const MemberEmail = styled.a<{ $emailHovered: boolean }>`
   height: fit-content;
 
   ${({ theme }) => theme.fontStyles.Body2};
+  font-size: clamp(1.6rem, 1.2vw, 2rem);
   color: ${({ theme }) => theme.colors.HID_Navy[900]};
 
   &::after {
@@ -64,5 +73,8 @@ export const MemberEmail = styled.a<{ $emailHovered: boolean }>`
 
     background-color: ${({ theme }) => theme.colors.HID_Navy[200]};
     transition: width 0.2s ease;
+  }
+
+  @media (max-width: 1920px) {
   }
 `;
