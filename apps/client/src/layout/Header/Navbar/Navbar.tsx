@@ -112,6 +112,7 @@ const Navbar = ({
           <MagnifyGlassIcon
             $isHomePage={isHomePage}
             $scrolled={scrolled}
+            $isNavbarHovered={hoveredNavbarOption !== ''}
             $isSearchTabOpened={isSearchTabOpened}
           />
         </S.SearchButton>

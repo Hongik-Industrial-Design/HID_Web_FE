@@ -6,6 +6,7 @@ export const MagnifyGlassIcon = styled(magnifyGlass)<{
   $isHomePage: boolean;
   $scrolled: boolean;
   $isSearchTabOpened: boolean;
+  $isNavbarHovered: boolean;
 }>`
   transform-origin: center;
 
@@ -15,9 +16,15 @@ export const MagnifyGlassIcon = styled(magnifyGlass)<{
         ? theme.colors.HID_Grayscale[0]
         : theme.colors.HID_Grayscale[800]};
 
-    fill: ${({ $isHomePage, $scrolled, $isSearchTabOpened, theme }) =>
+    fill: ${({
+      $isHomePage,
+      $scrolled,
+      $isSearchTabOpened,
+      $isNavbarHovered,
+      theme,
+    }) =>
       $isHomePage &&
-      ($scrolled || $isSearchTabOpened) &&
+      ($scrolled || $isNavbarHovered || $isSearchTabOpened) &&
       theme.colors.HID_Grayscale[800]};
 
     transition: fill 0.3s ease;
