@@ -3,19 +3,20 @@ import { JSX } from 'react/jsx-runtime';
 import { CommunityTabProps } from '../Dropdown.types';
 
 import * as S from './CommunityTab.styled';
+import { useDropdownStore } from '@stores/useDropdownStore';
 
 const CommunityTab = ({
   isRendered,
   isActive,
-  enterDropdown,
-  leaveDropdown,
 }: CommunityTabProps): JSX.Element => {
+  const { setHoveredNavbarOption } = useDropdownStore();
+
   return (
     <S.CommunityTabContainer
       $isRendered={isRendered}
       $isActive={isActive}
-      onMouseEnter={() => enterDropdown('community')}
-      onMouseLeave={() => leaveDropdown()}
+      onMouseEnter={() => setHoveredNavbarOption('community')}
+      onMouseLeave={() => setHoveredNavbarOption('')}
     >
       <S.CommunityMenuList>
         <S.CommunityMenu>

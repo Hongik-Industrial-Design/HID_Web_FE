@@ -1,3 +1,4 @@
+import { GNBOptions } from '@layout/Header/Navbar/Navbar.types';
 import { create } from 'zustand';
 import { combine } from 'zustand/middleware';
 
@@ -5,7 +6,7 @@ import { combine } from 'zustand/middleware';
 export const useDropdownStore = create(
   combine({ hoveredNavbarOption: '', isSearchTabOpened: false }, (set) => {
     return {
-      setHoveredNavbarOption: (option: string) => {
+      setHoveredNavbarOption: (option: GNBOptions) => {
         set(() => ({
           hoveredNavbarOption: option,
         }));

@@ -1,6 +1,5 @@
 export type HeaderTransientProps = {
   $isNavbarHovered: boolean;
-  $isDropdownHover: boolean;
   $isHomePage: boolean;
   $isSearchTabOpened: boolean;
   $scrolled: boolean;

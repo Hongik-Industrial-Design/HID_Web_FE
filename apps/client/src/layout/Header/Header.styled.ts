@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router';
-import * as motion from 'motion/react-client';
+import { motion } from 'motion/react';
 
 import { HeaderTransientProps } from './Header.types';
 
@@ -24,14 +24,8 @@ export const HeaderContainer = styled(motion.header)<HeaderTransientProps>`
   background-color: ${({ $isHomePage, $scrolled }) =>
     $isHomePage && $scrolled && '#ebebeb3d'};
 
-  background-color: ${({
-    $isNavbarHovered,
-    $isDropdownHover,
-    $isSearchTabOpened,
-    theme,
-  }) =>
-    ($isNavbarHovered || $isDropdownHover || $isSearchTabOpened) &&
-    theme.colors.HID_Grayscale[0]};
+  background-color: ${({ $isNavbarHovered, $isSearchTabOpened, theme }) =>
+    ($isNavbarHovered || $isSearchTabOpened) && theme.colors.HID_Grayscale[0]};
 
   backdrop-filter: blur(4px);
 

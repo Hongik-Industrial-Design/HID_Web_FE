@@ -6,7 +6,6 @@ export const HeaderHIDLogo = styled(HIDlogo)<{
   $isHomePage: boolean;
   $scrolled: boolean;
   $isNavbarHovered: boolean;
-  $isDropdownHover: boolean;
   $isSearchTabOpened: boolean;
 }>`
   width: 100px;
@@ -23,15 +22,9 @@ export const HeaderHIDLogo = styled(HIDlogo)<{
     fill: ${({ $isHomePage, $scrolled, theme }) =>
       $isHomePage && $scrolled && theme.colors.HID_Grayscale[800]};
 
-    fill: ${({
-      $isHomePage,
-      $isNavbarHovered,
-      $isDropdownHover,
-      $isSearchTabOpened,
-      theme,
-    }) =>
+    fill: ${({ $isHomePage, $isNavbarHovered, $isSearchTabOpened, theme }) =>
       $isHomePage &&
-      ($isNavbarHovered || $isDropdownHover || $isSearchTabOpened) &&
+      ($isNavbarHovered || $isSearchTabOpened) &&
       theme.colors.HID_Grayscale[800]};
 
     transition: fill 0.3s ease;
@@ -44,15 +37,9 @@ export const HeaderHIDLogo = styled(HIDlogo)<{
     fill: ${({ $isHomePage, $scrolled, theme }) =>
       $isHomePage && $scrolled && theme.colors.HID_Navy[900]};
 
-    fill: ${({
-      $isHomePage,
-      $isNavbarHovered,
-      $isDropdownHover,
-      $isSearchTabOpened,
-      theme,
-    }) =>
+    fill: ${({ $isHomePage, $isNavbarHovered, $isSearchTabOpened, theme }) =>
       $isHomePage &&
-      ($isNavbarHovered || $isDropdownHover || $isSearchTabOpened) &&
+      ($isNavbarHovered || $isSearchTabOpened) &&
       theme.colors.HID_Navy[900]};
 
     transition: fill 0.3s ease;

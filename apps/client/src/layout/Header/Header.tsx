@@ -2,8 +2,6 @@ import { JSX } from 'react/jsx-runtime';
 import { useEffect, useState } from 'react';
 import { Location, useLocation } from 'react-router';
 
-import { HoveredDropdown } from '@layout/Dropdown/Dropdown.types';
-
 import { HeaderHIDLogo } from '@icons/HIDLogo';
 import { HamburgerIcon } from '@icons/Hamburger';
 import { MagnifyGlassIconMobile } from '@icons/Search';
@@ -65,17 +63,7 @@ const Header = (): JSX.Element => {
     setSearchTabOpened(!isSearchTabOpened); // Mobile & Desktop both
   };
 
-  const [hoveredDropdown, setHoveredDropdown] = useState<HoveredDropdown>('');
   const [isHamburgerClicked, setIsHamburgerClicked] = useState<boolean>(false);
-
-  // Dropdown 컨테이너 hover시 Dropdown 컴포넌트 유지 (for better UX)
-  const enterDropdown = (type: HoveredDropdown) => {
-    setHoveredDropdown(type);
-  };
-
-  const leaveDropdown = () => {
-    setHoveredDropdown('');
-  };
 
   // HomePage의 배너 이미지 이후부터 dynamic styling 가능하게끔 scrollPosition 계산
   const [scrollPosition, setScrollPosition] = useState<number>(0);
@@ -90,10 +78,7 @@ const Header = (): JSX.Element => {
 
   // 검색 탭 Open or Hamburger 메뉴 열렸을 때 스크롤 방지
   useDisableScroll(
-    isSearchTabOpened ||
-      isHamburgerClicked ||
-      hoveredNavbarOption !== '' ||
-      hoveredDropdown !== ''
+    isSearchTabOpened || isHamburgerClicked || hoveredNavbarOption !== ''
   );
 
   // 모바일 & 데스크탑 고려 GNB 클릭 핸들러
@@ -116,7 +101,6 @@ const Header = (): JSX.Element => {
         transition={hideTransition}
         $isHomePage={isHomePage}
         $isNavbarHovered={hoveredNavbarOption !== ''}
-        $isDropdownHover={hoveredDropdown !== ''}
         $isSearchTabOpened={isSearchTabOpened}
         $scrolled={scrollPosition > 1056}
       >
@@ -131,7 +115,6 @@ const Header = (): JSX.Element => {
             $isHomePage={isHomePage}
             $scrolled={scrollPosition > 1056}
             $isNavbarHovered={hoveredNavbarOption !== ''}
-            $isDropdownHover={hoveredDropdown !== ''}
             $isSearchTabOpened={isSearchTabOpened}
           />
         </S.HomeLogo>
@@ -140,16 +123,12 @@ const Header = (): JSX.Element => {
 
         <Navbar
           isHomePage={isHomePage}
-          isDropdownHover={hoveredDropdown !== ''}
           handleSearchTab={handleSearchTab}
           scrolled={scrollPosition > 1056}
           handleGNBClick={handleGNBClick}
         />
       </S.HeaderContainer>
       <Dropdown
-        enterDropdown={enterDropdown}
-        leaveDropdown={leaveDropdown}
-        hoveredDropdown={hoveredDropdown}
         isHamburgerClicked={isHamburgerClicked}
         setIsHamburgerClicked={setIsHamburgerClicked}
       />

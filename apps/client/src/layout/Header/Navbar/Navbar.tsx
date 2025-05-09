@@ -2,7 +2,7 @@ import { JSX } from 'react/jsx-runtime';
 import { useState } from 'react';
 import { Location, useLocation } from 'react-router';
 
-import { HoveredOption, NavbarProps } from './Navbar.types';
+import { GNBOptions, NavbarProps } from './Navbar.types';
 
 import { ARCHIVE_YEAR_LIST } from '@constants/archive';
 
@@ -14,7 +14,6 @@ import { useDropdownStore } from '@stores/useDropdownStore';
 import * as S from './Navbar.styled';
 
 const Navbar = ({
-  isDropdownHover,
   handleSearchTab,
   isHomePage,
   scrolled,
@@ -42,7 +41,7 @@ const Navbar = ({
     }
   };
 
-  const handleGNBOptionEnter = (option: HoveredOption) => {
+  const handleGNBOptionEnter = (option: GNBOptions) => {
     if (isTouchDevice) return;
     setHoveredNavbarOption(option);
   };
@@ -55,23 +54,22 @@ const Navbar = ({
   return (
     <S.NavbarContainer
       $isNavbarHovered={hoveredNavbarOption !== ''}
-      $isDropdownHover={isDropdownHover}
       $isHomePage={isHomePage}
       $isSearchTabOpened={isSearchTabOpened}
       $scrolled={scrolled}
     >
       {/* <S.NavItem
         $currentPage={currentPath.startsWith('/community')}
-        $disableHighlightBar={hoveredNavbarOption !== '' || isDropdownHover}
-        onMouseEnter={() => enterNavbar('community')}
-        onMouseLeave={() => leaveNavbar()}
+        $disableHighlightBar={hoveredNavbarOption !== ''}
+        onMouseEnter={() => handleGNBOptionEnter('community')}
+        onMouseLeave={handleGNBOptionLeave}
       >
         <S.NavItemLink to="/community">Community</S.NavItemLink>
       </S.NavItem> */}
 
       <S.NavItem
         $currentPage={currentPath.startsWith('/graduation')}
-        $disableHighlightBar={hoveredNavbarOption !== '' || isDropdownHover}
+        $disableHighlightBar={hoveredNavbarOption !== ''}
         onMouseEnter={() => handleGNBOptionEnter('graduation')}
         onMouseLeave={handleGNBOptionLeave}
         onClick={handleGNBClick}
@@ -86,7 +84,7 @@ const Navbar = ({
 
       <S.NavItem
         $currentPage={currentPath.startsWith('/student')}
-        $disableHighlightBar={hoveredNavbarOption !== '' || isDropdownHover}
+        $disableHighlightBar={hoveredNavbarOption !== ''}
         onClick={handleGNBClick}
       >
         {/* 추후 0번 index로 기본값 설정 (BE 테스트 기본값 때문에 1번 index로 임시 설정) */}

@@ -13,9 +13,6 @@ import { isTouchDevice } from '@utils/device';
 import * as S from './Dropdown.styled';
 
 const Dropdown = ({
-  hoveredDropdown,
-  enterDropdown,
-  leaveDropdown,
   isHamburgerClicked,
   setIsHamburgerClicked,
 }: DropdownProps): JSX.Element => {
@@ -41,28 +38,25 @@ const Dropdown = ({
         $isRendered={
           hoveredNavbarOption !== '' || isSearchTabOpened || isHamburgerClicked
         }
-        $isActive={hoveredDropdown !== '' || isSearchTabOpened}
+        $isActive={hoveredNavbarOption !== '' || isSearchTabOpened}
         onClick={handleBackgroundClick}
       />
       <S.DropdownContainer
         $isRendered={hoveredNavbarOption !== '' || isHamburgerClicked}
-        $isActive={hoveredDropdown !== ''}
+        $isActive={hoveredNavbarOption !== ''}
       >
         {(hoveredNavbarOption === 'graduation' ||
-          hoveredDropdown === 'graduation') && (
+          hoveredNavbarOption === 'graduation') && (
           <GraduationTab
             isRendered={hoveredNavbarOption === 'graduation'}
-            isActive={hoveredDropdown === 'graduation'}
-            enterDropdown={enterDropdown}
-            leaveDropdown={leaveDropdown}
+            isActive={hoveredNavbarOption === 'graduation'}
           />
         )}
-        {/* {(hoveredNavbarOption === 'community' || hoveredDropdown === 'community') && (
+        {/* {(hoveredNavbarOption === 'community' || hoveredNavbarOption === 'community') && (
           <CommunityTab
             isRendered={hoveredNavbarOption === 'community'}
-            isActive={hoveredDropdown === 'community'}
-            enterDropdown={enterDropdown}
-            leaveDropdown={leaveDropdown}
+            isActive={hoveredNavbarOption === 'community'}
+            
           />
         )} */}
         {isHamburgerClicked && (
@@ -71,7 +65,7 @@ const Dropdown = ({
       </S.DropdownContainer>
 
       {hoveredNavbarOption === '' &&
-        hoveredDropdown === '' &&
+        hoveredNavbarOption === '' &&
         !isHamburgerClicked &&
         isSearchTabOpened && <SearchTab />}
     </>

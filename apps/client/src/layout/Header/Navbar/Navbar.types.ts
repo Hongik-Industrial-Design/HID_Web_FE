@@ -1,7 +1,6 @@
-export type HoveredOption = 'community' | 'graduation' | '';
+export type GNBOptions = 'community' | 'graduation' | '';
 
 export type NavbarProps = {
-  isDropdownHover: boolean;
   handleSearchTab: () => void;
   isHomePage: boolean;
   scrolled: boolean;

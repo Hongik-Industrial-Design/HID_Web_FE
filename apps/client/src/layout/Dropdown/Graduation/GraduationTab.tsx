@@ -17,8 +17,6 @@ interface ExhibitionInfos {
 const GraduationTab = ({
   isRendered,
   isActive,
-  enterDropdown,
-  leaveDropdown,
 }: GraduationTabProps): JSX.Element => {
   const { setHoveredNavbarOption } = useDropdownStore();
 
@@ -63,8 +61,8 @@ const GraduationTab = ({
     <S.GraduationTabContainer
       $isRendered={isRendered}
       $isActive={isActive}
-      onMouseEnter={() => enterDropdown('graduation')}
-      onMouseLeave={() => leaveDropdown()}
+      onMouseEnter={() => setHoveredNavbarOption('graduation')}
+      onMouseLeave={() => setHoveredNavbarOption('')}
     >
       {/* Infos */}
       <S.ExhibitionInfos>
