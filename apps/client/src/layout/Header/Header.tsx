@@ -2,7 +2,6 @@ import { JSX } from 'react/jsx-runtime';
 import { useEffect, useState } from 'react';
 import { Location, useLocation } from 'react-router';
 
-import { HoveredOption } from './Navbar/Navbar.types';
 import { HoveredDropdown } from '@layout/Dropdown/Dropdown.types';
 
 import { HeaderHIDLogo } from '@icons/HIDLogo';
@@ -13,9 +12,9 @@ import Dropdown from '../Dropdown/Dropdown';
 
 import { useDropdownStore } from '@stores/useDropdownStore';
 import useDisableScroll from '@hooks/useDisableScroll';
+import { isTouchDevice } from '@utils/device';
 
 import * as S from './Header.styled';
-import { isTouchDevice } from '@utils/device';
 
 const Header = (): JSX.Element => {
   const location: Location = useLocation();
@@ -55,16 +54,6 @@ const Header = (): JSX.Element => {
     isSearchTabOpened,
     setSearchTabOpened,
   } = useDropdownStore();
-
-  const enterNavbarOption = (option: HoveredOption) => {
-    if (isTouchDevice) return;
-    setHoveredNavbarOption(option);
-  };
-
-  const leaveNavbarOption = () => {
-    if (isTouchDevice) return;
-    setHoveredNavbarOption('');
-  };
 
   // GNB 내 SearchTab 전역 상태 관리 (Zustand)
   const handleSearchTab = () => {
@@ -151,9 +140,6 @@ const Header = (): JSX.Element => {
 
         <Navbar
           isHomePage={isHomePage}
-          isNavbarHovered={hoveredNavbarOption !== ''}
-          enterNavbar={enterNavbarOption}
-          leaveNavbar={leaveNavbarOption}
           isDropdownHover={hoveredDropdown !== ''}
           handleSearchTab={handleSearchTab}
           scrolled={scrollPosition > 1056}
@@ -161,7 +147,6 @@ const Header = (): JSX.Element => {
         />
       </S.HeaderContainer>
       <Dropdown
-        hoveredOption={hoveredNavbarOption}
         enterDropdown={enterDropdown}
         leaveDropdown={leaveDropdown}
         hoveredDropdown={hoveredDropdown}

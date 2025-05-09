@@ -1,9 +1,6 @@
 export type HoveredOption = 'community' | 'graduation' | '';
 
 export type NavbarProps = {
-  isNavbarHovered: boolean;
-  enterNavbar: (option: HoveredOption) => void;
-  leaveNavbar: () => void;
   isDropdownHover: boolean;
   handleSearchTab: () => void;
   isHomePage: boolean;

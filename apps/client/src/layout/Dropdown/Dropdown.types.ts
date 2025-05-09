@@ -1,7 +1,6 @@
 export type HoveredDropdown = 'graduation' | 'community' | '';
 
 export type DropdownProps = {
-  hoveredOption: string;
   hoveredDropdown: string;
   enterDropdown: (type: HoveredDropdown) => void;
   leaveDropdown: () => void;

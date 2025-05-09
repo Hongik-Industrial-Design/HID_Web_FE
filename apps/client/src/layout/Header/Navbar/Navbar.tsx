@@ -2,7 +2,7 @@ import { JSX } from 'react/jsx-runtime';
 import { useState } from 'react';
 import { Location, useLocation } from 'react-router';
 
-import { NavbarProps } from './Navbar.types';
+import { HoveredOption, NavbarProps } from './Navbar.types';
 
 import { ARCHIVE_YEAR_LIST } from '@constants/archive';
 
@@ -14,9 +14,6 @@ import { useDropdownStore } from '@stores/useDropdownStore';
 import * as S from './Navbar.styled';
 
 const Navbar = ({
-  isNavbarHovered,
-  enterNavbar,
-  leaveNavbar,
   isDropdownHover,
   handleSearchTab,
   isHomePage,
@@ -26,7 +23,8 @@ const Navbar = ({
   const location: Location = useLocation();
   const currentPath = location.pathname;
 
-  const { isSearchTabOpened, setHoveredNavbarOption } = useDropdownStore();
+  const { isSearchTabOpened, hoveredNavbarOption, setHoveredNavbarOption } =
+    useDropdownStore();
 
   const [touchedOnce, setTouchedOnce] = useState<boolean>(false);
 
@@ -44,9 +42,19 @@ const Navbar = ({
     }
   };
 
+  const handleGNBOptionEnter = (option: HoveredOption) => {
+    if (isTouchDevice) return;
+    setHoveredNavbarOption(option);
+  };
+
+  const handleGNBOptionLeave = () => {
+    if (isTouchDevice) return;
+    setHoveredNavbarOption('');
+  };
+
   return (
     <S.NavbarContainer
-      $isNavbarHovered={isNavbarHovered}
+      $isNavbarHovered={hoveredNavbarOption !== ''}
       $isDropdownHover={isDropdownHover}
       $isHomePage={isHomePage}
       $isSearchTabOpened={isSearchTabOpened}
@@ -54,7 +62,7 @@ const Navbar = ({
     >
       {/* <S.NavItem
         $currentPage={currentPath.startsWith('/community')}
-        $disableHighlightBar={isNavbarHovered || isDropdownHover}
+        $disableHighlightBar={hoveredNavbarOption !== '' || isDropdownHover}
         onMouseEnter={() => enterNavbar('community')}
         onMouseLeave={() => leaveNavbar()}
       >
@@ -63,9 +71,9 @@ const Navbar = ({
 
       <S.NavItem
         $currentPage={currentPath.startsWith('/graduation')}
-        $disableHighlightBar={isNavbarHovered || isDropdownHover}
-        onMouseEnter={() => enterNavbar('graduation')}
-        onMouseLeave={() => leaveNavbar()}
+        $disableHighlightBar={hoveredNavbarOption !== '' || isDropdownHover}
+        onMouseEnter={() => handleGNBOptionEnter('graduation')}
+        onMouseLeave={handleGNBOptionLeave}
         onClick={handleGNBClick}
       >
         <S.NavItemLink
@@ -78,7 +86,7 @@ const Navbar = ({
 
       <S.NavItem
         $currentPage={currentPath.startsWith('/student')}
-        $disableHighlightBar={isNavbarHovered || isDropdownHover}
+        $disableHighlightBar={hoveredNavbarOption !== '' || isDropdownHover}
         onClick={handleGNBClick}
       >
         {/* 추후 0번 index로 기본값 설정 (BE 테스트 기본값 때문에 1번 index로 임시 설정) */}

@@ -13,7 +13,6 @@ import { isTouchDevice } from '@utils/device';
 import * as S from './Dropdown.styled';
 
 const Dropdown = ({
-  hoveredOption,
   hoveredDropdown,
   enterDropdown,
   leaveDropdown,
@@ -40,27 +39,27 @@ const Dropdown = ({
     <>
       <S.DropdownBackground
         $isRendered={
-          hoveredOption !== '' || isSearchTabOpened || isHamburgerClicked
+          hoveredNavbarOption !== '' || isSearchTabOpened || isHamburgerClicked
         }
         $isActive={hoveredDropdown !== '' || isSearchTabOpened}
         onClick={handleBackgroundClick}
       />
       <S.DropdownContainer
-        $isRendered={hoveredOption !== '' || isHamburgerClicked}
+        $isRendered={hoveredNavbarOption !== '' || isHamburgerClicked}
         $isActive={hoveredDropdown !== ''}
       >
-        {(hoveredOption === 'graduation' ||
+        {(hoveredNavbarOption === 'graduation' ||
           hoveredDropdown === 'graduation') && (
           <GraduationTab
-            isRendered={hoveredOption === 'graduation'}
+            isRendered={hoveredNavbarOption === 'graduation'}
             isActive={hoveredDropdown === 'graduation'}
             enterDropdown={enterDropdown}
             leaveDropdown={leaveDropdown}
           />
         )}
-        {/* {(hoveredOption === 'community' || hoveredDropdown === 'community') && (
+        {/* {(hoveredNavbarOption === 'community' || hoveredDropdown === 'community') && (
           <CommunityTab
-            isRendered={hoveredOption === 'community'}
+            isRendered={hoveredNavbarOption === 'community'}
             isActive={hoveredDropdown === 'community'}
             enterDropdown={enterDropdown}
             leaveDropdown={leaveDropdown}
@@ -71,7 +70,7 @@ const Dropdown = ({
         )}
       </S.DropdownContainer>
 
-      {hoveredOption === '' &&
+      {hoveredNavbarOption === '' &&
         hoveredDropdown === '' &&
         !isHamburgerClicked &&
         isSearchTabOpened && <SearchTab />}
