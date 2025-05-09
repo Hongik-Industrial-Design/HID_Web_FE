@@ -5,6 +5,8 @@ import { GraduationTabProps } from '../Dropdown.types';
 import { GRADUATION_DROPDOWN_CONTENT } from '@constants/archive';
 
 import * as S from './GraduationTab.styled';
+import { isTouchDevice } from '@utils/device';
+import { useDropdownStore } from '@stores/useDropdownStore';
 
 interface ExhibitionInfos {
   year: number;
@@ -18,6 +20,8 @@ const GraduationTab = ({
   enterDropdown,
   leaveDropdown,
 }: GraduationTabProps): JSX.Element => {
+  const { setHoveredNavbarOption } = useDropdownStore();
+
   const [hoveredYear, setHoveredYear] = useState<number | null>(null);
   const [dropdownInfos, setDropdownInfos] = useState<
     ExhibitionInfos | undefined
@@ -36,12 +40,23 @@ const GraduationTab = ({
   };
 
   const handleMouseEnter = (year: number) => {
+    if (isTouchDevice) return;
+
     handleHoveredYear(year);
     handleDropdownInfos(year);
   };
 
   const handleMouseLeave = () => {
+    if (isTouchDevice) return;
     handleHoveredYear(null);
+  };
+
+  const handlePosterMobileClick = (year: number) => {
+    if (!isTouchDevice) return;
+
+    handleHoveredYear(year);
+    handleDropdownInfos(year);
+    setHoveredNavbarOption('');
   };
 
   return (
@@ -66,6 +81,7 @@ const GraduationTab = ({
           {GRADUATION_DROPDOWN_CONTENT.timeline.map((year) => (
             <S.ExhibitonPosterItem
               key={year}
+              onClick={handlePosterMobileClick.bind(null, Number(year))}
               onMouseEnter={handleMouseEnter.bind(null, Number(year))}
               onMouseLeave={handleMouseLeave}
             >

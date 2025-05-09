@@ -9,6 +9,7 @@ export type NavbarProps = {
   handleSearchTab: () => void;
   isHomePage: boolean;
   scrolled: boolean;
+  handleGNBClick: () => void;
 };
 
 export type SearchButtonProps = {

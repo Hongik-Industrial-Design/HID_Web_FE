@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const DropdownBackground = styled.div<{
   $isRendered: boolean;
@@ -7,18 +7,22 @@ export const DropdownBackground = styled.div<{
   position: fixed;
   top: 0;
   z-index: -1;
-  z-index: ${({ $isRendered, $isActive }) => ($isRendered || $isActive) && 10};
 
   width: 100vw;
   height: 100vh;
 
+  opacity: 0;
   background-color: rgba(217, 217, 217, 0.3);
   backdrop-filter: blur(8px);
 
   transition: opacity 0.25s ease-in-out;
 
-  opacity: ${({ $isRendered, $isActive }) =>
-    $isRendered || $isActive ? 1 : 0};
+  ${({ $isRendered, $isActive }) =>
+    ($isRendered || $isActive) &&
+    css`
+      opacity: 1;
+      z-index: 10;
+    `};
 
   @media (max-width: 768px) {
     background-color: rgba(128, 128, 128, 0.6);

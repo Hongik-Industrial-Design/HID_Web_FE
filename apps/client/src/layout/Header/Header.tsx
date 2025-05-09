@@ -15,6 +15,7 @@ import { useDropdownStore } from '@stores/useDropdownStore';
 import useDisableScroll from '@hooks/useDisableScroll';
 
 import * as S from './Header.styled';
+import { isTouchDevice } from '@utils/device';
 
 const Header = (): JSX.Element => {
   const location: Location = useLocation();
@@ -56,18 +57,23 @@ const Header = (): JSX.Element => {
   } = useDropdownStore();
 
   const enterNavbarOption = (option: HoveredOption) => {
+    if (isTouchDevice) return;
     setHoveredNavbarOption(option);
   };
 
   const leaveNavbarOption = () => {
+    if (isTouchDevice) return;
     setHoveredNavbarOption('');
   };
 
   // GNB 내 SearchTab 전역 상태 관리 (Zustand)
   const handleSearchTab = () => {
-    if (!isHamburgerClicked) {
-      setSearchTabOpened(!isSearchTabOpened);
+    // 모바일 환경에서는 드롭다운 열려있을 시, 드롭다운 닫은 후에 검색 탭 열기
+    if (isTouchDevice && hoveredNavbarOption !== '') {
+      setHoveredNavbarOption('');
     }
+
+    setSearchTabOpened(!isSearchTabOpened); // Mobile & Desktop both
   };
 
   const [hoveredDropdown, setHoveredDropdown] = useState<HoveredDropdown>('');
@@ -76,12 +82,10 @@ const Header = (): JSX.Element => {
   // Dropdown 컨테이너 hover시 Dropdown 컴포넌트 유지 (for better UX)
   const enterDropdown = (type: HoveredDropdown) => {
     setHoveredDropdown(type);
-    setSearchTabOpened(false); // SearchTab 닫기
   };
 
   const leaveDropdown = () => {
     setHoveredDropdown('');
-    setSearchTabOpened(false); // SearchTab 닫기
   };
 
   // HomePage의 배너 이미지 이후부터 dynamic styling 가능하게끔 scrollPosition 계산
@@ -103,6 +107,17 @@ const Header = (): JSX.Element => {
       hoveredDropdown !== ''
   );
 
+  // 모바일 & 데스크탑 고려 GNB 클릭 핸들러
+  const handleGNBClick = () => {
+    if (isSearchTabOpened) {
+      setSearchTabOpened(false);
+    }
+
+    if (isTouchDevice && hoveredNavbarOption !== '') {
+      setHoveredNavbarOption('');
+    }
+  };
+
   return (
     <>
       <S.HeaderContainer
@@ -122,7 +137,7 @@ const Header = (): JSX.Element => {
           <HamburgerIcon $isHomePage={isHomePage} />
         </S.HamburgerButton>
 
-        <S.HomeLogo to="/" onClick={() => setIsHamburgerClicked(false)}>
+        <S.HomeLogo to="/" onClick={() => setSearchTabOpened(false)}>
           <HeaderHIDLogo
             $isHomePage={isHomePage}
             $scrolled={scrollPosition > 1056}
@@ -143,6 +158,7 @@ const Header = (): JSX.Element => {
           isSearchTabOpened={isSearchTabOpened}
           handleSearchTab={handleSearchTab}
           scrolled={scrollPosition > 1056}
+          handleGNBClick={handleGNBClick}
         />
       </S.HeaderContainer>
       <Dropdown
@@ -151,7 +167,6 @@ const Header = (): JSX.Element => {
         leaveDropdown={leaveDropdown}
         hoveredDropdown={hoveredDropdown}
         isSearchTabOpened={isSearchTabOpened}
-        handleSearchTab={handleSearchTab}
         isHamburgerClicked={isHamburgerClicked}
         setIsHamburgerClicked={setIsHamburgerClicked}
       />

@@ -1,11 +1,15 @@
 import { JSX } from 'react/jsx-runtime';
+import { useState } from 'react';
 import { Location, useLocation } from 'react-router';
-
-import { ARCHIVE_YEAR_LIST } from '@constants/archive';
 
 import { NavbarProps } from './Navbar.types';
 
+import { ARCHIVE_YEAR_LIST } from '@constants/archive';
+
 import { MagnifyGlassIcon } from '@icons/Search';
+
+import { isTouchDevice } from '@utils/device';
+import { useDropdownStore } from '@stores/useDropdownStore';
 
 import * as S from './Navbar.styled';
 
@@ -18,9 +22,28 @@ const Navbar = ({
   handleSearchTab,
   isHomePage,
   scrolled,
+  handleGNBClick,
 }: NavbarProps): JSX.Element => {
   const location: Location = useLocation();
   const currentPath = location.pathname;
+
+  const [touchedOnce, setTouchedOnce] = useState<boolean>(false);
+
+  const { setHoveredNavbarOption } = useDropdownStore();
+
+  const handleGraduationClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!isTouchDevice) return;
+
+    e.preventDefault();
+
+    if (!touchedOnce) {
+      setHoveredNavbarOption('graduation'); // 드롭다운 열기
+      setTouchedOnce(true);
+    } else {
+      setHoveredNavbarOption('');
+      setTouchedOnce(false);
+    }
+  };
 
   return (
     <S.NavbarContainer
@@ -44,8 +67,12 @@ const Navbar = ({
         $disableHighlightBar={isNavbarHovered || isDropdownHover}
         onMouseEnter={() => enterNavbar('graduation')}
         onMouseLeave={() => leaveNavbar()}
+        onClick={handleGNBClick}
       >
-        <S.NavItemLink to={`/graduation/${ARCHIVE_YEAR_LIST[0]}`}>
+        <S.NavItemLink
+          to={`/graduation/${ARCHIVE_YEAR_LIST[0]}`}
+          onClick={handleGraduationClick}
+        >
           Graduation Exhibition
         </S.NavItemLink>
       </S.NavItem>
@@ -53,6 +80,7 @@ const Navbar = ({
       <S.NavItem
         $currentPage={currentPath.startsWith('/student')}
         $disableHighlightBar={isNavbarHovered || isDropdownHover}
+        onClick={handleGNBClick}
       >
         {/* 추후 0번 index로 기본값 설정 (BE 테스트 기본값 때문에 1번 index로 임시 설정) */}
         <S.NavItemLink to={`/student/${ARCHIVE_YEAR_LIST[0]}`}>
@@ -60,11 +88,17 @@ const Navbar = ({
         </S.NavItemLink>
       </S.NavItem>
 
-      <S.NavItem $currentPage={currentPath.startsWith('/faculty')}>
+      <S.NavItem
+        $currentPage={currentPath.startsWith('/faculty')}
+        onClick={handleGNBClick}
+      >
         <S.NavItemLink to="/faculty">Faculty</S.NavItemLink>
       </S.NavItem>
 
-      <S.NavItem $currentPage={currentPath.startsWith('/contact')}>
+      <S.NavItem
+        $currentPage={currentPath.startsWith('/contact')}
+        onClick={handleGNBClick}
+      >
         <S.NavItemLink to="/contact">Contact</S.NavItemLink>
       </S.NavItem>
 
@@ -77,10 +111,6 @@ const Navbar = ({
           />
         </S.SearchButton>
       </S.NavItem>
-
-      {/* <S.NavItem $currentPage={currentPath.startsWith('/course-track')}>
-        <S.NavItemLink to="/course-track">CourseTrack</S.NavItemLink>
-      </S.NavItem> */}
     </S.NavbarContainer>
   );
 };
