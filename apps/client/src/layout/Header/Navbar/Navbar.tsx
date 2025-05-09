@@ -18,7 +18,6 @@ const Navbar = ({
   enterNavbar,
   leaveNavbar,
   isDropdownHover,
-  isSearchTabOpened,
   handleSearchTab,
   isHomePage,
   scrolled,
@@ -27,9 +26,9 @@ const Navbar = ({
   const location: Location = useLocation();
   const currentPath = location.pathname;
 
-  const [touchedOnce, setTouchedOnce] = useState<boolean>(false);
+  const { isSearchTabOpened, setHoveredNavbarOption } = useDropdownStore();
 
-  const { setHoveredNavbarOption } = useDropdownStore();
+  const [touchedOnce, setTouchedOnce] = useState<boolean>(false);
 
   const handleGraduationClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (!isTouchDevice) return;

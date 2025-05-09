@@ -5,7 +5,6 @@ export type DropdownProps = {
   hoveredDropdown: string;
   enterDropdown: (type: HoveredDropdown) => void;
   leaveDropdown: () => void;
-  isSearchTabOpened: boolean;
   isHamburgerClicked: boolean;
   setIsHamburgerClicked: React.Dispatch<React.SetStateAction<boolean>>;
 };

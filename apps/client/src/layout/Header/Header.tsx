@@ -155,7 +155,6 @@ const Header = (): JSX.Element => {
           enterNavbar={enterNavbarOption}
           leaveNavbar={leaveNavbarOption}
           isDropdownHover={hoveredDropdown !== ''}
-          isSearchTabOpened={isSearchTabOpened}
           handleSearchTab={handleSearchTab}
           scrolled={scrollPosition > 1056}
           handleGNBClick={handleGNBClick}
@@ -166,7 +165,6 @@ const Header = (): JSX.Element => {
         enterDropdown={enterDropdown}
         leaveDropdown={leaveDropdown}
         hoveredDropdown={hoveredDropdown}
-        isSearchTabOpened={isSearchTabOpened}
         isHamburgerClicked={isHamburgerClicked}
         setIsHamburgerClicked={setIsHamburgerClicked}
       />

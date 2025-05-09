@@ -17,12 +17,15 @@ const Dropdown = ({
   hoveredDropdown,
   enterDropdown,
   leaveDropdown,
-  isSearchTabOpened,
   isHamburgerClicked,
   setIsHamburgerClicked,
 }: DropdownProps): JSX.Element => {
-  const { hoveredNavbarOption, setHoveredNavbarOption, setSearchTabOpened } =
-    useDropdownStore();
+  const {
+    hoveredNavbarOption,
+    setHoveredNavbarOption,
+    isSearchTabOpened,
+    setSearchTabOpened,
+  } = useDropdownStore();
 
   const handleBackgroundClick = () => {
     if (isTouchDevice && hoveredNavbarOption === 'graduation') {
