@@ -74,14 +74,19 @@ const StudentExhibitionGallery = ({
       ? searchedArtwork
       : paginatedPieces;
 
-  const totalPages = Math.ceil(renderedArtworks?.length / 9);
+  const totalArtworkCount =
+    isQueryEnabled && searchStatus === 'success'
+      ? searchedArtwork?.length
+      : pieces?.length;
+
+  const totalPages = Math.ceil(totalArtworkCount / 9);
 
   return (
     <S.GalleryWrapper>
       {/* Header */}
       <S.GalleryHeader>
         <S.ExhbitionYear>{exhibitionYear}</S.ExhbitionYear>
-        <SearchBar placeholder="Search by title or artist" />
+        <SearchBar placeholder="Search by artwork title" />
       </S.GalleryHeader>
 
       {/* Gallery */}
