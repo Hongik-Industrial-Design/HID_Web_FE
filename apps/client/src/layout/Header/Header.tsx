@@ -126,7 +126,7 @@ const Header = (): JSX.Element => {
           <HamburgerIcon $isHomePage={isHomePage} />
         </S.HamburgerButton>
 
-        <S.HomeLogo to="/" onClick={() => setSearchTabOpened(false)}>
+        <S.HomeLogo to="/" onClick={handleGNBClick}>
           <HeaderHIDLogo
             $isHomePage={isHomePage}
             $scrolled={scrollPosition > 1056}
