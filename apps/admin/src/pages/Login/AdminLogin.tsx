@@ -28,11 +28,6 @@ const AdminLogin = (): JSX.Element => {
     console.log('Access Token: ', loginResponseBody?.token);
 
     if (loginResponseBody?.token) {
-      // (임시) 로그인 시마다 기존의 토큰 삭제
-      if (localStorage.getItem('accessToken')) {
-        localStorage.removeItem('accessToken');
-      }
-
       localStorage.setItem('accessToken', loginResponseBody.token);
 
       // 추후에 메인 대시보드 페이지로 Routing 되도록 수정
