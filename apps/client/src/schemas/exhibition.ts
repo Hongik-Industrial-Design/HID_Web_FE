@@ -61,7 +61,7 @@ export const ExhibitionDetailSchema = z.object({
   subTitleEn: z.string(),
   descriptionKo: z.string(),
   descriptionEn: z.string(),
-  videoUrl: z.string().url().optional(),
+  videoUrl: z.nullable(z.string().url()),
   artists: z.array(ArtistSchema),
 });
 
