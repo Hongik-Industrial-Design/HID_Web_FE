@@ -1,9 +1,8 @@
 import { JSX } from 'react/jsx-runtime';
 import { useMemo, useState } from 'react';
-import { useLocation } from 'react-router';
 import { AnimatePresence } from 'framer-motion';
 
-import { EXHIBIT_TYPE } from '@constants/exhibitionCategory';
+import { EXHIBIT_TYPE } from '@client-types/exhibition.types';
 
 import { useSearchArtworkQuery } from '@api/query/studentExhibitionQuery';
 import { useSearchStore } from '@stores/useSearchStore';
@@ -14,14 +13,16 @@ import Piece from './Piece/Piece';
 import Pagination from '@components/Pagination/Pagination';
 import Loading from '@components/Loading/Loading';
 
-import * as S from './StudentExhibitionGallery.styled';
+import * as S from './ExhibitionGallery.styled';
 
 interface StudentExhibitionGalleryProps {
+  exhibitType: EXHIBIT_TYPE;
   pieces: ExhibitionPreview;
   exhibitionYear: string;
 }
 
-const StudentExhibitionGallery = ({
+const ExhibitionGallery = ({
+  exhibitType,
   pieces,
   exhibitionYear,
 }: StudentExhibitionGalleryProps): JSX.Element => {
@@ -30,7 +31,9 @@ const StudentExhibitionGallery = ({
   const handleCurrentPage = (page: number) => {
     setCurrentPage(page);
 
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (exhibitType === 'CLUB') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   // 페이지네이션 작품 리스트 계산 Logic
@@ -39,18 +42,10 @@ const StudentExhibitionGallery = ({
     return pieces?.slice(startIndex, currentPage * 9);
   }, [currentPage, pieces]);
 
-  // 검색 기능
-  const location = useLocation();
-  const exhibitType =
-    location.pathname.split('/')[1].toUpperCase() === 'graduation'
-      ? 'GRADUATION'
-      : 'CLUB';
-
   const exhibitionMetadata = {
     exhibitType,
     year: location.pathname.split('/')[2],
   };
-  console.log(exhibitionMetadata);
 
   // (임시) 검색 타입 설정
   const searchType = 'TITLE';
@@ -127,4 +122,4 @@ const StudentExhibitionGallery = ({
   );
 };
 
-export default StudentExhibitionGallery;
+export default ExhibitionGallery;

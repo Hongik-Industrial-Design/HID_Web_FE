@@ -1,8 +1,8 @@
 import { HWISO_API } from '@lib/axios';
 import { validateResponse } from '@utils/validateResponse';
 
-import { EXHIBIT_TYPE } from '@constants/exhibitionCategory';
 import { EXHIBITION_SEARCH_TYPE } from '@constants/searchType';
+import { EXHIBIT_TYPE } from '@client-types/exhibition.types';
 
 import * as Schemas from '@schemas/exhibition';
 

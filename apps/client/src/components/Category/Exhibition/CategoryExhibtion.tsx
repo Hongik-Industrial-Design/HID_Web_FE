@@ -4,25 +4,29 @@ import {
   GRADUATION_CATEGORY_LIST,
   STUDENT_CLUB_LIST,
 } from '@constants/exhibitionCategory';
-import { SelectStudentExhibition } from '@pages/Exhibition/Student/StudentExhibition';
+import {
+  EXHIBIT_TYPE,
+  ExhibitionBasicInfo,
+} from '@client-types/exhibition.types';
 
 import * as S from './CategoryExhibition.styled';
 
 type CategoryProps = {
+  exhibitType: EXHIBIT_TYPE;
   currentCategory: string;
-  handleFilter: (key: keyof SelectStudentExhibition, club: string) => void;
+  handleFilter: (key: keyof ExhibitionBasicInfo, club: string) => void;
 };
 
 const CategoryExhibition = ({
+  exhibitType,
   currentCategory,
   handleFilter,
 }: CategoryProps) => {
   const location = useLocation();
   const currentPath = location.pathname;
 
-  const CATEGORY_LIST = currentPath.includes('/student')
-    ? STUDENT_CLUB_LIST
-    : GRADUATION_CATEGORY_LIST;
+  const CATEGORY_LIST =
+    exhibitType === 'GRADUATION' ? GRADUATION_CATEGORY_LIST : STUDENT_CLUB_LIST;
 
   return (
     <S.CategoryContainer $currentPath={currentPath}>
@@ -30,7 +34,7 @@ const CategoryExhibition = ({
         <S.DetailedMajor
           key={index}
           $isSelected={currentCategory === category}
-          onClick={() => handleFilter('club', category)}
+          onClick={() => handleFilter('clubOrMajor', category)}
         >
           <S.CategoryButton $isSelected={currentCategory === category}>
             {category}

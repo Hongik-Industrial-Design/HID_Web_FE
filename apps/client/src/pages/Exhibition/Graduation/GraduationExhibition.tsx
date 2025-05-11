@@ -1,16 +1,10 @@
 import { JSX } from 'react/jsx-runtime';
 import { useParams } from 'react-router';
 
-import {
-  useGraduationBannerVideoQuery,
-  useGraduationExhbitionPreviewQuery,
-} from '@api/query/graduationExhibitionQuery';
-
-import { GRADUATION_CATEGORY_LIST } from '@constants/exhibitionCategory';
+import { useGraduationBannerVideoQuery } from '@api/query/graduationExhibitionQuery';
 
 import Loading from '@components/Loading/Loading';
-import Category from '@components/Category/Exhibition/CategoryExhibtion';
-import GraduationExhibitionGallery from '@components/Gallery/GraduationGallery/GraduationExhibitionGallery';
+import Exhibition from '../Common/Exhibition';
 
 import * as S from './GraduationExhibition.styled';
 
@@ -25,26 +19,6 @@ export const GraduationExhibition = (): JSX.Element => {
     data: bannerVideo,
     error,
   } = useGraduationBannerVideoQuery(Number(exhibitionYear));
-
-  // 졸업 전시 Preview 조회 API
-  const {
-    status: previewStatus,
-    data: exhibitionPreviews,
-    error: previewError,
-  } = useGraduationExhbitionPreviewQuery('GRADUATION', exhibitionYear, 'ALL');
-
-  // Filterirng corresponding category Pieces list
-  const handleFilterPieces = (category: string) => {
-    if (category === 'All') {
-      setCategorizedPieces(pieces);
-    } else {
-      const filteredPieces = pieces.filter(
-        (piece) => piece.category === category
-      );
-
-      setCategorizedPieces(filteredPieces);
-    }
-  };
 
   return (
     <S.GraduationExhibitionContainer>
@@ -78,29 +52,7 @@ export const GraduationExhibition = (): JSX.Element => {
         )}
       </S.BannerFrame>
 
-      <S.GraduationExhibitonGalleryContainer>
-        <S.ExhibitionContainer>
-          <S.StickyContainer>
-            <Category
-              currentCategory={GRADUATION_CATEGORY_LIST[0]}
-              handleFilter={handleFilterPieces}
-            />
-          </S.StickyContainer>
-
-          <S.ExhibitionGallerySection>
-            {previewStatus === 'pending' ? (
-              <Loading />
-            ) : previewStatus === 'error' ? (
-              <span>Error: {previewError.message}</span>
-            ) : (
-              <GraduationExhibitionGallery
-                previews={exhibitionPreviews}
-                exhibitionYear={String(exhibitionYear)}
-              />
-            )}
-          </S.ExhibitionGallerySection>
-        </S.ExhibitionContainer>
-      </S.GraduationExhibitonGalleryContainer>
+      <Exhibition exhibitType="GRADUATION" />
     </S.GraduationExhibitionContainer>
   );
 };

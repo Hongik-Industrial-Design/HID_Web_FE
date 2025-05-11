@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 
-import { EXHIBIT_TYPE } from '@constants/exhibitionCategory';
+import { EXHIBIT_TYPE } from '@client-types/exhibition.types';
 
 import {
   fetchExhibitionDetail,

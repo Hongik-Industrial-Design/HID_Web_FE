@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const StudentExhibitionContainer = styled.div<{
+export const ExhibitionPageWrapper = styled.div<{
   $isPendingOrError: boolean;
 }>`
   width: 100%;
@@ -44,7 +44,7 @@ export const StickyContainer = styled.div`
   position: relative;
 `;
 
-export const StudentExhibitionGalleryContainer = styled.div`
+export const ExhibitionGalleryContainer = styled.div`
   flex-grow: 1;
 
   width: 100%;
@@ -54,7 +54,7 @@ export const StudentExhibitionGalleryContainer = styled.div`
   flex-direction: column;
 `;
 
-export const StudentExhibitionGalleryTitle = styled.h1`
+export const ExhibitionGalleryTitle = styled.h1`
   margin-bottom: 6.4rem;
 
   ${({ theme }) => theme.fontStyles.Header1};

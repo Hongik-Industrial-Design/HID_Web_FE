@@ -15,6 +15,3 @@ export const STUDENT_CLUB_LIST = [
   'DESIGN STUDIO i',
   'HILLS',
 ];
-
-// 타입 정의
-export type EXHIBIT_TYPE = 'GRADUATION' | 'CLUB';
