@@ -1,7 +1,7 @@
 import { JSX } from 'react/jsx-runtime';
 import { useParams } from 'react-router';
 
-import { useExhibitionDetailQuery } from '@api/query/studentExhibitionQuery';
+import { useExhibitionDetailQuery } from '@api/query/exhibitionQuery';
 
 import { EXHIBIT_TYPE } from '@client-types/exhibition.types';
 

@@ -1,7 +1,7 @@
 import { JSX } from 'react/jsx-runtime';
 import { useParams } from 'react-router';
 
-import { useGraduationBannerVideoQuery } from '@api/query/graduationExhibitionQuery';
+import { useGraduationBannerVideoQuery } from '@api/query/exhibitionQuery';
 
 import Loading from '@components/Loading/Loading';
 import Exhibition from '../Common/Preview/ExhibitionPreview';

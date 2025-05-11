@@ -1,7 +1,7 @@
 import { JSX } from 'react/jsx-runtime';
 import { useEffect, useState } from 'react';
 
-import { useExhbitionPreviewQuery } from '@api/query/studentExhibitionQuery';
+import { useExhbitionPreviewQuery } from '@api/query/exhibitionQuery';
 
 import CategoryExhibition from '@components/Category/Exhibition/CategoryExhibtion';
 import ExhibitionGallery from '@components/Gallery/ExhibitionGallery';

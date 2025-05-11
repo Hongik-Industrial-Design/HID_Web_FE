@@ -6,10 +6,12 @@ import { EXHIBITION_SEARCH_TYPE } from '@constants/searchType';
 import {
   fetchExhibitionDetail,
   fetchExhibitionPreview,
+  fetchGraduationBannerVideo,
   searchArtwork,
 } from '@api/exhibition';
 
 const EXHIBITION_QUERY_KEYS = {
+  bannerVideo: (year: number) => ['Graduation', year],
   preview: (exhibitType: EXHIBIT_TYPE, year: string, club: string) => [
     exhibitType,
     year,
@@ -26,6 +28,16 @@ const EXHIBITION_QUERY_KEYS = {
     query: string,
     searchType: EXHIBITION_SEARCH_TYPE
   ) => [exhibitType, year, query, searchType],
+};
+
+// 졸업 전시 배너 영상 조회 API
+export const useGraduationBannerVideoQuery = (year: number) => {
+  return useQuery({
+    queryKey: EXHIBITION_QUERY_KEYS.bannerVideo(year),
+    queryFn: () => fetchGraduationBannerVideo(year),
+    staleTime: 1000 * 10, // 10초 (Testing)
+    gcTime: 1000 * 60, // 1분 (Testing)
+  });
 };
 
 // 학생 전시 프리뷰 조회 API

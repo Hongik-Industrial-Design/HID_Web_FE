@@ -4,7 +4,7 @@ import { AnimatePresence } from 'framer-motion';
 
 import { EXHIBIT_TYPE } from '@client-types/exhibition.types';
 
-import { useSearchArtworkQuery } from '@api/query/studentExhibitionQuery';
+import { useSearchArtworkQuery } from '@api/query/exhibitionQuery';
 import { useSearchStore } from '@stores/useSearchStore';
 import { ExhibitionPreview } from '@schemas/exhibition';
 
