@@ -3,9 +3,9 @@ import { useRef, useState } from 'react';
 import { MotionValue } from 'framer-motion';
 import { useRafLoop } from 'react-use';
 
-import { AuthorInfos } from '../../StudentArtwork.types';
+import { AuthorInfos } from '@client-types/artwork.types';
 
-import * as S from './StudentMemberCard.styled';
+import * as S from './MemberCard.styled';
 
 interface MemberCardProps {
   teamMember: AuthorInfos;

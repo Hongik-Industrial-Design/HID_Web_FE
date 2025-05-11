@@ -15,7 +15,11 @@ const EXHIBITION_QUERY_KEYS = {
     year,
     club,
   ],
-  detail: (year: string, exhibitId: number) => ['Student', year, exhibitId],
+  detail: (exhibitType: EXHIBIT_TYPE, year: string, exhibitId: number) => [
+    exhibitType,
+    year,
+    exhibitId,
+  ],
   search: (
     exhibitType: EXHIBIT_TYPE,
     year: string,
@@ -39,12 +43,13 @@ export const useExhbitionPreviewQuery = (
 };
 
 // 학생 전시 상세 조회 API (***이것만 추후 졸업전시랑 통합***)
-export const useStudentExhibitionDetailQuery = (
+export const useExhibitionDetailQuery = (
+  exhibitType: EXHIBIT_TYPE,
   year: string,
   exhibitId: number
 ) => {
   return useQuery({
-    queryKey: EXHIBITION_QUERY_KEYS.detail(year, exhibitId),
+    queryKey: EXHIBITION_QUERY_KEYS.detail(exhibitType, year, exhibitId),
     queryFn: () => fetchExhibitionDetail(exhibitId),
     staleTime: 1000 * 3, // 3초 (Testing)
     gcTime: 1000 * 60, // 1분 (Testing)

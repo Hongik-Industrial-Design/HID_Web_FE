@@ -8,7 +8,7 @@ import ProfessorProfile from '@pages/Faculty/ProfessorProfile/ProfessorProfile';
 
 import GraduationExhibition from '@pages/Exhibition/Graduation/GraduationExhibition';
 import StudentExhibition from '@pages/Exhibition/Student/StudentExhibition';
-import StudentExhibitionDetail from '@pages/Exhibition/Student/Detail/StudentExhibitionDetail';
+import StudentExhibitionDetail from '@pages/Exhibition/Student/StudentExhibitionDetail';
 
 import CommunityPage from '@pages/Community/CommunityPage';
 import NoticeList from '@pages/Community/Notice/List/NoticeList';
@@ -16,7 +16,7 @@ import NewsEventList from '@pages/Community/NewsEvent/List/NewsEventList';
 import BoardDetailPage from '@pages/Community/BoardDetail/BoardDetailPage';
 
 import ContactPage from '@pages/Contact/ContactPage';
-import GraduationExhibitionDetail from '@pages/Exhibition/Graduation/Detail/GraduationExhibitionDetail';
+import GraduationExhibitionDetail from '@pages/Exhibition/Graduation/GraduationExhibitionDetail';
 
 function App() {
   return (

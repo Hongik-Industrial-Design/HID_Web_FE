@@ -14,13 +14,13 @@ import {
 } from '@client-types/exhibition.types';
 import { useSearchStore } from '@stores/useSearchStore';
 
-import * as S from './Exhibition.styled';
+import * as S from './ExhibitionPreview.styled';
 
 type ExhibitionProps = {
   exhibitType: EXHIBIT_TYPE;
 };
 
-const Exhibition = ({ exhibitType }: ExhibitionProps): JSX.Element => {
+const ExhibitionPreview = ({ exhibitType }: ExhibitionProps): JSX.Element => {
   const [selectedExhibition, setSelectedExhibition] =
     useState<ExhibitionBasicInfo>({
       year: ARCHIVE_YEAR_LIST[0],
@@ -96,4 +96,4 @@ const Exhibition = ({ exhibitType }: ExhibitionProps): JSX.Element => {
   );
 };
 
-export default Exhibition;
+export default ExhibitionPreview;

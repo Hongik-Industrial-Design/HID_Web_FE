@@ -4,7 +4,7 @@ import { useParams } from 'react-router';
 import { useGraduationBannerVideoQuery } from '@api/query/graduationExhibitionQuery';
 
 import Loading from '@components/Loading/Loading';
-import Exhibition from '../Common/Exhibition';
+import Exhibition from '../Common/Preview/ExhibitionPreview';
 
 import * as S from './GraduationExhibition.styled';
 

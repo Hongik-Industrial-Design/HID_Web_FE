@@ -2,26 +2,24 @@ import { JSX } from 'react/jsx-runtime';
 
 import { ExhibitionDetail } from '@schemas/exhibition';
 
-import GraduationArtworkImages from './ArtworkImages/GraduationArtworkImages';
+import ArtworkImages from './ArtworkImages/ArtworkImages';
 // import YoutubeEmbed from '@components/YoutubeEmbed/YoutubeEmbed';
 
-import * as S from './GraduationArtworkSection.styled';
+import * as S from './ArtworkSection.styled';
 
 interface ArtworkSectionProps {
   artworkInfos: ExhibitionDetail;
 }
 
-const GraduationArtworkSection = ({
-  artworkInfos,
-}: ArtworkSectionProps): JSX.Element => {
+const ArtworkSection = ({ artworkInfos }: ArtworkSectionProps): JSX.Element => {
   // const youtubeUrl = artworkInfos.videoUrl ?? '';
 
   return (
     <S.ArtworkSectionContainer>
       {/* {youtubeUrl && <YoutubeEmbed youtubeUrl={youtubeUrl} />} */}
-      <GraduationArtworkImages detailImages={artworkInfos.detailImgs} />
+      <ArtworkImages detailImages={artworkInfos.detailImgs} />
     </S.ArtworkSectionContainer>
   );
 };
 
-export default GraduationArtworkSection;
+export default ArtworkSection;

@@ -4,14 +4,14 @@ import { useEffect, useRef, useState } from 'react';
 import playButton from '@assets/svgs/video-player/play_fill-white.svg';
 import fullScreenButton from '@assets/svgs/video-player/full-screen_white.svg';
 
-import * as S from './StudentVideoPlayer.styled';
+import * as S from './VideoPlayer.styled';
 
 interface VideoPlayerProps {
   videoData: { id: number; url: string }[];
   currentPage: number;
 }
 
-const StudentVideoPlayer = ({
+const VideoPlayer = ({
   videoData,
   currentPage,
 }: VideoPlayerProps): JSX.Element => {
@@ -95,4 +95,4 @@ const StudentVideoPlayer = ({
   );
 };
 
-export default StudentVideoPlayer;
+export default VideoPlayer;

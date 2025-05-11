@@ -1,16 +1,24 @@
 import { JSX } from 'react/jsx-runtime';
 import { useParams } from 'react-router';
 
-import { useStudentExhibitionDetailQuery } from '@api/query/studentExhibitionQuery';
+import { useExhibitionDetailQuery } from '@api/query/studentExhibitionQuery';
 
-import StudentHeroSection from './HeroSection/StudentHeroSection';
-import StudentArtworkSection from './ArtworkSection/StudentArtworkSection';
-import StudentTeamMemberSection from './TeamMemberSection/StudentTeamMemberSection';
+import { EXHIBIT_TYPE } from '@client-types/exhibition.types';
+
+import HeroSection from './HeroSection/HeroSection';
+import ArtworkSection from './ArtworkSection/ArtworkSection';
+import TeamMemberSection from './TeamMemberSection/TeamMemberSection';
 import Loading from '@components/Loading/Loading';
 
-import * as S from './StudentExhibitionDetail.styled';
+import * as S from './ExhibitionDetail.styled';
 
-const StudentExhibitionDetail = (): JSX.Element => {
+type ExhibitionDetailProps = {
+  exhibitType: EXHIBIT_TYPE;
+};
+
+const ExhibitionDetail = ({
+  exhibitType,
+}: ExhibitionDetailProps): JSX.Element => {
   // URL 내 params 추출 (API 요청시에 필요)
   const { id, year } = useParams();
   const exhibitId = parseInt(id ? id : '');
@@ -21,7 +29,7 @@ const StudentExhibitionDetail = (): JSX.Element => {
     status,
     data: artworkInfos,
     error,
-  } = useStudentExhibitionDetailQuery(exhibtionYear, exhibitId);
+  } = useExhibitionDetailQuery(exhibitType, exhibtionYear, exhibitId);
 
   return (
     <S.ExhibitionDetailWrapper
@@ -33,13 +41,13 @@ const StudentExhibitionDetail = (): JSX.Element => {
         <span>Error: {error.message}</span>
       ) : (
         <S.ExhibitionDetailContainer>
-          <StudentHeroSection artworkInfos={artworkInfos} />
-          <StudentArtworkSection artworkInfos={artworkInfos} />
-          <StudentTeamMemberSection membersData={artworkInfos.artists} />
+          <HeroSection artworkInfos={artworkInfos} />
+          <ArtworkSection artworkInfos={artworkInfos} />
+          <TeamMemberSection membersData={artworkInfos.artists} />
         </S.ExhibitionDetailContainer>
       )}
     </S.ExhibitionDetailWrapper>
   );
 };
 
-export default StudentExhibitionDetail;
+export default ExhibitionDetail;

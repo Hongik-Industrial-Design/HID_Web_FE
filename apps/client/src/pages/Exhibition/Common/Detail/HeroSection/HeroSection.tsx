@@ -11,7 +11,7 @@ import GoToList from '@components/GoToList/GoToList';
 import YoutubeEmbed from '@components/YoutubeEmbed/YoutubeEmbed';
 import { BehanceLogo, InstagramLogo } from '@icons/SocialIcon';
 
-import * as S from './GraduationHeroSection.styled';
+import * as S from './HeroSection.styled';
 
 interface HeroSectionProps {
   artworkInfos: ExhibitionDetail;
@@ -22,19 +22,12 @@ type SocialIconHovered = {
   Instagram: boolean;
 };
 
-const GraduationHeroSection = ({
-  artworkInfos,
-}: HeroSectionProps): JSX.Element => {
+const HeroSection = ({ artworkInfos }: HeroSectionProps): JSX.Element => {
   // 추후에 서버로부터 받아온 데이터로 변경 필요
   const KEYWORD_LIST = ['Service', 'Product', 'Future'];
 
-  const SOCIAL_LINK = {
-    Behance: 'https://www.behance.net/search/projects/hongik%20university',
-    Instagram: 'https://www.instagram.com/hongik.id.degreeshow/?__pwa=1',
-  };
-
   const { year } = useParams();
-  const exhibitionYear = year ?? '2024';
+  const exhibitionYear = year ?? '2023';
 
   const [goToListHovered, setGoToListHovered] = useState<boolean>(false);
   const [isSocialIconHovered, setIsSocialIconHovered] =
@@ -74,13 +67,10 @@ const GraduationHeroSection = ({
           <Breadscrumb
             paths={[
               {
-                content: 'Graduation Exhibition',
-                path: `/graduation/${exhibitionYear}`,
+                content: 'Student Exhibition',
+                path: `/student/${year}`,
               },
-              {
-                content: exhibitionYear,
-                path: `/graduation/${exhibitionYear}`,
-              },
+              { content: exhibitionYear, path: `/student/${year}` },
             ]}
             currentPage="View Detail"
           />
@@ -124,7 +114,7 @@ const GraduationHeroSection = ({
             <S.SocialIconList>
               <S.SocialIconItem>
                 <S.SocialIconLink
-                  href={SOCIAL_LINK.Behance}
+                  href={artworkInfos.behanceUrl ?? ''}
                   target="_blank"
                   rel="noopener noreferrer"
                   onMouseEnter={handleSocialIconEnter.bind(null, 'Behance')}
@@ -136,7 +126,7 @@ const GraduationHeroSection = ({
 
               <S.SocialIconItem>
                 <S.SocialIconLink
-                  href={SOCIAL_LINK.Instagram}
+                  href={artworkInfos.instagramUrl ?? ''}
                   target="_blank"
                   rel="noopener noreferrer"
                   onMouseEnter={handleSocialIconEnter.bind(null, 'Instagram')}
@@ -150,7 +140,7 @@ const GraduationHeroSection = ({
             {/* Routing Area */}
             <S.RoutingArea>
               <GoToList
-                route={`/graduation/${year}`}
+                route={`/student/${year}`}
                 isHovered={goToListHovered}
                 onMouseEnter={handleGoToListEnter}
                 onMouseLeave={handleGoToListLeave}
@@ -168,4 +158,4 @@ const GraduationHeroSection = ({
   );
 };
 
-export default GraduationHeroSection;
+export default HeroSection;

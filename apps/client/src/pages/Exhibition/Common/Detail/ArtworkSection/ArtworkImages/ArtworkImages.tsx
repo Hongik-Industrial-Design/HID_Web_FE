@@ -1,6 +1,6 @@
 import { JSX } from 'react/jsx-runtime';
 
-import * as S from './StudentArtworkImages.styled';
+import * as S from './ArtworkImages.styled';
 
 interface ArtworkImagesProps {
   detailImages: {
@@ -9,9 +9,7 @@ interface ArtworkImagesProps {
   }[];
 }
 
-const StudentArtworkImages = ({
-  detailImages,
-}: ArtworkImagesProps): JSX.Element => {
+const ArtworkImages = ({ detailImages }: ArtworkImagesProps): JSX.Element => {
   return (
     <S.ArtworkImageContainer>
       {detailImages?.map((image) => (
@@ -25,4 +23,4 @@ const StudentArtworkImages = ({
   );
 };
 
-export default StudentArtworkImages;
+export default ArtworkImages;
