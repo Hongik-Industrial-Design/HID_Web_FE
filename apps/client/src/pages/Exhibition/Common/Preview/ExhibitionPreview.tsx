@@ -7,12 +7,13 @@ import CategoryExhibition from '@components/Category/Exhibition/CategoryExhibtio
 import ExhibitionGallery from '@components/Gallery/ExhibitionGallery';
 import Loading from '@components/Loading/Loading';
 
-import { ARCHIVE_YEAR_LIST } from '@constants/archive';
 import {
   EXHIBIT_TYPE,
-  ExhibitionBasicInfo,
+  EXHIBITION_CATEGORY_TYPE,
 } from '@client-types/exhibition.types';
+
 import { useSearchStore } from '@stores/useSearchStore';
+import { useExhibitionYearStore } from '@stores/useExhibitionYearStore';
 
 import * as S from './ExhibitionPreview.styled';
 
@@ -21,20 +22,15 @@ type ExhibitionProps = {
 };
 
 const ExhibitionPreview = ({ exhibitType }: ExhibitionProps): JSX.Element => {
-  const [selectedExhibition, setSelectedExhibition] =
-    useState<ExhibitionBasicInfo>({
-      year: ARCHIVE_YEAR_LIST[0],
-      clubOrMajor: 'All',
-    });
+  const { selectedYear } = useExhibitionYearStore();
 
-  const handlePreviewFilter = (
-    key: keyof ExhibitionBasicInfo,
-    clubOrMajor: string
-  ) => {
-    setSelectedExhibition((prev) => ({
-      ...prev,
-      [key]: clubOrMajor,
-    }));
+  const [selectedClubOrMajor, setSelectedClubOrMajor] = useState<string>('All');
+
+  const exhibitionYear =
+    exhibitType === 'GRADUATION' ? selectedYear.graduation : selectedYear.club;
+
+  const handlePreviewFilter = (clubOrMajor: EXHIBITION_CATEGORY_TYPE) => {
+    setSelectedClubOrMajor(clubOrMajor);
 
     if (exhibitType === 'CLUB') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -48,8 +44,8 @@ const ExhibitionPreview = ({ exhibitType }: ExhibitionProps): JSX.Element => {
     error,
   } = useExhbitionPreviewQuery(
     exhibitType,
-    selectedExhibition.year,
-    selectedExhibition.clubOrMajor.toUpperCase()
+    exhibitionYear,
+    selectedClubOrMajor.toUpperCase()
   );
 
   const { isQueryEnabled, resetSearch } = useSearchStore();
@@ -73,7 +69,7 @@ const ExhibitionPreview = ({ exhibitType }: ExhibitionProps): JSX.Element => {
             <S.StickyContainer>
               <CategoryExhibition
                 exhibitType={exhibitType}
-                currentCategory={selectedExhibition.clubOrMajor}
+                currentCategory={selectedClubOrMajor}
                 handleFilter={handlePreviewFilter}
               />
             </S.StickyContainer>
@@ -87,7 +83,7 @@ const ExhibitionPreview = ({ exhibitType }: ExhibitionProps): JSX.Element => {
             <ExhibitionGallery
               exhibitType={exhibitType}
               pieces={previews}
-              exhibitionYear={selectedExhibition.year}
+              exhibitionYear={exhibitionYear}
             />
           </S.ExhibitionGalleryContainer>
         </S.ExhibitionContainer>

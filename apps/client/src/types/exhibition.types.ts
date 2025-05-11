@@ -11,11 +11,10 @@ export type STUDENT_CLUB_TYPE =
   | 'All'
   | 'Casttec'
   | 'Contra'
-  | 'DBZC'
+  | 'DBZC (덤벙주초)'
   | 'DESIGN STUDIO i'
   | 'HILLS';
 
-export interface ExhibitionBasicInfo {
-  year: string;
-  clubOrMajor: GRADUATION_CATEGORY_TYPE | STUDENT_CLUB_TYPE;
-}
+export type EXHIBITION_CATEGORY_TYPE =
+  | GRADUATION_CATEGORY_TYPE
+  | STUDENT_CLUB_TYPE;

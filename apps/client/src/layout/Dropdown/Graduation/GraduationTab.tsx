@@ -7,6 +7,7 @@ import { GRADUATION_DROPDOWN_CONTENT } from '@constants/archive';
 import * as S from './GraduationTab.styled';
 import { isTouchDevice } from '@utils/device';
 import { useDropdownStore } from '@stores/useDropdownStore';
+import { useExhibitionYearStore } from '@stores/useExhibitionYearStore';
 
 interface ExhibitionInfos {
   year: number;
@@ -19,6 +20,7 @@ const GraduationTab = ({
   isActive,
 }: GraduationTabProps): JSX.Element => {
   const { setHoveredNavbarOption } = useDropdownStore();
+  const { setSelectedYear } = useExhibitionYearStore();
 
   const [hoveredYear, setHoveredYear] = useState<number | null>(null);
   const [dropdownInfos, setDropdownInfos] = useState<
@@ -50,6 +52,8 @@ const GraduationTab = ({
   };
 
   const handlePosterMobileClick = (year: number) => {
+    setSelectedYear('graduation', year.toString()); // 전시 연도(Global) 상태 업데이트
+
     if (!isTouchDevice) return;
 
     handleHoveredYear(year);

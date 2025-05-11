@@ -4,7 +4,7 @@ import {
 } from '@constants/exhibitionCategory';
 import {
   EXHIBIT_TYPE,
-  ExhibitionBasicInfo,
+  EXHIBITION_CATEGORY_TYPE,
 } from '@client-types/exhibition.types';
 
 import * as S from './CategoryExhibition.styled';
@@ -12,7 +12,7 @@ import * as S from './CategoryExhibition.styled';
 type CategoryProps = {
   exhibitType: EXHIBIT_TYPE;
   currentCategory: string;
-  handleFilter: (key: keyof ExhibitionBasicInfo, club: string) => void;
+  handleFilter: (club: EXHIBITION_CATEGORY_TYPE) => void;
 };
 
 const CategoryExhibition = ({
@@ -20,7 +20,7 @@ const CategoryExhibition = ({
   currentCategory,
   handleFilter,
 }: CategoryProps) => {
-  const CATEGORY_LIST =
+  const CATEGORY_LIST: EXHIBITION_CATEGORY_TYPE[] =
     exhibitType === 'GRADUATION' ? GRADUATION_CATEGORY_LIST : STUDENT_CLUB_LIST;
 
   return (
@@ -29,7 +29,7 @@ const CategoryExhibition = ({
         <S.DetailedMajor
           key={index}
           $isSelected={currentCategory === category}
-          onClick={() => handleFilter('clubOrMajor', category)}
+          onClick={() => handleFilter(category)}
         >
           <S.CategoryButton $isSelected={currentCategory === category}>
             {category}
