@@ -15,6 +15,7 @@
       "@schemas/*": ["src/schemas/*"],
       "@stores/*": ["src/stores/*"],
       "@styles/*": ["src/styles/*"],
+      "@client-types/*": ["src/types/*"],
       "@utils/*": ["src/utils/*"]
     }
   },
