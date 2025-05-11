@@ -19,7 +19,7 @@ const SearchBar = ({ placeholder }: SearchBarProps): JSX.Element => {
 
   const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
-    console.log('SearchBar 입력 값: ', query);
+    // console.log('SearchBar 입력 값: ', query);
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -27,7 +27,6 @@ const SearchBar = ({ placeholder }: SearchBarProps): JSX.Element => {
 
     if (query.trim() === '') {
       if (isQueryEnabled) {
-        console.log('Form Handler 동작');
         setIsQueryEnabled(false);
       }
       return;

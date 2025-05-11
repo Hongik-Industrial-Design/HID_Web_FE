@@ -1,5 +1,3 @@
-import { useLocation } from 'react-router';
-
 import {
   GRADUATION_CATEGORY_LIST,
   STUDENT_CLUB_LIST,
@@ -22,14 +20,11 @@ const CategoryExhibition = ({
   currentCategory,
   handleFilter,
 }: CategoryProps) => {
-  const location = useLocation();
-  const currentPath = location.pathname;
-
   const CATEGORY_LIST =
     exhibitType === 'GRADUATION' ? GRADUATION_CATEGORY_LIST : STUDENT_CLUB_LIST;
 
   return (
-    <S.CategoryContainer $currentPath={currentPath}>
+    <S.CategoryContainer $isGraduation={exhibitType === 'GRADUATION'}>
       {CATEGORY_LIST.map((category, index) => (
         <S.DetailedMajor
           key={index}

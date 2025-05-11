@@ -1,28 +1,21 @@
 import styled, { css } from 'styled-components';
 
-export const CategoryContainer = styled.ul<{ $currentPath: string }>`
+export const CategoryContainer = styled.ul<{ $isGraduation: boolean }>`
   position: sticky;
-  top: ${({ $currentPath }) => $currentPath === '/faculty' && '18%'};
-  top: ${({ $currentPath }) => $currentPath.includes('/graduation') && '15%'};
-  top: ${({ $currentPath }) => $currentPath.includes('/student') && '28%'};
+  top: ${({ $isGraduation }) => ($isGraduation ? '15%' : '28%')};
 
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
 
   @media (max-width: 1200px) {
-    ${({ $currentPath }) =>
-      $currentPath.includes('/student') &&
-      css`
-        width: 100%;
-        padding-bottom: 1.6rem;
-        border-bottom: 1px solid
-          ${({ theme }) => theme.colors.HID_Grayscale[100]};
-        position: static;
-        flex-direction: row;
-        gap: 4rem;
-        flex-wrap: wrap;
-      `}
+    width: 100%;
+    padding-bottom: 1.6rem;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.HID_Grayscale[100]};
+    position: static;
+    flex-direction: row;
+    gap: 4rem;
+    flex-wrap: wrap;
   }
 `;
 
