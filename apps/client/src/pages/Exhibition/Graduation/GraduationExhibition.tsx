@@ -4,7 +4,7 @@ import { useParams } from 'react-router';
 import { useGraduationBannerVideoQuery } from '@api/query/exhibitionQuery';
 
 import Loading from '@components/Loading/Loading';
-import Exhibition from '../Common/Preview/ExhibitionPreview';
+import ExhibitionPreview from '../Common/Preview/ExhibitionPreview';
 
 import { useSearchStore } from '@stores/useSearchStore';
 
@@ -57,7 +57,7 @@ export const GraduationExhibition = (): JSX.Element => {
         </S.BannerFrame>
       )}
 
-      <Exhibition exhibitType="GRADUATION" />
+      <ExhibitionPreview exhibitType="GRADUATION" />
     </S.GraduationExhibitionContainer>
   );
 };

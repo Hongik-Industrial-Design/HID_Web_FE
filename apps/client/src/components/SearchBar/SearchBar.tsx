@@ -1,6 +1,6 @@
 import { JSX } from 'react/jsx-runtime';
-import { useState } from 'react';
-import { useNavigate } from 'react-router';
+import { useEffect, useState } from 'react';
+import { useNavigate, useSearchParams } from 'react-router';
 
 import { EXHIBIT_TYPE } from '@client-types/exhibition.types';
 
@@ -23,41 +23,56 @@ const SearchBar = ({
   const navigate = useNavigate();
 
   const [query, setQuery] = useState<string>('');
-  const { setSearchTerm, isQueryEnabled, setIsQueryEnabled } = useSearchStore();
+  const [isFocused, setIsFocused] = useState<boolean>(false);
 
+  const { setSearchTerm, isQueryEnabled, setIsQueryEnabled } = useSearchStore();
   const { selectedYear } = useExhibitionYearStore();
 
-  const [isFocused, setIsFocused] = useState<boolean>(false);
+  const [params] = useSearchParams();
+  const searchTitle = params.get('q');
+
+  useEffect(() => {
+    if (searchTitle) {
+      setIsQueryEnabled(true);
+      setSearchTerm(searchTitle);
+    } else {
+      setIsQueryEnabled(false);
+    }
+  }, [searchTitle, setSearchTerm, query, setIsQueryEnabled]);
+
+  useEffect(() => {
+    if (!isFocused && query !== searchTitle) {
+      setQuery(searchTitle || '');
+    }
+  }, [isFocused, searchTitle, query, setQuery]);
 
   const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
-    // console.log('SearchBar 입력 값: ', query);
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    // 검색어가 변경되지 않았을 시에는 검색 수행 x (히스토리 관리)
+    if (isQueryEnabled && searchTitle === query) return;
+
     const exhibitionSearchPath =
       exhibitType === 'GRADUATION' ? 'graduation' : 'student';
     const exhibitTypeKey = exhibitType.toLowerCase() as 'graduation' | 'club';
 
+    const exhibitBasePath = `/${exhibitionSearchPath}/${selectedYear[exhibitTypeKey]}`;
+
     if (query.trim() === '') {
       if (isQueryEnabled) {
         setIsQueryEnabled(false);
-        navigate(
-          `/${exhibitType.toLowerCase()}/${selectedYear[exhibitTypeKey]}`
-        );
+        navigate(`${exhibitBasePath}`);
       }
       return;
     }
 
-    setSearchTerm(query);
-    setIsQueryEnabled(true);
-
-    navigate(
-      `/${exhibitionSearchPath}/${selectedYear[exhibitTypeKey]}/search?title=${encodeURIComponent(query)}`
-    );
+    navigate(`${exhibitBasePath}/search?q=${encodeURIComponent(query)}`);
   };
+
   return (
     <S.SearchBarForm onSubmit={handleSubmit}>
       <S.SearchButton type="submit">

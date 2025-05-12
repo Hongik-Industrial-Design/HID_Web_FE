@@ -5,7 +5,6 @@ interface SearchStore {
   setSearchTerm: (query: string) => void;
   isQueryEnabled: boolean;
   setIsQueryEnabled: (isQueryEnabled: boolean) => void;
-  resetSearch: () => void;
 }
 
 export const useSearchStore = create<SearchStore>((set) => ({
@@ -13,9 +12,4 @@ export const useSearchStore = create<SearchStore>((set) => ({
   setSearchTerm: (searchTerm) => set({ searchTerm }),
   isQueryEnabled: false,
   setIsQueryEnabled: (isQueryEnabled) => set({ isQueryEnabled }),
-  resetSearch: () =>
-    set(() => ({
-      searchTerm: '',
-      isQueryEnabled: false,
-    })),
 }));

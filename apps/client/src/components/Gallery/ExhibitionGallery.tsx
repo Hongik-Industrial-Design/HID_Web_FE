@@ -1,6 +1,5 @@
 import { JSX } from 'react/jsx-runtime';
-import { useSearchParams } from 'react-router';
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 
 import { EXHIBIT_TYPE } from '@client-types/exhibition.types';
@@ -48,22 +47,8 @@ const ExhibitionGallery = ({
     year: location.pathname.split('/')[2],
   };
 
-  // (임시) 검색 타입 설정
-
-  const { searchTerm, isQueryEnabled, setIsQueryEnabled } = useSearchStore();
-
-  const searchType = 'TITLE';
-
-  const [params] = useSearchParams();
-  const searchTitle = params.get('title');
-
-  useEffect(() => {
-    if (searchTitle) {
-      setIsQueryEnabled(true);
-    } else {
-      setIsQueryEnabled(false);
-    }
-  }, [searchTitle, setIsQueryEnabled]);
+  const { searchTerm, isQueryEnabled } = useSearchStore();
+  const searchType = 'TITLE'; // (임시) 검색 타입 설정
 
   const {
     status: searchStatus,
