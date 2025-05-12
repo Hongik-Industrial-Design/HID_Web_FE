@@ -23,13 +23,7 @@ const SearchBar = ({
   const navigate = useNavigate();
 
   const searchInputRef = useRef<HTMLInputElement>(null);
-  const location = useLocation();
-
-  useEffect(() => {
-    if (searchInputRef.current) {
-      searchInputRef.current.blur();
-    }
-  }, [location]);
+  const pathname = useLocation();
 
   const [query, setQuery] = useState<string>('');
   const [isFocused, setIsFocused] = useState<boolean>(false);
@@ -41,13 +35,15 @@ const SearchBar = ({
   const searchTitle = params.get('q');
 
   useEffect(() => {
+    searchInputRef.current?.blur();
+  }, [pathname, searchTitle]);
+
+  useEffect(() => {
+    setIsQueryEnabled(!!searchTitle);
     if (searchTitle) {
-      setIsQueryEnabled(true);
       setSearchTerm(searchTitle);
-    } else {
-      setIsQueryEnabled(false);
     }
-  }, [searchTitle, setSearchTerm, query, setIsQueryEnabled]);
+  }, [searchTitle]);
 
   useEffect(() => {
     if (!isFocused && query !== searchTitle) {
@@ -70,16 +66,15 @@ const SearchBar = ({
     const exhibitTypeKey = exhibitType.toLowerCase() as 'graduation' | 'club';
 
     const exhibitBasePath = `/${exhibitionSearchPath}/${selectedYear[exhibitTypeKey]}`;
+    const targetPath = query.trim()
+      ? `${exhibitBasePath}/search?q=${encodeURIComponent(query)}`
+      : exhibitBasePath;
 
-    if (query.trim() === '') {
-      if (isQueryEnabled) {
-        setIsQueryEnabled(false);
-        navigate(`${exhibitBasePath}`);
-      }
-      return;
+    if (!query.trim() && isQueryEnabled) {
+      setIsQueryEnabled(false);
     }
 
-    navigate(`${exhibitBasePath}/search?q=${encodeURIComponent(query)}`);
+    navigate(targetPath);
   };
 
   return (
