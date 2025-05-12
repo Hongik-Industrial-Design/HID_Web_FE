@@ -78,7 +78,17 @@ const ExhibitionGallery = ({
     <S.GalleryWrapper>
       {/* Header */}
       <S.GalleryHeader>
-        <S.ExhbitionYear>{exhibitionYear}</S.ExhbitionYear>
+        {!isQueryEnabled || totalArtworkCount === 0 ? (
+          <S.ExhbitionYear>{exhibitionYear}</S.ExhbitionYear>
+        ) : (
+          <S.YearResultCount>
+            <S.ExhbitionYear>{exhibitionYear}</S.ExhbitionYear>
+            <S.SearchResultCount>
+              <span>{totalArtworkCount}</span>{' '}
+              {totalArtworkCount > 1 ? 'Artworks' : 'Artwork'}
+            </S.SearchResultCount>
+          </S.YearResultCount>
+        )}
         <SearchBar
           exhibitType={exhibitType}
           placeholder="Search by artwork title"
