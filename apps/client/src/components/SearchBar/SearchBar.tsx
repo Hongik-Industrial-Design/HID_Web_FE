@@ -1,6 +1,6 @@
 import { JSX } from 'react/jsx-runtime';
-import { useEffect, useState } from 'react';
-import { useNavigate, useSearchParams } from 'react-router';
+import { useEffect, useRef, useState } from 'react';
+import { useLocation, useNavigate, useSearchParams } from 'react-router';
 
 import { EXHIBIT_TYPE } from '@client-types/exhibition.types';
 
@@ -21,6 +21,15 @@ const SearchBar = ({
   placeholder,
 }: SearchBarProps): JSX.Element => {
   const navigate = useNavigate();
+
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (searchInputRef.current) {
+      searchInputRef.current.blur();
+    }
+  }, [location]);
 
   const [query, setQuery] = useState<string>('');
   const [isFocused, setIsFocused] = useState<boolean>(false);
@@ -86,6 +95,7 @@ const SearchBar = ({
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         spellCheck={false}
+        ref={searchInputRef}
       />
     </S.SearchBarForm>
   );
