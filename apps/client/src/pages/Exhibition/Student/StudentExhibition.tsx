@@ -1,9 +1,9 @@
 import { JSX } from 'react/jsx-runtime';
 
-import Exhibition from '../Common/Preview/ExhibitionPreview';
+import ExhibitionPreview from '../Common/Preview/ExhibitionPreview';
 
 const StudentExhibition = (): JSX.Element => {
-  return <Exhibition exhibitType="CLUB" />;
+  return <ExhibitionPreview exhibitType="CLUB" />;
 };
 
 export default StudentExhibition;

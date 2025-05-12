@@ -1,5 +1,5 @@
 import { JSX } from 'react/jsx-runtime';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { useExhbitionPreviewQuery } from '@api/query/exhibitionQuery';
 
@@ -23,6 +23,7 @@ type ExhibitionProps = {
 
 const ExhibitionPreview = ({ exhibitType }: ExhibitionProps): JSX.Element => {
   const { selectedYear } = useExhibitionYearStore();
+  const { isQueryEnabled } = useSearchStore();
 
   const [selectedClubOrMajor, setSelectedClubOrMajor] = useState<string>('All');
 
@@ -47,13 +48,6 @@ const ExhibitionPreview = ({ exhibitType }: ExhibitionProps): JSX.Element => {
     exhibitionYear,
     selectedClubOrMajor.toUpperCase()
   );
-
-  const { isQueryEnabled, resetSearch } = useSearchStore();
-
-  // 검색 기능 초기화
-  useEffect(() => {
-    resetSearch();
-  }, [resetSearch]);
 
   return (
     <S.ExhibitionPageWrapper
