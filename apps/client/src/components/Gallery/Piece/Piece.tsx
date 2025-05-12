@@ -7,6 +7,7 @@ import CardOverlayBackground from '@components/CardOverlay/Background/CardOverla
 import CardOverlayText from '@components/CardOverlay/Text/CardOverlayText';
 
 import * as S from './Piece.styled';
+import { useLocation } from 'react-router';
 
 const Piece = ({
   exhibitId,
@@ -18,6 +19,13 @@ const Piece = ({
 
   const handleMouseEnter = () => setIsPieceHovered(true);
   const handleMouseLeave = () => setIsPieceHovered(false);
+
+  const location = useLocation();
+  const isSearchPage = location.pathname.includes('search');
+
+  const artworkPath = isSearchPage
+    ? `${location.pathname.replace('/search', '')}/${exhibitId}`
+    : `${exhibitId}`;
 
   return (
     <S.PieceContainer
@@ -31,7 +39,7 @@ const Piece = ({
       }}
     >
       <S.PieceLink
-        to={`${exhibitId}`}
+        to={artworkPath}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
@@ -40,10 +48,10 @@ const Piece = ({
           isThumbnailHovered={isPieceHovered}
         >
           <>
-            <S.PieceImage src={imageURL} alt={title ? title : ''} />
+            <S.PieceImage src={imageURL} alt={title ?? ''} />
             <CardOverlayText
-              title={title}
-              subTitle={subTitle}
+              title={title ?? ''}
+              subTitle={subTitle ?? ''}
               isPieceHovered={isPieceHovered}
             />
           </>
