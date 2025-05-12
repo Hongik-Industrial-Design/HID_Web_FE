@@ -12,6 +12,7 @@ import { isTouchDevice } from '@utils/device';
 import { useDropdownStore } from '@stores/useDropdownStore';
 
 import * as S from './Navbar.styled';
+import { useExhibitionYearStore } from '@stores/useExhibitionYearStore';
 
 const Navbar = ({
   handleSearchTab,
@@ -25,9 +26,13 @@ const Navbar = ({
   const { isSearchTabOpened, hoveredNavbarOption, setHoveredNavbarOption } =
     useDropdownStore();
 
+  const { setSelectedYear } = useExhibitionYearStore();
+
   const [touchedOnce, setTouchedOnce] = useState<boolean>(false);
 
   const handleGraduationClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    setSelectedYear('graduation', ARCHIVE_YEAR_LIST[0]);
+
     if (!isTouchDevice) return;
 
     e.preventDefault();
