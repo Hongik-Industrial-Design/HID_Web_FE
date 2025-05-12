@@ -49,6 +49,27 @@ export const LoadingWrapper = styled.div`
   align-items: center;
 `;
 
+export const NotFoundWrapper = styled.div`
+  flex-grow: 1;
+
+  width: 100%;
+  height: 50vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+
+  ${({ theme }) => theme.fontStyles.Title1};
+  color: ${({ theme }) => theme.colors.HID_Grayscale[500]};
+
+  span {
+    ${({ theme }) => theme.fontStyles.Title4};
+    color: ${({ theme }) => theme.colors.HID_Grayscale[400]};
+  }
+`;
+
 export const GallerySection = styled.section`
   width: 100%;
   height: fit-content;

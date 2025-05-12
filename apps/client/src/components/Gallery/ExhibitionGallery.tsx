@@ -102,6 +102,11 @@ const ExhibitionGallery = ({
         </S.LoadingWrapper>
       ) : searchStatus === 'error' ? (
         <span>Error: {error.message}</span>
+      ) : totalArtworkCount === 0 ? (
+        <S.NotFoundWrapper>
+          No Artwork found
+          <span>Can't find artwork title called "{searchTerm}"</span>
+        </S.NotFoundWrapper>
       ) : (
         <>
           <S.GallerySection>
