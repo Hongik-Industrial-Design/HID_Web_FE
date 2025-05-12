@@ -1,5 +1,6 @@
 import { JSX } from 'react/jsx-runtime';
 import { useState } from 'react';
+import { useLocation } from 'react-router';
 
 import { PieceProps } from '@components/Gallery/Exhibition.types';
 
@@ -7,7 +8,6 @@ import CardOverlayBackground from '@components/CardOverlay/Background/CardOverla
 import CardOverlayText from '@components/CardOverlay/Text/CardOverlayText';
 
 import * as S from './Piece.styled';
-import { useLocation } from 'react-router';
 
 const Piece = ({
   exhibitId,
