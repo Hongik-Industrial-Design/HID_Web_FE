@@ -15,9 +15,27 @@ export const GalleryHeader = styled.section`
   align-items: center;
 `;
 
+export const YearResultCount = styled.div`
+  width: fit-content;
+  height: fit-content;
+
+  display: flex;
+  align-items: center;
+  gap: 2.8rem;
+`;
+
 export const ExhbitionYear = styled.h2`
   ${({ theme }) => theme.fontStyles.Header2};
   color: ${({ theme }) => theme.colors.HID_Grayscale[800]};
+`;
+
+export const SearchResultCount = styled.span`
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  ${({ theme }) => theme.fontStyles.Title5};
+  color: ${({ theme }) => theme.colors.HID_Grayscale[400]};
 `;
 
 export const LoadingWrapper = styled.div`
@@ -29,6 +47,27 @@ export const LoadingWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const NotFoundWrapper = styled.div`
+  flex-grow: 1;
+
+  width: 100%;
+  height: 50vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+
+  ${({ theme }) => theme.fontStyles.Title1};
+  color: ${({ theme }) => theme.colors.HID_Grayscale[500]};
+
+  span {
+    ${({ theme }) => theme.fontStyles.Title4};
+    color: ${({ theme }) => theme.colors.HID_Grayscale[400]};
+  }
 `;
 
 export const GallerySection = styled.section`

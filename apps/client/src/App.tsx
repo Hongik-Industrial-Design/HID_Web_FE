@@ -30,13 +30,19 @@ function App() {
         </Route>
 
         <Route path="graduation">
-          <Route path=":year" element={<GraduationExhibition />} />
-          <Route path=":year/:id" element={<GraduationExhibitionDetail />} />
+          <Route path=":year">
+            <Route index element={<GraduationExhibition />} />
+            <Route path="search" element={<GraduationExhibition />} />
+            <Route path=":id" element={<GraduationExhibitionDetail />} />
+          </Route>
         </Route>
 
         <Route path="student">
-          <Route path=":year" element={<StudentExhibition />} />
-          <Route path=":year/:id" element={<StudentExhibitionDetail />} />
+          <Route path=":year">
+            <Route index element={<StudentExhibition />} />
+            <Route path="search" element={<StudentExhibition />} />
+            <Route path=":id" element={<StudentExhibitionDetail />} />
+          </Route>
         </Route>
 
         <Route path="community">

@@ -47,10 +47,8 @@ const ExhibitionGallery = ({
     year: location.pathname.split('/')[2],
   };
 
-  // (임시) 검색 타입 설정
-  const searchType = 'TITLE';
-
   const { searchTerm, isQueryEnabled } = useSearchStore();
+  const searchType = 'TITLE'; // (임시) 검색 타입 설정
 
   const {
     status: searchStatus,
@@ -80,8 +78,21 @@ const ExhibitionGallery = ({
     <S.GalleryWrapper>
       {/* Header */}
       <S.GalleryHeader>
-        <S.ExhbitionYear>{exhibitionYear}</S.ExhbitionYear>
-        <SearchBar placeholder="Search by artwork title" />
+        {!isQueryEnabled || totalArtworkCount === 0 ? (
+          <S.ExhbitionYear>{exhibitionYear}</S.ExhbitionYear>
+        ) : (
+          <S.YearResultCount>
+            <S.ExhbitionYear>{exhibitionYear}</S.ExhbitionYear>
+            <S.SearchResultCount>
+              <span>{totalArtworkCount}</span>{' '}
+              {totalArtworkCount > 1 ? 'Artworks' : 'Artwork'}
+            </S.SearchResultCount>
+          </S.YearResultCount>
+        )}
+        <SearchBar
+          exhibitType={exhibitType}
+          placeholder="Search by artwork title"
+        />
       </S.GalleryHeader>
 
       {/* Gallery */}
@@ -91,6 +102,11 @@ const ExhibitionGallery = ({
         </S.LoadingWrapper>
       ) : searchStatus === 'error' ? (
         <span>Error: {error.message}</span>
+      ) : totalArtworkCount === 0 ? (
+        <S.NotFoundWrapper>
+          No Artwork found
+          <span>Can't find artwork title called "{searchTerm}"</span>
+        </S.NotFoundWrapper>
       ) : (
         <>
           <S.GallerySection>
