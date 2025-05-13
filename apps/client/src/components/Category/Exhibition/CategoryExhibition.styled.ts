@@ -15,7 +15,7 @@ export const CategoryContainer = styled.ul<{ $isGraduation: boolean }>`
     position: static;
     flex-direction: row;
     column-gap: 4rem;
-    row-gap: 2.4rem;
+    row-gap: 2.8rem;
     flex-wrap: wrap;
   }
 `;
