@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const YoutubeEmbedWrapper = styled.div`
+export const YoutubeEmbedWrapper = styled.div<{ $isVideoUrlExist: boolean }>`
   width: 100%;
   height: fit-content;
   padding: 22.5rem 15.8rem 13.4rem;
@@ -22,7 +22,10 @@ export const YoutubeEmbedWrapper = styled.div`
 
   @media (max-width: 768px) {
     padding: 0;
-    padding-bottom: clamp(0.4rem, 1.2vw, 2.4rem);
+    padding-bottom: ${({ $isVideoUrlExist }) =>
+      $isVideoUrlExist
+        ? 'clamp(0.4rem, 1.2vw, 2.4rem)'
+        : 'clamp(3.6rem, 4vw, 6.4rem)'};
   }
 `;
 

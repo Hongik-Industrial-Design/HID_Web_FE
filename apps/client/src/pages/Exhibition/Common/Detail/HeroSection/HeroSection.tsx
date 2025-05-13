@@ -50,7 +50,7 @@ const HeroSection = ({ artworkInfos }: HeroSectionProps): JSX.Element => {
   const youtubeUrl = artworkInfos.videoUrl ?? '';
 
   return (
-    <S.YoutubeEmbedWrapper>
+    <S.YoutubeEmbedWrapper $isVideoUrlExist={!!youtubeUrl}>
       <S.HeroSectionContainer>
         {/* Thumbnail */}
         <S.ThumbnailContainer>
