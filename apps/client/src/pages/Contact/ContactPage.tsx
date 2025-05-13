@@ -20,8 +20,8 @@ const ContactPage = (): JSX.Element => {
         const response = await axios.get('/data/contact.json');
         const fetchedData = response.data;
 
-        console.log(fetchedData);
-        console.log(fetchedData.officeInfo);
+        // console.log(fetchedData);
+        // console.log(fetchedData.officeInfo);
 
         setContactData(fetchedData);
       } catch (error) {

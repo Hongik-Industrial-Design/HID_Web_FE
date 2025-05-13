@@ -25,7 +25,7 @@ const AdminLogin = (): JSX.Element => {
   const handleLogin = async (data: AdminLoginFormData): Promise<void> => {
     const loginResponseBody = await adminLogin(data.id, data.password);
 
-    console.log('Access Token: ', loginResponseBody?.token);
+    // console.log('Access Token: ', loginResponseBody?.token);
 
     if (loginResponseBody?.token) {
       localStorage.setItem('accessToken', loginResponseBody.token);

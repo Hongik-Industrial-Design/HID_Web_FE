@@ -49,14 +49,14 @@ const ProfessorProfile = (): JSX.Element => {
       try {
         const response = await axios.get('/data/professor.json');
         const fetchedProfessorInfos = response.data;
-        console.log(fetchedProfessorInfos);
+        // console.log(fetchedProfessorInfos);
 
         // URL id와 일치하는 professor를 찾아서 저장
         const selectedProfessor = fetchedProfessorInfos.find(
           (professor: ProfessorInfos) => professor.id === parseInt(safeID)
         );
 
-        console.log(selectedProfessor);
+        // console.log(selectedProfessor);
 
         // 찾은 professor 정보를 상태에 저장
         setProfessorInfo(selectedProfessor);

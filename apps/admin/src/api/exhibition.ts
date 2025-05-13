@@ -14,7 +14,7 @@ export const registerExhibition = async (exhibitionFormData: FormData) => {
     );
 
     if (response.status === 200) {
-      console.log('전시 작품 등록 API 요청 성공: ', response.data);
+      // console.log('전시 작품 등록 API 요청 성공: ', response.data);
       return response.data;
     }
   } catch (error) {

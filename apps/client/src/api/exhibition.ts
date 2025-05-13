@@ -38,7 +38,7 @@ export const fetchGraduationBannerVideo = async (year: number) => {
 export const fetchExhibitionDetail = async (exhibitId: number) => {
   const response = await HWISO_API.get(`/exhibits/${exhibitId}`);
 
-  console.log('전시 상세 데이터: ', response.data);
+  // console.log('전시 상세 데이터: ', response.data);
 
   return validateResponse(Schemas.ExhibitionDetailSchema, response.data);
 };
@@ -59,7 +59,7 @@ export const searchArtwork = async (
   const response = await HWISO_API.get('/exhibits/search', {
     params,
   });
-  console.log('검색 결과: ', response.data);
+  // console.log('검색 결과: ', response.data);
 
   return validateResponse(Schemas.ExhibitionPreviewSchema, response.data);
 };

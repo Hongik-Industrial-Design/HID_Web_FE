@@ -12,7 +12,7 @@ export const adminLogin = async (username: string, password: string) => {
       password,
     });
 
-    console.log('Login Response: ', response);
+    // console.log('Login Response: ', response);
 
     if (response.status === 200) {
       return response.data;

@@ -29,10 +29,10 @@ const Attachment = ({
     if (index) {
       // 서버에 저장된 첨부 파일의 URL과 파일명
       const fileURL = attachment[index].url;
-      console.log(fileURL);
+      // console.log(fileURL);
 
       const fileName = attachment[index].name;
-      console.log(fileName);
+      // console.log(fileName);
 
       // FE Test를 위한 Blob 객체 사용 구현
       const blob = new Blob([fileURL], { type: 'application/pdf' }); // Blob 객체 생성

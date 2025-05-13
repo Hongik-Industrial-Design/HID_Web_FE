@@ -17,7 +17,7 @@ const CommunityPage = (): JSX.Element => {
     error,
   } = useCommunityQuery();
 
-  console.log('커뮤니티 페이지 Data: ', communityData);
+  // console.log('커뮤니티 페이지 Data: ', communityData);
 
   const noticeBoardData = communityData.notices as NoticePreview[];
 
