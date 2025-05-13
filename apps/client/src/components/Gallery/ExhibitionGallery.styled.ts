@@ -53,7 +53,7 @@ export const NotFoundWrapper = styled.div`
   flex-grow: 1;
 
   width: 100%;
-  height: 50vh;
+  height: 40vh;
 
   display: flex;
   flex-direction: column;
@@ -61,12 +61,16 @@ export const NotFoundWrapper = styled.div`
   align-items: center;
   gap: 1.2rem;
 
-  ${({ theme }) => theme.fontStyles.Title1};
-  color: ${({ theme }) => theme.colors.HID_Grayscale[500]};
+  ${({ theme }) => theme.fontStyles.Title3};
+  color: ${({ theme }) => theme.colors.HID_Grayscale[400]};
 
-  span {
+  .query-caption {
     ${({ theme }) => theme.fontStyles.Title4};
-    color: ${({ theme }) => theme.colors.HID_Grayscale[400]};
+    color: ${({ theme }) => theme.colors.HID_Grayscale[300]};
+  }
+
+  @media (max-width: 768px) {
+    height: 50vh;
   }
 `;
 

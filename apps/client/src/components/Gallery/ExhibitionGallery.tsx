@@ -104,8 +104,12 @@ const ExhibitionGallery = ({
         <span>Error: {error.message}</span>
       ) : totalArtworkCount === 0 ? (
         <S.NotFoundWrapper>
-          No Artwork found
-          <span>Can't find artwork title called "{searchTerm}"</span>
+          <span>No Artworks found</span>
+          {isQueryEnabled && !!searchTerm && (
+            <span className="query-caption">
+              Can't find artwork title called "{searchTerm}"
+            </span>
+          )}
         </S.NotFoundWrapper>
       ) : (
         <>
