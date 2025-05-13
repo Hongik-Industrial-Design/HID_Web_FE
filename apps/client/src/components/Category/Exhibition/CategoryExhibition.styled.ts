@@ -14,7 +14,8 @@ export const CategoryContainer = styled.ul<{ $isGraduation: boolean }>`
     border-bottom: 1px solid ${({ theme }) => theme.colors.HID_Grayscale[100]};
     position: static;
     flex-direction: row;
-    gap: 4rem;
+    column-gap: 4rem;
+    row-gap: 2.4rem;
     flex-wrap: wrap;
   }
 `;

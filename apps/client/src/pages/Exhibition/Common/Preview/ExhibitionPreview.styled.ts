@@ -23,7 +23,7 @@ export const ExhibitionPageWrapper = styled.div<{
   }
 
   @media (max-width: 768px) {
-    padding: 6.8rem 3.2rem;
+    padding: 4rem 3.2rem;
   }
 `;
 
