@@ -1,10 +1,8 @@
+import { useDropdownStore } from '@stores/useDropdownStore';
+
 import * as S from './MobileDropdown.styled';
 
-const MobileDropdown = ({
-  setIsHamburgerClicked,
-}: {
-  setIsHamburgerClicked: (isHamburgerClicked: boolean) => void;
-}) => {
+const MobileDropdown = () => {
   const GNB_OPTIONS = [
     {
       label: 'Graduation Exhibition',
@@ -23,6 +21,8 @@ const MobileDropdown = ({
       link: '/contact',
     },
   ];
+
+  const { setIsHamburgerClicked } = useDropdownStore();
 
   return (
     <S.MobileDropdownContainer>

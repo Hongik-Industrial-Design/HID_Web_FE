@@ -52,7 +52,7 @@ export const HomeLogo = styled(Link)`
 
 export const HamburgerButton = styled.label`
   width: fit-content;
-  height: 100%;
+  height: fit-content;
 
   display: flex;
   flex-direction: column;

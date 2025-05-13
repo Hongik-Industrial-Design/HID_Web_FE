@@ -1,5 +1,5 @@
-import { Link } from 'react-router';
 import styled from 'styled-components';
+import { Link } from 'react-router';
 
 export const MobileDropdownContainer = styled.ul`
   width: 100%;

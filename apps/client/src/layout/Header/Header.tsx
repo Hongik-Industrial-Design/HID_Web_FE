@@ -51,6 +51,8 @@ const Header = (): JSX.Element => {
     setHoveredNavbarOption,
     isSearchTabOpened,
     setSearchTabOpened,
+    isHamburgerClicked,
+    setIsHamburgerClicked,
   } = useDropdownStore();
 
   // GNB 내 SearchTab 전역 상태 관리 (Zustand)
@@ -62,8 +64,6 @@ const Header = (): JSX.Element => {
 
     setSearchTabOpened(!isSearchTabOpened); // Mobile & Desktop both
   };
-
-  const [isHamburgerClicked, setIsHamburgerClicked] = useState<boolean>(false);
 
   // HomePage의 배너 이미지 이후부터 dynamic styling 가능하게끔 scrollPosition 계산
   const [scrollPosition, setScrollPosition] = useState<number>(0);
@@ -107,7 +107,10 @@ const Header = (): JSX.Element => {
         <S.HamburgerButton
           onClick={() => setIsHamburgerClicked(!isHamburgerClicked)}
         >
-          <HamburgerIcon $isHomePage={isHomePage} />
+          <HamburgerIcon
+            $isActive={isHamburgerClicked}
+            $isHomePage={isHomePage}
+          />
         </S.HamburgerButton>
 
         <S.HomeLogo to="/" onClick={handleGNBClick}>
@@ -128,10 +131,7 @@ const Header = (): JSX.Element => {
           handleGNBClick={handleGNBClick}
         />
       </S.HeaderContainer>
-      <Dropdown
-        isHamburgerClicked={isHamburgerClicked}
-        setIsHamburgerClicked={setIsHamburgerClicked}
-      />
+      <Dropdown />
     </>
   );
 };

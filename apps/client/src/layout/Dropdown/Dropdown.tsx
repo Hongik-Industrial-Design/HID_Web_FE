@@ -1,7 +1,5 @@
 import { JSX } from 'react/jsx-runtime';
 
-import { DropdownProps } from './Dropdown.types';
-
 import GraduationTab from './Graduation/GraduationTab';
 import SearchTab from './Search/SearchTab';
 import MobileDropdown from './Mobile/MobileDropdown';
@@ -12,15 +10,13 @@ import { isTouchDevice } from '@utils/device';
 
 import * as S from './Dropdown.styled';
 
-const Dropdown = ({
-  isHamburgerClicked,
-  setIsHamburgerClicked,
-}: DropdownProps): JSX.Element => {
+const Dropdown = (): JSX.Element => {
   const {
     hoveredNavbarOption,
     setHoveredNavbarOption,
     isSearchTabOpened,
     setSearchTabOpened,
+    isHamburgerClicked,
   } = useDropdownStore();
 
   const handleBackgroundClick = () => {
@@ -59,9 +55,7 @@ const Dropdown = ({
             
           />
         )} */}
-        {isHamburgerClicked && (
-          <MobileDropdown setIsHamburgerClicked={setIsHamburgerClicked} />
-        )}
+        {isHamburgerClicked && <MobileDropdown />}
       </S.DropdownContainer>
 
       {hoveredNavbarOption === '' &&
