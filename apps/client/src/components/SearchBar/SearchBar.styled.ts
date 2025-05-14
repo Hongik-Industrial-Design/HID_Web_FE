@@ -66,9 +66,12 @@ export const SearchInput = styled.input`
 
   @media (max-width: 768px) {
     width: 20rem;
-    padding-top: 0.8rem;
-    padding-bottom: 0.8rem;
-    font-size: 1.6rem;
+
+    &:focus {
+      padding-top: 0.8rem;
+      padding-bottom: 0.8rem;
+      font-size: 1.6rem;
+    }
 
     &::placeholder {
       font-size: clamp(1.2rem, 0.8vw, 1.6rem);
