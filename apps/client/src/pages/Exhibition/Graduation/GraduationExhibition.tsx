@@ -8,6 +8,7 @@ import ExhibitionPreview from '../Common/Preview/ExhibitionPreview';
 
 import { useSearchStore } from '@stores/useSearchStore';
 
+import { LoadingWrapper } from '@components/Gallery/ExhibitionGallery.styled';
 import * as S from './GraduationExhibition.styled';
 
 export const GraduationExhibition = (): JSX.Element => {
@@ -41,7 +42,9 @@ export const GraduationExhibition = (): JSX.Element => {
           }}
         >
           {status === 'pending' ? (
-            <Loading />
+            <LoadingWrapper>
+              <Loading />
+            </LoadingWrapper>
           ) : status === 'error' ? (
             <span>Error: {error.message}</span>
           ) : (

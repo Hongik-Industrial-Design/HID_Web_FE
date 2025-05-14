@@ -3,7 +3,15 @@ import { combine } from 'zustand/middleware';
 
 import { ARCHIVE_YEAR_LIST } from '@constants/archive';
 
-export const useExhibitionYearStore = create(
+export type ExhibitionYearState = {
+  selectedYear: {
+    graduation: string;
+    club: string;
+  };
+  setSelectedYear: (type: 'graduation' | 'club', year: string) => void;
+};
+
+export const useExhibitionYearStore = create<ExhibitionYearState>(
   combine(
     {
       selectedYear: {

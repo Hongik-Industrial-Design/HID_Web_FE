@@ -1,5 +1,5 @@
 import { JSX } from 'react/jsx-runtime';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 
 import { EXHIBIT_TYPE } from '@client-types/exhibition.types';
@@ -12,6 +12,8 @@ import SearchBar from '@components/SearchBar/SearchBar';
 import Piece from './Piece/Piece';
 import Pagination from '@components/Pagination/Pagination';
 import Loading from '@components/Loading/Loading';
+
+import { useResponsiveItemCount } from '@hooks/useResponsiveItemCount';
 
 import * as S from './ExhibitionGallery.styled';
 
@@ -27,6 +29,7 @@ const ExhibitionGallery = ({
   exhibitionYear,
 }: StudentExhibitionGalleryProps): JSX.Element => {
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const itemsPerPage = useResponsiveItemCount(); // 반응형 고려 페이지네이션
 
   const handleCurrentPage = (page: number) => {
     setCurrentPage(page);
@@ -38,9 +41,9 @@ const ExhibitionGallery = ({
 
   // 페이지네이션 작품 리스트 계산 Logic
   const paginatedPieces = useMemo(() => {
-    const startIndex = (currentPage - 1) * 9;
-    return pieces?.slice(startIndex, currentPage * 9);
-  }, [currentPage, pieces]);
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    return pieces?.slice(startIndex, currentPage * itemsPerPage);
+  }, [currentPage, pieces, itemsPerPage]);
 
   const exhibitionMetadata = {
     exhibitType,
@@ -72,7 +75,20 @@ const ExhibitionGallery = ({
       ? searchedArtwork?.length
       : pieces?.length;
 
-  const totalPages = Math.ceil(totalArtworkCount / 9);
+  const [totalPages, setTotalPages] = useState<number>(() =>
+    Math.ceil(totalArtworkCount / itemsPerPage)
+  );
+
+  useEffect(() => {
+    const totalPages = Math.ceil(totalArtworkCount / itemsPerPage);
+    setTotalPages(totalPages);
+  }, [totalArtworkCount, itemsPerPage]);
+
+  useEffect(() => {
+    if (currentPage > totalPages) {
+      setCurrentPage(totalPages);
+    }
+  }, [totalPages, currentPage]);
 
   return (
     <S.GalleryWrapper>
