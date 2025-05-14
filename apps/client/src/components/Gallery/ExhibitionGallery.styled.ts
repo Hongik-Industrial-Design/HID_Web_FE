@@ -1,18 +1,23 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const GalleryWrapper = styled.div`
   width: 100%;
   height: fit-content;
 `;
 
-export const GalleryHeader = styled.section`
+export const GalleryHeader = styled.section<{ $isQueryEnabled: boolean }>`
   width: 100%;
   height: fit-content;
-  margin-bottom: 3.2rem;
+  margin-bottom: clamp(2.4rem, 4.8vw, 3.6rem);
 
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 480px) {
+    margin-bottom: ${({ $isQueryEnabled }) =>
+      $isQueryEnabled ? '1.2rem' : '3.2rem'};
+  }
 `;
 
 export const YearResultCount = styled.div`
@@ -21,7 +26,7 @@ export const YearResultCount = styled.div`
 
   display: flex;
   align-items: center;
-  gap: 2.8rem;
+  gap: clamp(1.8rem, 2vw, 2.4rem);
 `;
 
 export const ExhbitionYear = styled.h2`
@@ -29,13 +34,30 @@ export const ExhbitionYear = styled.h2`
   color: ${({ theme }) => theme.colors.HID_Grayscale[800]};
 `;
 
-export const SearchResultCount = styled.span`
+const SearchResultCountStyle = css`
   display: flex;
   align-items: center;
   gap: 0.4rem;
 
   ${({ theme }) => theme.fontStyles.Title5};
   color: ${({ theme }) => theme.colors.HID_Grayscale[400]};
+`;
+
+export const SearchResultCount = styled.span`
+  ${SearchResultCountStyle}
+
+  @media (max-width: 480px) {
+    display: none;
+  }
+`;
+
+export const MobileSearchResultCount = styled.span`
+  ${SearchResultCountStyle}
+  margin-bottom: 2rem;
+
+  @media (min-width: 480px) {
+    display: none;
+  }
 `;
 
 export const LoadingWrapper = styled.div`

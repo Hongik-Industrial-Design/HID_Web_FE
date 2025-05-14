@@ -38,6 +38,10 @@ export const ExhibitionContainer = styled.div`
     flex-direction: column;
     gap: 4.8rem;
   }
+
+  @media (max-width: 768px) {
+    gap: clamp(2.4rem, 10vw, 3.2rem);
+  }
 `;
 
 export const StickyContainer = styled.div`

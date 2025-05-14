@@ -77,7 +77,7 @@ const ExhibitionGallery = ({
   return (
     <S.GalleryWrapper>
       {/* Header */}
-      <S.GalleryHeader>
+      <S.GalleryHeader $isQueryEnabled={isQueryEnabled}>
         {!isQueryEnabled || totalArtworkCount === 0 ? (
           <S.ExhbitionYear>{exhibitionYear}</S.ExhbitionYear>
         ) : (
@@ -94,6 +94,14 @@ const ExhibitionGallery = ({
           placeholder="Search by artwork title"
         />
       </S.GalleryHeader>
+
+      {/* 모바일 뷰에서의 Search Count */}
+      {isQueryEnabled && totalArtworkCount !== 0 && (
+        <S.MobileSearchResultCount>
+          <span>{totalArtworkCount}</span>{' '}
+          {totalArtworkCount > 1 ? 'Artworks' : 'Artwork'}
+        </S.MobileSearchResultCount>
+      )}
 
       {/* Gallery */}
       {isQueryEnabled && searchStatus === 'pending' ? (
